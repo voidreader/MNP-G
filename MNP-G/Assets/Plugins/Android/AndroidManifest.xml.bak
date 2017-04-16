@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.unity3d.player" android:installLocation="preferExternal" android:theme="@android:style/Theme.NoTitleBar" android:versionCode="1" android:versionName="1.0">
+  <supports-screens android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:xlargeScreens="true" android:anyDensity="true" />
+  <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="25" />
+  <permission android:name="com.twowegames.MitchirinekoPop.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+  <application android:icon="@drawable/app_icon" android:label="@string/app_name" android:debuggable="true" android:largeHeap="true" android:name="com.igaworks.IgawDefaultApplication">
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+    <meta-data android:name="com.google.android.gms.games.APP_ID" android:value="\ 227779868008" />
+    <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="\ 528119690677472" />
+    <meta-data android:name="igaworks_app_key" android:value="165799809" />
+    <meta-data android:name="igaworks_hash_key" android:value="e7bd112cd94046c3" />
+    
+    <receiver android:name="com.igaworks.liveops.pushservice.LiveOpsGCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+      <intent-filter>
+        <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+        <category android:name="com.twowegames.MitchirinekoPop" />
+      </intent-filter>
+    </receiver>
+    <receiver android:name="com.igaworks.liveops.pushservice.LiveOpsReceiver" android:permission="com.twowegames.MitchirinekoPop.permission.C2D_MESSAGE">
+      <intent-filter>
+        <action android:name="com.igaworks.liveops.pushservice.CLIENT_PUSH_RECEIVE" />
+      </intent-filter>
+    </receiver>
+    <receiver android:name="com.androidnative.features.notifications.LocalNotificationReceiver">
+      <intent-filter>
+        <action android:name="com.androidnative.local.intent.OPEN" />
+        <category android:name="android.intent.category.DEFAULT" />
+      </intent-filter>
+    </receiver>
+
+    <service android:name="com.androidnative.features.notifications.LocalNotificationService" />
+    <!-- IGAWorks Push Service -->
+		<service android:enabled="true" android:name="com.igaworks.liveops.pushservice.GCMIntentService" />
+		
+    <provider android:name="com.facebook.FacebookContentProvider" android:authorities="com.facebook.app.FacebookContentProvider528119690677472" android:exported="true" />
+    <activity android:name="com.unity3d.player.UnityPlayerNativeActivity" android:label="@string/app_name">
+      <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
+      <meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="false" />
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <activity android:name="com.androidnative.AndroidNativeProxy" android:launchMode="singleTask" android:label="@string/app_name" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    <activity android:name="com.androidnative.OAuthProxyActivity" android:launchMode="singleTask" android:label="@string/app_name" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    <activity android:name="com.androidnative.billing.core.AN_BillingProxyActivity" android:launchMode="singleTask" android:label="@string/app_name" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    <activity android:name="com.androidnative.gms.core.GooglePlaySupportActivity" android:launchMode="singleTask" android:label="@string/app_name" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    <activity android:name="com.androidnative.features.social.common.SocialProxyActivity" android:launchMode="singleTask" android:label="@string/app_name" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="oauth" android:host="com.twowegames.MitchirinekoPop" />
+      </intent-filter>
+    </activity>
+    <activity android:name="com.facebook.LoginActivity" android:label="@string/app_name" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:configChanges="keyboardHidden|orientation" />
+    <activity android:name="com.facebook.unity.FBUnityLoginActivity" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+    <activity android:name="com.facebook.unity.FBUnityDeepLinkingActivity" android:exported="true" />
+    <activity android:name="com.facebook.unity.FBUnityDialogsActivity" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+    <activity android:name="com.facebook.unity.FBUnityAppLinkActivity" android:exported="true" />
+    <activity android:name="com.facebook.unity.FBUnityGameRequestActivity" />
+    <activity android:name="com.facebook.unity.FBUnityCreateGameGroupActivity" />
+    <activity android:name="com.facebook.unity.FBUnityJoinGameGroupActivity" />
+    <activity android:name="com.facebook.unity.AppInviteDialogActivity" />
+    <activity android:name="com.facebook.FacebookActivity" android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+  </application>
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="com.android.vending.BILLING" />
+  <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+  <uses-permission android:name="com.twowegames.MitchirinekoPop.permission.C2D_MESSAGE" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
+  <uses-permission android:name="android.permission.VIBRATE" />
+  <uses-permission android:name="android.permission.GET_TASKS" />
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+</manifest>

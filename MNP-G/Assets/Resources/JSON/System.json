@@ -1,0 +1,34 @@
+{
+		"blockData": {
+			"height": 7,
+			"width": 7,
+			"fillBlockCount": 25,
+			"blockTypeCount": 3,
+			"blockStartX": -2.88,
+			"blockStartY": 0.63,
+			"blockScaleValue": 1
+		},
+		
+		"balanceData": {
+			"ingamePlayTime": 60,
+			"feverPlayTime": 6,
+			"comboKeepTime": 2,
+			"minimumComboKeepTime": 1.4,
+			"intervalMinusComboTime": 0.3,
+			"blockAttackPower": 10,
+			"intervalAttackPower": 1,
+			"intervalFeverTime": 0.1,
+			"intervalPlayTime": 0.5,
+			"baseAbilityPrice":1000,
+			"intervalAbilityPrice":500
+		},
+		
+		"userData": {
+			"heart": 0,
+			"tick": 3243417283123,
+			"gold": 1000,
+			"jewel": 100
+			
+		}
+
+}

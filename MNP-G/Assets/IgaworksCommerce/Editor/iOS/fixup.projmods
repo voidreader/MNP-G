@@ -1,0 +1,22 @@
+{
+  "group": "IgaworksCommerce",
+  "patches": [],
+  "libs": [
+    "IgaworksCommerce/Editor/iOS/IgaworksCommerce/libIgaworksCommerceLib.a:<group>",
+  ],
+  "librarysearchpaths": [
+    "IgaworksCommerce/Editor/iOS/IgaworksCommerce/",
+  ],
+  "frameworks": [
+  ],
+  "headerpaths": [
+    "IgaworksCommerce/Editor/iOS",
+  ],
+  "files": [
+    "IgaworksCommerce/Editor/iOS/IgaworksCommercePlugin.mm",
+    "IgaworksCommerce/Editor/iOS/IgaworksCommercePlugin.h"
+  ],
+  "folders": [],
+  "excludes": ["^.*\\.meta$", "^.*\\.mdown^", "^.*\\.pdf$"],
+  "other_ldflags": ["-all_load"]
+}

@@ -1,0 +1,28 @@
+{
+		"NekoArray":[
+				{
+					"id": 0,
+					"currentBead":0,
+					"level":1
+				},
+								{
+					"id": 1,
+					"currentBead":0,
+					"level":1,
+					"own": true
+				}
+				,				{
+					"id": 2,
+					"currentBead":0,
+					"level":1,
+					"own": false
+				}
+								{
+					"id": 0,
+					"currentBead":0,
+					"level":1
+				},
+				
+				
+		]
+}

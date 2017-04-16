@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Google Play game services IDs.
+Save this file as res/values/games-ids.xml in your project.
+-->
+<resources>
+  <string name="app_id">227779868008</string>
+  <string name="package_name">com.twowegames.MitchirinekoPop</string>
+  <string name="achievement__">CgkI6OrzxdAGEAIQAQ</string>
+  <string name="achievement__">CgkI6OrzxdAGEAIQAg</string>
+  <string name="achievement__">CgkI6OrzxdAGEAIQAw</string>
+  <string name="achievement__">CgkI6OrzxdAGEAIQBA</string>
+  <string name="achievement_neko_theater">CgkI6OrzxdAGEAIQBQ</string>
+  <string name="leaderboard__">CgkI6OrzxdAGEAIQBg</string>
+</resources>
