@@ -275,7 +275,7 @@ public partial class GameSystem : MonoBehaviour {
 
 
 
-    [SerializeField] PlayerOwnNekoCtrl _selectNeko = null; // 방금 선택한 고양이 정보.
+    [SerializeField] OwnCatCtrl _selectNeko = null; // 방금 선택한 고양이 정보.
     [SerializeField] int _previousSelectNekoID = -1; // 이전 선택한 고양이의 ID 
 
     
@@ -369,7 +369,7 @@ public partial class GameSystem : MonoBehaviour {
 
 
 	private int _nekodbkey;
-	public PlayerOwnNekoCtrl CurrentSelectNeko;
+	public OwnCatCtrl CurrentSelectNeko;
 
 	// 네코의 보은 시간이 되어 대상 네코 정보를 갖고 있는지???
 	// 초기화는 true로 해주고, 로비에서 고양이가 소환될때, false로  변경된다. 
@@ -2626,29 +2626,7 @@ public partial class GameSystem : MonoBehaviour {
         }
     }
 
-	// 정렬 초기화 
-	private void InitSortUserNeko() {
-        _listUserNeko.Clear();
 
-        //Debug.Log("InitSortUserNeko Count :: " + _userNekoData[_jData]["nekodatas"].Count);
-
-        for (int i = 0; i < UserNeko.Count; i++) {
-            _listUserNeko.Add(UserNeko[i]);
-        }
-    }
-
-
-	public void SortUserNekoByBead() {
-		InitSortUserNeko (); 
-		_listUserNeko.Sort (delegate(JSONNode node1, JSONNode node2) { return node2["bead"].AsInt.CompareTo(node1["bead"].AsInt);});
-	}
-
-	public void SortUserNekoByGet() {
-		InitSortUserNeko ();
-        _listUserNeko.Sort(delegate (JSONNode node1, JSONNode node2) { return node1["bead"].AsInt.CompareTo(node2["bead"].AsInt); });
-
-        //_listUserNeko.Sort (delegate(JSONNode node1, JSONNode node2) { return node1["dbkey"].AsInt.CompareTo(node2["dbkey"].AsInt);});
-    }
 
 
     
@@ -3370,21 +3348,7 @@ public partial class GameSystem : MonoBehaviour {
 
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="pStar"></param>
-    /// <returns></returns>
-    public string GetNekoGradeText(int pStar) {
 
-        string returnValue = string.Empty;
-
-        for(int i =0; i< pStar; i++) {
-            returnValue += "*";
-        }
-
-        return returnValue;
-    }
 
     /// <summary>
     /// 
@@ -3460,49 +3424,6 @@ public partial class GameSystem : MonoBehaviour {
 		return neko["star"].AsInt;
 	}
 
-    /// <summary>
-    /// 인게임상의 네코 파워 조회 
-    /// </summary>
-    /// <returns></returns>
-    public float GetNekoInGamePower(int pNekoID) {
-
-        float power = 100;
-        JSONNode neko = GetNekoNodeByID(pNekoID);
-
-        if (neko == null)
-            return 0;
-
-        
-
-        switch(neko["star"].AsInt) {
-            case 1:
-                power = 100;
-                break;
-            case 2:
-                power = 150;
-                break;
-            case 3:
-                power = 250;
-                break;
-            case 4:
-                power = 400;
-                break;
-            case 5:
-                power = 600;
-                break;
-
-        }
-
-        power += (neko["level"].AsInt - 1) * 30;
-
-
-        // 패시브 능력 처리 
-        if (GameSystem.Instance.NekoPowerPlus > 0) {
-            power = power + (power * GameSystem.Instance.NekoPowerPlus / 100);
-        }
-
-        return power;
-    }
 
     /// <summary>
     /// 장착 고양이의 그룹 세팅 
@@ -4724,7 +4645,7 @@ public partial class GameSystem : MonoBehaviour {
         }
     }
 
-    public PlayerOwnNekoCtrl SelectNeko {
+    public OwnCatCtrl SelectNeko {
         get {
             return _selectNeko;
         }

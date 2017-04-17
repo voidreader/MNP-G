@@ -20,7 +20,7 @@ public class FishColumnCtrl : MonoBehaviour {
 
 
     // 현재 설정 창 
-	PlayerOwnNekoCtrl _neko;
+	OwnCatCtrl _neko;
     NekoFeedCtrl _base;
 
     int _frameCount = 10;
@@ -81,7 +81,7 @@ public class FishColumnCtrl : MonoBehaviour {
     /// <param name="pIndex"></param>
     /// <param name="pNeko"></param>
     /// <param name="pBase"></param>
-	public void SetFishColumn(int pIndex, PlayerOwnNekoCtrl pNeko, NekoFeedCtrl pBase) {
+	public void SetFishColumn(int pIndex, OwnCatCtrl pNeko, NekoFeedCtrl pBase) {
 
 
         _isReceiveColumn = false;
@@ -133,7 +133,7 @@ public class FishColumnCtrl : MonoBehaviour {
     /// <param name="pIndex"></param>
     /// <param name="pNeko"></param>
     /// <param name="pBase"></param>
-    public void SetRecieveColumn(int pIndex, PlayerOwnNekoCtrl pNeko, NekoFeedCtrl pBase) {
+    public void SetRecieveColumn(int pIndex, OwnCatCtrl pNeko, NekoFeedCtrl pBase) {
 
         _isReceiveColumn = true;
 

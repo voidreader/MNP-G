@@ -665,9 +665,6 @@ public partial class GameSystem : MonoBehaviour {
 
         JSONNode resultNode = JSON.Parse(response.DataAsText);
         GameSystem.Instance.UserNeko = resultNode[_jData]["nekodatas"];
-        //GameSystem.Instance.UserNeko = GameSystem.Instance.UserNeko[_jData]["nekodatas"];
-
-
 
         TitleCtrl.Instance.SetLoadingMessage("3400");
         WWWHelper.Instance.Post2("request_synctime", OnFinishedSyncTime);
@@ -3135,9 +3132,9 @@ public partial class GameSystem : MonoBehaviour {
         // 추가 처리 (네코 창)
         //PopupNekoInfoCtrl _popupNekoInfo = FindObjectOfType(typeof(PopupNekoInfoCtrl)) as PopupNekoInfoCtrl;
 		
-		CurrentSelectNeko._bead = result[_jData]["nekobead"].AsInt;
-		CurrentSelectNeko._grade = result[_jData]["nekostar"].AsInt;
-		CurrentSelectNeko.RefreshState();
+		//CurrentSelectNeko.Bead = result[_jData]["nekobead"].AsInt;
+		//CurrentSelectNeko.Grade = result[_jData]["nekostar"].AsInt;
+        CurrentSelectNeko.UpdateInfo();
 
 
 

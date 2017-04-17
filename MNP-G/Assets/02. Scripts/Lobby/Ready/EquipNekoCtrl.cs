@@ -19,7 +19,7 @@ public class EquipNekoCtrl : MonoBehaviour {
 
 	[SerializeField] int _level;
 	[SerializeField] int _grade;
-	[SerializeField] string _star;
+	
     string _spriteName;
 
 
@@ -28,12 +28,12 @@ public class EquipNekoCtrl : MonoBehaviour {
 	
 	}
 
-	public void SetEquipNeko(int pIndex) {
+    /// <summary>
+    /// 장착 고양이 캐릭터 인덱스 설정
+    /// </summary>
+    /// <param name="pIndex"></param>
+	public void InitEquipNekoIndex(int pIndex) {
 		index = pIndex;
-
-        //_emptyInfo.gameObject.SetActive(true);
-
-        // ID에 따른 장착 네코 정보가 있는지 확인해서 세팅 .
     }
 
 
@@ -48,7 +48,7 @@ public class EquipNekoCtrl : MonoBehaviour {
 		ReadyGroupCtrl.Instance.SelectedEquipNekoIndex = index;
 
 		// 팝업창 띄우기 (LobbyCtrl.Upgrade)
-		LobbyCtrl.Instance.ShowPlayerOwnNekoPanel ();
+        LobbyCtrl.Instance.OpenReadyCharacterList();
 
 	}
 
@@ -115,7 +115,7 @@ public class EquipNekoCtrl : MonoBehaviour {
         SetNekoDetailInfo();
     }
 
-	public void SetNekoInfo(PlayerOwnNekoCtrl pSelectedNeko) {
+	public void SetNekoInfo(OwnCatCtrl pSelectedNeko) {
 
 		if (pSelectedNeko == null) {
 			setEquipNeko.gameObject.SetActive(false);
@@ -127,15 +127,15 @@ public class EquipNekoCtrl : MonoBehaviour {
 		}
 
 		setEquipNeko.gameObject.SetActive (true);
-        spNeko.atlas = pSelectedNeko.NekoAtlas;
-        spNeko.spriteName = pSelectedNeko.NekoSpriteName;
+        spNeko.atlas = pSelectedNeko.CharacterAtlas;
+        spNeko.spriteName = pSelectedNeko.CharacterSpriteName;
 
 
-		nekoID = pSelectedNeko.NekoID;
+		nekoID = pSelectedNeko.Id;
 
 
-		_level = pSelectedNeko._level;
-		_grade = pSelectedNeko._grade;
+		_level = pSelectedNeko.Level;
+		_grade = pSelectedNeko.Grade;
 
         _emptyInfo.SetActive(false);
 
@@ -149,11 +149,8 @@ public class EquipNekoCtrl : MonoBehaviour {
 	private void SetNekoDetailInfo() {
 
 		// Grade
-		_star = "";
-		for (int i=0; i<_grade; i++) {
-			_star += "*";
-		}
-		lblGrade.text = _star;
+		
+        lblGrade.text = GameSystem.Instance.GetNekoGradeText(_grade);
 
 		lblLevel.text = "Lv. "+ _level.ToString ();
 

@@ -348,7 +348,7 @@ public class ReadyGroupCtrl : MonoBehaviour {
         
 
         for (int i = 0; i < 3; i++) {
-            _arrEquipNeko[i].SetEquipNeko(i);
+            _arrEquipNeko[i].InitEquipNekoIndex(i); // 인덱스 설정 
 
             if(GameSystem.Instance.ListEquipNekoID.Count < i+1) {
                 _arrEquipNeko[i].SetNekoInfo(-1);
@@ -587,8 +587,12 @@ public class ReadyGroupCtrl : MonoBehaviour {
     /// </summary>
     /// <param name="pIndex"></param>
     /// <param name="pNeko"></param>
-    public void SetNekoEquip(int pIndex, PlayerOwnNekoCtrl pNeko) {
+    public void SetNekoEquip(int pIndex, OwnCatCtrl pNeko) {
         _arrEquipNeko[pIndex].SetNekoInfo(pNeko);
+    }
+
+    public void SetNekoEquipOnCurrentSlot(OwnCatCtrl pNeko) {
+        _arrEquipNeko[SelectedEquipNekoIndex].SetNekoInfo(pNeko);
     }
 
 

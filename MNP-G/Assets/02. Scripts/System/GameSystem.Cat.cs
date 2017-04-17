@@ -5,7 +5,136 @@ using SimpleJSON;
 public partial class GameSystem : MonoBehaviour {
 
 
-    
+
+
+
+    /// <summary>
+    /// 고양이 정렬
+    /// </summary>
+    private void InitSortUserNeko() {
+        _listUserNeko.Clear();
+
+        //Debug.Log("InitSortUserNeko Count :: " + _userNekoData[_jData]["nekodatas"].Count);
+
+        for (int i = 0; i < UserNeko.Count; i++) {
+            _listUserNeko.Add(UserNeko[i]);
+        }
+    }
+
+
+    /// <summary>
+    /// 등급 순으로 정렬 
+    /// </summary>
+    public void SortUserNekoByBead() {
+        InitSortUserNeko();
+        _listUserNeko.Sort(delegate (JSONNode node1, JSONNode node2) { return node2["bead"].AsInt.CompareTo(node1["bead"].AsInt); });
+    }
+
+    /// <summary>
+    /// 획득 순서대로 정렬
+    /// </summary>
+    public void SortUserNekoByGet() {
+        InitSortUserNeko();
+        _listUserNeko.Sort(delegate (JSONNode node1, JSONNode node2) { return node1["bead"].AsInt.CompareTo(node2["bead"].AsInt); });
+    }
+
+    /// <summary>
+    /// 고양이 * 등급 텍스트 
+    /// </summary>
+    /// <param name="pStar"></param>
+    /// <returns></returns>
+    public string GetNekoGradeText(int pStar) {
+
+        string returnValue = string.Empty;
+
+        for (int i = 0; i < pStar; i++) {
+            returnValue += "*";
+        }
+
+        return returnValue;
+    }
+
+
+    /// <summary>
+    /// 고양이 순수 파워 조회 
+    /// </summary>
+    /// <param name="pGrade">등급</param>
+    /// <param name="pLevel">레벨</param>
+    /// <returns></returns>
+    public int GetNekoPurePower(int pGrade, int pLevel) {
+        int power = 0;
+
+        switch(pGrade) {
+            case 1:
+                power = 100;
+                break;
+            case 2:
+                power = 150;
+                break;
+            case 3:
+                power = 250;
+                break;
+            case 4:
+                power = 350;
+                break;
+            case 5:
+                power = 500;
+                break;
+
+        }
+
+
+        power += (pLevel - 1) * 30;
+
+        return power;
+
+    }
+
+    /// <summary>
+    /// 인게임상의 네코 파워 조회 
+    /// </summary>
+    /// <returns></returns>
+    public float GetNekoInGamePower(int pNekoID) {
+
+        float power = 100;
+        JSONNode neko = GetNekoNodeByID(pNekoID);
+
+        if (neko == null)
+            return 0;
+
+
+
+        switch (neko["star"].AsInt) {
+            case 1:
+                power = 100;
+                break;
+            case 2:
+                power = 150;
+                break;
+            case 3:
+                power = 250;
+                break;
+            case 4:
+                power = 350;
+                break;
+            case 5:
+                power = 500;
+                break;
+
+        }
+
+        power += (neko["level"].AsInt - 1) * 30;
+
+
+        // 패시브 능력 처리 
+        if (GameSystem.Instance.NekoPowerPlus > 0) {
+            power = power + (power * GameSystem.Instance.NekoPowerPlus / 100);
+        }
+
+        return power;
+    }
+
+
 
     /// <summary>
     /// 고양이 그룹 이름 조회 

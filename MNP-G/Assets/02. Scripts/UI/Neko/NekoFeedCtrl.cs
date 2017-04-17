@@ -17,7 +17,7 @@ public class NekoFeedCtrl : MonoBehaviour {
     [SerializeField] FishColumnCtrl[] _arrRecieveFishColumn; // 받는 컬럼 
 
 
-    PlayerOwnNekoCtrl _neko;
+    OwnCatCtrl _neko;
     NekoSelectBigPopCtrl _nekoGrowthWindow;
 
     /* 선택 고양이 정보 */
@@ -53,7 +53,7 @@ public class NekoFeedCtrl : MonoBehaviour {
     }
 
 
-    public void OpenFeedWindow(NekoSelectBigPopCtrl pGrowWindow, PlayerOwnNekoCtrl pNeko) {
+    public void OpenFeedWindow(NekoSelectBigPopCtrl pGrowWindow, OwnCatCtrl pNeko) {
 
         this.gameObject.SetActive(true);
 
@@ -99,15 +99,15 @@ public class NekoFeedCtrl : MonoBehaviour {
         _nekoBeadBar.value = _nekoGrowthWindow.NekoGradeBarValue;
         _nekoFakeBeadBar.value = _nekoGrowthWindow.NekoGradeBarValue;
 
-        _nekoSprite.atlas = _neko.NekoAtlas;
-        _nekoSprite.spriteName = _neko.NekoSpriteName;
+        _nekoSprite.atlas = _neko.CharacterAtlas;
+        _nekoSprite.spriteName = _neko.CharacterSpriteName;
 
         _nekoLevel.text = _nekoGrowthWindow.LevelText;
-        _nekoPower.text = _neko._power.ToString();
+        _nekoPower.text = _neko.Power.ToString();
         _nekoGrade.text = _nekoGrowthWindow.GradeText;
         _nekoStar.text = _nekoGrowthWindow.StarText;
 
-        _currentBead = _neko._bead;
+        _currentBead = _neko.Bead;
 
            
     }
@@ -124,10 +124,10 @@ public class NekoFeedCtrl : MonoBehaviour {
 
         // 네코의 다음 등급이 5인 경우, AlertMessage 호출 
         // 2016.08 3~5등급의 모양이 동일하면 경고창을 띄우지 않는다 .
-        if(IsMaxBead && _neko._grade + 1 == 5 
-            && (!GameSystem.Instance.GetNekoSpriteName(_neko.NekoID, _neko._grade).Equals(GameSystem.Instance.GetNekoSpriteName(_neko.NekoID, _neko._grade+1)))) {
+        if(IsMaxBead && _neko.Grade + 1 == 5 
+            && (!GameSystem.Instance.GetNekoSpriteName(_neko.Id, _neko.Grade).Equals(GameSystem.Instance.GetNekoSpriteName(_neko.Id, _neko.Grade + 1)))) {
             NekoEvolAlertCtrl.OnCompleteClickOK += CheckConfirm;
-            _nekoFinalEvolAlert.SetFinalEvolutionAlert(_neko.NekoID, _neko._grade, _neko._grade + 1);
+            _nekoFinalEvolAlert.SetFinalEvolutionAlert(_neko.Id, _neko.Grade, _neko.Grade + 1);
             return;
         }
         else { // 그 외는 확인 메세지 호출 
@@ -157,7 +157,7 @@ public class NekoFeedCtrl : MonoBehaviour {
     /// </summary>
     private void SendFish() {
         GameSystem.Instance.CurrentSelectNeko = _neko;
-        GameSystem.Instance.UpgradeNekoDBKey = _neko._dbkey;
+        GameSystem.Instance.UpgradeNekoDBKey = _neko.Dbkey;
         GameSystem.Instance.Post2NekoFeedFish();
     }
 
@@ -165,9 +165,12 @@ public class NekoFeedCtrl : MonoBehaviour {
     /// 생선 먹이고 난 후 Refresh()
     /// </summary>
     public void RefreshNekoInfo() {
-        GameSystem.Instance.CurrentSelectNeko.RefreshState(); // 생선을 먹은 고양이 정보 업데이트 
+        GameSystem.Instance.CurrentSelectNeko.UpdateInfo(); // 생선을 먹은 고양이 정보 업데이트 
+
         _nekoGrowthWindow.SetCurrentNeko(GameSystem.Instance.CurrentSelectNeko); // 성장 창 업데이트 
         SetInfo(); // 생선 창 업데이트 
+
+
     }
 
     /// <summary>
@@ -179,7 +182,7 @@ public class NekoFeedCtrl : MonoBehaviour {
         _feedFish += pQ;
 
         // 생선값을 더해서 처리.
-        _currentBead = _neko._bead + _feedFish;
+        _currentBead = _neko.Bead + _feedFish;
 
         SetFakeBeadBar();
 
@@ -187,8 +190,8 @@ public class NekoFeedCtrl : MonoBehaviour {
 
     private void SetFakeBeadBar() {
 
-        _maxBead = int.Parse(MNP_NekoBead.Instance.GetGenRow("grade" + _neko._grade.ToString()).GetStringData("BeadStack")) - int.Parse(MNP_NekoBead.Instance.GetGenRow("grade" + _neko._grade.ToString()).GetStringData("BeadMin")) + 1;
-        _currentBead = _currentBead - int.Parse(MNP_NekoBead.Instance.GetGenRow("grade" + _neko._grade.ToString()).GetStringData("BeadMin"));
+        _maxBead = int.Parse(MNP_NekoBead.Instance.GetGenRow("grade" + _neko.Grade.ToString()).GetStringData("BeadStack")) - int.Parse(MNP_NekoBead.Instance.GetGenRow("grade" + _neko.Grade.ToString()).GetStringData("BeadMin")) + 1;
+        _currentBead = _currentBead - int.Parse(MNP_NekoBead.Instance.GetGenRow("grade" + _neko.Grade.ToString()).GetStringData("BeadMin"));
 
 
         //_maxBead = GameSystem.Instance.DocsNekoBead.get<int>(_neko._grade.ToString(), "BeadStack") - GameSystem.Instance.DocsNekoBead.get<int>(_neko._grade.ToString(), "BeadMin") + 1;
@@ -201,7 +204,7 @@ public class NekoFeedCtrl : MonoBehaviour {
         }
 
         // 생선을 먹였을때 다음 등급이 최종 등급인지 체크 
-        if(IsMaxBead && _neko.MaxGrade == _neko._grade+1) {
+        if(IsMaxBead && _neko.MaxGrade == _neko.Grade+1) {
             _isNextGradeMax = true;
         } else {
             _isNextGradeMax = false;
@@ -222,7 +225,7 @@ public class NekoFeedCtrl : MonoBehaviour {
 
         _feedFish -= pQ;
 
-        _currentBead = _neko._bead + _feedFish;
+        _currentBead = _neko.Bead + _feedFish;
       
         SetFakeBeadBar();
     }
@@ -268,7 +271,7 @@ public class NekoFeedCtrl : MonoBehaviour {
         }
     }
 
-    public PlayerOwnNekoCtrl Neko {
+    public OwnCatCtrl Neko {
         get {
             return _neko;
         }

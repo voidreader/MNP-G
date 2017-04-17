@@ -501,6 +501,10 @@ public static class PuzzleConstBox {
     public readonly static string spriteOrangeStarSprite = "red-star";
 
 
+    public readonly static string spriteFrameNekoYellow = "lvup_frm_neko_yellow";
+    public readonly static string spriteFrameNekoGreen = "lvup_frm_neko_green";
+
+
     public readonly static string spriteBigBronzeBadge = "badge-bronze";
     public readonly static string spriteBigSilverBadge = "badge-silver";
     public readonly static string spriteBigGoldBadge = "badge-gold";

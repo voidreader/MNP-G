@@ -41,7 +41,7 @@ public partial class LobbyCtrl : MonoBehaviour {
     [SerializeField] Stack<LobbyCommonUICtrl> _stackPopup = new Stack<LobbyCommonUICtrl>();
 
 
-    public bool isAllNeko = false; //Select Neko Panel Toggle;
+    
     private bool _isAdsNekoGift = false;
     private bool isTouchLock = false;
 
@@ -51,7 +51,7 @@ public partial class LobbyCtrl : MonoBehaviour {
     [SerializeField] GameObject LobbyPanel;
     [SerializeField] GameObject StagePanel;
 
-    [SerializeField] private UIGrid grdPlayerOwnNeko;
+    
 
 
     [SerializeField] GameObject objResultForm; 
@@ -122,7 +122,6 @@ public partial class LobbyCtrl : MonoBehaviour {
     [SerializeField]
     GatchaConfirmCtrl _gatchaConfirmCtrl;
 
-    private List<PlayerOwnNekoCtrl> _listPlayerNekoSelection = new List<PlayerOwnNekoCtrl>();
 
     [SerializeField] ParticleSystem _particleUseHeart;
     Vector3 _nekoSelectScrollViewPos = new Vector3(-220, -90, 0);
@@ -422,9 +421,8 @@ public partial class LobbyCtrl : MonoBehaviour {
     /// PoolManager 관련 초기화 
     /// </summary>
     private void SetSpawningObject() {
-        SetSeletiveNeko(); // Selective
+        SetReadyCharacterList(); // 캐릭터 리스트 
         SetFriendList(); // 친구에게 하트보내기 
-        
         SetNoticeList(); // 공지사항 리스트
     }
     
@@ -2465,148 +2463,7 @@ public partial class LobbyCtrl : MonoBehaviour {
 
     #endregion
 
-    #region 고양이 성장, 장착 
-
-    /// <summary>
-    /// 준비창의 고양이 장착화면을 초기화한다. PlayerOwnNeko에서 Despawn을 쓰지 않는다. 
-    /// </summary>
-    private void SetSeletiveNeko() {
-
-        PlayerOwnNekoCtrl playerOwnNekoCtrl;
-
-        for (int i = 0; i < 120; i++) {
-
-            playerOwnNekoCtrl = PoolManager.Pools["PlayerOwnNeko"].Spawn("UIPlayerNekoPrefab").GetComponent<PlayerOwnNekoCtrl>();
-            _listPlayerNekoSelection.Add(playerOwnNekoCtrl); // list에 ADD 시킨다. 
-        }
-
-        ClearSelectiveNeko();
-
-    }
-
-    public void ClearSelectiveNeko() {
-
-        for (int i = 0; i < _listPlayerNekoSelection.Count; i++) {
-            _listPlayerNekoSelection[i].gameObject.SetActive(false);
-        }
-
-    }
-
-    public void SpawnFilteredOwnNeko() {
-        if (IsSelectiveNekoPanel)
-            SpawnFilteredSelectivePlayerOwnNeko();
-        else
-            SpawnFilteredGrowthPlayerOwnNeko();
-    }
-
-
-
-
-    /// <summary>
-    /// 사용자가 갖고 있는 고양이만 보여주기 
-    /// </summary>
-    public void SpawnFilteredSelectivePlayerOwnNeko() {
-
-        Debug.Log(">>>>> SpawnFilteredSelectivePlayerOwnNeko");
-
-        ClearSelectiveNeko();
-        pnlSelectiveNekoScrollView.gameObject.GetComponent<UIScrollView>().ResetPosition();
-
-        pnlSelectiveNekoScrollView.clipOffset = Vector2.zero;
-        pnlSelectiveNekoScrollView.transform.localPosition = _nekoSelectScrollViewPos;
-
-        isAllNeko = false;
-
-        //PlayerOwnNekoCtrl playerOwnNekoCtrl;
-        int tid;
-
-        // 네코 등급순 정렬 여부
-        if (GameSystem.Instance.LoadGradeOrder()) {
-            GameSystem.Instance.SortUserNekoByBead();
-        }
-        else {
-            GameSystem.Instance.SortUserNekoByGet();
-        }
-
-        //for (int i=0; i<GameSystem.Instance.UserNekoData["data"]["nekodatas"].Count; i++) {
-        for (int i = 0; i < GameSystem.Instance.ListSortUserNeko.Count; i++) {
-
-            tid = GameSystem.Instance.ListSortUserNeko[i]["tid"].AsInt;
-            _listPlayerNekoSelection[i].gameObject.SetActive(true);
-            _listPlayerNekoSelection[i].SetUpgradeFlag(false);
-            //_listPlayerNekoSelection[i].SetPlayerOwnNeko(tid, GameSystem.Instance.NekoBaseInfo.get<string>(tid.ToString(), "rect_sprite"), GameSystem.Instance.NekoBaseInfo.get<string>(tid.ToString(), "shadow_sprite"));
-            _listPlayerNekoSelection[i].SetPlayerOwnNeko(tid);
-        }
-
-
-        grdPlayerOwnNeko.Reposition();
-
-        // 현재 선택한 인덱스의 네코를 선택(준비창)
-        //objSelectNeko.GetComponent<NekoSelectBigPopCtrl>().SetNekoByNekoID(arrEquipNeko[SelectedEquipNekoIndex].NekoID);
-        objSelectNeko.GetComponent<NekoSelectBigPopCtrl>().SetNekoByNekoID(ReadyGroupCtrl.Instance.GetEquipedNekoID());
-
-
-
-
-    }
-
-    public void SpawnFilteredGrowthPlayerOwnNeko() {
-
-        Debug.Log(">>>>> SpawnFilteredGrowthPlayerOwnNeko");
-
-        ClearSelectiveNeko();
-        pnlSelectiveNekoScrollView.gameObject.GetComponent<UIScrollView>().ResetPosition();
-
-        pnlSelectiveNekoScrollView.clipOffset = Vector2.zero;
-        pnlSelectiveNekoScrollView.transform.localPosition = _nekoSelectScrollViewPos;
-
-        isAllNeko = false;
-
-        //PlayerOwnNekoCtrl playerOwnNekoCtrl;
-        int tid;
-
-        // 네코 등급순 정렬 여부
-        if (GameSystem.Instance.LoadGradeOrder()) {
-            GameSystem.Instance.SortUserNekoByBead();
-        }
-        else {
-            GameSystem.Instance.SortUserNekoByGet();
-        }
-
-        //for (int i=0; i<GameSystem.Instance.UserNekoData["data"]["nekodatas"].Count; i++) {
-        for (int i = 0; i < GameSystem.Instance.ListSortUserNeko.Count; i++) {
-
-            tid = GameSystem.Instance.ListSortUserNeko[i]["tid"].AsInt;
-            _listPlayerNekoSelection[i].gameObject.SetActive(true);
-            _listPlayerNekoSelection[i].SetUpgradeFlag(true);
-            //_listPlayerNekoSelection[i].SetPlayerOwnNeko(tid, GameSystem.Instance.NekoBaseInfo.get<string>(tid.ToString(), "rect_sprite"), GameSystem.Instance.NekoBaseInfo.get<string>(tid.ToString(), "shadow_sprite"));
-            _listPlayerNekoSelection[i].SetPlayerOwnNeko(tid);
-        }
-
-
-        grdPlayerOwnNeko.Reposition();
-
-
-
-        
-    }
-
-    private void SetFirstNekoEnableInTutorial() {
-
-
-        Debug.Log("SetFirstNekoEnableInTutorial");
-
-        DisableAllButton();
-
-        for(int i=0; i<_listPlayerNekoSelection.Count; i++) {
-            _listPlayerNekoSelection[i].GetComponent<UIButton>().enabled = false;
-        }
-
-        // 첫번째 고양이만 활성화
-        _listPlayerNekoSelection[0].GetComponent<UIButton>().enabled = true;
-    }
-
-    #endregion
+    
 
     #region 기타 기능
 
@@ -3061,13 +2918,6 @@ public partial class LobbyCtrl : MonoBehaviour {
 	#region Properties
 
 
-
-
-	public List<PlayerOwnNekoCtrl> ListPlayerNekoSelection {
-		get {
-			return this._listPlayerNekoSelection;
-		}
-	}
 
 	public bool IsWaitingTab {
 		get {

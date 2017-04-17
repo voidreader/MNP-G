@@ -93,7 +93,7 @@ public class LobbyCommonUICtrl : MonoBehaviour {
         }
 
         if (this.CompareTag ("PlayerOwnNeko")) { 
-			LobbyCtrl.Instance.ClearSelectiveNeko ();
+			LobbyCtrl.Instance.ClearCharacterList();
 		} else if (this.CompareTag ("HeartRequestGroup")) {
 			LobbyCtrl.Instance.ClearHeartRequestPool ();
 		} else if (this.CompareTag("NekoGiftResult")) {
@@ -112,12 +112,9 @@ public class LobbyCommonUICtrl : MonoBehaviour {
         }
 
         // Neko Select 
-        if (this.CompareTag ("PlayerOwnNeko")) { 
+        if (this.CompareTag ("PlayerOwnNeko")) {
 
-			if(LobbyCtrl.Instance.IsSelectiveNekoPanel) 
-				LobbyCtrl.Instance.SpawnFilteredSelectivePlayerOwnNeko (); // 준비창에서 열림 
-			else
-				LobbyCtrl.Instance.SpawnFilteredGrowthPlayerOwnNeko (); // 로비 버튼으로 열림 
+            LobbyCtrl.Instance.SpawnCharacterList(LobbyCtrl.Instance.IsReadyCharacterList);
 
 		} else if (this.CompareTag ("HeartRequestGroup")) {
 			LobbyCtrl.Instance.SpawnHeartFriendList ();

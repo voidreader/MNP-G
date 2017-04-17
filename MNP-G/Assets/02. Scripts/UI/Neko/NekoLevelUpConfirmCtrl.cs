@@ -4,7 +4,7 @@ using System.Collections;
 public class NekoLevelUpConfirmCtrl : MonoBehaviour {
 
 
-    PlayerOwnNekoCtrl _currentNeko;
+    OwnCatCtrl _currentNeko;
 
     [SerializeField]
     NekoUpCtrl _nekoLevelUpWindow;
@@ -16,12 +16,12 @@ public class NekoLevelUpConfirmCtrl : MonoBehaviour {
     /// 
     /// </summary>
     /// <param name="_pNeko"></param>
-    public void SetNekoLevelUp(PlayerOwnNekoCtrl _pNeko) {
+    public void SetNekoLevelUp(OwnCatCtrl _pNeko) {
         this.gameObject.SetActive(true);
 
         _currentNeko = _pNeko;
-        _neko.atlas = _pNeko.NekoAtlas;
-        _neko.spriteName = _pNeko.NekoSpriteName;
+        _neko.atlas = _pNeko.CharacterAtlas;
+        _neko.spriteName = _pNeko.CharacterSpriteName;
 
     }
 

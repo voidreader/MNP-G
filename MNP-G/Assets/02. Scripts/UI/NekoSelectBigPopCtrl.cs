@@ -21,7 +21,7 @@ public class NekoSelectBigPopCtrl : MonoBehaviour {
 
 	[SerializeField] bool _isGradeOrder = false;
 
-    [SerializeField] PlayerOwnNekoCtrl _neko = null;
+    [SerializeField] OwnCatCtrl _neko = null;
 
     [SerializeField] GameObject btnConfirm;
     [SerializeField] GameObject btnRelease;
@@ -167,7 +167,7 @@ public class NekoSelectBigPopCtrl : MonoBehaviour {
     /// </summary>
     private void CheckSkill() {
 
-         _nekoNode =  GameSystem.Instance.GetNekoNodeByID(Neko.NekoID);
+         _nekoNode =  GameSystem.Instance.GetNekoNodeByID(Neko.Id);
 
         Debug.Log("Check Skill _nekoNode ::" + _nekoNode.ToString());
 
@@ -207,7 +207,7 @@ public class NekoSelectBigPopCtrl : MonoBehaviour {
             return;
         }
 
-        _infoWindow.SetNekoInfo(Neko.NekoID, Neko._grade);
+        _infoWindow.SetNekoInfo(Neko.Id, Neko.Grade);
     }
 
     private void OnCompleteAppear() {
@@ -225,9 +225,9 @@ public class NekoSelectBigPopCtrl : MonoBehaviour {
         if (pNekoID < 0)
             return;
 
-        for(int i=0; i < LobbyCtrl.Instance.ListPlayerNekoSelection.Count; i++) {
-            if(LobbyCtrl.Instance.ListPlayerNekoSelection[i].NekoID == pNekoID) {
-                SetCurrentNeko(LobbyCtrl.Instance.ListPlayerNekoSelection[i]);
+        for(int i=0; i < LobbyCtrl.Instance.ListCharacterList.Count; i++) {
+            if(LobbyCtrl.Instance.ListCharacterList[i].Id == pNekoID) {
+                SetCurrentNeko(LobbyCtrl.Instance.ListCharacterList[i]);
             }
         }
     }
@@ -237,7 +237,7 @@ public class NekoSelectBigPopCtrl : MonoBehaviour {
     /// 네코를 선택하면 정보창을 세팅한다 .
     /// </summary>
     /// <param name="pNeko"></param>
-    public void SetCurrentNeko(PlayerOwnNekoCtrl pNeko) {
+    public void SetCurrentNeko(OwnCatCtrl pNeko) {
 
         Debug.Log(">>> SetCurrentNeko >>> ");
 
@@ -251,7 +251,7 @@ public class NekoSelectBigPopCtrl : MonoBehaviour {
         Neko = pNeko;
 
         // Sprite 처리 
-        GameSystem.Instance.SetNekoSprite(_nekoSprite, pNeko.NekoID, pNeko._grade);
+        GameSystem.Instance.SetNekoSprite(_nekoSprite, pNeko.Id, pNeko.Grade);
         _nekoSprite.transform.DOKill();
         _nekoSprite.transform.localPosition = _highPos;
         _nekoSprite.transform.localEulerAngles = _originRot;
@@ -261,11 +261,11 @@ public class NekoSelectBigPopCtrl : MonoBehaviour {
         //_nekoSprite.spriteName = Neko.NekoSpriteName;
 
         // 정보 처리 
-        _currentBead = Neko._bead; // 구슬 
-        Star = Neko._grade; // 등급 
-        Level = Neko._level; // 레벨 
+        _currentBead = Neko.Bead; // 구슬 
+        Star = Neko.Grade; // 등급 
+        Level = Neko.Level; // 레벨 
 
-       _power = Neko._power;
+       _power = Neko.Power;
         Grade = "";
 
         _nekoLevel.text = "Lv." + Level.ToString();
@@ -295,7 +295,7 @@ public class NekoSelectBigPopCtrl : MonoBehaviour {
         }
 
         _nekoPower.text = _power.ToString();
-        _nekoName.text = GameSystem.Instance.GetNekoName(_neko.NekoID, _neko._grade);
+        _nekoName.text = GameSystem.Instance.GetNekoName(_neko.Id, _neko.Grade);
 
 
         for (int i = 0; i < Star; i++) {
@@ -336,15 +336,15 @@ public class NekoSelectBigPopCtrl : MonoBehaviour {
         _nekoBadge.gameObject.SetActive(false);
 
         // 뱃지(메달) 처리 
-        if (GameSystem.Instance.GetNekoMedalType(_neko.NekoID, _neko._grade, _neko._level) == NekoMedal.bronze) {
+        if (GameSystem.Instance.GetNekoMedalType(_neko.Id, _neko.Grade, _neko.Level) == NekoMedal.bronze) {
             _nekoBadge.gameObject.SetActive(true);
             _nekoBadge.spriteName = PuzzleConstBox.spriteBigBronzeBadge;
         }
-        else if (GameSystem.Instance.GetNekoMedalType(_neko.NekoID, _neko._grade, _neko._level) == NekoMedal.silver) {
+        else if (GameSystem.Instance.GetNekoMedalType(_neko.Id, _neko.Grade, _neko.Level) == NekoMedal.silver) {
             _nekoBadge.gameObject.SetActive(true);
             _nekoBadge.spriteName = PuzzleConstBox.spriteBigSilverBadge;
         }
-        else if (GameSystem.Instance.GetNekoMedalType(_neko.NekoID, _neko._grade, _neko._level) == NekoMedal.gold) {
+        else if (GameSystem.Instance.GetNekoMedalType(_neko.Id, _neko.Grade, _neko.Level) == NekoMedal.gold) {
             _nekoBadge.gameObject.SetActive(true);
             _nekoBadge.spriteName = PuzzleConstBox.spriteBigGoldBadge;
         }
@@ -355,14 +355,14 @@ public class NekoSelectBigPopCtrl : MonoBehaviour {
 
 
         // 버튼 체크
-        if(Neko.isForUpgrade) { // 네코 성장 창 
+        if(!LobbyCtrl.Instance.IsReadyCharacterList) { // 네코 성장 창 
 
             btnConfirm.SetActive(false);
             btnRelease.SetActive(false);
 
         }
         else { // 레디창에서 오픈 
-            if(Neko.IsSelected) {
+            if(Neko.IsEquipped) {
                 btnConfirm.SetActive(false);
                 btnRelease.SetActive(true);
             }
@@ -374,7 +374,7 @@ public class NekoSelectBigPopCtrl : MonoBehaviour {
 
         
         // 메인 네코 체크
-        if(_neko.NekoID == GameSystem.Instance.UserDataJSON["data"]["mainneko"].AsInt) {
+        if(_neko.Id == GameSystem.Instance.UserDataJSON["data"]["mainneko"].AsInt) {
             _btnMainNeko.gameObject.SetActive(false);
             _lblMainNeko.gameObject.SetActive(true);
         } else {
@@ -385,9 +385,9 @@ public class NekoSelectBigPopCtrl : MonoBehaviour {
 
 
     /// <summary>
-    /// 현재 네코 선택 
+    /// 선택한 고양이 장착
     /// </summary>
-    public void SelectCurrentNeko() {
+    public void EquipCurrentNeko() {
 
         // 튜토리얼 처리 
         if (GameSystem.Instance.LocalTutorialStep == 2) {
@@ -398,19 +398,15 @@ public class NekoSelectBigPopCtrl : MonoBehaviour {
         }
 
 
-        //this.SendMessage("CloseSelf");
-        Neko.SelectCurrentNeko(true);
+        Neko.EquipCharacter();
 
     }
 
     /// <summary>
-    /// 현재 네코 해제 
+    /// 장착된 고양이 해제 
     /// </summary>
     public void ReleaseCurrentNeko() {
-        //this.SendMessage("CloseSelf");
-        Neko.SelectCurrentNeko(false);
-        
-
+        Neko.ReleaseCharacter();
         SetActiveNeko(false);
 
     }
@@ -424,7 +420,7 @@ public class NekoSelectBigPopCtrl : MonoBehaviour {
 	public void SortUserNeko() {
 
         if(GameSystem.Instance.SelectNeko != null)
-            GameSystem.Instance.PreviousSelectNekoID = GameSystem.Instance.SelectNeko.NekoID;
+            GameSystem.Instance.PreviousSelectNekoID = GameSystem.Instance.SelectNeko.Id;
 
 		if (!_isGradeOrder) {
 			GameSystem.Instance.SortUserNekoByBead ();
@@ -437,21 +433,15 @@ public class NekoSelectBigPopCtrl : MonoBehaviour {
 		_isGradeOrder = !_isGradeOrder;
 		GameSystem.Instance.SaveGradeOrder (_isGradeOrder);
 
-
-        if (LobbyCtrl.Instance.IsSelectiveNekoPanel) {
-            LobbyCtrl.Instance.SpawnFilteredSelectivePlayerOwnNeko();
-        }
-        else {
-            LobbyCtrl.Instance.SpawnFilteredGrowthPlayerOwnNeko();
-        }
+        LobbyCtrl.Instance.SpawnCharacterList(LobbyCtrl.Instance.IsReadyCharacterList);
 
         // 현재 네코의 정보를 선택처리 
         if (GameSystem.Instance.PreviousSelectNekoID >= 0) {
             //GameSystem.Instance.SelectNeko.SendMessage("SetSelectFrameSprite");
-            for (int i = 0; i < LobbyCtrl.Instance.ListPlayerNekoSelection.Count; i++) {
+            for (int i = 0; i < LobbyCtrl.Instance.ListCharacterList.Count; i++) {
 
-                if (GameSystem.Instance.PreviousSelectNekoID == LobbyCtrl.Instance.ListPlayerNekoSelection[i].NekoID) {
-                    LobbyCtrl.Instance.ListPlayerNekoSelection[i].OnClickOwnNeko();
+                if (GameSystem.Instance.PreviousSelectNekoID == LobbyCtrl.Instance.ListCharacterList[i].Id) {
+                    LobbyCtrl.Instance.ListCharacterList[i].OnClick();
                 }
             }
         }
@@ -508,7 +498,7 @@ public class NekoSelectBigPopCtrl : MonoBehaviour {
     public void OnCompleteUpgrade() {
 
         // Refresh 처리. 
-        Neko.RefreshState();
+        Neko.UpdateInfo();
         SetCurrentNeko(Neko);
 
         if(GameSystem.Instance.LocalTutorialStep == 4) {
@@ -528,7 +518,7 @@ public class NekoSelectBigPopCtrl : MonoBehaviour {
         // 생선창 닫음
         _feedWindow.SendMessage("CloseSelf");
 
-        Neko.RefreshState();
+        Neko.UpdateInfo();
         SetCurrentNeko(Neko);
 
         if(pRaiseEffect)
@@ -536,7 +526,7 @@ public class NekoSelectBigPopCtrl : MonoBehaviour {
     }
 
     public void SetMainNeko() {
-        GameSystem.Instance.UpgradeNekoDBKey = _neko._dbkey;
+        GameSystem.Instance.UpgradeNekoDBKey = _neko.Dbkey;
         GameSystem.Instance.Post2MainNeko();
     }
 
@@ -741,7 +731,7 @@ public class NekoSelectBigPopCtrl : MonoBehaviour {
         }
     }
 
-    public PlayerOwnNekoCtrl Neko {
+    public OwnCatCtrl Neko {
         get {
             return _neko;
         }

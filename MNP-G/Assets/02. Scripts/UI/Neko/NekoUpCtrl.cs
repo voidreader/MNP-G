@@ -3,7 +3,7 @@ using System.Collections;
 
 public class NekoUpCtrl : MonoBehaviour {
 
-    PlayerOwnNekoCtrl _currentNeko;
+    OwnCatCtrl _currentNeko;
     [SerializeField] UISprite _neko;
 
     // 네코 레벨업 변수 
@@ -45,15 +45,15 @@ public class NekoUpCtrl : MonoBehaviour {
         }
     }
 
-    public void SetNekoLevelUp(PlayerOwnNekoCtrl _pNeko, int pLevel) {
+    public void SetNekoLevelUp(OwnCatCtrl _pNeko, int pLevel) {
 
         this.gameObject.SetActive(true);
 
         DoingUpgrade = false;
 
         _currentNeko = _pNeko;
-        _neko.atlas = _pNeko.NekoAtlas;
-        _neko.spriteName = _pNeko.NekoSpriteName;
+        _neko.atlas = _pNeko.CharacterAtlas;
+        _neko.spriteName = _pNeko.CharacterSpriteName;
 
         _levelUpSet.SetActive(true);
         _lblUpgrade.gameObject.SetActive(true);
@@ -62,75 +62,75 @@ public class NekoUpCtrl : MonoBehaviour {
         
 
         if (pLevel == 1) {
-            _nextlevel = _pNeko._level + 1;
-            _nextPower = _pNeko._power + 30;
+            _nextlevel = _pNeko.Level + 1;
+            _nextPower = _pNeko.Power + 30;
         }
         else { // 레벨 10 증가 시키기. 
             // max 상한선을 체크해서 계산
             
-            switch(_pNeko._grade) {
+            switch(_pNeko.Grade) {
                 case 1:
 
-                    if(_pNeko._level + 10 > 30) {
+                    if(_pNeko.Level + 10 > 30) {
                         _nextlevel = 30;
                     }
                     else {
-                        _nextlevel = _pNeko._level + 10;
+                        _nextlevel = _pNeko.Level + 10;
                     }
 
                     break;
                 case 2:
 
-                    if (_pNeko._level + 10 > 35) {
+                    if (_pNeko.Level + 10 > 35) {
                         _nextlevel = 35;
                     }
                     else {
-                        _nextlevel = _pNeko._level + 10;
+                        _nextlevel = _pNeko.Level + 10;
                     }
 
                     break;
                 case 3:
 
-                    if (_pNeko._level + 10 > 40) {
+                    if (_pNeko.Level + 10 > 40) {
                         _nextlevel = 40;
                     }
                     else {
-                        _nextlevel = _pNeko._level + 10;
+                        _nextlevel = _pNeko.Level + 10;
                     }
 
                     break;
                 case 4:
-                    if (_pNeko._level + 10 > 45) {
+                    if (_pNeko.Level + 10 > 45) {
                         _nextlevel = 45;
                     }
                     else {
-                        _nextlevel = _pNeko._level + 10;
+                        _nextlevel = _pNeko.Level + 10;
                     }
 
                     break;
                 case 5:
-                    if (_pNeko._level + 10 > 50) {
+                    if (_pNeko.Level + 10 > 50) {
                         _nextlevel = 50;
                     }
                     else {
-                        _nextlevel = _pNeko._level + 10;
+                        _nextlevel = _pNeko.Level + 10;
                     }
 
                     break;
             } // end of switch
 
-            _nextPower = _pNeko._power + (_nextlevel - _pNeko._level) * 30;
+            _nextPower = _pNeko.Power + (_nextlevel - _pNeko.Level) * 30;
 
         }
 
 
-        _lblCurrentLevel.text = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4312) + " " + _pNeko._level.ToString() + "\n" + GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4110)+ " " + _pNeko._power.ToString();
+        _lblCurrentLevel.text = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4312) + " " + _pNeko.Level.ToString() + "\n" + GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4110)+ " " + _pNeko.Power.ToString();
 
         _lblResultLevel.text = "[ffef46]" + GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4312) + " " + _nextlevel.ToString() + "\n" + GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4110) + " " + _nextPower.ToString() +"[-]";
 
         _upgradePrice = 0;
 
-        for(int i=_pNeko._level; i< _nextlevel; i++) {
+        for(int i=_pNeko.Level; i< _nextlevel; i++) {
             _upgradePrice += GameSystem.Instance.GetNekoUpgradeCost(i);
         }
 
@@ -156,7 +156,7 @@ public class NekoUpCtrl : MonoBehaviour {
         DoingUpgrade = true;
 
 
-        GameSystem.Instance.UpgradeNekoDBKey = _currentNeko._dbkey;
+        GameSystem.Instance.UpgradeNekoDBKey = _currentNeko.Dbkey;
         GameSystem.Instance.Post2NekoUpgrade(_nextlevel);
     }
 

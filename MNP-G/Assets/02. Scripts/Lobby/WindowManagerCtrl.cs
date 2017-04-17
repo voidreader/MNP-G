@@ -177,7 +177,7 @@ public class WindowManagerCtrl : MonoBehaviour {
 	public void OpenGatchaConfirm(bool pSetCrane = false) {
 
 		// 열기전에 일부 화면 닫기. 
-		LobbyCtrl.Instance.ClosePlayOwnNekoPanel ();
+		LobbyCtrl.Instance.CloseCharacterList ();
 		
 
 		ObjGatchaConfirm.SetActive (true);
@@ -190,7 +190,7 @@ public class WindowManagerCtrl : MonoBehaviour {
 
     public void OpenPackageWindow() {
         // 열기전에 일부 화면 닫기. 
-        LobbyCtrl.Instance.ClosePlayOwnNekoPanel();
+        LobbyCtrl.Instance.CloseCharacterList();
 
 
         ObjGatchaConfirm.SetActive(true);

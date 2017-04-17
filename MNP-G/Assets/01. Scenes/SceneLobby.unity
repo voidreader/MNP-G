@@ -17328,6 +17328,54 @@ MonoBehaviour:
   mAtlas: {fileID: 11495446, guid: 84d82d10d3c7eb244a1911772c0a13ad, type: 2}
   mSpriteName: 066-game-result-base
   mFillCenter: 1
+--- !u!1001 &286958925
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 502664237}
+    m_Modifications:
+    - target: {fileID: 4000011744711744, guid: 7d1ed6ba050f171498f8fb4e6b48a853, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -220
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011744711744, guid: 7d1ed6ba050f171498f8fb4e6b48a853, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011744711744, guid: 7d1ed6ba050f171498f8fb4e6b48a853, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011744711744, guid: 7d1ed6ba050f171498f8fb4e6b48a853, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011744711744, guid: 7d1ed6ba050f171498f8fb4e6b48a853, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011744711744, guid: 7d1ed6ba050f171498f8fb4e6b48a853, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011744711744, guid: 7d1ed6ba050f171498f8fb4e6b48a853, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011744711744, guid: 7d1ed6ba050f171498f8fb4e6b48a853, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 7d1ed6ba050f171498f8fb4e6b48a853, type: 2}
+  m_IsPrefabParent: 0
+--- !u!114 &286958926 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000011966171662, guid: 7d1ed6ba050f171498f8fb4e6b48a853,
+    type: 2}
+  m_PrefabInternal: {fileID: 286958925}
+  m_Script: {fileID: 11500000, guid: 07c4de3b4b6fe9045b059ee627c100df, type: 3}
 --- !u!1001 &288425873
 Prefab:
   m_ObjectHideFlags: 0
@@ -24599,169 +24647,17 @@ MonoBehaviour:
   mAtlas: {fileID: 11453842, guid: 6d5dc3049b0f2764295503b68453e7c1, type: 2}
   mSpriteName: lvup_ico_star
   mFillCenter: 1
---- !u!1 &412152821
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 412152822}
-  - 114: {fileID: 412152825}
-  - 114: {fileID: 412152824}
-  - 114: {fileID: 412152823}
-  - 114: {fileID: 412152826}
-  m_Layer: 5
-  m_Name: Scroll View
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &412152822
+--- !u!4 &412152822 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 412152821}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -220, y: -90, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 502664237}
-  m_RootOrder: 0
---- !u!114 &412152823
+  m_PrefabParentObject: {fileID: 4000011744711744, guid: 7d1ed6ba050f171498f8fb4e6b48a853,
+    type: 2}
+  m_PrefabInternal: {fileID: 286958925}
+--- !u!114 &412152825 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 412152821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07c4de3b4b6fe9045b059ee627c100df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrangement: 0
-  sorting: 0
-  pivot: 0
-  maxPerLine: 4
-  cellWidth: 154
-  cellHeight: 210
-  animateSmoothly: 0
-  hideInactive: 1
-  keepWithinPanel: 0
-  sorted: 0
---- !u!114 &412152824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 412152821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movement: 1
-  dragEffect: 2
-  restrictWithinPanel: 1
-  constrainOnDrag: 0
-  disableDragIfFits: 0
-  smoothDragStart: 0
-  iOSDragEmulation: 1
-  scrollWheelFactor: 0.5
-  momentumAmount: 70
-  dampenStrength: 9
-  horizontalScrollBar: {fileID: 0}
-  verticalScrollBar: {fileID: 0}
-  showScrollBars: 1
-  customMovement: {x: 1, y: 0}
-  contentPivot: 0
-  scale: {x: 0, y: 0, z: 0}
-  relativePositionOnReset: {x: 0, y: 0}
-  centerOnChild: {fileID: 0}
---- !u!114 &412152825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 412152821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
+  m_PrefabParentObject: {fileID: 114000012939555262, guid: 7d1ed6ba050f171498f8fb4e6b48a853,
+    type: 2}
+  m_PrefabInternal: {fileID: 286958925}
   m_Script: {fileID: 11500000, guid: ae942c9068183dc40a9d01f648273726, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  rightAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  bottomAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  topAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  updateAnchors: 1
-  showInPanelTool: 1
-  generateNormals: 0
-  generateUV2: 0
-  shadowMode: 0
-  widgetsAreStatic: 0
-  cullWhileDragging: 1
-  alwaysOnScreen: 0
-  anchorOffset: 0
-  softBorderPadding: 1
-  renderQueue: 0
-  startingRenderQueue: 3009
-  mClipTexture: {fileID: 0}
-  mAlpha: 1
-  mClipping: 3
-  mClipRange: {x: 220, y: -120, z: 638, w: 455}
-  mClipSoftness: {x: 4, y: 4}
-  mDepth: 56
-  mSortingOrder: 0
-  mSortingLayerName: 
-  mClipOffset: {x: 0, y: 0}
---- !u!114 &412152826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 412152821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59dfbc0f4f3a98b4ebf4ad40fc3f43aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poolName: PlayerOwnNeko
-  matchPoolScale: 0
-  matchPoolLayer: 0
-  dontReparent: 0
-  _dontDestroyOnLoad: 0
-  logMessages: 0
-  _perPrefabPoolOptions:
-  - prefab: {fileID: 463924, guid: a35e2e1dbedd39245898092cacbd3d62, type: 2}
-    preloadAmount: 30
-    preloadTime: 0
-    preloadFrames: 2
-    preloadDelay: 0
-    limitInstances: 0
-    limitAmount: 100
-    limitFIFO: 0
-    cullDespawned: 0
-    cullAbove: 50
-    cullDelay: 60
-    cullMaxPerPass: 5
-    _logMessages: 0
-    spawnPool: {fileID: 0}
-  maxParticleDespawnTime: 300
 --- !u!1 &413198116
 GameObject:
   m_ObjectHideFlags: 0
@@ -86877,7 +86773,7 @@ GameObject:
   - 114: {fileID: 1447009707}
   - 114: {fileID: 1447009708}
   m_Layer: 5
-  m_Name: NekoSelectPanel-Local(55)
+  m_Name: CharacterListPanelPanel-Local(55)
   m_TagString: PlayerOwnNeko
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89842,21 +89738,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ec71585dbb56e994fa5c04c9297f4077, type: 3}
   - {fileID: 8300000, guid: 1f53a36a8abc8df4680d13374544fbd8, type: 3}
   - {fileID: 8300000, guid: b96da0c10aa01dc43867ebb4695db341, type: 3}
-  IsSelectiveNekoPanel: 0
   pnlSelectiveNekoScrollView: {fileID: 412152825}
   pnlRankScrollView: {fileID: 217210691}
   _newNekoAddedSign: {fileID: 2071291083}
-  _listUpgradeNeko: []
+  _grdCharacterList: {fileID: 286958926}
   _mainCamera: {fileID: 999449521}
   _onResultShow: 0
   _isWaitingCheck: 0
   _gatchaNekoAppear: {fileID: 1759180227}
   _sceneTip: {fileID: 414887852}
-  isAllNeko: 0
   topPanel: {fileID: 1593659180}
   LobbyPanel: {fileID: 1470046183}
   StagePanel: {fileID: 1739549581}
-  grdPlayerOwnNeko: {fileID: 412152823}
   objResultForm: {fileID: 1656371901}
   objReadyGroup: {fileID: 1775786810}
   objPopupUpgrade: {fileID: 7212923}
@@ -106021,7 +105914,7 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 1447009708}
-    mMethodName: SelectCurrentNeko
+    mMethodName: EquipCurrentNeko
     mParameters: []
     oneShot: 0
 --- !u!65 &1737827636
@@ -130065,7 +129958,7 @@ Prefab:
       objectReference: {fileID: 1488970644}
     - target: {fileID: 11466032, guid: dfd1c20267baafe4db06e460edf7b0a7, type: 2}
       propertyPath: onClick.Array.data[0].mMethodName
-      value: OpenUpgradGroup
+      value: OpenCharacterList
       objectReference: {fileID: 0}
     - target: {fileID: 108502, guid: dfd1c20267baafe4db06e460edf7b0a7, type: 2}
       propertyPath: m_IsActive
