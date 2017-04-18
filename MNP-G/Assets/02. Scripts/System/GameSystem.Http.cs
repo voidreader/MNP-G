@@ -1796,7 +1796,7 @@ public partial class GameSystem : MonoBehaviour {
 
             
             // 뽑기 결과창 오픈
-            LobbyCtrl.Instance.SendMessage("ClearLobbyNeko");
+            
             LobbyCtrl.Instance.SendMessage("DisableUIForGatcha");
             
             LobbyCtrl.Instance.ObjGatchaScreen.gameObject.SetActive(true);

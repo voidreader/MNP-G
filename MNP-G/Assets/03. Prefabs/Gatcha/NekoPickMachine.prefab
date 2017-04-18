@@ -2185,7 +2185,6 @@ MonoBehaviour:
   _btnTW: {fileID: 0}
   _btnConfirm: {fileID: 0}
   _gatchaNeko: {fileID: 11433688}
-  _nekoBall: {fileID: 134082}
   _gatchNekoID: 0
   _gatchaNekoLevel: 0
   _gatchaNekoStar: 0
