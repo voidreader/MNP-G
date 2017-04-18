@@ -300,6 +300,11 @@ public class AssetList
 
 	public int GetViewOffsetForDisplayedList(FileFilterGroup fileFilters)
 	{
+		if (_viewOffsets == null || _viewOffsets.Length == 0)
+		{
+			return 0;
+		}
+
 		if (fileFilters.SelectedFilterIdx == -1)
 		{
 			return _viewOffsets[0];

@@ -1,7 +1,7 @@
-//----------------------------------------------
+//-------------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2016 Tasharen Entertainment
-//----------------------------------------------
+// Copyright © 2011-2017 Tasharen Entertainment Inc
+//-------------------------------------------------
 
 using UnityEngine;
 using System;
@@ -15,7 +15,13 @@ using System.Reflection;
 
 static public class NGUITools
 {
-	static AudioListener mListener;
+	[System.NonSerialized] static AudioListener mListener;
+
+	/// <summary>
+	/// Audio source used to play UI sounds. NGUI will create one for you automatically, but you can specify it yourself as well if you like.
+	/// </summary>
+
+	[System.NonSerialized] static public AudioSource audioSource;
 
 	static bool mLoaded = false;
 	static float mGlobalVolume = 1f;
@@ -122,18 +128,22 @@ static public class NGUITools
 
 			if (mListener != null && mListener.enabled && NGUITools.GetActive(mListener.gameObject))
 			{
+				if (!audioSource)
+				{
 #if UNITY_4_3 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7
-				AudioSource source = mListener.audio;
+					audioSource = mListener.audio;
 #else
-				AudioSource source = mListener.GetComponent<AudioSource>();
+					audioSource = mListener.GetComponent<AudioSource>();
 #endif
-				if (source == null) source = mListener.gameObject.AddComponent<AudioSource>();
+					if (audioSource == null) audioSource = mListener.gameObject.AddComponent<AudioSource>();
+				}
+
 #if !UNITY_FLASH
-				source.priority = 50;
-				source.pitch = pitch;
+				audioSource.priority = 50;
+				audioSource.pitch = pitch;
 #endif
-				source.PlayOneShot(clip, volume);
-				return source;
+				audioSource.PlayOneShot(clip, volume);
+				return audioSource;
 			}
 		}
 		return null;
@@ -396,13 +406,28 @@ static public class NGUITools
 
 			if (w != null)
 			{
-				Vector3[] corners = w.localCorners;
+				var dr = w.drawRegion;
+
+				if (dr.x != 0f || dr.y != 0f || dr.z != 1f || dr.w != 1f)
+				{
+					var region = w.drawingDimensions;
 #if UNITY_4_3 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7
-				box.center = Vector3.Lerp(corners[0], corners[2], 0.5f);
+					box.center = new Vector3((region.x + region.z) * 0.5f, (region.y + region.w) * 0.5f);
 #else
-				box.offset = Vector3.Lerp(corners[0], corners[2], 0.5f);
+					box.offset = new Vector3((region.x + region.z) * 0.5f, (region.y + region.w) * 0.5f);
 #endif
-				box.size = corners[2] - corners[0];
+					box.size = new Vector3(region.z - region.x, region.w - region.y);
+				}
+				else
+				{
+					var corners = w.localCorners;
+#if UNITY_4_3 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7
+					box.center = Vector3.Lerp(corners[0], corners[2], 0.5f);
+#else
+					box.offset = Vector3.Lerp(corners[0], corners[2], 0.5f);
+#endif
+					box.size = corners[2] - corners[0];
+				}
 			}
 			else
 			{
@@ -1215,14 +1240,17 @@ static public class NGUITools
 
 	static public bool IsChild (Transform parent, Transform child)
 	{
-		if (parent == null || child == null) return false;
+		return child.IsChildOf(parent);
 
-		while (child != null)
-		{
-			if (child == parent) return true;
-			child = child.parent;
-		}
-		return false;
+		// Legacy way of doing it prior to Unity adding IsChildOf
+		//if (parent == null || child == null) return false;
+
+		//while (child != null)
+		//{
+		//    if (child == parent) return true;
+		//    child = child.parent;
+		//}
+		//return false;
 	}
 
 	/// <summary>
@@ -1430,9 +1458,9 @@ static public class NGUITools
 	/// Given the root widget, adjust its position so that it fits on the screen.
 	/// </summary>
 
-	static public void FitOnScreen (this Camera cam, Transform t)
+	static public void FitOnScreen (this Camera cam, Transform t, bool considerInactive = false, bool considerChildren = true)
 	{
-		var bounds = NGUIMath.CalculateRelativeWidgetBounds(t, t);
+		var bounds = NGUIMath.CalculateRelativeWidgetBounds(t, t, considerInactive, considerChildren);
 
 		var sp = cam.WorldToScreenPoint(t.position);
 		var min = sp + bounds.min;
@@ -1466,10 +1494,10 @@ static public class NGUITools
 	/// Example: uiCamera.FitOnScreen(rootObjectTransform, contentObjectTransform, UICamera.lastEventPosition);
 	/// </summary>
 
-	static public void FitOnScreen (this Camera cam, Transform transform, Transform content, Vector3 pos)
+	static public void FitOnScreen (this Camera cam, Transform transform, Transform content, Vector3 pos, bool considerInactive = false)
 	{
 		Bounds b;
-		cam.FitOnScreen(transform, content, pos, out b);
+		cam.FitOnScreen(transform, content, pos, out b, considerInactive);
 	}
 
 	/// <summary>
@@ -1477,9 +1505,9 @@ static public class NGUITools
 	/// Example: uiCamera.FitOnScreen(rootObjectTransform, contentObjectTransform, UICamera.lastEventPosition);
 	/// </summary>
 
-	static public void FitOnScreen (this Camera cam, Transform transform, Transform content, Vector3 pos, out Bounds bounds)
+	static public void FitOnScreen (this Camera cam, Transform transform, Transform content, Vector3 pos, out Bounds bounds, bool considerInactive = false)
 	{
-		bounds = NGUIMath.CalculateRelativeWidgetBounds(transform, content);
+		bounds = NGUIMath.CalculateRelativeWidgetBounds(transform, content, considerInactive);
 
 		Vector3 min = bounds.min;
 		Vector3 max = bounds.max;
@@ -1904,7 +1932,7 @@ static public class NGUITools
 #if UNITY_EDITOR
 	static int mSizeFrame = -1;
 	static Func<Vector2> s_GetSizeOfMainGameView;
-	static Vector2 mGameSize = Vector2.one;
+	[System.NonSerialized] static Vector2 mGameSize = Vector2.one;
 	[System.NonSerialized] static bool mCheckedMainViewFunc = false;
 
 	/// <summary>
@@ -1954,12 +1982,12 @@ static public class NGUITools
 
 				if (s_GetSizeOfMainGameView != null)
 				{
-#if UNITY_EDITOR_OSX
+//#if UNITY_EDITOR_OSX
 					// There seems to be a Unity 5.4 bug that returns invalid screen size when the mouse is clicked (wtf?) on OSX
-					if (mGameSize.x == 1f && mGameSize.y == 1f) mGameSize = s_GetSizeOfMainGameView();
-#else
+					//if (mGameSize.x == 1f && mGameSize.y == 1f) mGameSize = s_GetSizeOfMainGameView();
+//#else
 					mGameSize = s_GetSizeOfMainGameView();
-#endif
+//#endif
 				}
 				else mGameSize = new Vector2(Screen.width, Screen.height);
 #if UNITY_5_5_OR_NEWER

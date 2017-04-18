@@ -1,6 +1,7 @@
 //#define BRT_SHOW_MINOR_WARNINGS
 
 #if UNITY_EDITOR
+using System;
 using UnityEngine;
 using UnityEditor;
 using System.Threading;
@@ -18,8 +19,8 @@ public class BRT_BuildReportWindow : EditorWindow
 
 	void OnFocus()
 	{
-		usedAssetsScreen.RefreshData(_buildInfo);
-		unusedAssetsScreen.RefreshData(_buildInfo);
+		_usedAssetsScreen.RefreshData(_buildInfo);
+		_unusedAssetsScreen.RefreshData(_buildInfo);
 
 		// check if configured file filters changed and only then do we need to recategorize
 
@@ -64,21 +65,29 @@ public class BRT_BuildReportWindow : EditorWindow
 		}
 
 		// lol wtf have I done
-		usedAssetsScreen.SetListToDisplay(BuildReportTool.Window.Screen.AssetList.ListToDisplay.UsedAssets);
-		unusedAssetsScreen.SetListToDisplay(BuildReportTool.Window.Screen.AssetList.ListToDisplay.UnusedAssets);
+		_usedAssetsScreen.SetListToDisplay(BuildReportTool.Window.Screen.AssetList.ListToDisplay.UsedAssets);
+		_unusedAssetsScreen.SetListToDisplay(BuildReportTool.Window.Screen.AssetList.ListToDisplay.UnusedAssets);
 
-		overviewScreen.RefreshData(_buildInfo);
-		buildSettingsScreen.RefreshData(_buildInfo);
-		sizeStatsScreen.RefreshData(_buildInfo);
-		usedAssetsScreen.RefreshData(_buildInfo);
-		unusedAssetsScreen.RefreshData(_buildInfo);
+		_overviewScreen.RefreshData(_buildInfo);
+		_buildSettingsScreen.RefreshData(_buildInfo);
+		_sizeStatsScreen.RefreshData(_buildInfo);
+		_usedAssetsScreen.RefreshData(_buildInfo);
+		_unusedAssetsScreen.RefreshData(_buildInfo);
 
-		optionsScreen.RefreshData(_buildInfo);
-		helpScreen.RefreshData(_buildInfo);
+		_optionsScreen.RefreshData(_buildInfo);
+		_helpScreen.RefreshData(_buildInfo);
 	}
+
+	double _lastTime;
 
 	void Update()
 	{
+		var deltaTime = EditorApplication.timeSinceStartup - _lastTime;
+		_lastTime = EditorApplication.timeSinceStartup;
+		
+		_usedAssetsScreen.Update(EditorApplication.timeSinceStartup, deltaTime, _buildInfo);
+		_unusedAssetsScreen.Update(EditorApplication.timeSinceStartup, deltaTime, _buildInfo);
+
 		if (_buildInfo != null && BuildReportTool.ReportGenerator.IsFinishedGettingValuesFromThread)
 		{
 			OnFinishGeneratingBuildReport();
@@ -109,14 +118,14 @@ public class BRT_BuildReportWindow : EditorWindow
 	// ==========================================================================================
 	// sub-screens
 
-	BuildReportTool.Window.Screen.Overview overviewScreen = new BuildReportTool.Window.Screen.Overview();
-	BuildReportTool.Window.Screen.BuildSettings buildSettingsScreen = new BuildReportTool.Window.Screen.BuildSettings();
-	BuildReportTool.Window.Screen.SizeStats sizeStatsScreen = new BuildReportTool.Window.Screen.SizeStats();
-	BuildReportTool.Window.Screen.AssetList usedAssetsScreen = new BuildReportTool.Window.Screen.AssetList();
-	BuildReportTool.Window.Screen.AssetList unusedAssetsScreen = new BuildReportTool.Window.Screen.AssetList();
+	readonly BuildReportTool.Window.Screen.Overview _overviewScreen = new BuildReportTool.Window.Screen.Overview();
+	readonly BuildReportTool.Window.Screen.BuildSettings _buildSettingsScreen = new BuildReportTool.Window.Screen.BuildSettings();
+	readonly BuildReportTool.Window.Screen.SizeStats _sizeStatsScreen = new BuildReportTool.Window.Screen.SizeStats();
+	readonly BuildReportTool.Window.Screen.AssetList _usedAssetsScreen = new BuildReportTool.Window.Screen.AssetList();
+	readonly BuildReportTool.Window.Screen.AssetList _unusedAssetsScreen = new BuildReportTool.Window.Screen.AssetList();
 
-	BuildReportTool.Window.Screen.Options optionsScreen = new BuildReportTool.Window.Screen.Options();
-	BuildReportTool.Window.Screen.Help helpScreen = new BuildReportTool.Window.Screen.Help();
+	readonly BuildReportTool.Window.Screen.Options _optionsScreen = new BuildReportTool.Window.Screen.Options();
+	readonly BuildReportTool.Window.Screen.Help _helpScreen = new BuildReportTool.Window.Screen.Help();
 
 
 	// ==========================================================================================
@@ -286,10 +295,10 @@ public class BRT_BuildReportWindow : EditorWindow
 
 		if (BuildReportTool.Util.BuildInfoHasContents(_buildInfo))
 		{
-			buildSettingsScreen.RefreshData(_buildInfo);
-			usedAssetsScreen.RefreshData(_buildInfo);
-			unusedAssetsScreen.RefreshData(_buildInfo);
-			sizeStatsScreen.RefreshData(_buildInfo);
+			_buildSettingsScreen.RefreshData(_buildInfo);
+			_usedAssetsScreen.RefreshData(_buildInfo);
+			_unusedAssetsScreen.RefreshData(_buildInfo);
+			_sizeStatsScreen.RefreshData(_buildInfo);
 
 
 			_buildInfo.OnDeserialize();
@@ -305,7 +314,7 @@ public class BRT_BuildReportWindow : EditorWindow
 		_buildInfo.UnescapeAssetNames();
 		GoToOverviewScreen();
 
-		buildSettingsScreen.RefreshData(_buildInfo);
+		_buildSettingsScreen.RefreshData(_buildInfo);
 	}
 
 
@@ -324,27 +333,27 @@ public class BRT_BuildReportWindow : EditorWindow
 
 	void DrawOverviewScreen()
 	{
-		overviewScreen.DrawGUI(position, _buildInfo);
+		_overviewScreen.DrawGUI(position, _buildInfo);
 	}
 
 	void DrawBuildSettingsScreen()
 	{
-		buildSettingsScreen.DrawGUI(position, _buildInfo);
+		_buildSettingsScreen.DrawGUI(position, _buildInfo);
 	}
 
 	void DrawSizeStatsScreen()
 	{
-		sizeStatsScreen.DrawGUI(position, _buildInfo);
+		_sizeStatsScreen.DrawGUI(position, _buildInfo);
 	}
 
 	void DrawOptionsScreen()
 	{
-		optionsScreen.DrawGUI(position, _buildInfo);
+		_optionsScreen.DrawGUI(position, _buildInfo);
 	}
 
 	void DrawHelpScreen()
 	{
-		helpScreen.DrawGUI(position, _buildInfo);
+		_helpScreen.DrawGUI(position, _buildInfo);
 	}
 
 	// ==========================================================================
@@ -482,14 +491,19 @@ public class BRT_BuildReportWindow : EditorWindow
 
 	bool IsCurrentlyOpeningAFile
 	{
-		get { return _currentBuildReportFileLoadThread != null && _currentBuildReportFileLoadThread.ThreadState != ThreadState.Running; }
+		get { return _currentBuildReportFileLoadThread != null && _currentBuildReportFileLoadThread.ThreadState == ThreadState.Running; }
 	}
 
 	void ForceStopFileLoadThread()
 	{
 		if (IsCurrentlyOpeningAFile)
 		{
-			try { _currentBuildReportFileLoadThread.Abort(); }
+			try
+			{
+				//Debug.LogFormat(this, "Build Report Tool: Stopping file load background thread...");
+				_currentBuildReportFileLoadThread.Abort();
+				Debug.LogFormat(this, "Build Report Tool: File load background thread stopped.");
+			}
 			catch (ThreadStateException) { }
 		}
 	}
@@ -501,38 +515,27 @@ public class BRT_BuildReportWindow : EditorWindow
 			return;
 		}
 
-		_currentBuildReportFileLoadThread = new Thread(() => _OpenBuildInfo(filepath));
-		_currentBuildReportFileLoadThread.Start();
+		if (!BuildReportTool.Options.UseThreadedFileLoading)
+		{
+			_OpenBuildInfo(filepath);
+		}
+		else
+		{
+			if (_currentBuildReportFileLoadThread != null && _currentBuildReportFileLoadThread.ThreadState == ThreadState.Running)
+			{
+				ForceStopFileLoadThread();
+			}
+			_currentBuildReportFileLoadThread = new Thread(() => LoadThread(filepath));
+			_currentBuildReportFileLoadThread.Start();
+			Debug.LogFormat(this, "Build Report Tool: Started new load background thread...");
+		}
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	void LoadThread(string filepath)
+	{
+		_OpenBuildInfo(filepath);
+		Debug.LogFormat(this, "Build Report Tool: Load background thread finished.");
+	}
 
 
 	void DrawCentralMessage(string msg)
@@ -736,11 +739,11 @@ public class BRT_BuildReportWindow : EditorWindow
 					}
 					else if (IsInUsedAssetsCategory)
 					{
-						usedAssetsScreen.DrawGUI(position, _buildInfo);
+						_usedAssetsScreen.DrawGUI(position, _buildInfo);
 					}
 					else if (IsInUnusedAssetsCategory)
 					{
-						unusedAssetsScreen.DrawGUI(position, _buildInfo);
+						_unusedAssetsScreen.DrawGUI(position, _buildInfo);
 					}
 					else if (IsInOptionsCategory)
 					{

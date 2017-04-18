@@ -1,7 +1,7 @@
-//----------------------------------------------
+//-------------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2016 Tasharen Entertainment
-//----------------------------------------------
+// Copyright © 2011-2017 Tasharen Entertainment Inc
+//-------------------------------------------------
 
 using UnityEngine;
 using System.Collections.Generic;
@@ -30,10 +30,6 @@ public class UISpriteAnimation : MonoBehaviour
 	protected float mDelta = 0f;
 	protected bool mActive = true;
 	protected List<string> mSpriteNames = new List<string>();
-
-
-
-    public bool snap { get { return mSnap; } set { this.mSnap = value; } }
 
 	/// <summary>
 	/// Number of frames in the animation.

@@ -103,14 +103,14 @@ public static class Util
 			case BuildTarget.Android:
 				return BuildPlatform.Android;
 
-
+#if !UNITY_5_5_OR_NEWER
 			case BuildTarget.XBOX360:
 				return BuildPlatform.XBOX360;
 
 			case BuildTarget.PS3:
 				return BuildPlatform.PS3;
-
-
+#endif
+				
 
 			case BuildTarget.StandaloneWindows:
 				return BuildPlatform.Windows32;
@@ -215,7 +215,7 @@ public static class Util
 		inFolder = inFolder.Replace('\\', '/');
 
 		//Debug.Log("folder: " + inFolder);
-		//string folderName = Path.GetDirectoryName(folderEntries[n]);
+		//string folderName = System.IO.Path.GetDirectoryName(folderEntries[n]);
 
 		int lastSlashIdx = inFolder.LastIndexOf('/');
 		if (lastSlashIdx == -1)
@@ -259,7 +259,7 @@ public static class Util
 			return string.Empty;
 		}
 
-		return Path.GetDirectoryName(path);
+		return System.IO.Path.GetDirectoryName(path);
 	}
 
 	public static string GetBuildSizePathDescription(BuildInfo buildReport)
@@ -282,7 +282,7 @@ public static class Util
 			// in 32 bit builds, `buildFilePath` is the executable file (.x86 file). we still need the Data folder
 			// in 64 bit builds, `buildFilePath` is the executable file (.x86_64 file). we still need the Data folder
 
-			var exeFile = Path.GetFileName(buildReport.BuildFilePath);
+			var exeFile = System.IO.Path.GetFileName(buildReport.BuildFilePath);
 			var dataFolder = BuildReportTool.Util.ReplaceFileType(exeFile, "_Data");
 			var buildParentFolder = GetPathParentFolder(buildReport.BuildFilePath);
 
@@ -293,7 +293,7 @@ public static class Util
 		{
 			// in universal builds, `buildFilePath` is the 32-bit executable. we still need the 64-bit executable and the Data folder
 			
-			var exe32File = Path.GetFileName(buildReport.BuildFilePath);
+			var exe32File = System.IO.Path.GetFileName(buildReport.BuildFilePath);
 			var exe64File = BuildReportTool.Util.ReplaceFileType(exe32File, ".x86_64");
 			var dataFolder = BuildReportTool.Util.ReplaceFileType(exe32File, "_Data");
 			var buildParentFolder = GetPathParentFolder(buildReport.BuildFilePath);
@@ -570,7 +570,7 @@ public static class Util
 
 		if (HaveToUseSystemForDelete(file))
 		{
-			string fileAbsPath = Path.Combine(projectFolder, file);
+			string fileAbsPath = System.IO.Path.Combine(projectFolder, file);
 			//Debug.Log("will system delete " + fileAbsPath);
 			SystemDeleteFile(fileAbsPath);
 		}
@@ -589,7 +589,7 @@ public static class Util
 
 	public static string ReplaceFileType(string filename, string newFileType)
 	{
-		int idxOfDot = filename.LastIndexOf(".");
+		int idxOfDot = filename.LastIndexOf(".", StringComparison.Ordinal);
 
 		if (idxOfDot < 0)
 		{
@@ -615,7 +615,7 @@ public static class Util
 			return false;
 		}
 
-		return filepath.ToLower().IndexOf(pathToCheck.ToLower()) != -1;
+		return filepath.ToLower().IndexOf(pathToCheck.ToLower(), StringComparison.Ordinal) != -1;
 	}
 
 	public static bool IsFileOfType(string filepath, string typeExtenstion)
@@ -630,7 +630,7 @@ public static class Util
 
 	public static bool IsFileName(string filepath, string filenameToCheck)
 	{
-		return string.Equals(Path.GetFileName(filepath), filenameToCheck, StringComparison.CurrentCultureIgnoreCase);
+		return string.Equals(System.IO.Path.GetFileName(filepath), filenameToCheck, StringComparison.CurrentCultureIgnoreCase);
 	}
 
 	public static bool IsFileAUnixHiddenFile(string filepath)
@@ -640,7 +640,7 @@ public static class Util
 			return false;
 		}
 
-		return Path.GetFileName(filepath).StartsWith(".");
+		return System.IO.Path.GetFileName(filepath).StartsWith(".");
 	}
 
 	public static bool DoesFileBeginWith(string filepath, string stringToCheck)
@@ -650,7 +650,7 @@ public static class Util
 			return false;
 		}
 
-		return Path.GetFileName(filepath).ToLower().StartsWith(stringToCheck.ToLower());
+		return System.IO.Path.GetFileName(filepath).ToLower().StartsWith(stringToCheck.ToLower());
 	}
 
 
@@ -753,7 +753,7 @@ public static class Util
 		{
 			return GetBuiltInAssetHeader(assetPath);
 		}
-		return Path.GetDirectoryName(assetPath);
+		return System.IO.Path.GetDirectoryName(assetPath);
 	}
 	
 	public static string GetAssetFilename(string assetPath)
@@ -762,7 +762,7 @@ public static class Util
 		{
 			return GetBuiltInAssetFilename(assetPath);
 		}
-		return Path.GetFileName(assetPath);
+		return System.IO.Path.GetFileName(assetPath);
 	}
 	
 	
@@ -774,33 +774,38 @@ public static class Util
 	
 	static string GetBuiltInAssetHeader(string assetPath)
 	{
-		bool hasSlash = assetPath.IndexOf("/") > 0;
+		bool hasSlash = assetPath.IndexOf("/", StringComparison.Ordinal) > 0;
 		
 		if (hasSlash)
 		{
-			return Path.GetDirectoryName(assetPath);
+			return System.IO.Path.GetDirectoryName(assetPath);
 		}
 		
-		return assetPath.Substring(0, assetPath.IndexOf(":"));
+		return assetPath.Substring(0, assetPath.IndexOf(":", StringComparison.Ordinal));
 	}
 	
 	static string GetBuiltInAssetFilename(string assetPath)
 	{
-		bool hasSlash = assetPath.IndexOf("/") > 0;
+		bool hasSlash = assetPath.IndexOf("/", StringComparison.Ordinal) > 0;
 		
 		if (hasSlash)
 		{
-			return Path.GetFileName(assetPath);
+			return System.IO.Path.GetFileName(assetPath);
 		}
 		
-		int idxOfColon = assetPath.IndexOf(":");
-		return assetPath.Substring(idxOfColon+2, assetPath.Length - idxOfColon - 2); // -2 to get rid of ": "
+		int idxOfColon = assetPath.IndexOf(":", StringComparison.Ordinal);
+		if (idxOfColon > -1)
+		{
+			return assetPath.Substring(idxOfColon + 2, assetPath.Length - idxOfColon - 2); // -2 to get rid of ": "
+		}
+
+		return assetPath;
 	}
 	
 	
 	public static string GetAssetPathToNameSeparator(string assetPath)
 	{
-		bool hasSlash = assetPath.IndexOf("/") > 0;
+		bool hasSlash = assetPath.IndexOf("/", StringComparison.Ordinal) > 0;
 		
 		if (hasSlash)
 		{
@@ -1031,7 +1036,7 @@ public static class Util
 	{
 		get
 		{
-			return SystemInfo.operatingSystem.IndexOf("Mac OS") != -1;
+			return SystemInfo.operatingSystem.IndexOf("Mac OS", StringComparison.Ordinal) != -1;
 		}
 	}
 
@@ -1039,7 +1044,7 @@ public static class Util
 	{
 		get
 		{
-			return SystemInfo.operatingSystem.IndexOf("Windows") != -1;
+			return SystemInfo.operatingSystem.IndexOf("Windows", StringComparison.Ordinal) != -1;
 		}
 	}
 
@@ -1378,7 +1383,7 @@ public static class Util
 			outPart.RawSize = "???";
 		}
 
-		/// \todo perhaps compute percentage: file size of this DLL out of total build size (would need to convert string of total build size into an int of bytes)
+		// todo perhaps compute percentage: file size of this DLL out of total build size (would need to convert string of total build size into an int of bytes)
 		outPart.Percentage = -1;
 
 		return outPart;
@@ -1408,7 +1413,7 @@ public static class Util
 
 		if (string.IsNullOrEmpty(xmlData))
 		{
-			return "";
+			return string.Empty;
 		}
 
 		xmlData = xmlData.Replace("BuildSizePart", "SizePart");

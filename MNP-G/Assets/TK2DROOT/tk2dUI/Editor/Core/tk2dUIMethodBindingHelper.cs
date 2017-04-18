@@ -69,11 +69,13 @@ public class tk2dUIMethodBindingHelper {
         GUILayout.BeginHorizontal();
         int nidx = EditorGUILayout.Popup( name, idx, cachedMethods.ToArray() );
         if (nidx != idx) {
+			GUI.changed = true;
             methodName = cachedMethods[nidx];
         }
         if (methodName.Length != 0) {
             if (GUILayout.Button("Clear", EditorStyles.miniButton, GUILayout.ExpandWidth(false))) {
                 methodName = "";
+				GUI.changed = true;
                 HandleUtility.Repaint();
             }
         }

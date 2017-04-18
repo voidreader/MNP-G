@@ -9,12 +9,14 @@ namespace DldUtil
 public static class GetRspDefines
 {
 	static string SmcsFilePath { get { return Application.dataPath + "/smcs.rsp"; } }
+	static string McsFilePath { get { return Application.dataPath + "/mcs.rsp"; } }
 	static string UsFilePath { get { return Application.dataPath + "/us.rsp"; } }
 	static string BooFilePath { get { return Application.dataPath + "/boo.rsp"; } }
 
 	public struct Entry
 	{
 		public int TimesDefinedInSmcs;
+		public int TimesDefinedInMcs;
 		public int TimesDefinedInUs;
 		public int TimesDefinedInBoo;
 		public int TimesDefinedInBuiltIn;
@@ -66,6 +68,20 @@ public static class GetRspDefines
 		table[define] = currentDef;
 	}
 
+	static void IncrementTimesDefinedInMcs(Dictionary<string, Entry> table, string define)
+	{
+		if (!table.ContainsKey(define))
+		{
+			table[define] = new Entry();
+		}
+
+		Entry currentDef = table[define];
+		currentDef.TimesDefinedInMcs++;
+
+		// assign it back to store it
+		table[define] = currentDef;
+	}
+
 	static void IncrementTimesDefinedInUs(Dictionary<string, Entry> table, string define)
 	{
 		if (!table.ContainsKey(define))
@@ -112,6 +128,22 @@ public static class GetRspDefines
 				if (IsDefineAlreadyInUnity(definesInSmcs[n]))
 				{
 					IncrementTimesDefinedInBuiltIn(result, definesInSmcs[n]);
+				}
+			}
+		}
+
+		// ---------------------------------------------------------
+
+		string[] definesInMcs = GetDefinesInsideFile(McsFilePath);
+
+		if (definesInMcs != null && definesInMcs.Length > 0)
+		{
+			for (int n = 0, len = definesInMcs.Length; n < len; n++)
+			{
+				IncrementTimesDefinedInMcs(result, definesInMcs[n]);
+				if (IsDefineAlreadyInUnity(definesInMcs[n]))
+				{
+					IncrementTimesDefinedInBuiltIn(result, definesInMcs[n]);
 				}
 			}
 		}

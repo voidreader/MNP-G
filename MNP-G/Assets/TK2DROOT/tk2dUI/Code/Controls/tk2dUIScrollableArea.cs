@@ -375,9 +375,25 @@ public class tk2dUIScrollableArea : MonoBehaviour
             swipeScrollingContentStartLocalPos = ContentContainerOffset;
             swipeScrollingContentDestLocalPos = swipeScrollingContentStartLocalPos;
             isBackgroundButtonDown = true;
-            swipeCurrVelocity = 0;
+
+			// Is during inertial scrolling?
+			if (swipeCurrVelocity != 0)
+			{
+				// Call OverrideClearAllChildrenPresses at the end of the frame to make sure the
+				// item doesn't register a click when dragged and let go < threshold when dragging
+				// during inertial scrolling.
+				StartCoroutine(coDeferredClearChildrenPresses());
+			}
+
+			swipeCurrVelocity = 0;
         }
     }
+
+	IEnumerator coDeferredClearChildrenPresses()
+	{
+		yield return new WaitForEndOfFrame();
+		tk2dUIManager.Instance.OverrideClearAllChildrenPresses(backgroundUIItem);
+	}
 
     private void BackgroundOverUpdate()
     {

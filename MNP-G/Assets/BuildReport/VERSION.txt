@@ -1,4 +1,26 @@
-﻿Version 3.0.21
+﻿Version 3.2.1
+- FIX: Threaded file loading is now optional, and turned off by default.
+
+
+Version 3.2
+- NEW: Options are now saved to an XML file named "BuildReportToolOptions.xml". By default this file is saved inside the BuildReport folder, but can be moved to, and will be recognized at certain paths: at the topmost Assets folder, outside the topmost Assets folder, in the project's ProjectSettings folder, and in the user's My Documents (inside where Build Report XML files are saved). This is in prioritized order, so even if there is an options file in the My Documents folder, if there is also one in the project folder, it will use the one in the project folder instead.
+
+
+Version 3.1.2
+- FIX: Fixed syntax errors in Unity 5.4
+
+
+Version 3.1.1
+- FIX: Added compatibility for Unity 5.6.0b4
+- FIX: Got rid of syntax errors when user has their own class named Path.
+
+
+Version 3.1
+- FIX: Added compatibility for Unity 5.5.0f2
+- NEW: Used and Unused Asset Lists now have search textfields
+
+
+Version 3.0.21
 - FIX: Disabled fix for "Resources" assets size for Unity 5.2.1 (and greater) since Unity fixed it now.
 
 

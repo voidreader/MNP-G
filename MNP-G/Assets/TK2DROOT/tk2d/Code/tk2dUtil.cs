@@ -115,6 +115,11 @@ public static class tk2dUtil {
 	public static void SetDirty(UnityEngine.Object @object)
 	{
 #if UNITY_EDITOR
+		if (Application.isPlaying)
+		{
+			return;
+		}
+
 		UnityEditor.EditorUtility.SetDirty(@object);
 
 #if (UNITY_5_3 || UNITY_5_4 || UNITY_5_6 || UNITY_5_7 || UNITY_5_8 || UNITY_5_9 || UNITY_6_0)

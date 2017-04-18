@@ -1,8 +1,7 @@
-
-//----------------------------------------------
+//-------------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2016 Tasharen Entertainment
-//----------------------------------------------
+// Copyright © 2011-2017 Tasharen Entertainment Inc
+//-------------------------------------------------
 
 //#define SHOW_HIDDEN_OBJECTS
 
@@ -267,7 +266,7 @@ public class UIDrawCall : MonoBehaviour
 		{
 			mTexture = value;
 			if (mBlock == null) mBlock = new MaterialPropertyBlock();
-			mBlock.SetTexture("_MainTex", value);
+			mBlock.SetTexture("_MainTex", value ?? Texture2D.whiteTexture);
 		}
 	}
 
@@ -576,10 +575,21 @@ public class UIDrawCall : MonoBehaviour
 #else
 				mMesh.SetVertices(verts);
 				mMesh.SetUVs(0, uvs);
-				mMesh.SetUVs(1, (uv2 != null && uv2.Count == vertexCount) ? uv2 : null);
 				mMesh.SetColors(cols);
-				mMesh.SetNormals((norms != null && norms.Count == vertexCount) ? norms : null);
-				mMesh.SetTangents((tans != null && tans.Count == vertexCount) ? tans : null);
+
+ #if UNITY_5_4 || UNITY_5_5_OR_NEWER
+				mMesh.SetUVs(1, (uv2.Count == vertexCount) ? uv2 : null);
+				mMesh.SetNormals((norms.Count == vertexCount) ? norms : null);
+				mMesh.SetTangents((tans.Count == vertexCount) ? tans : null);
+ #else
+				if (uv2.Count != vertexCount) uv2.Clear();
+				if (norms.Count != vertexCount) norms.Clear();
+				if (tans.Count != vertexCount) tans.Clear();
+
+				mMesh.SetUVs(1, uv2);
+				mMesh.SetNormals(norms);
+				mMesh.SetTangents(tans);
+ #endif
 #endif
 				if (setIndices)
 				{
@@ -676,13 +686,13 @@ public class UIDrawCall : MonoBehaviour
 
 		for (int i = 0; i < vertexCount; i += 4)
 		{
-			rv[index++] = i + 2;
+			rv[index++] = i;
 			rv[index++] = i + 1;
-			rv[index++] = i;
-
-			rv[index++] = i;
-			rv[index++] = i + 3;
 			rv[index++] = i + 2;
+
+			rv[index++] = i + 2;
+			rv[index++] = i + 3;
+			rv[index++] = i;
 		}
 
 		if (mCache.Count > maxIndexBufferCache) mCache.RemoveAt(0);

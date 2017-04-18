@@ -172,6 +172,9 @@ public class OwnCatCtrl : MonoBehaviour {
         // 기본 크기로 조정 
         this.transform.localScale = GameSystem.Instance.BaseScale;
 
+
+        _spUsing.SetActive(false);
+
         Id = _info["tid"].AsInt;
         Level = _info["level"].AsInt;
         Grade = _info["star"].AsInt;
@@ -337,8 +340,8 @@ public class OwnCatCtrl : MonoBehaviour {
     /// </summary>
     public void OnClick() {
 
-
-        GameSystem.Instance.SelectNeko.SendMessage("SetNoSelectFrameSprite");
+        if(GameSystem.Instance.SelectNeko != null) 
+            GameSystem.Instance.SelectNeko.SendMessage("SetNoSelectFrameSprite");
 
         SetSelectFrameSprite();
         

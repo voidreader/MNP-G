@@ -149,6 +149,13 @@ Side note: Size readings in the Build Report window that have fractional parts a
 
 
 
+=== Licenses ===
+
+Build Report Tool uses FuzzyString (https://fuzzystring.codeplex.com/). FuzzyString is in the Eclipse Public License (EPL).
+
+
+
+
 === Additional Notes ===
 
 Don't worry, the assets that the Build Report Tool itself uses won't be included in your build.
@@ -160,7 +167,7 @@ Copyright © 2013-2014 by Anomalous Underdog
 For support, you can either:
 
 * send me a tweet at http://twitter.com/AnomalusUndrdog
-* send me a private message in the Unity forums (http://forum.unity3d.com/members/8479-AnomalusUndrdog) 
+* send me a private message in the Unity forums (http://forum.unity3d.com/members/8479-AnomalusUndrdog)
 * send me an email at anomalous_underdog@yahoo.com
 
 

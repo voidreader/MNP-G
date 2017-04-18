@@ -95,6 +95,7 @@ public class tk2dUITextInput : MonoBehaviour
 #if TOUCH_SCREEN_KEYBOARD
     private TouchScreenKeyboard keyboard = null;
 #endif
+	private bool useTouchScreenKeyboard = false;
 
     private bool listenForKeyboardText = false;
 
@@ -163,6 +164,16 @@ public class tk2dUITextInput : MonoBehaviour
 
     void Awake()
     {
+#if TOUCH_SCREEN_KEYBOARD
+		useTouchScreenKeyboard =   Application.platform == RuntimePlatform.IPhonePlayer 
+								|| Application.platform == RuntimePlatform.Android 
+#if !UNITY_5_3_OR_NEWER
+								|| Application.platform == RuntimePlatform.WP8Player;
+#else
+								;
+#endif
+#endif
+
         SetState();
         ShowDisplayText();
     }
@@ -200,7 +211,7 @@ public class tk2dUITextInput : MonoBehaviour
         if (tk2dUIManager.Instance__NoCreate != null)
         {
             tk2dUIManager.Instance.OnAnyPress -= AnyPress;
-            if (listenForKeyboardText)
+			if (!useTouchScreenKeyboard && listenForKeyboardText)
             {
                 tk2dUIManager.Instance.OnInputUpdate -= ListenForKeyboardTextUpdate;
             }
@@ -302,7 +313,7 @@ public class tk2dUITextInput : MonoBehaviour
             }
         }
 
-#if UNITY_IOS && !UNITY_EDITOR
+#if (UNITY_IOS || UNITY_ANDROID) && !UNITY_EDITOR
         inputStr = keyboard.text;
         if(!inputStr.Equals(text)) {
             newText = inputStr;
@@ -312,15 +323,22 @@ public class tk2dUITextInput : MonoBehaviour
         if (change)
         {
             Text = newText;
-            if (OnTextChange != null) { OnTextChange(this); }
+			NotifyTextChange();
 
-            if (SendMessageTarget != null && SendMessageOnTextChangeMethodName.Length > 0)
-            {
-                SendMessageTarget.SendMessage( SendMessageOnTextChangeMethodName, this, SendMessageOptions.RequireReceiver );
-            }
         }
     }
 
+	void NotifyTextChange()
+	{
+		if (OnTextChange != null)
+		{
+			OnTextChange(this);
+		}
+		if (SendMessageTarget != null && SendMessageOnTextChangeMethodName.Length > 0)
+		{
+			SendMessageTarget.SendMessage(SendMessageOnTextChangeMethodName, this, SendMessageOptions.RequireReceiver);
+		}
+	}
 
     private void InputSelected()
     {
@@ -329,7 +347,7 @@ public class tk2dUITextInput : MonoBehaviour
             HideDisplayText();
         }
         isSelected = true;
-        if (!listenForKeyboardText)
+		if (!useTouchScreenKeyboard && !listenForKeyboardText)
         {
             tk2dUIManager.Instance.OnInputUpdate += ListenForKeyboardTextUpdate;
         }
@@ -356,13 +374,23 @@ public class tk2dUITextInput : MonoBehaviour
     {
         while (keyboard != null && !keyboard.done && keyboard.active)
         {
-            Text = keyboard.text;
+			bool needChange = Text != keyboard.text;
+			if (needChange)
+			{
+	            Text = keyboard.text;
+				NotifyTextChange();
+			}
             yield return null;
         }
 
         if (keyboard != null)
         {
-            Text = keyboard.text;
+			bool needChange = Text != keyboard.text;
+			if (needChange)
+			{
+	            Text = keyboard.text;
+				NotifyTextChange();
+			}
         }
 
         if (isSelected)
@@ -379,7 +407,7 @@ public class tk2dUITextInput : MonoBehaviour
             ShowDisplayText();
         }
         isSelected = false;
-        if (listenForKeyboardText)
+		if (!useTouchScreenKeyboard && listenForKeyboardText)
         {
             tk2dUIManager.Instance.OnInputUpdate -= ListenForKeyboardTextUpdate;
         }

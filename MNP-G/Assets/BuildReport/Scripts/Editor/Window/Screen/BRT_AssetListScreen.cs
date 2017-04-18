@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
-
+using FuzzyString;
 
 
 namespace BuildReportTool.Window.Screen
@@ -143,6 +143,7 @@ public class AssetList : BaseScreen
 
 	BuildReportTool.FileFilterGroup _configuredFileFilterGroup = null;
 
+	string _searchTextInput = string.Empty;
 
 
 	void RefreshConfiguredFileFilters()
@@ -257,14 +258,15 @@ public class AssetList : BaseScreen
 
 			GUILayout.FlexibleSpace();
 
-
+			_searchTextInput = GUILayout.TextField(_searchTextInput, "TextField-Search", GUILayout.MinWidth(200));
+			if (GUILayout.Button(string.Empty, "TextField-Search-ClearButton"))
+			{
+				ClearSearch();
+			}
 
 			// ------------------------------------------------------------------------------------------------------
-			// makes sense only for unused assets
-			//if (GUILayout.Button(Labels.RECALC_RAW_SIZES, BuildReportTool.Window.Settings.TOP_BAR_BTN_STYLE_NAME))
-			//{
-			//	assetListUsed.PopulateImportedSizes();
-			//}
+			// Recalculate Imported sizes
+			// (makes sense only for unused assets)
 
 			if (_currentListDisplayed != ListToDisplay.UsedAssets && GUILayout.Button(Labels.RECALC_IMPORTED_SIZES, BuildReportTool.Window.Settings.TOP_BAR_BTN_STYLE_NAME))
 			{
@@ -272,6 +274,7 @@ public class AssetList : BaseScreen
 			}
 
 			// ------------------------------------------------------------------------------------------------------
+
 
 
 
@@ -332,7 +335,24 @@ public class AssetList : BaseScreen
 
 		if (list != null)
 		{
-			BuildReportTool.SizePart[] assetListToUse = list.GetListToDisplay(filter);
+			if (_searchResults != null && _searchResults.Length == 0)
+			{
+				DrawCentralMessage(position, "No search results");
+				return;
+			}
+
+			BuildReportTool.SizePart[] assetListToUse;
+
+			var hasSearchResults = _searchResults != null;
+
+			if (hasSearchResults && _searchResults.Length > 0)
+			{
+				assetListToUse = _searchResults;
+			}
+			else
+			{
+				assetListToUse = list.GetListToDisplay(filter);
+			}
 
 			if (assetListToUse != null)
 			{
@@ -365,7 +385,8 @@ public class AssetList : BaseScreen
 
 					GUILayout.BeginHorizontal();
 
-
+					
+					// --------------------------------------------------------------------------------------------------------
 					// column: asset path and name
 					GUILayout.BeginVertical();
 						useAlt = false;
@@ -376,7 +397,7 @@ public class AssetList : BaseScreen
 
 
 						string sortTypeAssetFullPathStyleName = BuildReportTool.Window.Settings.LIST_COLUMN_HEADER_STYLE_NAME;
-						if (list.CurrentSortType == BuildReportTool.AssetList.SortType.AssetFullPath)
+						if (!hasSearchResults && list.CurrentSortType == BuildReportTool.AssetList.SortType.AssetFullPath)
 						{
 							if (list.CurrentSortOrder == BuildReportTool.AssetList.SortOrder.Descending)
 							{
@@ -387,14 +408,14 @@ public class AssetList : BaseScreen
 								sortTypeAssetFullPathStyleName = BuildReportTool.Window.Settings.LIST_COLUMN_HEADER_ASC_STYLE_NAME;
 							}
 						}
-						if ( GUILayout.Button("Asset Path", sortTypeAssetFullPathStyleName, GUILayout.Height(LIST_HEIGHT)) )
+						if ( GUILayout.Button("Asset Path", sortTypeAssetFullPathStyleName, GUILayout.Height(LIST_HEIGHT)) && !hasSearchResults )
 						{
 							list.ToggleSort(BuildReportTool.AssetList.SortType.AssetFullPath);
 						}
 
 
 						string sortTypeAssetFilenameStyleName = BuildReportTool.Window.Settings.LIST_COLUMN_HEADER_STYLE_NAME;
-						if (list.CurrentSortType == BuildReportTool.AssetList.SortType.AssetFilename)
+						if (!hasSearchResults && list.CurrentSortType == BuildReportTool.AssetList.SortType.AssetFilename)
 						{
 							if (list.CurrentSortOrder == BuildReportTool.AssetList.SortOrder.Descending)
 							{
@@ -405,14 +426,14 @@ public class AssetList : BaseScreen
 								sortTypeAssetFilenameStyleName = BuildReportTool.Window.Settings.LIST_COLUMN_HEADER_ASC_STYLE_NAME;
 							}
 						}
-						if (GUILayout.Button("Asset Filename", sortTypeAssetFilenameStyleName, GUILayout.Height(LIST_HEIGHT)))
+						if (GUILayout.Button("Asset Filename", sortTypeAssetFilenameStyleName, GUILayout.Height(LIST_HEIGHT)) && !hasSearchResults)
 						{
 							list.ToggleSort(BuildReportTool.AssetList.SortType.AssetFilename);
 						}
 						GUILayout.EndHorizontal();
 
 
-
+						// --------------------------------------------------------------------------------------------------------
 
 						_assetListScrollPos = GUILayout.BeginScrollView(_assetListScrollPos, BuildReportTool.Window.Settings.HIDDEN_SCROLLBAR_STYLE_NAME, BuildReportTool.Window.Settings.HIDDEN_SCROLLBAR_STYLE_NAME);
 
@@ -489,29 +510,35 @@ public class AssetList : BaseScreen
 					GUILayout.EndVertical();
 
 
-
+					
+					// --------------------------------------------------------------------------------------------------------
 					// column: raw file size
-					bool pressedRawSizeSortBtn = DrawColumn(viewOffset, len, BuildReportTool.AssetList.SortType.RawSize, (IsShowingUnusedAssets ? "Raw Size" : "Size"), false,
+					bool pressedRawSizeSortBtn = DrawColumn(viewOffset, len, BuildReportTool.AssetList.SortType.RawSize, (IsShowingUnusedAssets ? "Raw Size" : "Size"), !hasSearchResults, false,
 						list, assetListToUse, (b) => { return b.RawSize; }, ref _assetListScrollPos);
 
 
 					bool showScrollbarForImportedSize = IsShowingUnusedAssets;
+					
+
+					// --------------------------------------------------------------------------------------------------------
 					// column: imported file size
+
 					bool pressedImpSizeSortBtn = false;
 
 					if (IsShowingUnusedAssets)
 					{
-						pressedImpSizeSortBtn = DrawColumn(viewOffset, len, BuildReportTool.AssetList.SortType.ImportedSize, "Imported Size   ", showScrollbarForImportedSize,
+						pressedImpSizeSortBtn = DrawColumn(viewOffset, len, BuildReportTool.AssetList.SortType.ImportedSize, "Imported Size   ", !hasSearchResults, showScrollbarForImportedSize,
 							list, assetListToUse, (b) => { return b.ImportedSize; }, ref _assetListScrollPos);
 					}
 
-
+					
+					// --------------------------------------------------------------------------------------------------------
 					// column: percentage to total size
 					bool pressedPercentSortBtn = false;
 
 					if (IsShowingUsedAssets)
 					{
-						pressedPercentSortBtn = DrawColumn(viewOffset, len, BuildReportTool.AssetList.SortType.PercentSize, "Percent   ", true,
+						pressedPercentSortBtn = DrawColumn(viewOffset, len, BuildReportTool.AssetList.SortType.PercentSize, "Percent   ", !hasSearchResults, true,
 							list, assetListToUse, (b) => {
 
 								string text = b.Percentage + "%";
@@ -523,19 +550,23 @@ public class AssetList : BaseScreen
 
 							}, ref _assetListScrollPos);
 					}
+					
+					// --------------------------------------------------------------------------------------------------------
 
-
-					if (pressedRawSizeSortBtn)
+					if (!hasSearchResults)
 					{
-						list.ToggleSort(BuildReportTool.AssetList.SortType.RawSize);
-					}
-					else if (pressedImpSizeSortBtn)
-					{
-						list.ToggleSort(BuildReportTool.AssetList.SortType.ImportedSize);
-					}
-					else if (pressedPercentSortBtn)
-					{
-						list.ToggleSort(BuildReportTool.AssetList.SortType.PercentSize);
+						if (pressedRawSizeSortBtn)
+						{
+							list.ToggleSort(BuildReportTool.AssetList.SortType.RawSize);
+						}
+						else if (pressedImpSizeSortBtn)
+						{
+							list.ToggleSort(BuildReportTool.AssetList.SortType.ImportedSize);
+						}
+						else if (pressedPercentSortBtn)
+						{
+							list.ToggleSort(BuildReportTool.AssetList.SortType.PercentSize);
+						}
 					}
 
 
@@ -578,7 +609,7 @@ public class AssetList : BaseScreen
 
 	delegate string ColumnDisplayDelegate(BuildReportTool.SizePart b);
 
-	bool DrawColumn(int sta, int end, BuildReportTool.AssetList.SortType columnType, string columnName, bool showScrollbar, BuildReportTool.AssetList assetListCollection, BuildReportTool.SizePart[] assetList, ColumnDisplayDelegate dataToDisplay, ref Vector2 scollbarPos)
+	bool DrawColumn(int sta, int end, BuildReportTool.AssetList.SortType columnType, string columnName, bool allowSort, bool showScrollbar, BuildReportTool.AssetList assetListCollection, BuildReportTool.SizePart[] assetList, ColumnDisplayDelegate dataToDisplay, ref Vector2 scollbarPos)
 	{
 		bool buttonPressed = false;
 		GUILayout.BeginVertical();
@@ -587,7 +618,7 @@ public class AssetList : BaseScreen
 		// ----------------------------------------------------------
 		// column header
 		string sortTypeStyleName = BuildReportTool.Window.Settings.LIST_COLUMN_HEADER_STYLE_NAME;
-		if (assetListCollection.CurrentSortType == columnType)
+		if (allowSort && assetListCollection.CurrentSortType == columnType)
 		{
 			if (assetListCollection.CurrentSortOrder == BuildReportTool.AssetList.SortOrder.Descending)
 			{
@@ -598,7 +629,7 @@ public class AssetList : BaseScreen
 				sortTypeStyleName = BuildReportTool.Window.Settings.LIST_COLUMN_HEADER_ASC_STYLE_NAME;
 			}
 		}
-		if (GUILayout.Button(columnName, sortTypeStyleName, GUILayout.Height(LIST_HEIGHT)))
+		if (GUILayout.Button(columnName, sortTypeStyleName, GUILayout.Height(LIST_HEIGHT)) && allowSort)
 		{
 			buttonPressed = true;
 		}
@@ -924,20 +955,110 @@ public class AssetList : BaseScreen
 	}
 
 
+	const double SEARCH_DELAY = 0.25f;
+	double _lastSearchTime;
+	string _lastSearchText = string.Empty;
 
+	void ClearSearch()
+	{
+		_searchTextInput = string.Empty;
+		_lastSearchText = string.Empty;
+		_searchResults = null;
+	}
 
+	public override void Update(double timeNow, double deltaTime, BuildInfo buildReportToDisplay)
+	{
+		if (string.IsNullOrEmpty(_searchTextInput))
+		{
+			// cancel search
+			ClearSearch();
+			if (buildReportToDisplay != null)
+			{
+				buildReportToDisplay.FlagOkToRefresh();
+			}
+		}
+		else if ((timeNow - _lastSearchTime >= SEARCH_DELAY) && _lastSearchText != _searchTextInput)
+		{
+			// update search
+			_lastSearchText = _searchTextInput;
+			_lastSearchTime = EditorApplication.timeSinceStartup;
 
+			if (buildReportToDisplay != null)
+			{
+				Search(_lastSearchText, buildReportToDisplay);
+				buildReportToDisplay.FlagOkToRefresh();
+			}
 
+			_lastSearchTime = timeNow;
+		}
+	}
 
+	BuildReportTool.SizePart[] _searchResults;
 
+	void Search(string searchText, BuildInfo buildReportToDisplay)
+	{
+		BuildReportTool.AssetList list = GetAssetListToDisplay(buildReportToDisplay);
 
+		
+		BuildReportTool.FileFilterGroup filter = buildReportToDisplay.FileFilters;
 
+		if (BuildReportTool.Options.ShouldUseConfiguredFileFilters())
+		{
+			filter = _configuredFileFilterGroup;
+		}
 
+		List<BuildReportTool.SizePart> searchResults = new List<BuildReportTool.SizePart>();
 
+		
+		BuildReportTool.SizePart[] assetListToSearchFrom = list.GetListToDisplay(filter);
+		
+		for (int n = 0; n < assetListToSearchFrom.Length; ++n)
+		{
+			if (IsANearStringMatch(assetListToSearchFrom[n].Name, searchText))
+			{
+				searchResults.Add(assetListToSearchFrom[n]);
+			}
+		}
+		
+		if (searchResults.Count > 0)
+		{
+			searchResults.Sort((a, b) => GetFuzzyEqualityScore(searchText, a.Name).CompareTo(GetFuzzyEqualityScore(searchText, b.Name)));
+		}
 
+		_searchResults = searchResults.ToArray();
+	}
 
+	
+	// Search algorithms that will weigh in for the comparison
+	readonly FuzzyStringComparisonOptions[] _searchOptions = {
+		FuzzyStringComparisonOptions.UseOverlapCoefficient,
+		FuzzyStringComparisonOptions.UseLongestCommonSubsequence,
+		FuzzyStringComparisonOptions.UseLongestCommonSubstring
+	};
 
+	bool IsANearStringMatch(string source, string target)
+	{
+		if (string.IsNullOrEmpty(target))
+		{
+			return false;
+		}
 
+		// Choose the relative strength of the comparison - is it almost exactly equal? or is it just close?
+		const FuzzyStringComparisonTolerance TOLERANCE = FuzzyStringComparisonTolerance.Strong;
+			
+		// Get a boolean determination of approximate equality
+		return source.ApproximatelyEquals(target, TOLERANCE, _searchOptions);
+	}
+	
+	double GetFuzzyEqualityScore(string source, string target)
+	{
+		if (string.IsNullOrEmpty(target))
+		{
+			return 0;
+		}
+
+		return source.GetFuzzyEqualityScore(target, _searchOptions);
+	}
 }
 
 }

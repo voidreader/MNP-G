@@ -18,9 +18,12 @@
 #define UNITY_5_3_AND_LESSER
 #endif
 
+#if UNITY_4 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2 || UNITY_5_3 || UNITY_5_4 || UNITY_5_5
+#define UNITY_5_5_AND_LESSER
+#endif
+
 using System.Collections.Generic;
 using System.Linq;
-using DldUtil;
 using UnityEditor;
 using UnityEngine;
 
@@ -291,8 +294,12 @@ public static class UnityBuildSettingsUtility
 
 
 		settings.StrippingLevelUsed = PlayerSettings.strippingLevel.ToString();
-
+		
+#if UNITY_5_5_AND_LESSER
 		settings.NETApiCompatibilityLevel = PlayerSettings.apiCompatibilityLevel.ToString();
+#else
+		settings.NETApiCompatibilityLevel = PlayerSettings.GetApiCompatibilityLevel(EditorUserBuildSettings.selectedBuildTargetGroup).ToString();
+#endif
 
 		settings.AOTOptions = PlayerSettings.aotOptions;
 		settings.LocationUsageDescription = PlayerSettings.iOS.locationUsageDescription;
@@ -305,8 +312,14 @@ public static class UnityBuildSettingsUtility
 		settings.ColorSpaceUsed = PlayerSettings.colorSpace.ToString();
 		settings.UseMultithreadedRendering = PlayerSettings.MTRendering;
 		settings.UseGPUSkinning = PlayerSettings.gpuSkinning;
-		settings.RenderingPathUsed = PlayerSettings.renderingPath.ToString();
 		settings.VisibleInBackground = PlayerSettings.visibleInBackground;
+		
+#if UNITY_5_5_OR_NEWER
+		settings.RenderingPathUsed = UnityEditor.Rendering.EditorGraphicsSettings.GetTierSettings(EditorUserBuildSettings.selectedBuildTargetGroup, Graphics.activeTier).renderingPath.ToString();
+#else
+		settings.RenderingPathUsed = PlayerSettings.renderingPath.ToString();
+#endif
+		
 		
 #if UNITY_5_2_AND_GREATER
 		settings.EnableVirtualRealitySupport = PlayerSettings.virtualRealitySupported;
@@ -471,15 +484,17 @@ public static class UnityBuildSettingsUtility
 #if !UNITY_5
 		settings.iOSAppendedToProject = EditorUserBuildSettings.appendProject;
 #endif
-		settings.iOSSymlinkLibraries = EditorUserBuildSettings.symlinkLibraries;
 
-		settings.iOSAppDisplayName = PlayerSettings.iOS.applicationDisplayName;
-
-		settings.iOSScriptCallOptimizationUsed = PlayerSettings.iOS.scriptCallOptimization.ToString();
-
-		settings.iOSSDKVersionUsed = PlayerSettings.iOS.sdkVersion.ToString();
+#if UNITY_5_5_OR_NEWER
+		settings.iOSTargetOSVersion = PlayerSettings.iOS.targetOSVersionString;
+#else
 		settings.iOSTargetOSVersion = PlayerSettings.iOS.targetOSVersion.ToString();
+#endif
 
+		settings.iOSSymlinkLibraries = EditorUserBuildSettings.symlinkLibraries;
+		settings.iOSAppDisplayName = PlayerSettings.iOS.applicationDisplayName;
+		settings.iOSScriptCallOptimizationUsed = PlayerSettings.iOS.scriptCallOptimization.ToString();
+		settings.iOSSDKVersionUsed = PlayerSettings.iOS.sdkVersion.ToString();
 		settings.iOSTargetDevice = PlayerSettings.iOS.targetDevice.ToString();
 
 #if UNITY_5_3_AND_GREATER
@@ -490,9 +505,7 @@ public static class UnityBuildSettingsUtility
 #endif
 
 		settings.iOSIsIconPrerendered = PlayerSettings.iOS.prerenderedIcon;
-
 		settings.iOSRequiresPersistentWiFi = PlayerSettings.iOS.requiresPersistentWiFi.ToString();
-
 		settings.iOSStatusBarStyle = PlayerSettings.iOS.statusBarStyle.ToString();
 		
 #if !UNITY_5
@@ -599,7 +612,11 @@ public static class UnityBuildSettingsUtility
 	{
 		// XBox 360 build settings
 		// ---------------------------------------------------------------
-
+		
+#if UNITY_5_5_OR_NEWER
+		// In Unity 5.5, API for Xbox 360 is still there but build options
+		// do not allow Xbox 360 anymore, so don't bother with it
+#else
 		settings.Xbox360BuildSubtarget = EditorUserBuildSettings.xboxBuildSubtarget.ToString();
 		settings.Xbox360RunMethod = EditorUserBuildSettings.xboxRunMethod.ToString();
 
@@ -620,13 +637,18 @@ public static class UnityBuildSettingsUtility
 		settings.Xbox360DeployKinectResources = PlayerSettings.xboxDeployKinectResources;
 		settings.Xbox360DeployKinectHeadOrientation = PlayerSettings.xboxDeployKinectHeadOrientation;
 		settings.Xbox360DeployKinectHeadPosition = PlayerSettings.xboxDeployKinectHeadPosition;
-
+#endif
 
 
 		// Playstation devices build settings
 		// ---------------------------------------------------------------
-
+		
+#if UNITY_5_5_OR_NEWER
+		// In Unity 5.5, EditorUserBuildSettings.sceBuildSubtarget is removed
+#else
 		settings.SCEBuildSubtarget = EditorUserBuildSettings.sceBuildSubtarget.ToString();
+#endif
+
 #if UNITY_5
 		settings.CompressBuildWithPsArc = EditorUserBuildSettings.compressWithPsArc;
 		settings.NeedSubmissionMaterials = EditorUserBuildSettings.needSubmissionMaterials;
@@ -636,7 +658,10 @@ public static class UnityBuildSettingsUtility
 		// ---------------------------------------------------------------
 
 		// paths
-#if !UNITY_5
+#if UNITY_5_5_OR_NEWER
+		// no more PS3 support in Unity 5.5 and greater
+
+#elif !UNITY_5
 		settings.PS3TitleConfigFilePath = PlayerSettings.ps3TitleConfigPath;
 		settings.PS3DLCConfigFilePath = PlayerSettings.ps3DLCConfigPath;
 		settings.PS3ThumbnailFilePath = PlayerSettings.ps3ThumbnailPath;
@@ -652,6 +677,7 @@ public static class UnityBuildSettingsUtility
 
 		settings.PS3NpCommsId = PlayerSettings.ps3TrophyCommId;
 		settings.PS3NpCommsSig = PlayerSettings.ps3TrophyCommSig;
+		settings.PS3VideoMemoryForVertexBuffers = PlayerSettings.PS3.videoMemoryForVertexBuffers;
 #else
 		settings.PS3TitleConfigFilePath = PlayerSettings.PS3.titleConfigPath;
 		settings.PS3DLCConfigFilePath = PlayerSettings.PS3.dlcConfigPath;
@@ -674,10 +700,10 @@ public static class UnityBuildSettingsUtility
 		
 		settings.PS3SaveGameSlots = PlayerSettings.PS3.saveGameSlots;
 		settings.PS3NpAgeRating = PlayerSettings.PS3.npAgeRating;
+		settings.PS3VideoMemoryForVertexBuffers = PlayerSettings.PS3.videoMemoryForVertexBuffers;
 #endif
 
 
-		settings.PS3VideoMemoryForVertexBuffers = PlayerSettings.PS3.videoMemoryForVertexBuffers;
 
 
 		// PS Vita build settings
@@ -754,7 +780,11 @@ public static class UnityBuildSettingsUtility
 		settings.XboxOneTitleId = PlayerSettings.XboxOne.TitleId;
 		settings.XboxOneContentId = PlayerSettings.XboxOne.ContentId;
 		settings.XboxOneProductId = PlayerSettings.XboxOne.ProductId;
+
+#if UNITY_5_5_AND_LESSER
 		settings.XboxOneSandboxId = PlayerSettings.XboxOne.SandboxId;
+#endif
+
 		settings.XboxOneServiceConfigId = PlayerSettings.XboxOne.SCID;
 		settings.XboxOneVersion = PlayerSettings.XboxOne.Version;
 		settings.XboxOneIsContentPackage = PlayerSettings.XboxOne.IsContentPackage;
@@ -796,8 +826,12 @@ public static class UnityBuildSettingsUtility
 		settings.PS4RemotePlayKeyAssignment = PlayerSettings.PS4.remotePlayKeyAssignment.ToString();
 
 		settings.PS4VideoOutPixelFormat = PlayerSettings.PS4.videoOutPixelFormat.ToString();
+#if UNITY_5_5_OR_NEWER
+		settings.PS4VideoOutResolution = string.Format("Width: {0} ReprojectionRate: {1}", PlayerSettings.PS4.videoOutInitialWidth, PlayerSettings.PS4.videoOutReprojectionRate);
+#else
 		settings.PS4VideoOutResolution = PlayerSettings.PS4.videoOutResolution.ToString();
-	
+#endif
+
 		settings.PS4MonoEnvVars = PlayerSettings.PS4.monoEnv;
 
 		settings.PS4NpAgeRating = PlayerSettings.PS4.npAgeRating.ToString();

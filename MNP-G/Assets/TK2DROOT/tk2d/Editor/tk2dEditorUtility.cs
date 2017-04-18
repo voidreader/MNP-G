@@ -7,8 +7,8 @@ using System.IO;
 public static class tk2dEditorUtility
 {
 	public static double version = 2.5;
-	public static int releaseId = 7; // < -10001 = alpha 1, other negative = beta release, 0 = final, positive = final hotfix
-	public static int buildNo = 1;
+	public static int releaseId = 8; // < -10001 = alpha 1, other negative = beta release, 0 = final, positive = final hotfix
+	public static int buildNo = 0;
 
 	static tk2dEditorUtility() {
 #if UNITY_3_5 || UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 || UNITY_4_2

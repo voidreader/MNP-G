@@ -791,18 +791,17 @@ public class tk2dCamera : MonoBehaviour
 			// Find an override if necessary
 			Matrix4x4 m = GetProjectionMatrixForOverride( settings, settings.CurrentResolutionOverride, _targetResolution.x, _targetResolution.y, true, out _screenExtents, out _nativeScreenExtents );
 
-#if !(UNITY_3_5 || UNITY_4_0 || UNITY_4_1)
-			// Windows phone?
+			// Windows handheld, rotate as needed.
 			if (
-#if !UNITY_5_3_OR_NEWER
-				Application.platform == RuntimePlatform.WP8Player &&
-#endif
-			    (Screen.orientation == ScreenOrientation.LandscapeLeft || Screen.orientation == ScreenOrientation.LandscapeRight)) {
+				(Application.platform == RuntimePlatform.WSAPlayerARM || Application.platform == RuntimePlatform.WSAPlayerX64 || Application.platform == RuntimePlatform.WSAPlayerX86) &&
+				(SystemInfo.deviceType == DeviceType.Handheld) && 
+			    (Screen.orientation == ScreenOrientation.LandscapeLeft || Screen.orientation == ScreenOrientation.LandscapeRight)
+				) 
+			{
 				float angle = (Screen.orientation == ScreenOrientation.LandscapeRight) ? 90.0f : -90.0f;
 				Matrix4x4 m2 = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, angle), Vector3.one);
 				m = m2 * m;
 			}			
-#endif
 
 			if (unityCamera.projectionMatrix != m) {
 				unityCamera.projectionMatrix = m;

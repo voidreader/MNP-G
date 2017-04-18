@@ -41,7 +41,11 @@ Shader "tk2d/PremulVertexColor"
 			v2f_vct vert_vct(vin_vct v)
 			{
 				v2f_vct o;
+#if UNITY_VERSION > 550
+				o.vertex = UnityObjectToClipPos(v.vertex);
+#else
 				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+#endif
 				o.color = v.color;
 				o.texcoord = v.texcoord;
 				return o;

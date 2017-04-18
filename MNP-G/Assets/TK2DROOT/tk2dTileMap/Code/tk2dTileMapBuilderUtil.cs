@@ -1,8 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-#if UNITY_EDITOR || !UNITY_FLASH
-
 namespace tk2dRuntime.TileMap
 {
 	public static class BuilderUtil
@@ -262,6 +260,11 @@ namespace tk2dRuntime.TileMap
 				int x, y, layerIdx;
 				GameObject instance;
 				tileMap.GetTilePrefabsListItem(i, out x, out y, out layerIdx, out instance);
+
+				if (instance == null)
+				{
+					continue;
+				}
 				
 				// Is it already IN the list for some reason?
 				if (!instExists[i]) {
@@ -482,5 +485,3 @@ namespace tk2dRuntime.TileMap
 		}
 	}
 }
-
-#endif

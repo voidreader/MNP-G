@@ -44,7 +44,11 @@ Shader "tk2d/Blend2TexVertexColor"
 			v2f_vctt vert_vctt(vin_vctt v)
 			{
 				v2f_vctt o;
+#if UNITY_VERSION > 550
+				o.vertex = UnityObjectToClipPos(v.vertex);
+#else
 				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+#endif
 				o.color = v.color;
 				o.texcoord01.xy = v.texcoord;
 				o.texcoord01.zw = v.texcoord1;

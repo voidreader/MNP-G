@@ -1,7 +1,7 @@
-//----------------------------------------------
+//-------------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2016 Tasharen Entertainment
-//----------------------------------------------
+// Copyright © 2011-2017 Tasharen Entertainment Inc
+//-------------------------------------------------
 
 using UnityEngine;
 using System.Collections.Generic;
@@ -286,6 +286,12 @@ public class UIPanel : UIRect
 			}
 		}
 	}
+
+	/// <summary>
+	/// Whether sorting order will be used or not. Sorting order is used with Unity's 2D system.
+	/// </summary>
+
+	public bool useSortingOrder = false;
 
 	/// <summary>
 	/// Sorting order value for the panel's draw calls, to be used with Unity's 2D system.
@@ -1255,7 +1261,7 @@ public class UIPanel : UIRect
 
 	void LateUpdate ()
 	{
-#if UNITY_EDITOR
+#if UNITY_EDITOR && !UNITY_5_5_OR_NEWER
 		if (mUpdateFrame != Time.frameCount || !Application.isPlaying)
 #else
 		if (mUpdateFrame != Time.frameCount)
@@ -1567,8 +1573,8 @@ public class UIPanel : UIRect
 			dc.renderQueue = (renderQueue == RenderQueue.Explicit) ? startingRenderQueue : startingRenderQueue + i;
 			dc.alwaysOnScreen = alwaysOnScreen &&
 				(mClipping == UIDrawCall.Clipping.None || mClipping == UIDrawCall.Clipping.ConstrainButDontClip);
-			dc.sortingOrder = (mSortingOrder == 0) ? sortOrder : mSortingOrder;
-			dc.sortingLayerName = mSortingLayerName;
+			dc.sortingOrder = useSortingOrder ? ((mSortingOrder == 0 && renderQueue == RenderQueue.Automatic) ? sortOrder : mSortingOrder) : 0;
+			dc.sortingLayerName = useSortingOrder ? mSortingLayerName : null;
 			dc.clipTexture = mClipTexture;
 #if !UNITY_4_7
 			dc.shadowMode = shadowMode;

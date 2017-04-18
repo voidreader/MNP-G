@@ -57,6 +57,8 @@ public static class Settings
 	public const string MAIN_TITLE_STYLE_NAME = "Title";
 	public const string MAIN_SUBTITLE_STYLE_NAME = "Subtitle";
 	public const string TINY_HELP_STYLE_NAME = "TinyHelp";
+	
+	public const string BOXED_LABEL_STYLE_NAME = "Text-Boxed";
 
 	public const string INFO_TITLE_STYLE_NAME = "Big1";
 

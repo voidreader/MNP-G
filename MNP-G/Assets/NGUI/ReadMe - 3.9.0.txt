@@ -1,7 +1,7 @@
 ----------------------------------------------
             NGUI: Next-Gen UI kit
  Copyright © 2011-2016 Tasharen Entertainment
-            Version 3.11.0
+            Version 3.11.2
     http://www.tasharen.com/?page_id=197
             support@tasharen.com
 ----------------------------------------------
@@ -54,6 +54,20 @@ and it will not be included in the build of your game. It's only used in the edi
 -----------------
  Version History
 -----------------
+
+3.11.2
+- FIX: Fix for the popup list not re-opening properly in some cases with touch input.
+- FIX: Rewrote how '...' gets appended at the end of wrapped labels, fixing its functionality when sup/subscript is used in the same label.
+- FIX: Reverted the ordering of triangles for UI, making them face the -Z again.
+- FIX: Added code to NGUI's main default shaders (Unlit/Transparent Colored and Unlit/Text) to handle single pass VR.
+- FIX: Choosing to hide a side of an advanced sprite will now also hide corners on that side.
+- FIX: Small fix to how UIGrid and UITable would handle widgets with SpringPosition attached.
+
+3.11.1
+- NEW: Added a 'keep value' option to the popup list that will make popup values persist even after it disappears, like it used to work before the change many versions back.
+- FIX: Popup list with values defined at edit time no longer has an initial value (unless the new 'keep value' is checked).
+- FIX: Capitalized versions of bbcode keywords like [B] will now work in addition to lowercase.
+- FIX: Backwards compatibility fixes with Unity 5.3.
 
 3.11.0
 - NEW: It's now possible to specify a custom material on regular NGUI sprites and labels.

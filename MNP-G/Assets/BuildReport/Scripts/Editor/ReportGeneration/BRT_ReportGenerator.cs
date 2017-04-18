@@ -4,6 +4,10 @@
 #define UNITY_5_3_AND_GREATER
 #endif
 
+#if UNITY_4 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2 || UNITY_5_3 || UNITY_5_4 || UNITY_5_5
+#define UNITY_5_5_AND_LESSER
+#endif
+
 using UnityEngine;
 using UnityEditor;
 #if UNITY_5_3_AND_GREATER
@@ -181,7 +185,12 @@ public class ReportGenerator
 
 		buildInfo.UnusedAssetsEntriesPerBatch = BuildReportTool.Options.UnusedAssetsEntriesPerBatch;
 
+#if UNITY_5_5_AND_LESSER
 		buildInfo.MonoLevel = PlayerSettings.apiCompatibilityLevel;
+#else
+		buildInfo.MonoLevel = PlayerSettings.GetApiCompatibilityLevel(EditorUserBuildSettings.selectedBuildTargetGroup);
+#endif
+
 		buildInfo.CodeStrippingLevel = PlayerSettings.strippingLevel;
 
 		if (BuildReportTool.Options.GetProjectSettings)
@@ -870,7 +879,7 @@ public class ReportGenerator
 
 			if (Util.IsFileOfType(currentAsset, ".dll"))
 			{
-				string assetFilenameOnly = Path.GetFileName(currentAsset);
+				string assetFilenameOnly = System.IO.Path.GetFileName(currentAsset);
 				//Debug.Log(assetFilenameOnly);
 
 				bool foundMatch = false;
@@ -1083,7 +1092,7 @@ public class ReportGenerator
 			// check prefabs only when requested to do so
 			if (Util.IsFileOfType(currentAsset, ".prefab"))
 			{
-				//Debug.Log("GetAllUnusedAssets: found prefab: " + Path.GetFileName(currentAsset));
+				//Debug.Log("GetAllUnusedAssets: found prefab: " + System.IO.Path.GetFileName(currentAsset));
 				if (!includeUnusedPrefabs)
 				{
 					continue;
@@ -1859,12 +1868,12 @@ public class ReportGenerator
 		buildInfo.FlagOkToRefresh();
 	}
 
-	public static void ChangeSavePathToUserPersonalFolder()
-	{
-		BuildReportTool.Options.BuildReportSavePath = BuildReportTool.Util.GetUserHomeFolder();
-	}
+	//public static void ChangeSavePathToUserPersonalFolder()
+	//{
+		//BuildReportTool.Options.BuildReportSavePath = BuildReportTool.Util.GetUserHomeFolder();
+	//}
 
-	public static void ChangeSavePathToProjectFolder()
+	public static string GetSavePathToProjectFolder()
 	{
 		string projectParent;
 		if (_lastKnownBuildInfo != null)
@@ -1881,8 +1890,8 @@ public class ReportGenerator
 
 		int lastSlashIdx = projectParent.LastIndexOf("/");
 		projectParent = projectParent.Substring(0, lastSlashIdx);
-
-		BuildReportTool.Options.BuildReportSavePath = projectParent;
+		return projectParent;
+		//BuildReportTool.Options.BuildReportSavePath = projectParent;
 		//Debug.Log("projectParent: " + projectParent);
 	}
 
