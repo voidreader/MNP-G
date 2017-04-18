@@ -1651,6 +1651,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!114 &22094923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3436,89 +3437,6 @@ MonoBehaviour:
   mAtlas: {fileID: 11477496, guid: c5b3b4b3641aa2c43ad47ad36c05154f, type: 2}
   mSpriteName: n-board
   mFillCenter: 1
---- !u!1 &55093260
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 55093261}
-  - 114: {fileID: 55093262}
-  m_Layer: 5
-  m_Name: MachineNeko
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &55093261
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 55093260}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -150, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1232968915}
-  m_RootOrder: 0
---- !u!114 &55093262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 55093260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  rightAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  bottomAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  topAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 1}
-  mPivot: 4
-  mWidth: 132
-  mHeight: 132
-  mDepth: 50
-  mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
-  hideIfOffScreen: 0
-  keepAspectRatio: 0
-  aspectRatio: 1
-  mType: 0
-  mFillDirection: 4
-  mFillAmount: 1
-  mInvert: 0
-  mFlip: 0
-  mApplyGradient: 0
-  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
-  mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  centerType: 1
-  leftType: 1
-  rightType: 1
-  bottomType: 1
-  topType: 1
-  mAtlas: {fileID: 0}
-  mSpriteName: neko40-3
-  mFillCenter: 1
 --- !u!1 &55360943
 GameObject:
   m_ObjectHideFlags: 0
@@ -4105,7 +4023,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1743959493}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!114 &60988916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5005,6 +4923,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!4 &80603565 stripped
 Transform:
   m_PrefabParentObject: {fileID: 427124, guid: f82da2d89dac6734ab31625525265822, type: 2}
@@ -8122,7 +8041,6 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1805056711}
-  - {fileID: 256690552}
   - {fileID: 1110548169}
   m_Father: {fileID: 1427401852}
   m_RootOrder: 6
@@ -9088,89 +9006,6 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
---- !u!1 &161311798
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 161311799}
-  - 114: {fileID: 161311800}
-  m_Layer: 5
-  m_Name: MachineNeko (7)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &161311799
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 161311798}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -150, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1232968915}
-  m_RootOrder: 7
---- !u!114 &161311800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 161311798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  rightAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  bottomAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  topAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 1}
-  mPivot: 4
-  mWidth: 132
-  mHeight: 132
-  mDepth: 50
-  mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
-  hideIfOffScreen: 0
-  keepAspectRatio: 0
-  aspectRatio: 1
-  mType: 0
-  mFillDirection: 4
-  mFillAmount: 1
-  mInvert: 0
-  mFlip: 0
-  mApplyGradient: 0
-  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
-  mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  centerType: 1
-  leftType: 1
-  rightType: 1
-  bottomType: 1
-  topType: 1
-  mAtlas: {fileID: 0}
-  mSpriteName: neko40-3
-  mFillCenter: 1
 --- !u!4 &164492790 stripped
 Transform:
   m_PrefabParentObject: {fileID: 455664, guid: 6088a74d37b4bc44a8de4b7b794390af, type: 2}
@@ -12849,6 +12684,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!114 &217210692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15028,6 +14864,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!1 &250619406
 GameObject:
   m_ObjectHideFlags: 0
@@ -15350,15 +15187,6 @@ Transform:
   - {fileID: 700426394}
   m_Father: {fileID: 1153551553}
   m_RootOrder: 0
---- !u!4 &256690552 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400004, guid: e116059325ae3e640a98f7a1b89d797b, type: 2}
-  m_PrefabInternal: {fileID: 752262955}
---- !u!198 &256690555 stripped
-ParticleSystem:
-  m_PrefabParentObject: {fileID: 19800004, guid: e116059325ae3e640a98f7a1b89d797b,
-    type: 2}
-  m_PrefabInternal: {fileID: 752262955}
 --- !u!1 &257509067
 GameObject:
   m_ObjectHideFlags: 0
@@ -16362,6 +16190,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!1001 &271541575
 Prefab:
   m_ObjectHideFlags: 0
@@ -17376,74 +17205,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 286958925}
   m_Script: {fileID: 11500000, guid: 07c4de3b4b6fe9045b059ee627c100df, type: 3}
---- !u!1001 &288425873
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 293648666}
-    m_Modifications:
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 140
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 189572, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_Name
-      value: GNekoTenPrefab (3)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &288425874 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-  m_PrefabInternal: {fileID: 288425873}
---- !u!114 &288425875 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11469334, guid: c9cb17b222f0db9459286bc0833d570e,
-    type: 2}
-  m_PrefabInternal: {fileID: 288425873}
-  m_Script: {fileID: 11500000, guid: 1d3175797dc4a2b4eb8e69d86834e1ee, type: 3}
 --- !u!1 &288511135
 GameObject:
   m_ObjectHideFlags: 0
@@ -18046,39 +17807,6 @@ MonoBehaviour:
   _textID: 4225
   _targetLabel: {fileID: 0}
   _text: 
---- !u!1 &293648665
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 293648666}
-  m_Layer: 5
-  m_Name: FirstRow
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &293648666
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 293648665}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 616328078}
-  - {fileID: 1888589899}
-  - {fileID: 2055067762}
-  - {fileID: 288425874}
-  - {fileID: 597293920}
-  m_Father: {fileID: 575386871}
-  m_RootOrder: 0
 --- !u!1001 &293659917
 Prefab:
   m_ObjectHideFlags: 0
@@ -18591,6 +18319,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!1 &304571683
 GameObject:
   m_ObjectHideFlags: 0
@@ -19319,62 +19048,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 312542847}
   m_Script: {fileID: 11500000, guid: 597fbd161beb2490182ce4121c7d1170, type: 3}
---- !u!1001 &313806398
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 823443860}
-    m_Modifications:
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 280
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 189572, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_Name
-      value: GNekoTenPrefab (4)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &313806399 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-  m_PrefabInternal: {fileID: 313806398}
---- !u!114 &313806400 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11469334, guid: c9cb17b222f0db9459286bc0833d570e,
-    type: 2}
-  m_PrefabInternal: {fileID: 313806398}
-  m_Script: {fileID: 11500000, guid: 1d3175797dc4a2b4eb8e69d86834e1ee, type: 3}
 --- !u!1 &314195576
 GameObject:
   m_ObjectHideFlags: 0
@@ -20140,89 +19813,6 @@ MonoBehaviour:
   topType: 1
   mAtlas: {fileID: 11485300, guid: e79131ee1e3ca4849b238a4fabbd69d1, type: 2}
   mSpriteName: red-bars
-  mFillCenter: 1
---- !u!1 &321226363
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 321226364}
-  - 114: {fileID: 321226365}
-  m_Layer: 5
-  m_Name: MachineNeko (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &321226364
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 321226363}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -150, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1232968915}
-  m_RootOrder: 2
---- !u!114 &321226365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 321226363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  rightAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  bottomAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  topAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 1}
-  mPivot: 4
-  mWidth: 132
-  mHeight: 132
-  mDepth: 50
-  mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
-  hideIfOffScreen: 0
-  keepAspectRatio: 0
-  aspectRatio: 1
-  mType: 0
-  mFillDirection: 4
-  mFillAmount: 1
-  mInvert: 0
-  mFlip: 0
-  mApplyGradient: 0
-  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
-  mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  centerType: 1
-  leftType: 1
-  rightType: 1
-  bottomType: 1
-  topType: 1
-  mAtlas: {fileID: 0}
-  mSpriteName: neko40-3
   mFillCenter: 1
 --- !u!1 &321488324
 GameObject:
@@ -21054,87 +20644,87 @@ Prefab:
     - target: {fileID: 11446600, guid: d56a210dc56e02b44b1589623cc9c40b, type: 2}
       propertyPath: _arrMachineTenNeko.Array.data[0]
       value: 
-      objectReference: {fileID: 55093262}
+      objectReference: {fileID: 0}
     - target: {fileID: 11446600, guid: d56a210dc56e02b44b1589623cc9c40b, type: 2}
       propertyPath: _arrMachineTenNeko.Array.data[1]
       value: 
-      objectReference: {fileID: 1516141170}
+      objectReference: {fileID: 0}
     - target: {fileID: 11446600, guid: d56a210dc56e02b44b1589623cc9c40b, type: 2}
       propertyPath: _arrMachineTenNeko.Array.data[2]
       value: 
-      objectReference: {fileID: 321226365}
+      objectReference: {fileID: 0}
     - target: {fileID: 11446600, guid: d56a210dc56e02b44b1589623cc9c40b, type: 2}
       propertyPath: _arrMachineTenNeko.Array.data[3]
       value: 
-      objectReference: {fileID: 1268792302}
+      objectReference: {fileID: 0}
     - target: {fileID: 11446600, guid: d56a210dc56e02b44b1589623cc9c40b, type: 2}
       propertyPath: _arrMachineTenNeko.Array.data[4]
       value: 
-      objectReference: {fileID: 691936803}
+      objectReference: {fileID: 0}
     - target: {fileID: 11446600, guid: d56a210dc56e02b44b1589623cc9c40b, type: 2}
       propertyPath: _arrMachineTenNeko.Array.data[5]
       value: 
-      objectReference: {fileID: 1469301813}
+      objectReference: {fileID: 0}
     - target: {fileID: 11446600, guid: d56a210dc56e02b44b1589623cc9c40b, type: 2}
       propertyPath: _arrMachineTenNeko.Array.data[6]
       value: 
-      objectReference: {fileID: 1972746508}
+      objectReference: {fileID: 0}
     - target: {fileID: 11446600, guid: d56a210dc56e02b44b1589623cc9c40b, type: 2}
       propertyPath: _arrMachineTenNeko.Array.data[7]
       value: 
-      objectReference: {fileID: 161311800}
+      objectReference: {fileID: 0}
     - target: {fileID: 11446600, guid: d56a210dc56e02b44b1589623cc9c40b, type: 2}
       propertyPath: _arrMachineTenNeko.Array.data[8]
       value: 
-      objectReference: {fileID: 504110053}
+      objectReference: {fileID: 0}
     - target: {fileID: 11446600, guid: d56a210dc56e02b44b1589623cc9c40b, type: 2}
       propertyPath: _arrResultTenNeko.Array.data[0]
       value: 
-      objectReference: {fileID: 482268677}
+      objectReference: {fileID: 0}
     - target: {fileID: 11446600, guid: d56a210dc56e02b44b1589623cc9c40b, type: 2}
       propertyPath: _arrResultTenNeko.Array.data[1]
       value: 
-      objectReference: {fileID: 1888589900}
+      objectReference: {fileID: 0}
     - target: {fileID: 11446600, guid: d56a210dc56e02b44b1589623cc9c40b, type: 2}
       propertyPath: _arrResultTenNeko.Array.data[2]
       value: 
-      objectReference: {fileID: 2055067763}
+      objectReference: {fileID: 0}
     - target: {fileID: 11446600, guid: d56a210dc56e02b44b1589623cc9c40b, type: 2}
       propertyPath: _arrResultTenNeko.Array.data[3]
       value: 
-      objectReference: {fileID: 288425875}
+      objectReference: {fileID: 0}
     - target: {fileID: 11446600, guid: d56a210dc56e02b44b1589623cc9c40b, type: 2}
       propertyPath: _arrResultTenNeko.Array.data[4]
       value: 
-      objectReference: {fileID: 597293921}
+      objectReference: {fileID: 0}
     - target: {fileID: 11446600, guid: d56a210dc56e02b44b1589623cc9c40b, type: 2}
       propertyPath: _arrResultTenNeko.Array.data[5]
       value: 
-      objectReference: {fileID: 2083593066}
+      objectReference: {fileID: 0}
     - target: {fileID: 11446600, guid: d56a210dc56e02b44b1589623cc9c40b, type: 2}
       propertyPath: _arrResultTenNeko.Array.data[6]
       value: 
-      objectReference: {fileID: 1287940466}
+      objectReference: {fileID: 0}
     - target: {fileID: 11446600, guid: d56a210dc56e02b44b1589623cc9c40b, type: 2}
       propertyPath: _arrResultTenNeko.Array.data[7]
       value: 
-      objectReference: {fileID: 1665399795}
+      objectReference: {fileID: 0}
     - target: {fileID: 11446600, guid: d56a210dc56e02b44b1589623cc9c40b, type: 2}
       propertyPath: _arrResultTenNeko.Array.data[8]
       value: 
-      objectReference: {fileID: 2022096322}
+      objectReference: {fileID: 0}
     - target: {fileID: 11446600, guid: d56a210dc56e02b44b1589623cc9c40b, type: 2}
       propertyPath: _arrResultTenNeko.Array.data[9]
       value: 
-      objectReference: {fileID: 313806400}
+      objectReference: {fileID: 0}
     - target: {fileID: 11446600, guid: d56a210dc56e02b44b1589623cc9c40b, type: 2}
       propertyPath: _tenFirstRow
       value: 
-      objectReference: {fileID: 293648666}
+      objectReference: {fileID: 0}
     - target: {fileID: 11446600, guid: d56a210dc56e02b44b1589623cc9c40b, type: 2}
       propertyPath: _tenSecondRow
       value: 
-      objectReference: {fileID: 823443860}
+      objectReference: {fileID: 0}
     - target: {fileID: 3343800, guid: d56a210dc56e02b44b1589623cc9c40b, type: 2}
       propertyPath: m_Mesh
       value: 
@@ -24564,6 +24154,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!1 &410653401
 GameObject:
   m_ObjectHideFlags: 0
@@ -28365,6 +27956,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!1 &467180681
 GameObject:
   m_ObjectHideFlags: 0
@@ -29003,54 +28595,6 @@ MonoBehaviour:
   _blueBombDropCount: 0
   _redBombDropCount: 0
   _blackBombDropCount: 0
---- !u!1001 &482268676
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 293648666}
-    m_Modifications:
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -280
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-  m_IsPrefabParent: 0
---- !u!114 &482268677 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11469334, guid: c9cb17b222f0db9459286bc0833d570e,
-    type: 2}
-  m_PrefabInternal: {fileID: 482268676}
-  m_Script: {fileID: 11500000, guid: 1d3175797dc4a2b4eb8e69d86834e1ee, type: 3}
 --- !u!1 &484786155
 GameObject:
   m_ObjectHideFlags: 0
@@ -29442,7 +28986,6 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1759180226}
-  - {fileID: 1232968915}
   m_Father: {fileID: 1322711409}
   m_RootOrder: 0
 --- !u!1 &492293785
@@ -29523,6 +29066,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!1 &493867955
 GameObject:
   m_ObjectHideFlags: 0
@@ -31208,89 +30752,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 503597207}
   m_Script: {fileID: 11500000, guid: 4590f85fad040454d896ecf29daa9daf, type: 3}
---- !u!1 &504110051
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 504110052}
-  - 114: {fileID: 504110053}
-  m_Layer: 5
-  m_Name: MachineNeko (8)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &504110052
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 504110051}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -150, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1232968915}
-  m_RootOrder: 8
---- !u!114 &504110053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 504110051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  rightAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  bottomAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  topAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 1}
-  mPivot: 4
-  mWidth: 132
-  mHeight: 132
-  mDepth: 50
-  mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
-  hideIfOffScreen: 0
-  keepAspectRatio: 0
-  aspectRatio: 1
-  mType: 0
-  mFillDirection: 4
-  mFillAmount: 1
-  mInvert: 0
-  mFlip: 0
-  mApplyGradient: 0
-  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
-  mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  centerType: 1
-  leftType: 1
-  rightType: 1
-  bottomType: 1
-  topType: 1
-  mAtlas: {fileID: 0}
-  mSpriteName: neko40-3
-  mFillCenter: 1
 --- !u!1 &505416773
 GameObject:
   m_ObjectHideFlags: 0
@@ -34235,6 +33696,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!114 &565190001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35101,36 +34563,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 720, y: 260, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &575386870
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 575386871}
-  m_Layer: 5
-  m_Name: ResultTenNeko
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &575386871
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 575386870}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -15, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 293648666}
-  - {fileID: 823443860}
-  m_Father: {fileID: 1743959493}
-  m_RootOrder: 4
 --- !u!1001 &576316933
 Prefab:
   m_ObjectHideFlags: 0
@@ -36437,74 +35869,6 @@ MonoBehaviour:
   mAtlas: {fileID: 11495180, guid: 8082f24182a26c542ae54ea67fed83a1, type: 2}
   mSpriteName: option_btn_twitter
   mFillCenter: 1
---- !u!1001 &597293919
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 293648666}
-    m_Modifications:
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 280
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 189572, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_Name
-      value: GNekoTenPrefab (4)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &597293920 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-  m_PrefabInternal: {fileID: 597293919}
---- !u!114 &597293921 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11469334, guid: c9cb17b222f0db9459286bc0833d570e,
-    type: 2}
-  m_PrefabInternal: {fileID: 597293919}
-  m_Script: {fileID: 11500000, guid: 1d3175797dc4a2b4eb8e69d86834e1ee, type: 3}
 --- !u!1 &597340342
 GameObject:
   m_ObjectHideFlags: 0
@@ -37828,6 +37192,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!1 &608088958
 GameObject:
   m_ObjectHideFlags: 0
@@ -37992,10 +37357,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 613787857}
   m_Script: {fileID: 11500000, guid: 597fbd161beb2490182ce4121c7d1170, type: 3}
---- !u!4 &616328078 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-  m_PrefabInternal: {fileID: 482268676}
 --- !u!1 &617290100
 GameObject:
   m_ObjectHideFlags: 0
@@ -41529,6 +40890,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!114 &674872353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41757,6 +41119,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!1 &679152950
 GameObject:
   m_ObjectHideFlags: 0
@@ -42190,89 +41553,6 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
---- !u!1 &691936801
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 691936802}
-  - 114: {fileID: 691936803}
-  m_Layer: 5
-  m_Name: MachineNeko (4)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &691936802
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 691936801}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -150, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1232968915}
-  m_RootOrder: 4
---- !u!114 &691936803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 691936801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  rightAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  bottomAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  topAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 1}
-  mPivot: 4
-  mWidth: 132
-  mHeight: 132
-  mDepth: 50
-  mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
-  hideIfOffScreen: 0
-  keepAspectRatio: 0
-  aspectRatio: 1
-  mType: 0
-  mFillDirection: 4
-  mFillAmount: 1
-  mInvert: 0
-  mFlip: 0
-  mApplyGradient: 0
-  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
-  mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  centerType: 1
-  leftType: 1
-  rightType: 1
-  bottomType: 1
-  topType: 1
-  mAtlas: {fileID: 0}
-  mSpriteName: neko40-3
-  mFillCenter: 1
 --- !u!1 &692795164
 GameObject:
   m_ObjectHideFlags: 0
@@ -42303,7 +41583,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1743959493}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!114 &692795166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43298,6 +42578,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!1 &719854502
 GameObject:
   m_ObjectHideFlags: 0
@@ -44800,76 +44081,6 @@ MonoBehaviour:
   btnFBLogin: {fileID: 1161000591}
   _lblBottom: {fileID: 1921198543}
   _rankType: 0
---- !u!1001 &752262955
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 137590348}
-    m_Modifications:
-    - target: {fileID: 400004, guid: e116059325ae3e640a98f7a1b89d797b, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e116059325ae3e640a98f7a1b89d797b, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e116059325ae3e640a98f7a1b89d797b, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e116059325ae3e640a98f7a1b89d797b, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e116059325ae3e640a98f7a1b89d797b, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e116059325ae3e640a98f7a1b89d797b, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e116059325ae3e640a98f7a1b89d797b, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e116059325ae3e640a98f7a1b89d797b, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11414266, guid: e116059325ae3e640a98f7a1b89d797b, type: 2}
-      propertyPath: m_target
-      value: 
-      objectReference: {fileID: 1805056712}
-    - target: {fileID: 100004, guid: e116059325ae3e640a98f7a1b89d797b, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11440098, guid: e116059325ae3e640a98f7a1b89d797b, type: 2}
-      propertyPath: m_target
-      value: 
-      objectReference: {fileID: 1805056712}
-    - target: {fileID: 100002, guid: e116059325ae3e640a98f7a1b89d797b, type: 2}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: e116059325ae3e640a98f7a1b89d797b, type: 2}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: e116059325ae3e640a98f7a1b89d797b, type: 2}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: e116059325ae3e640a98f7a1b89d797b, type: 2}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: e116059325ae3e640a98f7a1b89d797b, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &752866095
 Prefab:
   m_ObjectHideFlags: 0
@@ -45757,6 +44968,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!1 &761023696
 GameObject:
   m_ObjectHideFlags: 0
@@ -50193,39 +49405,6 @@ MonoBehaviour:
   mAtlas: {fileID: 11453842, guid: 6d5dc3049b0f2764295503b68453e7c1, type: 2}
   mSpriteName: ref
   mFillCenter: 1
---- !u!1 &823443859
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 823443860}
-  m_Layer: 5
-  m_Name: SecondRow
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &823443860
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 823443859}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -135, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 2083593065}
-  - {fileID: 1287940465}
-  - {fileID: 1665399794}
-  - {fileID: 2022096321}
-  - {fileID: 313806399}
-  m_Father: {fileID: 575386871}
-  m_RootOrder: 1
 --- !u!1 &823561220
 GameObject:
   m_ObjectHideFlags: 0
@@ -50844,6 +50023,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!114 &835827766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67664,7 +66844,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 137590348}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!114 &1110548170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68718,6 +67898,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!114 &1132708057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68731,7 +67912,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   springStrength: 8
   nextPageThreshold: 0
-  mCenteredObject: {fileID: 0}
 --- !u!114 &1132708058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70494,6 +69674,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!65 &1159074352
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -73562,6 +72743,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!1001 &1208809425
 Prefab:
   m_ObjectHideFlags: 0
@@ -75316,43 +74498,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1232820874}
   m_Script: {fileID: 11500000, guid: b8ab15dd2f9cf57468bb8eb14bc6320a, type: 3}
---- !u!1 &1232968914
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1232968915}
-  m_Layer: 5
-  m_Name: MachineTenNeko
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1232968915
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1232968914}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 55093261}
-  - {fileID: 1516141169}
-  - {fileID: 321226364}
-  - {fileID: 1268792301}
-  - {fileID: 691936802}
-  - {fileID: 1469301812}
-  - {fileID: 1972746507}
-  - {fileID: 161311799}
-  - {fileID: 504110052}
-  m_Father: {fileID: 489720438}
-  m_RootOrder: 1
 --- !u!1001 &1233626670
 Prefab:
   m_ObjectHideFlags: 0
@@ -76677,6 +75822,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!1 &1256575420
 GameObject:
   m_ObjectHideFlags: 0
@@ -77511,89 +76657,6 @@ MonoBehaviour:
   mAtlas: {fileID: 11414960, guid: badd684b1f185d24883535f247007706, type: 2}
   mSpriteName: frm_popup_big
   mFillCenter: 1
---- !u!1 &1268792300
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1268792301}
-  - 114: {fileID: 1268792302}
-  m_Layer: 5
-  m_Name: MachineNeko (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1268792301
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1268792300}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -150, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1232968915}
-  m_RootOrder: 3
---- !u!114 &1268792302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1268792300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  rightAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  bottomAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  topAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 1}
-  mPivot: 4
-  mWidth: 132
-  mHeight: 132
-  mDepth: 50
-  mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
-  hideIfOffScreen: 0
-  keepAspectRatio: 0
-  aspectRatio: 1
-  mType: 0
-  mFillDirection: 4
-  mFillAmount: 1
-  mInvert: 0
-  mFlip: 0
-  mApplyGradient: 0
-  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
-  mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  centerType: 1
-  leftType: 1
-  rightType: 1
-  bottomType: 1
-  topType: 1
-  mAtlas: {fileID: 0}
-  mSpriteName: neko40-3
-  mFillCenter: 1
 --- !u!1 &1270873004
 GameObject:
   m_ObjectHideFlags: 0
@@ -78275,74 +77338,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 453188, guid: 2984603c855b2a84f875c0a21c4d0c92, type: 2}
   m_PrefabInternal: {fileID: 1285901392}
---- !u!1001 &1287940464
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 823443860}
-    m_Modifications:
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -140
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 189572, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_Name
-      value: GNekoTenPrefab (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &1287940465 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-  m_PrefabInternal: {fileID: 1287940464}
---- !u!114 &1287940466 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11469334, guid: c9cb17b222f0db9459286bc0833d570e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1287940464}
-  m_Script: {fileID: 11500000, guid: 1d3175797dc4a2b4eb8e69d86834e1ee, type: 3}
 --- !u!1 &1288271713
 GameObject:
   m_ObjectHideFlags: 0
@@ -78546,7 +77541,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1743959493}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!114 &1293107816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80293,6 +79288,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!1 &1323656572 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 103096, guid: 0fdca393cc5f912498250e064e874244, type: 2}
@@ -82902,6 +81898,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!114 &1384789315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85362,6 +84359,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!1 &1421253237
 GameObject:
   m_ObjectHideFlags: 0
@@ -86843,6 +85841,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!114 &1447009707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88276,89 +87275,6 @@ MonoBehaviour:
   mAtlas: {fileID: 11477496, guid: c5b3b4b3641aa2c43ad47ad36c05154f, type: 2}
   mSpriteName: frm_popup_mid
   mFillCenter: 1
---- !u!1 &1469301811
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1469301812}
-  - 114: {fileID: 1469301813}
-  m_Layer: 5
-  m_Name: MachineNeko (5)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1469301812
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1469301811}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -150, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1232968915}
-  m_RootOrder: 5
---- !u!114 &1469301813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1469301811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  rightAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  bottomAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  topAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 1}
-  mPivot: 4
-  mWidth: 132
-  mHeight: 132
-  mDepth: 50
-  mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
-  hideIfOffScreen: 0
-  keepAspectRatio: 0
-  aspectRatio: 1
-  mType: 0
-  mFillDirection: 4
-  mFillAmount: 1
-  mInvert: 0
-  mFlip: 0
-  mApplyGradient: 0
-  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
-  mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  centerType: 1
-  leftType: 1
-  rightType: 1
-  bottomType: 1
-  topType: 1
-  mAtlas: {fileID: 0}
-  mSpriteName: neko40-3
-  mFillCenter: 1
 --- !u!1 &1469889228
 GameObject:
   m_ObjectHideFlags: 0
@@ -88496,6 +87412,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!1 &1470556199
 GameObject:
   m_ObjectHideFlags: 0
@@ -89772,11 +88689,9 @@ MonoBehaviour:
   objNekoLevelup: {fileID: 598792815}
   objNekoLevelUpConfirmWindow: {fileID: 559952121}
   objSelectNeko: {fileID: 1447009704}
-  pnlPlayerOwnNeko: {fileID: 412152825}
   _objBingoFocusMark: {fileID: 767326238}
   _bingoMaster: {fileID: 741703942}
   _gatchaConfirmCtrl: {fileID: 1436025425}
-  _particleUseHeart: {fileID: 256690555}
   _nekoBonusInfo: {fileID: 211384309}
   _lockSpark: {fileID: 1997713309}
   _btnMission: {fileID: 623954641}
@@ -90967,6 +89882,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!114 &1512141456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91268,89 +90184,6 @@ MonoBehaviour:
   topType: 1
   mAtlas: {fileID: 11495180, guid: 8082f24182a26c542ae54ea67fed83a1, type: 2}
   mSpriteName: option_btn_red
-  mFillCenter: 1
---- !u!1 &1516141168
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1516141169}
-  - 114: {fileID: 1516141170}
-  m_Layer: 5
-  m_Name: MachineNeko (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1516141169
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1516141168}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -150, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1232968915}
-  m_RootOrder: 1
---- !u!114 &1516141170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1516141168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  rightAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  bottomAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  topAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 1}
-  mPivot: 4
-  mWidth: 132
-  mHeight: 132
-  mDepth: 50
-  mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
-  hideIfOffScreen: 0
-  keepAspectRatio: 0
-  aspectRatio: 1
-  mType: 0
-  mFillDirection: 4
-  mFillAmount: 1
-  mInvert: 0
-  mFlip: 0
-  mApplyGradient: 0
-  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
-  mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  centerType: 1
-  leftType: 1
-  rightType: 1
-  bottomType: 1
-  topType: 1
-  mAtlas: {fileID: 0}
-  mSpriteName: neko40-3
   mFillCenter: 1
 --- !u!1 &1516922876
 GameObject:
@@ -92371,6 +91204,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!1001 &1532838976
 Prefab:
   m_ObjectHideFlags: 0
@@ -94105,6 +92939,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!1001 &1554668247
 Prefab:
   m_ObjectHideFlags: 0
@@ -94547,6 +93382,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!1 &1567252051
 GameObject:
   m_ObjectHideFlags: 0
@@ -96819,6 +95655,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!1 &1594730502
 GameObject:
   m_ObjectHideFlags: 0
@@ -102061,74 +100898,6 @@ MonoBehaviour:
   _actionType: 
   _debugNode: 
   _btnClose: {fileID: 697872447}
---- !u!1001 &1665399793
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 823443860}
-    m_Modifications:
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 189572, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_Name
-      value: GNekoTenPrefab (2)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &1665399794 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-  m_PrefabInternal: {fileID: 1665399793}
---- !u!114 &1665399795 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11469334, guid: c9cb17b222f0db9459286bc0833d570e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1665399793}
-  m_Script: {fileID: 11500000, guid: 1d3175797dc4a2b4eb8e69d86834e1ee, type: 3}
 --- !u!1001 &1665835144
 Prefab:
   m_ObjectHideFlags: 0
@@ -106008,7 +104777,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   springStrength: 8
   nextPageThreshold: 250
-  mCenteredObject: {fileID: 0}
 --- !u!114 &1739549584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106133,6 +104901,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: Default
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!1 &1740125299
 GameObject:
   m_ObjectHideFlags: 0
@@ -106383,6 +105152,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!1 &1742656009
 GameObject:
   m_ObjectHideFlags: 0
@@ -106537,7 +105307,6 @@ Transform:
   - {fileID: 1150085079}
   - {fileID: 2008437339}
   - {fileID: 1575050092}
-  - {fileID: 575386871}
   - {fileID: 1750066427}
   - {fileID: 692795165}
   - {fileID: 1293107815}
@@ -106828,7 +105597,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1743959493}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!65 &1750066428
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -111527,6 +110296,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!1 &1808772089
 GameObject:
   m_ObjectHideFlags: 0
@@ -112809,6 +111579,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!1 &1825082737
 GameObject:
   m_ObjectHideFlags: 0
@@ -115486,74 +114257,6 @@ MonoBehaviour:
   mAtlas: {fileID: 11485300, guid: e79131ee1e3ca4849b238a4fabbd69d1, type: 2}
   mSpriteName: chodai-button
   mFillCenter: 1
---- !u!1001 &1888589898
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 293648666}
-    m_Modifications:
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -140
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 189572, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_Name
-      value: GNekoTenPrefab (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &1888589899 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-  m_PrefabInternal: {fileID: 1888589898}
---- !u!114 &1888589900 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11469334, guid: c9cb17b222f0db9459286bc0833d570e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1888589898}
-  m_Script: {fileID: 11500000, guid: 1d3175797dc4a2b4eb8e69d86834e1ee, type: 3}
 --- !u!1 &1892553394
 GameObject:
   m_ObjectHideFlags: 0
@@ -117028,6 +115731,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!1 &1922860697
 GameObject:
   m_ObjectHideFlags: 0
@@ -120708,89 +119412,6 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
---- !u!1 &1972746506
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1972746507}
-  - 114: {fileID: 1972746508}
-  m_Layer: 5
-  m_Name: MachineNeko (6)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1972746507
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1972746506}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -150, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1232968915}
-  m_RootOrder: 6
---- !u!114 &1972746508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1972746506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  rightAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  bottomAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  topAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 1}
-  mPivot: 4
-  mWidth: 132
-  mHeight: 132
-  mDepth: 50
-  mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
-  hideIfOffScreen: 0
-  keepAspectRatio: 0
-  aspectRatio: 1
-  mType: 0
-  mFillDirection: 4
-  mFillAmount: 1
-  mInvert: 0
-  mFlip: 0
-  mApplyGradient: 0
-  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
-  mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  centerType: 1
-  leftType: 1
-  rightType: 1
-  bottomType: 1
-  topType: 1
-  mAtlas: {fileID: 0}
-  mSpriteName: neko40-3
-  mFillCenter: 1
 --- !u!1 &1974033326
 GameObject:
   m_ObjectHideFlags: 0
@@ -123159,8 +121780,8 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 850
-  mHeight: 850
+  mWidth: 500
+  mHeight: 500
   mDepth: 4
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
@@ -123654,74 +122275,6 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
---- !u!1001 &2022096320
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 823443860}
-    m_Modifications:
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 140
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 189572, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_Name
-      value: GNekoTenPrefab (3)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &2022096321 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-  m_PrefabInternal: {fileID: 2022096320}
---- !u!114 &2022096322 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11469334, guid: c9cb17b222f0db9459286bc0833d570e,
-    type: 2}
-  m_PrefabInternal: {fileID: 2022096320}
-  m_Script: {fileID: 11500000, guid: 1d3175797dc4a2b4eb8e69d86834e1ee, type: 3}
 --- !u!1 &2026779852
 GameObject:
   m_ObjectHideFlags: 0
@@ -125245,6 +123798,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!114 &2045188665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125843,74 +124397,6 @@ MonoBehaviour:
   mAtlas: {fileID: 11404252, guid: 58c381b3c27485543b86d36da7c6fbf0, type: 2}
   mSpriteName: result-clear
   mFillCenter: 1
---- !u!1001 &2055067761
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 293648666}
-    m_Modifications:
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 189572, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_Name
-      value: GNekoTenPrefab (2)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &2055067762 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-  m_PrefabInternal: {fileID: 2055067761}
---- !u!114 &2055067763 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11469334, guid: c9cb17b222f0db9459286bc0833d570e,
-    type: 2}
-  m_PrefabInternal: {fileID: 2055067761}
-  m_Script: {fileID: 11500000, guid: 1d3175797dc4a2b4eb8e69d86834e1ee, type: 3}
 --- !u!1 &2061881446
 GameObject:
   m_ObjectHideFlags: 0
@@ -127241,58 +125727,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 339915354}
   m_Script: {fileID: 11500000, guid: 1754b4bf6bbe5c146b36d0690231dfa7, type: 3}
---- !u!1001 &2083593064
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 823443860}
-    m_Modifications:
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -280
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &2083593065 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 470742, guid: c9cb17b222f0db9459286bc0833d570e, type: 2}
-  m_PrefabInternal: {fileID: 2083593064}
---- !u!114 &2083593066 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11469334, guid: c9cb17b222f0db9459286bc0833d570e,
-    type: 2}
-  m_PrefabInternal: {fileID: 2083593064}
-  m_Script: {fileID: 11500000, guid: 1d3175797dc4a2b4eb8e69d86834e1ee, type: 3}
 --- !u!1 &2084272347
 GameObject:
   m_ObjectHideFlags: 0

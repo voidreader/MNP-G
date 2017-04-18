@@ -112,8 +112,7 @@ public partial class LobbyCtrl : MonoBehaviour {
     [SerializeField] GameObject objNekoLevelUpConfirmWindow = null;
 
     [SerializeField] private GameObject objSelectNeko = null;
-    [SerializeField] private UIPanel pnlPlayerOwnNeko = null;
-    
+        
 
 
     [SerializeField] GameObject _objBingoFocusMark; // 빙고 포커스 마크 
@@ -123,7 +122,6 @@ public partial class LobbyCtrl : MonoBehaviour {
     GatchaConfirmCtrl _gatchaConfirmCtrl;
 
 
-    [SerializeField] ParticleSystem _particleUseHeart;
     Vector3 _nekoSelectScrollViewPos = new Vector3(-220, -90, 0);
 
     [SerializeField] NekoBonusInfoCtrl _nekoBonusInfo;

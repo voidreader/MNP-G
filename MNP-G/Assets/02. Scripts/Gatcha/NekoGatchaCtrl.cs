@@ -45,7 +45,7 @@ public class NekoGatchaCtrl : MonoBehaviour {
 
 
     [SerializeField] GatchaNekoCtrl _gatchaNeko; // 뽑은 고양이.
-    [SerializeField] GameObject _nekoBall; // 고양이 묶음
+    
 
     [SerializeField] int _gatchNekoID;
 	[SerializeField] int _gatchaNekoLevel;
@@ -89,14 +89,7 @@ public class NekoGatchaCtrl : MonoBehaviour {
     [SerializeField] WhiteLightCtrl[] _arrWhiteLights;
 
 
-    [SerializeField] UISprite[] _arrMachineTenNeko;
-    [SerializeField] GNekoTenCtrl[] _arrResultTenNeko;
-    [SerializeField] Transform _tenFirstRow;
-    [SerializeField] Transform _tenSecondRow;
-
-
-    
-    
+   
 
 
     [SerializeField] private bool _isPicking = false; // 집는 행위중인 경우 
@@ -192,10 +185,6 @@ public class NekoGatchaCtrl : MonoBehaviour {
         _touchArea.gameObject.SetActive(false);
         _touchArea2.gameObject.SetActive(false);
 
-        // Row 초기화 
-        _tenFirstRow.localPosition = new Vector3(800, 0, 0);
-        _tenSecondRow.localPosition = new Vector3(-800, -135, 0);
-
 
         _number1.gameObject.SetActive(true); // 1반짝임 
         _number1.Play();
@@ -237,16 +226,6 @@ public class NekoGatchaCtrl : MonoBehaviour {
     }
 
     /// <summary>
-    /// 10회 뽑기 세팅 
-    /// </summary>
-    private void SetNekoPack() {
-        _nekoBall.SetActive(false);
-        _gatchaNeko.SetVisible(false);
-
-    }
-
-
-    /// <summary>
     /// 티켓 네코 설정
     /// </summary>
     /// <param name="pNode"></param>
@@ -262,13 +241,6 @@ public class NekoGatchaCtrl : MonoBehaviour {
 
         _touchArea.gameObject.SetActive(false);
         _touchArea2.gameObject.SetActive(false);
-
-
-        // Row 초기화 
-        _tenFirstRow.localPosition = new Vector3(800, 0, 0);
-        _tenSecondRow.localPosition = new Vector3(-800, -135, 0);
-
-
 
 
         _gatchNekoID = pNode["tid"].AsInt;
@@ -315,7 +287,7 @@ public class NekoGatchaCtrl : MonoBehaviour {
         */
 
 
-        _nekoBall.SetActive(false);
+        
 
         _gatchNekoID = GameSystem.Instance.GatchaData["data"]["resultlist"][pIndex]["tid"].AsInt;
         _gatchaNekoLevel = 1;
@@ -371,24 +343,6 @@ public class NekoGatchaCtrl : MonoBehaviour {
 
         _gatchaNeko.SetGatchaNeko(_gatchNekoID, _gatchaNekoStar);
         _gatchaNeko.SetVisible(false);
-
-
-        // 나머지 9개의 네코 Sprite 세팅 (10회)
-        if (!_isSinglePick && pNeedTenNekoColumn) {
-            for(int i=1; i< GameSystem.Instance.GatchaData["data"]["resultlist"].Count; i++) {
-                _arrMachineTenNeko[i - 1].gameObject.SetActive(false);
-                _arrMachineTenNeko[i - 1].transform.localPosition = new Vector3(0, -150, 0);
-
-                SetResultNekoSprite(_arrMachineTenNeko[i - 1], GameSystem.Instance.GatchaData["data"]["resultlist"][i - 1]);
-
-                /*
-                GameSystem.Instance.SetNekoSprite(_arrMachineTenNeko[i - 1]
-                                                    , GameSystem.Instance.GatchaData["data"]["resultlist"][i - 1]["tid"].AsInt
-                                                    , GameSystem.Instance.GatchaData["data"]["resultlist"][i - 1]["star"].AsInt);
-                */
-
-            }
-        }
 
     }
 
@@ -696,85 +650,6 @@ public class NekoGatchaCtrl : MonoBehaviour {
 
     #region 뽑기 결과 화면 오픈
 
-    private void ShowMultiResult() {
-        Debug.Log(">> ShowMultiResult");
-
-        // 효과음 재생 
-        PlayGatchaResult();
-
-        // 현 상태 그대로 UI 창을 띄운다. 
-        InitResultUI();
-
-        // SNS 버튼 설정 (튜토리얼에서 등장하지 않음)
-        SetSNSButton();
-
-        // 뽑힌 고양이 disable 
-        _gatchaNeko.SetVisible(false);
-
-        // 10마리 고양이 세팅
-        for(int i=0; i<_arrResultTenNeko.Length; i++) {
-            _arrResultTenNeko[i].SetNeko(i, GameSystem.Instance.GatchaData["data"]["resultlist"][i], this);
-            /*
-            _arrResultTenNeko[i].SetNeko(i, GameSystem.Instance.GatchaData["data"]["resultlist"][i]["tid"].AsInt
-                                          , GameSystem.Instance.GatchaData["data"]["resultlist"][i]["star"].AsInt
-                                          , this
-                                          , GameSystem.Instance.GatchaData["data"]["resultlist"][i]["isFusion"].AsInt);
-             */
-
-            // 버튼 콤포넌트를 enable 시켜놓는다
-            SetButtonComponent(_arrResultTenNeko[i].gameObject, false);
-
-        }
-
-        // 첫번째 고양이 외형 세팅 
-        _lblExtraInfo.transform.localPosition = new Vector3(0, 80, 0);
-        _resultNekoSprite.transform.localPosition = new Vector3(0, 470, 0);
-        // Circle 이동 
-        _resultCircleFX.transform.localPosition = new Vector3(0, 470, 0);
-
-        Vector3 destPos = new Vector3(0, 470, 0);
-
-        _resultNekoSprite.gameObject.SetActive(true);
-        GameSystem.Instance.SetNekoSprite(_resultNekoSprite, _gatchNekoID, _gatchaNekoStar); // 네코 Sprite 세팅 
-        _resultNekoSprite.transform.DOLocalJump(destPos, destPos.y + 100f, 1, 0.5f).OnComplete(OnCompleteSingleLocalJump); // 점핑 등장.
-
-        _lblNekoName.text = GameSystem.Instance.GetNekoName(_gatchNekoID, _gatchaNekoStar);
-        _lblNekoDetail.text = GameSystem.Instance.GetNekoDetail(_gatchNekoID, _gatchaNekoStar);
-
-        StartCoroutine(DoingYellowEffect());
-
-        // 효과 회전 
-        _resultCircleFX.DOLocalRotate(new Vector3(0, 0, 720), 3, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Restart).SetEase(Ease.Linear);
-
-        // Row 이동 
-        _tenFirstRow.DOLocalMoveX(0, 0.5f);
-        _tenSecondRow.DOLocalMoveX(0, 0.5f).OnComplete(OnCompleteMultiNekoRowMove);
-
-        Invoke("EnableResultTenNekoButton", 0.5f);
-
-        _touchArea.transform.localPosition = new Vector3(0, 470, 0);
-        _touchArea.gameObject.SetActive(true);
-        _touchArea2.gameObject.SetActive(true);
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    private void OnCompleteMultiNekoRowMove() {
-        // 마지막 네코 강조 처리 
-        _arrResultTenNeko[_arrResultTenNeko.Length - 1].SetLastNeko();
-    }
-
-    private void EnableResultTenNekoButton() {
-
-        
-        for (int i = 0; i < _arrResultTenNeko.Length; i++) {
-            SetButtonComponent(_arrResultTenNeko[i].gameObject, true);
-
-        }
-
-    }
-
     /// <summary>
     /// 1회 가챠 결과 보여주기
     /// </summary>
@@ -1062,53 +937,6 @@ public class NekoGatchaCtrl : MonoBehaviour {
         _tweezer.DOLocalMoveY(4.5f, 1).OnComplete(OnCompleteUpTweezer);
     }
 
-    /// <summary>
-    /// 10회 뽑기에서 들어올리기. 
-    /// </summary>
-    private void UpMultiTweezer() {
-        StartCoroutine(PunchingTweezer());
-    }
-
-    IEnumerator PunchingTweezer() {
-        //_tweezer.DOPunchPosition(new Vector3(0, 1.22f, 0), 0.2f, 3, 0.3f);
-        _tweezer.DOShakePosition(0.2f, 0.5f, 50, 3);
-        PlayPunchTweezer();
-
-        yield return new WaitForSeconds(1);
-
-        //_tweezer.DOPunchPosition(new Vector3(0, 1.22f, 0), 0.2f, 3, 0.3f);
-        _tweezer.DOShakePosition(0.3f, 0.6f, 50, 3);
-        PlayPunchTweezer();
-
-        yield return new WaitForSeconds(1);
-
-        // 매우 흔들기
-        _tweezer.DOPunchPosition(new Vector3(0, 1.25f, 0), 1f, 7, 0.5f);
-        PlayPunchTweezer();
-
-        yield return new WaitForSeconds(1f);
-
-        OnGatchaNekoSprite();
-        _tweezer.DOLocalMoveY(5f, 1.5f).SetEase(Ease.OutBounce);
-        yield return new WaitForSeconds(0.1f);
-        ThrowNekos();
-        PlayFlyNeko();
-
-        yield return new WaitForSeconds(2);
-
-        OnCompletePicking();
-
-    }
-
-    private void ThrowNekos() {
-        for(int i=0; i<_arrMachineTenNeko.Length;i++) {
-            _arrMachineTenNeko[i].gameObject.SetActive(true);
-            Vector3 dest = new Vector3(Random.Range(-750, 750), 850, 0);
-            _arrMachineTenNeko[i].transform.DOLocalMove(dest, Random.Range(1, 1.5f));
-        }
-
-    }
-
 
     /// <summary>
     /// 획득 가챠 네코 등장 
@@ -1170,13 +998,8 @@ public class NekoGatchaCtrl : MonoBehaviour {
         }
         else if (pClip.name.Equals("TweezerBackwardClip")) {
 
-            if (_isSinglePick) {
-                UpTweezer();
-            }
-            else {
-                Debug.Log("Multi Gatacha");
-                UpMultiTweezer();
-            }
+
+            UpTweezer();
 
         }
 
