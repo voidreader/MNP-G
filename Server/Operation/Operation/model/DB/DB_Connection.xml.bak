@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DBConnection>
+	<AccountDB>
+		<connectionLimit>100</connectionLimit>
+		<host>161.202.148.172</host>
+		<port>3306</port>
+		<user>super</user>
+		<password>idb2hold</password>
+		<database>account</database>
+	</AccountDB>
+	<GameDB>
+		<connectionLimit>250</connectionLimit>
+		<host>161.202.148.172</host>
+		<port>3306</port>
+		<user>super</user>
+		<password>idb2hold</password>
+		<database>game</database>
+		<multipleStatements>true</multipleStatements>
+	</GameDB>
+	<GameLog>
+		<connectionLimit>250</connectionLimit>
+		<host>161.202.148.172</host>
+		<port>3306</port>
+		<user>super</user>
+		<password>idb2hold</password>
+		<database>gamelog</database>
+	</GameLog>
+	<EnvDB>
+		<connectionLimit>100</connectionLimit>
+		<host>161.202.148.172</host>
+		<port>3306</port>
+		<user>super</user>
+		<password>idb2hold</password>
+		<database>envdb</database>
+	</EnvDB>
+</DBConnection>

@@ -28,9 +28,30 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="model\DBAgent.js" />
+    <Compile Include="model\NetworkAgent.js" />
+    <Compile Include="model\OperationModel.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="model\ServerList.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="routes\OperationRoutes.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="server.js" />
+    <Compile Include="utils\LogUtil.js" />
+    <Compile Include="utils\QueryUtil.js" />
+    <Compile Include="utils\XlsxParser.js" />
+    <Content Include="model\DB\DB_Connection.xml" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="model\" />
+    <Folder Include="model\DB\" />
+    <Folder Include="routes\" />
+    <Folder Include="utils\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
