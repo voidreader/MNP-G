@@ -1,0 +1,783 @@
+using UnityEngine;
+using System;
+using System.Collections;
+using SimpleJSON;
+
+public class SimplePopupCtrl : MonoBehaviour {
+
+    [SerializeField] GameObject _title1;
+    [SerializeField] GameObject _title2;
+
+	[SerializeField] UILabel _lblMessage;
+	[SerializeField] UILabel _lblConfirmMessage;
+	[SerializeField] string _message;
+	[SerializeField] PopMessageType _messageType;
+
+	[SerializeField] UISprite _messageIcon;
+	[SerializeField] UISprite _fishIcon;
+
+    [SerializeField] UISprite _nekoSprite;
+    [SerializeField] UISprite _nekoFishIcon;
+    [SerializeField] UILabel _nekoFishValue;
+
+    [SerializeField] GameObject _groupYesNoButton;
+
+
+	[SerializeField] GameObject _btnConfirm;
+	[SerializeField] UILabel _lblbtnConfirm;
+
+	private string _heartMark = "main_ico_heart";
+	private string _diaMark = "main_ico_dia";
+	private string _goldMark = "main_ico_coin";
+	private string _starMark = "main_top_star_ico";
+
+    readonly string _baseTitleSprtie = "img_title_notice";
+    readonly string _bingoRetryTitle = "retry-r";
+    readonly string _bingoChallengeTitle = "challenge-r";
+   
+
+    JSONNode _nekoNode;
+
+
+    // Actions
+    event Action OnCompleteClose = delegate { };
+
+
+    /*
+    public void SetAction(Action func) {
+        OnCompleteClose += func;
+    }
+    */
+
+    #region 텍스트 처리 
+
+    /// <summary>
+    /// 텍스트 (메세지 설정)
+    /// </summary>
+    /// <param name="pType"></param>
+    private void SetText(PopMessageType pType) {
+
+        // 가챠 진입 확인 
+		if (pType == PopMessageType.GatchaConfirm) {
+			_message = GameSystem.Instance.DocsLocalize.get<string> ("3033", "content");
+			_message = _message.Replace ("[n]", GameSystem.Instance.GetNumberToString (GameSystem.Instance.SpecialSingleGatchaPrice)); // 가격 정보 연결  
+		} else if (pType == PopMessageType.ConfirmSpecialGatchaTen) {
+			//_message = GameSystem.Instance.DocsLocalize.get<string>("3033", "content");
+			_message = "だいや[n]個で10回\n「すぺしゃるくれーん」に\nちょうせんしますか？";
+			_message = _message.Replace ("[n]", GameSystem.Instance.GetNumberToString (GameSystem.Instance.SpecialMultiGatchaPrice)); // 가격 정보 연결  
+		} else if (pType == PopMessageType.ConfirmFishGatchaOne) {
+			_message = GameSystem.Instance.DocsLocalize.get<string> ("3034", "content");
+			_message = _message.Replace ("[n1]", GameSystem.Instance.GetNumberToString (GameSystem.Instance.SpecialSingleFishingPrice)).Replace ("[n2]", "1"); // 
+		} else if (pType == PopMessageType.ConfirmFishGatchaTen) {
+			_message = GameSystem.Instance.DocsLocalize.get<string> ("3034", "content");
+			_message = _message.Replace ("[n1]", GameSystem.Instance.GetNumberToString (GameSystem.Instance.SpecialMultiFishingPrice)).Replace ("[n2]", "10");
+		} else if (pType == PopMessageType.HeartFull) {
+			//_message = "사랑이 가득해 더이상 받을 수 없어요";
+			_message = GameSystem.Instance.DocsLocalize.get<string> ("3410", "content");
+
+		} else if (pType == PopMessageType.HeartZero) {
+			_message = GameSystem.Instance.DocsLocalize.get<string> ("3011", "content");
+		} else if (pType == PopMessageType.AdsNotEnable) {
+			// _message = "스타트 피버 아이템 사용 과정에서 오류가 발생했어요.";
+			_message = GameSystem.Instance.DocsLocalize.get<string> ("3411", "content");
+
+
+		} else if (pType == PopMessageType.GoldPurchase) {
+			_message = GameSystem.Instance.DocsLocalize.get<string> ("3200", "content");
+
+		} else if (pType == PopMessageType.NeedGoldPurchase) {
+			_message = GameSystem.Instance.DocsLocalize.get<string> ("3010", "content");
+		} else if (pType == PopMessageType.ShortageGoldForItem) {
+			_message = GameSystem.Instance.DocsLocalize.get<string> ("3010", "content");
+		} else if (pType == PopMessageType.ShortageGemForGatcha) {
+			_message = GameSystem.Instance.DocsLocalize.get<string> ("3009", "content");
+		} else if (pType == PopMessageType.GoldShortage) {
+			// 3010 
+			_message = GameSystem.Instance.DocsLocalize.get<string> ("3010", "content");
+		} else if (pType == PopMessageType.NoFish) {
+			_message = GameSystem.Instance.DocsLocalize.get<string> ("3900", "content");
+		} else if (pType == PopMessageType.CantGrowNeko) {
+			_message = GameSystem.Instance.DocsLocalize.get<string> ("3901", "content");
+		} else if (pType == PopMessageType.NekoGonnaMaxGrade) {
+			_message = GameSystem.Instance.DocsLocalize.get<string> ("3902", "content");
+		} else if (pType == PopMessageType.ItemAds) { // 아이템 애즈 
+			_message = GameSystem.Instance.DocsLocalize.get<string> ("3203", "content");
+			_message = _message.Replace ("[n]", GameSystem.Instance.Remainstartfever.ToString ());
+		} else if (pType == PopMessageType.CouponFail) { // 없는 쿠폰 번호
+
+			//_message = GameSystem.Instance.DocsLocalize.get<string> ("3024", "content");
+			//2015.11.14 수정
+			_message = "등록되지 않은 쿠폰 번호에요!\n쿠폰 입력에 실패했어요";
+
+		} else if (pType == PopMessageType.CouponOutOf) { // 기간지난 쿠폰번호
+
+			//_message = GameSystem.Instance.DocsLocalize.get<string> ("3024", "content");
+			//2015.11.14 수정
+			_message = "쿠폰 사용기간 지났어요!\n쿠폰 입력에 실패했어요";
+
+		} else if (pType == PopMessageType.CouponUsed) { // 이미 사용된 쿠폰 번호 
+
+			//2015.11.14 수정
+			_message = "이미 사용된 쿠폰이에요!\n쿠폰 입력에 실패했어요";
+
+		} else if (pType == PopMessageType.CouponSucceed) { // 쿠폰 성공
+
+			_message = GameSystem.Instance.DocsLocalize.get<string> ("3023", "content");
+
+		} else if (pType == PopMessageType.CouponInput) {
+			_message = "쿠폰 코드가 입력되지 않았어요!";
+		} else if (pType == PopMessageType.HeartPurchase) {
+			_message = GameSystem.Instance.GetLocalizeText ("3209");
+		} else if (pType == PopMessageType.HeartPurChaseButFull) {
+			_message = GameSystem.Instance.GetLocalizeText ("3204");
+		} else if (pType == PopMessageType.NeedGradeUp) {
+			_message = GameSystem.Instance.GetLocalizeText ("3418"); // 더이상 업그레이드 할 수 없어요.
+		} else if (pType == PopMessageType.NeedLevelUp) {
+			_message = "レベルが上がると、\nアップグレードすることができます。";
+		} else if (pType == PopMessageType.AdShortage) {
+			_message = GameSystem.Instance.GetLocalizeText ("3419"); // 광고가 충전중이에요.
+		} else if (pType == PopMessageType.FacebookFriendNeed) {
+			_message = "페이스북 친구를 불러오는 중이에요.\n잠시만 기다려주세요";
+		} else if (pType == PopMessageType.AlreadySentHeart) {
+			_message = GameSystem.Instance.GetLocalizeText ("3422"); // 오늘은 이친구에게 하트를 보냈어요.
+		} else if (pType == PopMessageType.FacebookLinkLost) {
+			//_message = GameSystem.Instance.GetLocalizeText("3422"); // 오늘은 이친구에게 하트를 보냈어요.
+			_message = "Facebookの接続が切断された友人です。";
+		} else if (pType == PopMessageType.Logout) {
+			_message = "로그아웃 하시겠어요?";
+		} else if (pType == PopMessageType.OfferWallDone) {
+			_message = "무료충전 보상을 받았습니다. 메일함을 확인해주세요.";
+		} else if (pType == PopMessageType.OfferWallOpen) {
+			_message = GameSystem.Instance.DocsLocalize.get<string> ("3216", "content");
+		} else if (pType == PopMessageType.EquipNekoNeed) {
+			_message = GameSystem.Instance.DocsLocalize.get<string> ("3425", "content");
+		} else if (pType == PopMessageType.AdsCool) {
+			_message = "広告が充電中です。";
+		} else if (pType == PopMessageType.AlreadStartPackage) {
+			_message = "すでに購入済みです。";
+		} else if (pType == PopMessageType.RateForGem) {
+			_message = "게임 평가를 해주시면\n최초 1회 보석 10개를 드려요.";
+		} else if (_messageType == PopMessageType.ItemReplayItemAds) {
+			_message = "광고를 보고\n시작 피버 아이템을 사용할까요?";
+
+			_btnConfirm.SetActive (true);
+			_lblbtnConfirm.text = "ただする";
+
+
+
+		} else if (_messageType == PopMessageType.ApplicationQuit) {
+			_message = "ゲームを終了します。";
+		} else if (_messageType == PopMessageType.NoFunc) {
+			_message = "Android/iOSで支援する機能です。";
+		} else if (_messageType == PopMessageType.MaxPassiveLevel) {
+			_message = GameSystem.Instance.GetLocalizeText ("4121");
+		} else if (_messageType == PopMessageType.GameCenterConnectInfo) {
+			//_message = "안전한 게임 이용을 위해 GameCenter 연동을 권장합니다. 설정 > GameCenter 로그인 > 게임 재시작";
+			_message = "安全なゲーム利用のためにGameCenter連動をお勧めします。\n設定 > GameCenterログイン > ゲーム再起動";
+		} else if (_messageType == PopMessageType.NekoGiftWithAdsConfirm) {
+
+			_groupYesNoButton.SetActive (true);
+			_btnConfirm.SetActive (false);
+
+			_message = "広告を見ると「こいん×5000」「さば×5」「だいや×100」のいずれかがもらえます。\n広告を見ますか？";
+			//_message = "広告を見ると「れあねこちけっと」「ねこちけっと」のいずれかがもらえます。\n広告を見ますか？";
+		} else if (_messageType == PopMessageType.ConfirmFeed) {
+			_message = GameSystem.Instance.GetLocalizeText ("4116");
+		} else if (_messageType == PopMessageType.NoRemainNekoGift) {
+			_message = "広告をみることができません\n9：00と21：00に\n2回数がリセットされます";
+			//_message = "広告をみることができません\n午前9: 00と午後21：00に";
+		} else if (_messageType == PopMessageType.NoRemainAds) {
+			_message = "広告をみることができません\n9：00と21：00に\n5回数がリセットされます";
+			//_message = "広告をみることができません\n午前9: 00と午後21：00に";
+		} else if (_messageType == PopMessageType.NoRemainFreeGatcha) { // 프리가챠는 1회가 최대치. 
+			//_message = "広告をみることができません\n午前9: 00と午後21：00に\n 3回数がリセットされます";
+
+			//_message = "広告をみることができません\n9：00と21：00に\n1回数がリセットされます";
+			_message = "9：00と21：00に\n3回数がリセットされます";
+
+		} else if (_messageType == PopMessageType.NickNameChanged) {
+			_message = GameSystem.Instance.GetLocalizeText ("4202");
+		} else if (_messageType == PopMessageType.ReLogin) {
+			_message = "サーバーの再起動、アップデートによってつながりが断たれました。\nタイトル画面に戻ります。";
+		} else if (_messageType == PopMessageType.NeedWatchGatchaMovie) { // 무료뽑기 광고 보겠습니까?
+
+			_message = "広告を見て、★を3つためると\n「ふりーくれーん」が1回できます\n広告を見ますか？";
+			//_message = "広告を見て、★を3つためると\n「ふりーくれーん」が1回できます\n広告を見ますか？";
+
+
+			_groupYesNoButton.SetActive (true);
+			_btnConfirm.SetActive (false);
+		} else if (_messageType == PopMessageType.ReadyToFreeGatcha) { // 무료뽑기를 하시겠습니까?
+
+			_title1.SetActive (false);
+			_title2.SetActive (true);
+
+			//_message = "★を3つ消費して\n「ふりーくれーん」に\nちょうせんしますか？";
+			//_message = "広告を見て「ふりーくれーん」にちょうせんしますか？";
+			//_message = "動画広告をチェックすると、無料で「すぺしゃるくれーん」にチャレンジできます！チェックしますか？\n※あと「n」回チャレンジできます".Replace("n", GameSystem.Instance.Remainfreegacha.ToString());
+			_message = "動画広告を見て「すぺしゃるくれーん」にちょうせんしますか？\n\n※あと[n]回ちょうせんできます。".Replace ("[n]", GameSystem.Instance.Remainfreegacha.ToString ());
+
+			_groupYesNoButton.SetActive (true);
+			_btnConfirm.SetActive (false);
+		} else if (_messageType == PopMessageType.UploadComplete) {
+			_message = "しぇあが完了しました。";
+		} else if (_messageType == PopMessageType.UploadFail) {
+			_message = "しぇあをキャンセルしました。";
+		} else if (_messageType == PopMessageType.InviteComplete) {
+			_message = "ともだちを招待しました\n（招待ぼーなすのはーとは\n1日5個までもらえます）";
+		} else if (_messageType == PopMessageType.AlreadyIssued) {
+			_message = "すでにコードを発給を受けました。";
+		} else if (_messageType == PopMessageType.WrongCode) {
+			_message = "引き継ぎコードが間違っています";
+		} else if (_messageType == PopMessageType.UsedCode) {
+			_message = "既に使われたデータ移転コードです。";
+		} else if (_messageType == PopMessageType.ExpiredCode) {
+			_message = "引き継ぎコードの\n有効期限が切れています";
+			GameSystem.Instance.DataCode = null;
+		} else if (_messageType == PopMessageType.SameDeviceCode) {
+			_message = "同じ端末での引き継ぎはできません";
+		} else if (_messageType == PopMessageType.CompleteDataTranfer) {
+			_message = "引継ぎが完了しました\n再度みっちりねこPOPを起動してください";
+		} else if (_messageType == PopMessageType.ExistsCantReadMail) {
+			_message = "上限を超えた分のプレゼントは\n受け取れませんでした";
+		} else if (_messageType == PopMessageType.Lock) {
+			_message = "ゲームを進めると使用できるようになります";
+		} else if (_messageType == PopMessageType.UseTicket) {
+			_message = "「ねこちけっと」を使って、\nみっちりねこを受け取りますか？";
+		} else if (_messageType == PopMessageType.CommingSoon) {
+			_message = "いまはまだげっとできません。\nしばらくおまちください。";
+		} else if (_messageType == PopMessageType.GemShortage) {
+			_message = GameSystem.Instance.GetLocalizeText ("3009"); // 보석이 부족해요! 보석상점을 열어봐요 
+		} else if (_messageType == PopMessageType.GetLevel10Reward) {
+			_message = "れべるを10まであげるとプレゼント！\nぱずるでねこをいっぱいつかまえるとれべるあっぷが早くなるよ！";
+		} else if (_messageType == PopMessageType.GetFacebookLinkReward) {
+			_message = "ふぇいすぶっく連動をするともらえるよ！\n「ともだち」からふぇいすぶっく連動ができるよ！";
+		} else if (_messageType == PopMessageType.BingoSelect) { // 빙고 도전 
+			_title1.GetComponent<UISprite> ().spriteName = _bingoChallengeTitle;
+			_title1.GetComponent<UISprite> ().MakePixelPerfect ();
+			_message = "[ff8ab1]このびんごにちょうせんしますか？[-]\n\n[fff55a]※途中からほかのびんごに\n変更できます。[-]";
+			_groupYesNoButton.SetActive (true);
+			_btnConfirm.SetActive (false);
+		} else if (_messageType == PopMessageType.BingoRetry) { // 빙고 재도전 
+			_title1.GetComponent<UISprite> ().spriteName = _bingoRetryTitle;
+			_title1.GetComponent<UISprite> ().MakePixelPerfect ();
+			_message = "[ff8ab1]ちょうせん中のびんごをやめて、\nこのびんごにりとらいしますか？[-]\n\n[fff55a]※やめても途中から再開できます。[-]";
+			_groupYesNoButton.SetActive (true);
+			_btnConfirm.SetActive (false);
+		} else if (_messageType == PopMessageType.BingoNeed) {// 빙고 도전이 필요하다
+			_message = "ちょうせん中のみっちりびんごが\nありません。ちょうせんしますか？";
+			_groupYesNoButton.SetActive (true);
+			_btnConfirm.SetActive (false);
+		} else if (_messageType == PopMessageType.BingoStart) {
+			_message = "みっちりびんごの「かんたん」をクリアしてげっと！";
+		} else if (_messageType == PopMessageType.NotImplemented) {
+			_message = "";
+		}
+
+        _lblMessage.text = _message;
+        _lblConfirmMessage.text = _message;
+
+    }
+
+    /// <summary>
+    /// Confirm Message Text 설정 
+    /// </summary>
+    /// <param name="pType"></param>
+    /// <param name="pValue"></param>
+    private void SetConfirmText(PopMessageType pType, string pValue) {
+        if (_messageType == PopMessageType.GemShortage) {
+            _messageIcon.spriteName = _diaMark;
+            _message = GameSystem.Instance.GetLocalizeText("3009"); // 보석이 부족해요! 보석상점을 열어봐요 
+        }
+        else if (_messageType == PopMessageType.GemAdd) {
+            _messageIcon.spriteName = _diaMark;
+            //_message = "보석 " + pValue + "개를 얻었어요";
+            _message = GameSystem.Instance.GetLocalizeText("3289");
+            _message = _message.Replace("[n]", pValue);
+        }
+        else if (_messageType == PopMessageType.GoldAdd) {
+            _messageIcon.spriteName = _goldMark;
+            //_message = "코인 " + pValue + "개를 얻었어요";
+            _message = GameSystem.Instance.GetLocalizeText("3431");
+            _message = _message.Replace("[n]", pValue);
+
+        }
+        else if (_messageType == PopMessageType.RankRewardCoinAdd) {
+            _messageIcon.spriteName = _goldMark;
+            //_message = "코인 " + pValue + "개를 얻었어요";
+            _message = GameSystem.Instance.GetLocalizeText("4124");
+            _message = _message.Replace("[n]", pValue);
+
+        }
+
+        else if (_messageType == PopMessageType.HeartAdd) {
+            _messageIcon.spriteName = _heartMark;
+            _message = GameSystem.Instance.GetLocalizeText("3432"); // 하트를 받았어요 우편함을..
+        }
+        else if (pType == PopMessageType.AlreadySentHeart) {
+            _messageIcon.spriteName = _heartMark;
+            _message = GameSystem.Instance.GetLocalizeText("3422"); // 오늘은 이친구에게 하트를 보냈어요.
+        }
+        else if (pType == PopMessageType.GatchaPointUp) {
+            _messageIcon.spriteName = _starMark;
+            _message = GameSystem.Instance.GetLocalizeText("4120");
+        }
+        else if (pType == PopMessageType.HeartAds) {
+            _messageIcon.spriteName = _heartMark;
+            _message = "はーとをじゅうでんしました";
+        }
+        else if (pType == PopMessageType.SalmonAdd || pType == PopMessageType.BandSalmonAdd || pType == PopMessageType.RankRewardSalmonAdd) {
+            _messageIcon.gameObject.SetActive(false);
+            _fishIcon.gameObject.SetActive(true);
+            _fishIcon.spriteName = PuzzleConstBox.spriteUISalmonMark;
+            _message = "さけ" + pValue + "匹を得ました。";
+
+            if (pType == PopMessageType.BandSalmonAdd) {
+                _message = "さけ" + pValue + "匹げっとしました!";
+            }
+            else if (pType == PopMessageType.RankRewardSalmonAdd) {
+                _message = "さけ" + pValue + "匹をげっとしました";
+            }
+
+
+        }
+        else if (pType == PopMessageType.TunaAdd || pType == PopMessageType.BandTunaAdd || pType == PopMessageType.RankRewardTunaAdd) {
+            _messageIcon.gameObject.SetActive(false);
+            _fishIcon.gameObject.SetActive(true);
+            _fishIcon.spriteName = PuzzleConstBox.spriteUITunaMark;
+            _message = "まぐろ" + pValue + "匹を得ました。";
+
+            if (pType == PopMessageType.BandTunaAdd) {
+                _message = "まぐろ" + pValue + "匹げっとしました!";
+            }
+            else if (pType == PopMessageType.RankRewardTunaAdd) {
+                _message = "まぐろ" + pValue + "匹をげっとしました";
+            }
+
+        }
+        else if (pType == PopMessageType.ChubAdd || pType == PopMessageType.BandChubAdd || pType == PopMessageType.RankRewardChubAdd) {
+            _messageIcon.gameObject.SetActive(false);
+            _fishIcon.gameObject.SetActive(true);
+            _fishIcon.spriteName = PuzzleConstBox.spriteUIChubMark;
+            _message = "さば" + pValue + "匹を得ました。";
+
+            if (pType == PopMessageType.BandChubAdd) {
+                _message = "さば" + pValue + "匹げっとしました!";
+            }
+            else if (pType == PopMessageType.RankRewardChubAdd) {
+                _message = "さば" + pValue + "匹をげっとしました";
+            }
+
+
+        }
+        else if (pType == PopMessageType.NekoGiftGoldAdd) {
+            _messageIcon.spriteName = _goldMark;
+            _message = "코인 " + pValue + "개를 얻었어요.\n(広告を見ると、魚を受けることができます。)";
+
+            _btnConfirm.SetActive(true);
+            _lblbtnConfirm.text = GameSystem.Instance.GetLocalizeText("3233"); // 확인
+
+
+        }
+        else if (_messageType == PopMessageType.NekoGiftGemAdd) {
+            _messageIcon.spriteName = _diaMark;
+            _message = "보석 " + pValue + "개를 얻었어요.\n(広告を見ると、魚を受けることができます。)";
+
+            _btnConfirm.SetActive(true);
+            _lblbtnConfirm.text = GameSystem.Instance.GetLocalizeText("3233"); // 확인
+
+
+        }
+        else if (pType == PopMessageType.CantGrowNeko) {
+            _message = GameSystem.Instance.DocsLocalize.get<string>("3901", "content");
+        }
+        else if (pType == PopMessageType.NekoGonnaMaxGrade) {
+            _message = GameSystem.Instance.DocsLocalize.get<string>("3902", "content");
+        }
+        else if (pType == PopMessageType.NekoAdd || pType == PopMessageType.RankRewardNekoAdd) {
+            //_message = "ネコを獲得しました。 "; // 임시. 
+            return;
+        }
+
+        else if (pType == PopMessageType.AddFreeTicket) {
+            _messageIcon.spriteName = PuzzleConstBox.spriteUIFreeTicket;
+            _message = "ねこチケットげっとしました!\nメールを確認してください！";
+        }
+        else if (pType == PopMessageType.AddRareTicket) {
+            _messageIcon.spriteName = PuzzleConstBox.spriteUIRareTicket;
+            _message = "レアねこチケットげっとしました!\nメールを確認してください！";
+        }
+
+
+        _lblMessage.text = _message;
+        _lblConfirmMessage.text = _message;
+    }
+
+    #endregion
+
+
+    /// <summary>
+    /// 일반 메세지 초기화 
+    /// </summary>
+    private void InitMessage() {
+        OnCompleteClose = delegate { };
+
+        _title1.SetActive(true);
+        _title2.SetActive(false);
+
+        _title1.GetComponent<UISprite>().spriteName = _baseTitleSprtie;
+        _title1.GetComponent<UISprite>().MakePixelPerfect();
+
+        _lblMessage.gameObject.SetActive(true);
+        _lblConfirmMessage.gameObject.SetActive(false);
+        _messageIcon.gameObject.SetActive(false);
+        _fishIcon.gameObject.SetActive(false);
+        _nekoSprite.gameObject.SetActive(false);
+
+        _btnConfirm.SetActive(true);
+
+        _groupYesNoButton.SetActive(false);
+
+
+        _lblbtnConfirm.text = GameSystem.Instance.GetLocalizeText("3233"); // 확인
+        _btnConfirm.transform.localPosition = new Vector3(0, -155, 0);
+    }
+
+
+    /// <summary>
+    /// 특수 메세지 초기화
+    /// </summary>
+    private void InitConfirmMessage() {
+        OnCompleteClose = delegate { };
+
+        _title1.SetActive(true);
+        _title2.SetActive(false);
+
+        _lblMessage.gameObject.SetActive(false);
+        _lblConfirmMessage.gameObject.SetActive(true);
+        _messageIcon.gameObject.SetActive(true);
+        _fishIcon.gameObject.SetActive(false);
+        _nekoSprite.gameObject.SetActive(false);
+
+        _btnConfirm.SetActive(true);
+
+        _groupYesNoButton.SetActive(false);
+
+
+
+        _lblbtnConfirm.text = GameSystem.Instance.GetLocalizeText("3233"); // 확인
+        _btnConfirm.transform.localPosition = new Vector3(0, -155, 0);
+    }
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="pType"></param>
+    public void SetMessage(PopMessageType pType) {
+        _messageType = pType;
+
+        InitMessage();
+        SetText(pType);
+
+    }
+
+
+    /// <summary>
+    /// 일반 안내 메세지 
+    /// </summary>
+    /// <param name="pType"></param>
+    public void SetInfoMessage(PopMessageType pType, Action callBack) {
+    
+        // 메세지 창 활성화 
+        this.gameObject.SetActive(true);
+
+        _messageType = pType;
+
+        InitMessage(); // 초기화 
+
+        SetText(pType); // 텍스트 처리 
+
+        OnCompleteClose += callBack; // 콜백 처리 
+
+    }
+
+
+    /// <summary>
+    /// 아이콘이 포함된 확인 메세지 
+    /// </summary>
+    /// <param name="pType"></param>
+    /// <param name="pValue"></param>
+    /// <param name="callBack"></param>
+    public void SetConfirmMessage(PopMessageType pType, string pValue, Action callBack) {
+
+        _messageType = pType;
+
+        InitConfirmMessage();
+
+        if(_messageType == PopMessageType.NekoAdd || _messageType == PopMessageType.RankRewardNekoAdd) {
+            SetNekoInfo(pValue);
+        }
+        else if(_messageType == PopMessageType.GetUserEventReward) {
+            SetUserEventNekoInfo(pValue);
+        }
+
+        SetConfirmText(pType, pValue);
+
+        OnCompleteClose += callBack;
+
+
+    }
+
+
+    /// <summary>
+    /// 특정 유저 달성 목표 완료시 획득하는 네코 정보 표기 
+    /// </summary>
+    /// <param name="pValue"></param>
+    private void SetUserEventNekoInfo(string pValue) {
+
+        Debug.Log("SetUserEventNekoInfo :: " + pValue);
+
+        int nekoID, nekoStar;
+
+        
+        _nekoSprite.gameObject.SetActive(true);
+        _nekoFishIcon.gameObject.SetActive(false);
+        _messageIcon.gameObject.SetActive(false);
+
+        _nekoNode = JSON.Parse(pValue);
+
+        nekoID = _nekoNode["nekotid"].AsInt;
+        nekoStar = _nekoNode["star"].AsInt;
+
+
+        // 네코 이름 + 입수 메세지 
+        _message = _nekoNode["message"];
+        _lblMessage.text = _message;
+        _lblConfirmMessage.text = _message;
+
+        // 네코 스프라이트 
+        GameSystem.Instance.SetNekoSprite(_nekoSprite, nekoID, nekoStar);
+
+        LobbyCtrl.Instance.SendMessage("PlayUnlock");
+
+    }
+
+
+    /// <summary>
+    /// 고양이 획득 정보
+    /// 
+    /// </summary>
+    /// <param name="pValue"></param>
+    private void SetNekoInfo(string pValue) {
+
+
+        int nekoID, nekoStar, fishValue;
+        string fishtype;
+
+        Debug.Log("SetNekoInfo in SimplePopup pValue :: " + pValue);
+
+
+        _nekoSprite.gameObject.SetActive(true);
+        _nekoFishIcon.gameObject.SetActive(false);
+        _messageIcon.gameObject.SetActive(false);
+
+        _nekoNode = JSON.Parse(pValue);
+
+        nekoID = _nekoNode["tid"].AsInt;
+        nekoStar = _nekoNode["star"].AsInt;
+        fishtype = _nekoNode["fishtype"].Value;
+        fishValue = _nekoNode["fishvalue"].AsInt;
+
+
+        // 네코 이름 + 입수 메세지 
+        _message =  GameSystem.Instance.GetNekoName(nekoID, nekoStar) +  "をげっとしました";
+        _lblMessage.text = _message;
+        _lblConfirmMessage.text = _message;
+
+        // Fusion 여부 체크
+        if (_nekoNode["isFusion"].AsInt != 0) {
+
+            _nekoFishIcon.gameObject.SetActive(true);
+            _nekoFishValue.gameObject.SetActive(true);
+
+            if (fishtype == "chub")
+                _nekoFishIcon.spriteName = PuzzleConstBox.spriteUIChubMark;
+            else if (fishtype == "tuna")
+                _nekoFishIcon.spriteName = PuzzleConstBox.spriteUITunaMark;
+            else if (fishtype == "salmon")
+                _nekoFishIcon.spriteName = PuzzleConstBox.spriteUISalmonMark;
+
+
+            _nekoFishValue.text = "+" + fishValue.ToString();
+        }
+
+        // 네코 스프라이트 
+        GameSystem.Instance.SetNekoSprite(_nekoSprite, nekoID, nekoStar);
+
+        // 생선값 업데이트 
+        if (fishtype == "chub")
+            GameSystem.Instance.UserChub += fishValue;
+        else if (fishtype == "tuna")
+            GameSystem.Instance.UserTuna += fishValue;
+        else if (fishtype == "salmon")
+            GameSystem.Instance.UserSalmon += fishValue;
+
+
+        // Neko Add
+        GameSystem.Instance.UpdateSingleNekoData(_nekoNode);
+
+
+    }
+
+
+    /// <summary>
+    /// 확인 메세지 (아이콘이 포함된)
+    /// </summary>
+    /// <param name="pType">P type.</param>
+    public void SetConfirmMessage(PopMessageType pType, string pValue) {
+        SetConfirmMessage(pType, pValue, null);
+	}
+
+
+
+    public void GetNeko2ndReward() {
+
+		if (_messageType == PopMessageType.ItemReplayItemAds) {
+
+			Debug.Log(">>>> ItemReplayItemAds ");
+			//GameSystem.Instance.ShowAd(AdsType.ItemAds);
+			this.SendMessage ("CloseSelf");
+			return;
+		}
+
+		
+		
+		this.SendMessage ("CloseSelf");
+	}
+
+
+    /// <summary>
+    /// 창이 닫히기 전 실행 
+    /// </summary>
+    public void OnClosing() {
+
+
+        // 모든 메일 읽기 중에는 동작하지 않도록 처리 (XL 요청)
+        if (LobbyCtrl.Instance != null && LobbyCtrl.Instance.IsProcessingReadAllMail)
+            return;
+
+        // 재화관련된 팝업들은 그냥 닫으면 UpdateTopInformation을 호출 
+        if (_messageType == PopMessageType.GoldAdd || _messageType == PopMessageType.GemAdd || _messageType == PopMessageType.HeartAdd
+            || _messageType == PopMessageType.ChubAdd || _messageType == PopMessageType.TunaAdd || _messageType == PopMessageType.SalmonAdd) {
+
+            LobbyCtrl.Instance.UpdateTopInformation();
+
+        }
+        else if(_messageType == PopMessageType.ReLogin) { // re-login
+            GameSystem.Instance.LoadTitleScene();
+        }
+
+        else if (_messageType == PopMessageType.GoldPurchase) {
+            OnCompleteClose();
+            OnCompleteClose = delegate { };
+        }
+
+
+
+        // 네코 기프트 광고 확인 메세지 인경우에 그냥 닫으면 일반 받기로 진행.
+        /*
+        if(_messageType == PopMessageType.NekoGiftWithAdsConfirm) {
+            GameSystem.Instance.Post2NekoGift(0);
+        }
+        */
+    }
+
+    public void Confirm() {
+
+
+        // 모든 메일 읽기 중에는 동작하지 않도록 처리 (XL 요청)
+        if (LobbyCtrl.Instance != null && LobbyCtrl.Instance.IsProcessingReadAllMail)
+            return;
+
+        if (_messageType == PopMessageType.ItemReplayItemAds) {
+            _messageType = PopMessageType.ExceptStartFever; // 스타트 피버 제외 처리
+
+        } else if (_messageType == PopMessageType.GatchaConfirm) {
+
+            Debug.Log("▣▣▣ GatchaConfirm Confirm");
+            this.SendMessage("CloseSelf");
+            //Invoke("DelayedCallback", 0.5f);
+            OnCompleteClose();
+            OnCompleteClose = delegate { };
+            return;
+        }
+        else if (_messageType == PopMessageType.NekoAdd || _messageType == PopMessageType.RankRewardNekoAdd) {
+            // 추가 처리 
+            //GameSystem.Instance.UpdateSingleNekoData(_nekoNode);
+
+        }
+
+
+
+        OnCompleteClose();
+        OnCompleteClose = delegate { };
+        this.SendMessage("CloseSelf");
+
+	}
+
+    public void OnClickNo() {
+        if (_messageType == PopMessageType.NekoGiftWithAdsConfirm) {
+            LobbyCtrl.Instance.DelayedGetNekoFreeGift();
+            this.SendMessage("CloseSelf");
+        }
+        else if(_messageType == PopMessageType.NekoGiftWithAdsConfirm) {
+            LobbyCtrl.Instance.GameTip.SetGameTip(TipType.Bingo);
+            this.SendMessage("CloseSelf");
+        }
+        else {
+
+
+            OnClosing();
+            this.SendMessage("CloseSelf");
+        }
+    }
+
+
+
+
+    public void OpenMessagePopupCallback(PopMessageType pType, Action callBack) {
+
+        OnCompleteClose = delegate { };
+
+        _messageType = pType;
+        _lblMessage.gameObject.SetActive(true);
+        _lblConfirmMessage.gameObject.SetActive(false);
+        _messageIcon.gameObject.SetActive(false);
+        _fishIcon.gameObject.SetActive(false);
+        _nekoSprite.gameObject.SetActive(false);
+        _btnConfirm.SetActive(false);
+
+        _groupYesNoButton.SetActive(true);
+
+        _lblbtnConfirm.text = GameSystem.Instance.GetLocalizeText("3233"); // 확인
+        _btnConfirm.transform.localPosition = new Vector3(0, -155, 0);
+
+
+        OnCompleteClose += callBack;
+
+
+        if (pType == PopMessageType.GatchaConfirm) {
+            _message = GameSystem.Instance.DocsLocalize.get<string>("3033", "content");
+            _message = _message.Replace("[n]", "300"); // 300으로 수동 패치
+        }
+        else if (pType == PopMessageType.ConfirmSpecialGatchaTen) {
+            //_message = GameSystem.Instance.DocsLocalize.get<string>("3033", "content");
+            _message = "だいや[n]個で10回\n「すぺしゃるくれーん」に\nちょうせんしますか？";
+            _message = _message.Replace("[n]", GameSystem.Instance.GetNumberToString(GameSystem.Instance.SpecialMultiGatchaPrice)); // 
+        }
+
+        _lblMessage.text = _message;
+        _lblConfirmMessage.text = _message;
+    }
+}

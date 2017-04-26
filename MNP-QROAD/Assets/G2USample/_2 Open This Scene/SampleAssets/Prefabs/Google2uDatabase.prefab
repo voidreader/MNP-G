@@ -1,0 +1,175 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &125972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 401794}
+  - 114: {fileID: 11491368}
+  - 114: {fileID: 11400044}
+  - 114: {fileID: 11435106}
+  - 114: {fileID: 11400868}
+  m_Layer: 0
+  m_Name: Google2uDatabase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &401794
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125972}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11400044
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71385b554c956d34b9c6dd9766d31971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rowNames:
+  - DLG_MINEBOT
+  - DLG_BUZZERBOT
+  Rows:
+  - _OnDamaged:
+    - STR_MINE_DMG_0
+    - STR_MINE_DMG_1
+    _OnDestroyed:
+    - STR_MINE_DST_0
+    - STR_MINE_DST_1
+  - _OnDamaged:
+    - STR_BUZZ_DMG_0
+    - STR_BUZZ_DMG_1
+    _OnDestroyed:
+    - STR_BUZZ_DST_0
+    - STR_BUZZ_DST_1
+--- !u!114 &11400868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1230ded194c1d194e8c626f108fd29e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rowNames:
+  - WP_SELFDESTRUCT
+  - WP_LASER
+  Rows:
+  - _Name: STR_SELFDESTRUCT
+    _Damage: 10
+    _Speed: 0
+    _Cooldown: 0.5
+    _AccuracyInDegrees: 360
+  - _Name: STR_LASER
+    _Damage: 3
+    _Speed: 1
+    _Cooldown: 0.45
+    _AccuracyInDegrees: 50
+--- !u!114 &11435106
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 312c5f08750316549930a57fef625e27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rowNames:
+  - AI_MINEBOT_LIGHT
+  - AI_MINEBOT_HEAVY
+  - AI_BUZZERBOT_LIGHT
+  - AI_BUZZERBOT_HEAVY
+  Rows:
+  - _Name: Minebot
+    _Prefab: mine_bot
+    _Rotation: Right
+    _Level: 1
+    _CanFly: 0
+    _Weapon: WP_SELFDESTRUCT
+    _Dialog: DLG_MINEBOT
+    _Health: 1.5
+    _Speed: 0.5
+    _Scale: 1.1397543
+    _Offset: {x: 0, y: 0, z: 0}
+  - _Name: Minebot
+    _Prefab: mine_bot
+    _Rotation: Left
+    _Level: 1
+    _CanFly: 0
+    _Weapon: WP_SELFDESTRUCT
+    _Dialog: DLG_MINEBOT
+    _Health: 4.5
+    _Speed: 0.16666667
+    _Scale: 1.5240785
+    _Offset: {x: 0, y: 0, z: 0}
+  - _Name: Buzzerbot
+    _Prefab: buzzer_bot
+    _Rotation: Right
+    _Level: 3
+    _CanFly: 1
+    _Weapon: WP_LASER
+    _Dialog: DLG_BUZZERBOT
+    _Health: 4.5
+    _Speed: 1.5
+    _Scale: 1.1397543
+    _Offset: {x: 0, y: 1, z: 0}
+  - _Name: Buzzerbot
+    _Prefab: buzzer_bot
+    _Rotation: Left
+    _Level: 3
+    _CanFly: 1
+    _Weapon: WP_LASER
+    _Dialog: DLG_BUZZERBOT
+    _Health: 13.5
+    _Speed: 0.5
+    _Scale: 1.5240785
+    _Offset: {x: 0, y: 1, z: 0}
+--- !u!114 &11491368
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5e7a86a3b3194bb997a6778df7041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pMineBot: {fileID: 100020, guid: 43be2de275326724f8b1521c350d427f, type: 2}
+  pBuzzBot: {fileID: 100002, guid: 711d2d4ff17d3ee4abe123319abe11ad, type: 2}
+  pSpawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  pMessageBubble: {fileID: 100002, guid: c780b4e242e867444aed5fee601146e8, type: 2}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 125972}
+  m_IsPrefabParent: 1

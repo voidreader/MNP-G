@@ -1,0 +1,358 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1000010524738130}
+  m_IsPrefabParent: 1
+--- !u!1 &1000010524738130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000010975567012}
+  - 114: {fileID: 114000010856802316}
+  m_Layer: 0
+  m_Name: GTipAtlas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000010975567012
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010524738130}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &114000010856802316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010524738130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: de2fcc43a4ede4447bbf8d851f6d99ef, type: 2}
+  mSprites:
+  - name: new-arrow-commom
+    x: 556
+    y: 82
+    width: 61
+    height: 86
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: pop-oranges
+    x: 325
+    y: 61
+    width: 230
+    height: 107
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: tu-in-1
+    x: 0
+    y: 52
+    width: 294
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 14
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-in-10
+    x: 325
+    y: 811
+    width: 294
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 14
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-in-11
+    x: 1210
+    y: 811
+    width: 292
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 16
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-in-12
+    x: 1503
+    y: 811
+    width: 292
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 16
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-in-13
+    x: 325
+    y: 597
+    width: 294
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 14
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-in-14
+    x: 0
+    y: 480
+    width: 294
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 14
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-in-15
+    x: 0
+    y: 266
+    width: 294
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 14
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-in-2
+    x: 325
+    y: 383
+    width: 294
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 14
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-in-3
+    x: 325
+    y: 169
+    width: 294
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 14
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-in-4
+    x: 620
+    y: 811
+    width: 294
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 14
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-in-5
+    x: 620
+    y: 597
+    width: 294
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 14
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-in-6
+    x: 620
+    y: 383
+    width: 294
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 14
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-in-7
+    x: 620
+    y: 169
+    width: 294
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 14
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-in-8
+    x: 915
+    y: 811
+    width: 294
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 14
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-in-9-1
+    x: 915
+    y: 597
+    width: 294
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 14
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-rivon
+    x: 620
+    y: 60
+    width: 80
+    height: 108
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: tu-top-base
+    x: 0
+    y: 694
+    width: 324
+    height: 330
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: tu-ui-bingo1
+    x: 915
+    y: 383
+    width: 294
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 14
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-ui-bingo2
+    x: 915
+    y: 169
+    width: 294
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 14
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-ui-collection
+    x: 1210
+    y: 597
+    width: 292
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 16
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-ui-present
+    x: 1503
+    y: 598
+    width: 287
+    height: 212
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 19
+    paddingRight: 18
+    paddingTop: 16
+    paddingBottom: 102
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []

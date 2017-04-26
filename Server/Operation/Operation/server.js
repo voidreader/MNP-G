@@ -16,7 +16,7 @@ log.write(99, '--- DB data loading ---', '');
 dbAgent.LoadData();
 
 
-app.set('port', 8110);
+app.set('port', 7120);
 app.use(bodyparser.json()); // for parsing application/json
 app.use(bodyparser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 

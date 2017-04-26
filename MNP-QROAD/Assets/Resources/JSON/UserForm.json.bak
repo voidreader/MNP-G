@@ -1,0 +1,8 @@
+{
+	"cmd":"request_login",
+	"data":{ 
+						"deviceid":"admin",
+	         	"userid":"admin"
+	       }
+
+}
