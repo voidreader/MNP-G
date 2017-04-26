@@ -213,6 +213,9 @@ public partial class LobbyCtrl : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+
+        GoogleAdmobMgr.Instance.BottomBannerView.Show();
+
         // 빌링 초기화 
         GameSystem.Instance.InitBilling();
         GameSystem.Instance.SetSoundVolumn(); // 사운드 볼륨 제어 
