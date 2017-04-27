@@ -1,0 +1,26 @@
+{
+  "group": "AdBrix",
+  "patches": [],
+  "libs": [
+    "AdBrix/Editor/iOS/AdBrix/libAdBrixLib.a:<group>",
+  ],
+  "librarysearchpaths": [
+    "AdBrix/Editor/iOS/AdBrix/",
+  ],
+  "frameworks": [
+  	"MessageUI.framework:weak",
+  	"Social.framework:weak",
+  	"libxml2.dylib:weak"
+  ],
+  "headerpaths": [
+    "AdBrix/Editor/iOS",
+  ],
+  "files": [
+    "AdBrix/Editor/iOS/AdBrixPlugin.mm",
+    "AdBrix/Editor/iOS/AdBrixPlugin.h",
+    "AdBrix/Editor/iOS/AdBrix/AdBrix.bundle",
+  ],
+  "folders": [],
+  "excludes": ["^.*\\.meta$", "^.*\\.mdown^", "^.*\\.pdf$"],
+  "other_ldflags": ["-all_load"]
+}

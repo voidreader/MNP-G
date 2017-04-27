@@ -1,0 +1,5 @@
+G2U_ID,ReticleName,ReticleDamage,ReticleTextureName
+G2U_TYPE,string,int,string
+RETICLE_001,Cross,1,ReticleCross
+RETICLE_002,Square,2,ReticleSquare
+RETICLE_003,Dot,3,ReticleDot

@@ -173,7 +173,7 @@ PlayerSettings:
   AndroidTargetDevice: 3
   AndroidSplashScreenScale: 1
   androidSplashScreen: {fileID: 2800000, guid: b909205373f086f4dbe5a5d8302928a3, type: 3}
-  AndroidKeystoreName: C:/Git/UnityProject/MNP-G/user.keystore
+  AndroidKeystoreName: C:/Git/MNP-G/MNP-G/user.keystore
   AndroidKeyaliasName: pop
   AndroidTVCompatibility: 0
   AndroidIsGame: 0

@@ -1,0 +1,23 @@
+{
+  "group": "LiveOps",
+  "patches": [],
+  "libs": [
+    "LiveOps/Editor/iOS/LiveOps/libLiveOpsLib.a:<group>",
+  ],
+  "librarysearchpaths": [
+    "LiveOps/Editor/iOS/LiveOps/",
+  ],
+  "frameworks": [
+  ],
+  "headerpaths": [
+    "LiveOps/Editor/iOS",
+  ],
+  "files": [
+    "LiveOps/Editor/iOS/LiveOpsPlugin.mm",
+    "LiveOps/Editor/iOS/LiveOpsPlugin.h",
+    "LiveOps/Editor/iOS/LiveOps/LiveOps.bundle"
+  ],
+  "folders": [],
+  "excludes": ["^.*\\.meta$", "^.*\\.mdown^", "^.*\\.pdf$"],
+  "other_ldflags": ["-all_load"]
+}

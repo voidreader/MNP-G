@@ -1,0 +1,30 @@
+{
+  "group": "IgaworksCore",
+  "patches": [],
+  "libs": [
+    "IgaworksCore/Editor/iOS/IgaworksCore/libIgaworksCoreLib.a:<group>",
+  ],
+  "librarysearchpaths": [
+    "IgaworksCore/Editor/iOS/IgaworksCore/",
+  ],
+  "frameworks": [
+  	"iAd.framework:weak",
+  	"CoreTelephony.framework:weak",
+  	"SystemConfiguration.framework:weak",
+  	"UIKit.framework:weak",
+  	"Security.framework:weak",
+  	"CoreGraphics.framework:weak",
+  	"CoreText.framework:weak",
+  	"libxml2.dylib:weak"
+  ],
+  "headerpaths": [
+    "IgaworksCore/Editor/iOS",
+  ],
+  "files": [
+    "IgaworksCore/Editor/iOS/IgaworksCorePlugin.mm",
+    "IgaworksCore/Editor/iOS/IgaworksCorePlugin.h",
+  ],
+  "folders": [],
+  "excludes": ["^.*\\.meta$", "^.*\\.mdown^", "^.*\\.pdf$"],
+  "other_ldflags": ["-all_load"]
+}

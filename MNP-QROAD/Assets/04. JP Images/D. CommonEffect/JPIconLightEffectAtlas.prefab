@@ -1,0 +1,267 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &171640
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 415582}
+  - 114: {fileID: 11471016}
+  m_Layer: 0
+  m_Name: JPIconLightEffectAtlas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &415582
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171640}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11471016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 26894573a6acaa9448a6468ea52e33ee, type: 2}
+  mSprites:
+  - name: vent-fx-a
+    x: 272
+    y: 351
+    width: 46
+    height: 47
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 46
+    paddingRight: 12
+    paddingTop: 74
+    paddingBottom: 12
+  - name: vent-fx-b
+    x: 450
+    y: 404
+    width: 51
+    height: 51
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 44
+    paddingRight: 9
+    paddingTop: 72
+    paddingBottom: 10
+  - name: vent-fx-c
+    x: 450
+    y: 456
+    width: 56
+    height: 56
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 41
+    paddingRight: 7
+    paddingTop: 70
+    paddingBottom: 7
+  - name: vent-fx-d
+    x: 389
+    y: 399
+    width: 60
+    height: 113
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 39
+    paddingRight: 5
+    paddingTop: 15
+    paddingBottom: 5
+  - name: vent-fx-e
+    x: 105
+    y: 35
+    width: 68
+    height: 119
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 35
+    paddingRight: 1
+    paddingTop: 13
+    paddingBottom: 1
+  - name: vent-fx-f
+    x: 0
+    y: 264
+    width: 104
+    height: 122
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 11
+    paddingBottom: 0
+  - name: vent-fx-g
+    x: 0
+    y: 387
+    width: 104
+    height: 125
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 8
+    paddingBottom: 0
+  - name: vent-fx-h
+    x: 105
+    y: 399
+    width: 99
+    height: 113
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 5
+    paddingTop: 5
+    paddingBottom: 15
+  - name: vent-fx-i
+    x: 0
+    y: 29
+    width: 100
+    height: 115
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 4
+    paddingTop: 3
+    paddingBottom: 15
+  - name: vent-fx-j
+    x: 0
+    y: 145
+    width: 100
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 4
+    paddingTop: 1
+    paddingBottom: 14
+  - name: vent-fx-k
+    x: 105
+    y: 155
+    width: 88
+    height: 120
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 16
+    paddingTop: 0
+    paddingBottom: 13
+  - name: vent-fx-l
+    x: 105
+    y: 276
+    width: 89
+    height: 122
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 15
+    paddingTop: 0
+    paddingBottom: 11
+  - name: vent-fx-m
+    x: 205
+    y: 403
+    width: 91
+    height: 109
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 13
+    paddingTop: 14
+    paddingBottom: 10
+  - name: vent-fx-n
+    x: 297
+    y: 437
+    width: 91
+    height: 75
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 13
+    paddingTop: 48
+    paddingBottom: 10
+  - name: vent-fx-o
+    x: 195
+    y: 327
+    width: 76
+    height: 71
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 15
+    paddingRight: 13
+    paddingTop: 48
+    paddingBottom: 14
+  - name: vent-fx-p
+    x: 0
+    y: 3
+    width: 25
+    height: 25
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 63
+    paddingRight: 16
+    paddingTop: 51
+    paddingBottom: 57
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 171640}
+  m_IsPrefabParent: 1

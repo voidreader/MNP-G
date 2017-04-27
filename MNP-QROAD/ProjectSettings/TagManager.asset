@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Block
+  - Foot
+  - Neko
+  - RobbyNeko
+  - Wall
+  - MyNekoBar
+  - BigFoot
+  - SoundManager
+  - InGameManager
+  - StageNekoManager
+  - InputManager
+  - UIBGManager
+  - EnemyNeko
+  - ExtraCamera
+  - ResultAreaCamera
+  - PlayerOwnNeko
+  - NoDisable
+  - UpperFloor
+  - LevelBar
+  - UILockScreen
+  - FxTemporaire
+  - ResultWall
+  - GatchaStick
+  - GatchaButton
+  - ReadyGroup
+  - LockPopup
+  - RankingGroup
+  - UpgradeGroup
+  - CoinBar
+  - BigPopup
+  - HeartRequestGroup
+  - AchievementBook
+  - Attendance
+  - WorldEvent
+  - GemBar
+  - HeartBar
+  - AdsBar
+  - FishBandButton
+  - FishBandBall
+  - Option
+  - DontNeedSetDisable
+  - RollupButton
+  - GatchaNekoAppear
+  - NekoGiftResult
+  - BackgroundCamera
+  - TopCamera
+  - CatBottle
+  - CloneEnemyNeko
+  - Theme7Candy
+  - StageFence
+  - Theme8Rocket
+  - FireworkBolt
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - BG
+  - EBT
+  - Block
+  - TopLayer
+  - LobbyNeko
+  - CoinArea
+  - GatchaLayer
+  - BossHitNekoLayer
+  - LetterBox
+  - CantSee
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Noraml BG
+    uniqueID: 3537454577
+    locked: 0
+  - name: Fever BG
+    uniqueID: 1936922229
+    locked: 0
+  - name: Block and Neko
+    uniqueID: 649867431
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Effect
+    uniqueID: 3003121821
+    locked: 0
+  - name: Result
+    uniqueID: 942401499
+    locked: 0

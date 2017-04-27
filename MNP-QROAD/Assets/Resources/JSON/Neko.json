@@ -1,0 +1,49 @@
+{
+  "Neko":[
+    {
+      "id"    :0,
+      "class" :FD,
+      "kname" :¾ó·èÀÌ,
+      "idleClip" :Neko-idle,
+      "attackClip" :Neko-attack,
+      "hitClip" :Neko-hit
+    },
+    
+    {
+      "id"    :5,
+      "class" :FD,
+      "kname" :³ë¶ûÀÌ,
+      "jname" :aa,
+      "miniHead":aa,      
+      "idleClip" :Neko-idle,
+      "attackClip" :Neko-attack,
+      "hitClip" :Neko-hit
+    },
+    
+    {
+      "id"    :6,
+      "class" :FD,
+      "kname" :ºÐÈ«ÀÌ,
+      "jname" :aa,
+      "miniHead":aa,      
+      "idleClip" :Neko-idle,
+      "attackClip" :Neko-attack,
+      "hitClip" :Neko-hit
+    },
+    
+    {
+      "id"    :7,
+      "class" :FD,
+      "kname" :Äà¼ö¿°,
+      "jname" :aa,
+      "miniHead":aa,      
+      "idleClip" :Neko-idle,
+      "attackClip" :Neko-attack,
+      "hitClip" :Neko-hit
+    }
+    
+    
+    
+  ]
+	
+}

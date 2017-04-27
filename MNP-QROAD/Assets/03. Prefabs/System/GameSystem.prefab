@@ -1,0 +1,312 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &150228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 450228}
+  - 114: {fileID: 11450228}
+  - 114: {fileID: 11453504}
+  - 114: {fileID: 11411234}
+  m_Layer: 0
+  m_Name: GameSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &450228
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150228}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11411234
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb9a60620cdc49378ec54fe6909d004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11450228
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70dadd5415ab09c448f20417a9d6d9d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _version: 2.003
+  _versionFloat: 2.003
+  _tutorialComplete: 0
+  CurrentHeartRequest: {fileID: 0}
+  _listBingoGroup18: 
+  _listBingoGroup19: 
+  _listBingoGroup20: 
+  _listBingoGroup21: 
+  _listBingoGroup22: 
+  _listBingoGroup23: 
+  _listBingoGroup24: 
+  _listBingoGroup25: 
+  _listBingoGroup26: 
+  _listBingoGroup27: 
+  _listBingoGroup28: 
+  _listBingoGroup29: 
+  _listBingoGroup30: 
+  _listBingoGroup31: 
+  _listBingoGroup32: 
+  _fishSmallBanner: {fileID: 0}
+  _freeSmallBanner: {fileID: 0}
+  _specialSmallBanner: {fileID: 0}
+  _arrPackageSmallTextures: []
+  _arrNoticeSmallTextures: []
+  ENV_VERSION: -1
+  COINSHOP_VERSION: -1
+  ATTENDANCE_VERSION: -1
+  NEKOSKILL_VERSION: -1
+  RANKREWARD_VERSION: -1
+  NEKOBEAD_VERSION: -1
+  MISSION_DAILY_VERSION: -1
+  MISSION_WEEKLY_VERSION: -1
+  GATCHA_BANNER_VERSION: -1
+  PACKAGE_BANNER_VERSION: -1
+  NOTICE_BANNER_VERSION: -1
+  BINGO_VERSION: -1
+  BINGO_GROUP_VERSION: -1
+  USER_PASSIVE_VERSION: -1
+  STAGE_DETAIL_VERSION: -1
+  STAGE_MASTER_VERSION: -1
+  _requestGameData: []
+  _mission_day: 0
+  _weeklymission_refreshDay: 0
+  _currentBingoID: 0
+  _listClearedBingoCols: 
+  _listClearedBingoLines: 
+  isInitialize: 0
+  IgawInitialized: 0
+  _isAdminUser: 0
+  _playStage: 0
+  _deviceID: 
+  _userID: 
+  _userName: 
+  _platform: android
+  _facebookid: 
+  _gatchaCount: 1
+  _lastActiveHour: 0
+  _preLastActiveHour: 0
+  _lastActiveDay: 0
+  _preLastActiveDay: 0
+  _localTutorialStep: 0
+  _explainTextIndex: 3131
+  _optionPuzzleTip: 0
+  _recordUse: 0
+  globalCatCollection1: {fileID: 114000010296473906, guid: cbb4e5cdc0a9d974188e0a7074c01928,
+    type: 2}
+  globalCatCollection2: {fileID: 114000010296473906, guid: cbb4e5cdc0a9d974188e0a7074c01928,
+    type: 2}
+  comAtlas: {fileID: 11485300, guid: e79131ee1e3ca4849b238a4fabbd69d1, type: 2}
+  NormalStarFont: {fileID: 114000012480323502, guid: 3f5ef7fdd3290264c83bc5ac6aaf548a,
+    type: 2}
+  OrangeStarFont: {fileID: 114000011633703676, guid: 97dfc785b71c86a4e86697c710bb6de8,
+    type: 2}
+  _equipGroup1Neko: 0
+  _equipGroup2Neko: 0
+  _equipGroup3Neko: 0
+  _equipGroup4Neko: 0
+  _equipGroup5Neko: 0
+  _equipGroup6Neko: 0
+  _equipGroup7Neko: 0
+  _equipGroup8Neko: 0
+  _equipGroup9Neko: 0
+  _equipGroup10Neko: 0
+  _equipGroup11Neko: 0
+  _equipGroup12Neko: 0
+  _equipGroup13Neko: 0
+  _equipGroup14Neko: 0
+  _equipGroup15Neko: 0
+  _equipGroup16Neko: 0
+  _equipGroup17Neko: 0
+  _equipGroup18Neko: 0
+  _equipGroup19Neko: 0
+  _equipGroup20Neko: 0
+  _equipGroup21Neko: 0
+  _equipGroup22Neko: 0
+  _equipGroup23Neko: 0
+  _equipGroup24Neko: 0
+  _equipGroup25Neko: 0
+  _equipGroup26Neko: 0
+  _equipGroup27Neko: 0
+  _equipGroup28Neko: 0
+  _equipGroup29Neko: 0
+  _equipGroup30Neko: 0
+  _equipGroup31Neko: 0
+  _equipLevel10Neko: 0
+  _equipLevel20Neko: 0
+  _equipLevel30Neko: 0
+  _equipLevel50Neko: 0
+  _equipRank5Neko: 0
+  _userNekoBadgeBonus: 0
+  _matchedRedBlock: 0
+  _matchedBlueBlock: 0
+  _matchedYellowBlock: 0
+  _ingameSpecialAttackCount: 0
+  _ingameBombCount: 0
+  _ingameBlueBombCount: 0
+  _ingameYellowBombCount: 0
+  _ingameRedBombCount: 0
+  _ingameBlackBombCount: 0
+  _ingameMatchThreeCount: 0
+  _ingameMatchFourCount: 0
+  _ingameBlockCount: 0
+  _ingameRemainCookie: 0
+  _ingameBoardClearCount: 0
+  _ingameBoardPerfectClearCount: 0
+  _inGameBoostItemUSE: 0
+  _ingameMissCount: 0
+  _inGameStageClear: 0
+  _inGameStageUp: 0
+  _inGameDamage:
+    currentCryptoKey: 444444
+    hiddenValue: 444444
+    fakeValue: 0
+    inited: 1
+  _floatInGameDamage:
+    currentCryptoKey: 230887
+    hiddenValue: e7850300
+    fakeValue: 0
+    inited: 1
+  _inGameDiamond:
+    currentCryptoKey: 444444
+    hiddenValue: 444444
+    fakeValue: 0
+    inited: 1
+  _inGameCoin:
+    currentCryptoKey: 444444
+    hiddenValue: 444444
+    fakeValue: 0
+    inited: 1
+  _inGameTotalCoin:
+    currentCryptoKey: 444444
+    hiddenValue: 444444
+    fakeValue: 0
+    inited: 1
+  _inGamePauseTime: 0
+  _nekoPowerPlus: 0
+  _nekoCoinPercent: 0
+  _nekoScorePercent: 0
+  _nekoGameTimePlus: 0
+  _nekoBombAppearBonus: 0
+  _nekoSkillInvokeBonus: 0
+  _nekoStartBombCount: 0
+  _selectNeko: {fileID: 0}
+  _previousSelectNekoID: -1
+  _userCurrentStage: 0
+  _userGold:
+    currentCryptoKey: 444444
+    hiddenValue: 444444
+    fakeValue: 0
+    inited: 1
+  _userGem:
+    currentCryptoKey: 444444
+    hiddenValue: 444444
+    fakeValue: 0
+    inited: 1
+  _userChub:
+    currentCryptoKey: 444444
+    hiddenValue: 444444
+    fakeValue: 0
+    inited: 1
+  _userTuna:
+    currentCryptoKey: 444444
+    hiddenValue: 444444
+    fakeValue: 0
+    inited: 1
+  _userSalmon:
+    currentCryptoKey: 444444
+    hiddenValue: 444444
+    fakeValue: 0
+    inited: 1
+  _adsPoint:
+    currentCryptoKey: 444444
+    hiddenValue: 444444
+    fakeValue: 0
+    inited: 1
+  _exchangeGoldIndex: -1
+  _userBestScore: 0
+  _userPreBestScore: -1
+  _userNekorewardtime: 0
+  _isHotTime: 0
+  _userPowerLevel: 0
+  _listEquipNekoID: 
+  _listEquipItemID: 
+  _listPreEquipItemID: 
+  _feedChub:
+    currentCryptoKey: 444444
+    hiddenValue: 444444
+    fakeValue: 0
+    inited: 1
+  _feedTuna:
+    currentCryptoKey: 444444
+    hiddenValue: 444444
+    fakeValue: 0
+    inited: 1
+  _feedSalmon:
+    currentCryptoKey: 444444
+    hiddenValue: 444444
+    fakeValue: 0
+    inited: 1
+  _remainfreegacha: 0
+  _remainstartfever: 0
+  _remainnekogift: 0
+  _listCoinShopPrice: 
+  CurrentSelectNeko: {fileID: 0}
+  _isNekoRewardReady: 1
+  _adsID: 0
+  particleUseHeart: {fileID: 19800004, guid: e116059325ae3e640a98f7a1b89d797b, type: 2}
+  particleItemEquip: {fileID: 19800000, guid: adf0845286865f74091eaaded9f307ee, type: 2}
+  particleNekoRewardGet: {fileID: 19800006, guid: ca7f1dd52e347ab49aded3faaee1f552,
+    type: 2}
+  particleBombBoard: {fileID: 0}
+  particleCartoonFight: {fileID: 19891112, guid: abda8b60154a04e4498e107ab2140be9,
+    type: 2}
+  particleDeathGhost: {fileID: 19840636, guid: a926cb2868e231942b37fadd5fb73a23, type: 2}
+  GameLanguage: 23
+--- !u!114 &11453504
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd40002b2debd456db5ae226c858cb51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 150228}
+  m_IsPrefabParent: 1

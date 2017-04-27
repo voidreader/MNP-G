@@ -1,0 +1,198 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a04884765aeeb4749909d668fc086f5c, type: 3}
+  m_Name: AndroidNativeSettings
+  m_EditorClassIdentifier: 
+  EnablePlusAPI: 1
+  EnableGamesAPI: 1
+  EnableAppInviteAPI: 0
+  EnableDriveAPI: 0
+  LoadProfileIcons: 1
+  LoadProfileImages: 1
+  LoadQuestsImages: 1
+  LoadQuestsIcons: 1
+  LoadEventsIcons: 1
+  ShowConnectingPopup: 1
+  EnableATCSupport: 0
+  OneSignalEnabled: 0
+  OneSignalAppID: YOUR_ONESIGNAL_APP_ID
+  OneSignalDownloadLink: https://goo.gl/Vc6tfK
+  OneSignalDocLink: https://goo.gl/aZjkxV
+  UseParsePushNotifications: 0
+  ParseAppId: YOUR_PARSE_APP_ID
+  DotNetKey: YOUR_PARSE_DOT_NET_KEY
+  ParseDocLink: http://goo.gl/9BgQ8r
+  ParseDownloadLink: https://goo.gl/dm7jYL
+  DialogTheme: 0
+  EnableSoomla: 0
+  SoomlaDownloadLink: http://goo.gl/7LYwuj
+  SoomlaDocsLink: https://goo.gl/es5j1N
+  SoomlaGameKey: 
+  SoomlaEnvKey: 
+  Ad_EditorFillRateIndex: 4
+  Ad_EditorFillRate: 100
+  Is_Ad_EditorTestingEnabled: 0
+  InApps_EditorFillRateIndex: 4
+  InApps_EditorFillRate: 100
+  Is_InApps_EditorTestingEnabled: 0
+  Is_Leaderboards_Editor_Notifications_Enabled: 0
+  Is_Achievements_Editor_Notifications_Enabled: 0
+  GCM_SenderId: 396931333324
+  PushService: 0
+  SaveCameraImageToGallery: 0
+  UseProductNameAsFolderName: 1
+  GalleryFolderName: MitchirinekoG
+  MaxImageLoadSize: 512
+  CameraCaptureMode: 0
+  ImageFormat: 0
+  ShowAppPermissions: 1
+  EnableBillingAPI: 1
+  EnablePSAPI: 1
+  EnableSocialAPI: 1
+  EnableCameraAPI: 0
+  ExpandNativeAPI: 1
+  ExpandPSAPI: 1
+  ExpandBillingAPI: 1
+  ExpandSocialAPI: 1
+  ExpandCameraAPI: 1
+  ThirdPartyParams: 0
+  ShowPSSettingsResources: 1
+  ShowActions: 0
+  GCMSettingsActinve: 0
+  LocalNotificationsAPI: 1
+  ImmersiveModeAPI: 1
+  ApplicationInformationAPI: 1
+  ExternalAppsAPI: 1
+  PoupsandPreloadersAPI: 1
+  CheckAppLicenseAPI: 0
+  NetworkStateAPI: 1
+  FirebaseAnalytics: 0
+  InAppPurchasesAPI: 1
+  GooglePlayServicesAPI: 1
+  PlayServicesAdvancedSignInAPI: 0
+  GoogleButtonAPI: 0
+  AnalyticsAPI: 0
+  GoogleCloudSaveAPI: 0
+  PushNotificationsAPI: 1
+  GoogleMobileAdAPI: 1
+  GoogleOAuthAPI: 0
+  GalleryAPI: 0
+  CameraAPI: 0
+  KeepManifestClean: 0
+  GooglePlayServiceAppID: 77620733441
+  ToolbarSelectedIndex: 0
+  base64EncodedPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjFg2eer9JhGItWdeyZ4logq7RE7hAMuCIz1AUH2Mw/hQrIP9JEpZ+5a0b7UQA5fCCU/KtdeJZ0dGt6ro+khj0Vkwc3Gfq1naVn4eXCth3HIPfE/M183RfkCk7vqJjshaBWlnZcH3H/pEZB2+rd5CC3mee6p+eZHsXiKzRLV572DWV8/VMBc2oMdwPa6HumqLbjOMZ0CP/xGojPfde6EIqCCEXDjKlOc8l3ZILJl6zP8GEDiEl5+da98wSUxl1s7bBe9uoeC5Jb6k+DabkFroFB0dPv+KbnTraNIVcjnObth+TD5Zge+8iIx7PuUbD9okzDjcHkHtxRiRo8uVzZ7iXQIDAQAB
+  ShowStoreProducts: 1
+  InAppProducts:
+  - IsOpen: 1
+    SKU: g0
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 0
+  - IsOpen: 1
+    SKU: g1
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 0
+  - IsOpen: 1
+    SKU: g2
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 0
+  - IsOpen: 1
+    SKU: g3
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 0
+  - IsOpen: 1
+    SKU: g4
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 0
+  - IsOpen: 1
+    SKU: g5
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 0
+  - IsOpen: 1
+    SKU: g7
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 0
+  - IsOpen: 1
+    SKU: g8
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 0
+  - IsOpen: 1
+    SKU: special_g
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 0
+  ShowLeaderboards: 1
+  Leaderboards: []
+  ShowAchievements: 1
+  Achievements: []
+  ShowWhenAppIsForeground: 1
+  EnableVibrationLocal: 1
+  LocalNotificationSmallIcon: {fileID: 2800000, guid: d47d7d3fcbb30aa44a221f9818389d80,
+    type: 3}
+  LocalNotificationLargeIcon: {fileID: 2800000, guid: 578a0860000e8044294d128708bd05a5,
+    type: 3}
+  LocalNotificationSound: {fileID: 8300000, guid: 6bd2086cdae0a69479ffbd1249b7302c,
+    type: 3}
+  LocalNotificationWakeLockTimer: 10000
+  ReplaceOldNotificationWithNew: 0
+  ShowPushWhenAppIsForeground: 1
+  EnableVibrationPush: 1
+  PushNotificationColor: {r: 1, g: 1, b: 1, a: 1}
+  PushNotificationSmallIcon: {fileID: 2800000, guid: d47d7d3fcbb30aa44a221f9818389d80,
+    type: 3}
+  PushNotificationLargeIcon: {fileID: 2800000, guid: 578a0860000e8044294d128708bd05a5,
+    type: 3}
+  PushNotificationSound: {fileID: 8300000, guid: 6bd2086cdae0a69479ffbd1249b7302c,
+    type: 3}

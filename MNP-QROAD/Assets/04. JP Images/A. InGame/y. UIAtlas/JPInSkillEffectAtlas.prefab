@@ -1,0 +1,449 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &190058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 468204}
+  - 114: {fileID: 11470472}
+  m_Layer: 0
+  m_Name: JPInSkillEffectAtlas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &468204
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190058}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11470472
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 091d6c4d0bb076c4d8bcb33e372f248c, type: 2}
+  mSprites:
+  - name: 017-white-screen
+    x: 521
+    y: 679
+    width: 72
+    height: 35
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ac-fe-efxa
+    x: 745
+    y: 729
+    width: 100
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 72
+    paddingRight: 78
+    paddingTop: 55
+    paddingBottom: 42
+  - name: ac-fe-efxb
+    x: 636
+    y: 722
+    width: 108
+    height: 107
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 68
+    paddingRight: 74
+    paddingTop: 51
+    paddingBottom: 39
+  - name: ac-fe-efxc
+    x: 521
+    y: 715
+    width: 114
+    height: 114
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 65
+    paddingRight: 71
+    paddingTop: 48
+    paddingBottom: 35
+  - name: ac-fe-efxd
+    x: 393
+    y: 697
+    width: 127
+    height: 132
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 58
+    paddingRight: 65
+    paddingTop: 36
+    paddingBottom: 29
+  - name: ac-fe-efxe
+    x: 243
+    y: 674
+    width: 149
+    height: 155
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 39
+    paddingRight: 62
+    paddingTop: 15
+    paddingBottom: 27
+  - name: ac-fe-efxf
+    x: 0
+    y: 99
+    width: 190
+    height: 163
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 17
+    paddingRight: 43
+    paddingTop: 11
+    paddingBottom: 23
+  - name: ac-fe-efxg
+    x: 0
+    y: 263
+    width: 217
+    height: 173
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 22
+    paddingTop: 8
+    paddingBottom: 16
+  - name: ac-fe-efxh
+    x: 498
+    y: 833
+    width: 227
+    height: 191
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 7
+    paddingRight: 16
+    paddingTop: 5
+    paddingBottom: 1
+  - name: ac-fe-efxi
+    x: 0
+    y: 437
+    width: 235
+    height: 195
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 11
+    paddingTop: 2
+    paddingBottom: 0
+  - name: ac-fe-efxj
+    x: 0
+    y: 633
+    width: 242
+    height: 196
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 7
+    paddingTop: 1
+    paddingBottom: 0
+  - name: ac-fe-efxk
+    x: 0
+    y: 830
+    width: 247
+    height: 194
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 3
+    paddingTop: 0
+    paddingBottom: 3
+  - name: ac-fe-efxl
+    x: 248
+    y: 832
+    width: 249
+    height: 192
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 1
+    paddingTop: 0
+    paddingBottom: 5
+  - name: ac-fe-efxm
+    x: 726
+    y: 857
+    width: 250
+    height: 167
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 25
+    paddingBottom: 5
+  - name: ff-fxa
+    x: 340
+    y: 188
+    width: 92
+    height: 97
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 3
+    paddingTop: 2
+    paddingBottom: 4
+  - name: ff-fxb
+    x: 243
+    y: 367
+    width: 94
+    height: 102
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 1
+    paddingBottom: 0
+  - name: ff-fxc
+    x: 243
+    y: 572
+    width: 96
+    height: 101
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 1
+    paddingTop: 1
+    paddingBottom: 1
+  - name: ff-fxd
+    x: 340
+    y: 574
+    width: 97
+    height: 99
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 1
+    paddingTop: 4
+    paddingBottom: 0
+  - name: ff-fxe
+    x: 0
+    y: 2
+    width: 98
+    height: 96
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 5
+    paddingBottom: 2
+  - name: ff-fxf
+    x: 340
+    y: 93
+    width: 94
+    height: 94
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 3
+    paddingBottom: 6
+  - name: ff-fxg
+    x: 340
+    y: 380
+    width: 96
+    height: 93
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 1
+    paddingTop: 4
+    paddingBottom: 6
+  - name: ff-fxh
+    x: 243
+    y: 173
+    width: 94
+    height: 95
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 2
+    paddingBottom: 6
+  - name: ff-fxi
+    x: 243
+    y: 269
+    width: 95
+    height: 97
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 1
+    paddingTop: 2
+    paddingBottom: 4
+  - name: ff-fxj
+    x: 846
+    y: 727
+    width: 96
+    height: 102
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 1
+    paddingTop: 1
+    paddingBottom: 0
+  - name: ff-fxk
+    x: 243
+    y: 470
+    width: 96
+    height: 101
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 1
+    paddingTop: 1
+    paddingBottom: 1
+  - name: ff-fxl
+    x: 340
+    y: 474
+    width: 97
+    height: 99
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 1
+    paddingTop: 4
+    paddingBottom: 0
+  - name: ff-fxm
+    x: 99
+    y: 2
+    width: 98
+    height: 96
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 5
+    paddingBottom: 2
+  - name: ff-fxn
+    x: 438
+    y: 579
+    width: 94
+    height: 94
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 3
+    paddingBottom: 6
+  - name: ff-fxo
+    x: 340
+    y: 286
+    width: 96
+    height: 93
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 1
+    paddingTop: 4
+    paddingBottom: 6
+  - name: ff-fxp
+    x: 243
+    y: 77
+    width: 94
+    height: 95
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 2
+    paddingBottom: 6
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 190058}
+  m_IsPrefabParent: 1
