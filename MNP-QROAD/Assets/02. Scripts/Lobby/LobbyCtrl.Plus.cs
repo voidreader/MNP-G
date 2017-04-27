@@ -74,10 +74,6 @@ public partial class LobbyCtrl : MonoBehaviour {
             OpenInfoPopUp(PopMessageType.Lock);
             return;
         }
-
-
-        AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.BUTTON_MISSION);
-
         Debug.Log(">>> OpenMission");
         GameSystem.Instance.Post2SyncTime(this.RequestUserMission);
         /*

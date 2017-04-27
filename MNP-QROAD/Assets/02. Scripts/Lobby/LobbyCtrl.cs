@@ -214,7 +214,8 @@ public partial class LobbyCtrl : MonoBehaviour {
     // Use this for initialization
     void Start() {
 
-        GoogleAdmobMgr.Instance.BottomBannerView.Show();
+        //GoogleAdmobMgr.Instance.BottomBannerView.Show();
+        GoogleAdmobMgr.Instance.RequestBanner(); // 애드몹 배너요청 
 
         // 빌링 초기화 
         GameSystem.Instance.InitBilling();
@@ -1455,7 +1456,8 @@ public partial class LobbyCtrl : MonoBehaviour {
         bgmSrc.Play();
         Debug.Log(">>>>> TeachingStep1 Start");
 
-        //AdbrixManager.Instance.SendAppsFlyerEvent(AdbrixManager.Instance.AF_TUTORIAL_START);
+        
+        AdbrixManager.Instance.SendAdbrixNewUserFunnel(AdbrixManager.Instance.TUTORIAL_STEP1);
 
         Transform btn;
 
@@ -2577,9 +2579,6 @@ public partial class LobbyCtrl : MonoBehaviour {
 	public void OpenOption() {
         bigPopup.gameObject.SetActive(true);
         bigPopup.SetOption();
-
-
-        AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.BUTTON_OPTION);
     }
 
 
@@ -2606,7 +2605,6 @@ public partial class LobbyCtrl : MonoBehaviour {
 		// 무료 뽑기(광고), 유료 뽑기 안내 팝업
 		WindowManagerCtrl.Instance.OpenGatchaConfirm ();
 
-        AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.BUTTON_GACHJA);
     }
 	
 

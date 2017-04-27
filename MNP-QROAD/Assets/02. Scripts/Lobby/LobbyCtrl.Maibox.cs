@@ -25,7 +25,6 @@ public partial class LobbyCtrl : MonoBehaviour {
         bigPopup.SetMailBox();
 
 
-        AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.BUTTON_MAIL);
     }
 
 

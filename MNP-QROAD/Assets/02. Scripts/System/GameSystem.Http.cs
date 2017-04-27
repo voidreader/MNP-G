@@ -611,6 +611,8 @@ public partial class GameSystem : MonoBehaviour {
                 GameSystem.Instance.UserDataJSON["data"]["nickname"] = GameSystem.Instance.UserName;
                 firstNickCtrl.SendMessage("OnCompleteNickName");
 
+                AdbrixManager.Instance.SendAdbrixNewUserFunnel(AdbrixManager.Instance.INPUT_FIRSTNAME);
+
             }
             else {
                 Debug.Log("#2");
@@ -1982,7 +1984,7 @@ public partial class GameSystem : MonoBehaviour {
 
 		} else {
 
-			AdbrixManager.Instance.SendAdbrixInAppActivity (AdbrixManager.Instance.BUY_HEART);
+			AdbrixManager.Instance.SendAdbrixInAppActivity (AdbrixManager.Instance.BUY_HEART_GEM);
             //AdbrixManager.Instance.SendAppsFlyerEvent(AdbrixManager.Instance.AF_DIA_HEART_CHARGE);
 
 			UserGold = result[_jData]["gold"].AsInt;
@@ -3222,7 +3224,7 @@ public partial class GameSystem : MonoBehaviour {
         }
 
 		// Adbrix 
-		AdbrixManager.Instance.SendAdbrixInAppActivity (AdbrixManager.Instance.NEKO_UPGRADE);
+		AdbrixManager.Instance.SendAdbrixInAppActivity (AdbrixManager.Instance.NEKO_LEVELUP);
 
 		// 상단 업데이트 
 		UpdateTopInfomation ();
@@ -3978,18 +3980,16 @@ public partial class GameSystem : MonoBehaviour {
 
 
 
-		// Track Event
-		AdbrixManager.Instance.SendAdbrixInAppActivity (AdbrixManager.Instance.GATCHA);
-
-
-
 		if (GameSystem.Instance.IsFreeGatcha) {
-			//AdbrixManager.Instance.SendAppsFlyerEvent (AdbrixManager.Instance.AF_FREE_GACHA);
-		}
+            AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.FREE_CRANE);
+        }
         else {
             if(tutorialStage != 0) {
                 // Mission Progress
                 CheckMissionProgress(MissionType.Week, 9, 1);
+
+                AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.SPECIAL_CRANE);
+
             }
         }
 
@@ -4229,15 +4229,12 @@ public partial class GameSystem : MonoBehaviour {
 			
 			if(pNode[_jData]["useitem"][i].AsInt == 0) {
 				AdbrixManager.Instance.SendAdbrixInAppActivity (AdbrixManager.Instance.ITEM_USE, AdbrixManager.Instance.ITEM1);
-                //AdbrixManager.Instance.SendAppsFlyerEvent(AdbrixManager.Instance.AF_BUFF_MISS);
             } else if(pNode[_jData]["useitem"][i].AsInt == 1) {
 				AdbrixManager.Instance.SendAdbrixInAppActivity (AdbrixManager.Instance.ITEM_USE, AdbrixManager.Instance.ITEM2);
-                //AdbrixManager.Instance.SendAppsFlyerEvent(AdbrixManager.Instance.AF_BUFF_BOMB_GAUGE);
             } else if(pNode[_jData]["useitem"][i].AsInt == 2) {
 				AdbrixManager.Instance.SendAdbrixInAppActivity (AdbrixManager.Instance.ITEM_USE, AdbrixManager.Instance.ITEM3);
-                //AdbrixManager.Instance.SendAppsFlyerEvent(AdbrixManager.Instance.AF_BUFF_CRITICAL);
             } else if(pNode[_jData]["useitem"][i].AsInt == 3) {
-				AdbrixManager.Instance.SendAdbrixInAppActivity (AdbrixManager.Instance.ITEM_USE, AdbrixManager.Instance.ITEM4);
+				//AdbrixManager.Instance.SendAdbrixInAppActivity (AdbrixManager.Instance.ITEM_USE, AdbrixManager.Instance.ITEM4);
                 CheckMissionProgress(MissionType.Day, 1, 1);
             }
 		}
@@ -4257,19 +4254,6 @@ public partial class GameSystem : MonoBehaviour {
         AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.GAME_START);
 
 
-        // New user Check
-        if (TutorialComplete == 0) {
-            AdbrixManager.Instance.SendAdbrixNewUserFunnel(AdbrixManager.Instance.NEW_GAME_START);
-            
-        }
-
-
-        
-        if(TutorialComplete > 0 && UserCurrentStage == 1) {
-            AdbrixManager.Instance.SendAdbrixNewUserFunnel(AdbrixManager.Instance.FIRST_REAL_PUZZLE_START);
-            
-        }
-
         // 획득정보 초기화
         InitInGameAccquireInfo();
         SetEquipNekoGroup(); // 장착 네코의 그룹화 
@@ -4288,6 +4272,25 @@ public partial class GameSystem : MonoBehaviour {
 
         // 일반 게임일때, Fade 좀 더 빨리.
         Fader.Instance.FadeIn(0.5f).LoadLevel("SceneInGame").FadeOut(1f);
+
+        // Adbrix New User 
+        switch(PlayStage) {
+            case 2:
+                AdbrixManager.Instance.SendAdbrixNewUserFunnel(AdbrixManager.Instance.START_STAGE2);
+                break;
+
+            case 3:
+                AdbrixManager.Instance.SendAdbrixNewUserFunnel(AdbrixManager.Instance.START_STAGE3);
+                break;
+
+            case 4:
+                AdbrixManager.Instance.SendAdbrixNewUserFunnel(AdbrixManager.Instance.START_STAGE4);
+                break;
+
+            case 5:
+                AdbrixManager.Instance.SendAdbrixNewUserFunnel(AdbrixManager.Instance.START_STAGE5);
+                break;
+        }
     }
 
 	#endregion 
@@ -4399,7 +4402,7 @@ public partial class GameSystem : MonoBehaviour {
 
 
         // Adbrix 
-        AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.GAME_CLEAR); // 게임종료 
+        AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.GAME_END); // 게임종료 
 
         // Mission Progress
         CheckMissionProgress(MissionType.Day, 12, 1); // 퍼즐 수행

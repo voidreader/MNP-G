@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "Hidden/tk2d/EditorUtility" 
 {
 	SubShader
@@ -36,7 +38,7 @@ Shader "Hidden/tk2d/EditorUtility"
 #if UNITY_VERSION > 550
 				o.vertex = UnityObjectToClipPos(v.vertex);
 #else
-				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.vertex = UnityObjectToClipPos(v.vertex);
 #endif
 				o.texcoord = v.texcoord;
 				o.w = mul(UNITY_MATRIX_MV, v.vertex).xy;

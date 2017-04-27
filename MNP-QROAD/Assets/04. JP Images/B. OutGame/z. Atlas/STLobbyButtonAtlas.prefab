@@ -16,10 +16,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000010799807918}
-  - 114: {fileID: 114000012348699062}
+  - component: {fileID: 4000010799807918}
+  - component: {fileID: 114000012348699062}
   m_Layer: 0
   m_Name: STLobbyButtonAtlas
   m_TagString: Untagged
@@ -36,10 +36,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114000012348699062
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -53,6 +53,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 7d8be79d22a0a4e409e35fc88edf6ba0, type: 2}
   mSprites:
+  - name: banner-crane-ico
+    x: 850
+    y: 429
+    width: 80
+    height: 83
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 1
+    paddingBottom: 0
+  - name: banner-gallery-ico
+    x: 588
+    y: 16
+    width: 85
+    height: 89
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: banner-shop-ico
+    x: 677
+    y: 292
+    width: 85
+    height: 89
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: crane-ico
     x: 0
     y: 246
@@ -67,8 +106,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: GLobbyFont
-    x: 850
-    y: 465
+    x: 763
+    y: 334
     width: 125
     height: 47
     borderLeft: 0
@@ -106,8 +145,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ico-new
-    x: 850
-    y: 430
+    x: 92
+    y: 0
     width: 58
     height: 34
     borderLeft: 0
@@ -184,8 +223,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: main_btn_bot_option
-    x: 92
-    y: 27
+    x: 931
+    y: 439
     width: 70
     height: 73
     borderLeft: 0
@@ -249,8 +288,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: main_btn_plus
-    x: 811
-    y: 319
+    x: 677
+    y: 229
     width: 62
     height: 62
     borderLeft: 0
@@ -353,7 +392,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: top-coin
-    x: 744
+    x: 956
     y: 317
     width: 66
     height: 64
@@ -366,7 +405,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: top-dia
-    x: 677
+    x: 889
     y: 315
     width: 66
     height: 66
@@ -379,8 +418,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: top-heart
-    x: 588
-    y: 40
+    x: 92
+    y: 35
     width: 76
     height: 65
     borderLeft: 0
@@ -392,8 +431,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui-top-full
-    x: 909
-    y: 443
+    x: 362
+    y: 24
     width: 60
     height: 21
     borderLeft: 0

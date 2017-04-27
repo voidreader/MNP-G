@@ -192,8 +192,6 @@ public partial class LobbyCtrl : MonoBehaviour {
     /// </summary>
     public void OpenHeartRequest() {
 
-        AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.BUTTON_FRIEND);
-
         Debug.Log(">> OpenHeartRequest");
         //LoginFacebook();
 

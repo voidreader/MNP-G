@@ -66,7 +66,6 @@ public partial class LobbyCtrl : MonoBehaviour {
     /// </summary>
     public void OpenCharacterList() {
         IsReadyCharacterList = false;
-        AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.BUTTON_NEKOGROWTH);
 
         DisableNewNekoAddedSign();
         OnCharacterList();

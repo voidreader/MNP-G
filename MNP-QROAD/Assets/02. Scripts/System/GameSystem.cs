@@ -3044,7 +3044,6 @@ public partial class GameSystem : MonoBehaviour {
             //Post2GatchaAds();
             // 뽑기 광고 시청 후 , Free Crane 화면을 오픈.
             LobbyCtrl.Instance.OpenFreeCrane();
-            AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.VIEW_NEKO_MOVIE);
 
             // 미션 체크 
             CheckMissionProgress(MissionType.Day, 13, 1);
@@ -3054,7 +3053,7 @@ public partial class GameSystem : MonoBehaviour {
         else if (pType == AdsType.HeartAds) { // 하트 1개 얻기 용도 
 
             Post2HeartAds();
-            AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.VIEW_HEART_MOVIE);
+            AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.BUY_HEART_ADS);
 
         }
         else if (pType == AdsType.NekoGiftAds) {

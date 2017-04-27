@@ -526,10 +526,12 @@ public partial class GameSystem : MonoBehaviour {
         }
 
         // Adbrix 테스트 사용자는 제외
+        /*
         if (!WWWHelper.Instance.IsTestMode) {
 			AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.BUY_GEM);
 			AdbrixManager.Instance.SendAdbrixInAppPurchasing(sku);
 		}
+        */
 
 
         // 재화 실제 적용 
@@ -891,8 +893,8 @@ public partial class GameSystem : MonoBehaviour {
 
         // Adbrix 테스트 사용자는 제외
         if (!WWWHelper.Instance.IsTestMode) {
-            AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.BUY_GEM);
-            AdbrixManager.Instance.SendAdbrixInAppPurchasing(sku);
+            AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.BUY_IAP);
+            AdbrixManager.Instance.SendAdbrixInAppPurchasing(purchase);
         }
 
 

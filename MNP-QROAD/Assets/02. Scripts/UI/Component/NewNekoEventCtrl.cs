@@ -109,7 +109,6 @@ public class NewNekoEventCtrl : MonoBehaviour {
     /// </summary>
     public void OpenNewNekoMission() {
         WindowManagerCtrl.Instance.OpenNewNekoPage();
-        AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.BUTTON_NEWFIVENEKO);
     }
 	
 	

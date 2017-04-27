@@ -5,10 +5,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 482520}
-  - 114: {fileID: 11432952}
+  - component: {fileID: 482520}
+  - component: {fileID: 11432952}
   m_Layer: 0
   m_Name: JPLobbyButtonAtlas
   m_TagString: Untagged
@@ -25,10 +25,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &11432952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -42,6 +42,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 9407523e585837d4b97f3f34f068db74, type: 2}
   mSprites:
+  - name: banner-gallery-ico
+    x: 927
+    y: 802
+    width: 85
+    height: 89
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: banner-shop-ico
+    x: 841
+    y: 802
+    width: 85
+    height: 89
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: coin-up-ico
     x: 165
     y: 377
@@ -148,7 +174,7 @@ MonoBehaviour:
     paddingBottom: 1
   - name: lock-ico
     x: 259
-    y: 594
+    y: 408
     width: 90
     height: 92
     borderLeft: 0
@@ -226,7 +252,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: main_btn_event
     x: 259
-    y: 501
+    y: 315
     width: 90
     height: 92
     borderLeft: 0
@@ -239,7 +265,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: main_btn_mail
     x: 259
-    y: 408
+    y: 222
     width: 90
     height: 92
     borderLeft: 0
@@ -252,7 +278,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: main_btn_mission
     x: 259
-    y: 222
+    y: 129
     width: 90
     height: 92
     borderLeft: 0
@@ -265,7 +291,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: main_btn_ranking
     x: 259
-    y: 129
+    y: 501
     width: 90
     height: 92
     borderLeft: 0
@@ -278,7 +304,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: main_btn_wanted
     x: 259
-    y: 315
+    y: 594
     width: 90
     height: 92
     borderLeft: 0
@@ -303,8 +329,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: main_ico_present
-    x: 841
-    y: 817
+    x: 441
+    y: 612
     width: 67
     height: 74
     borderLeft: 0
@@ -343,7 +369,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: nokori-1
     x: 165
-    y: 171
+    y: 68
     width: 92
     height: 95
     borderLeft: 0
@@ -356,7 +382,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: nokori-2
     x: 165
-    y: 68
+    y: 171
     width: 92
     height: 95
     borderLeft: 0

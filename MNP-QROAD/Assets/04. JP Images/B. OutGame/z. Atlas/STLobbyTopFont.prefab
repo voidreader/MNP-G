@@ -16,10 +16,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000012120452388}
-  - 114: {fileID: 114000013553168770}
+  - component: {fileID: 4000012120452388}
+  - component: {fileID: 114000013553168770}
   m_Layer: 0
   m_Name: STLobbyTopFont
   m_TagString: Untagged
@@ -36,10 +36,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114000013553168770
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,8 +54,8 @@ MonoBehaviour:
   mMat: {fileID: 2100000, guid: 7d8be79d22a0a4e409e35fc88edf6ba0, type: 2}
   mUVRect:
     serializedVersion: 2
-    x: 0.8300781
-    y: -0.15820312
+    x: 0.7451172
+    y: 0.09765625
     width: 0.125
     height: 0.25
   mFont:

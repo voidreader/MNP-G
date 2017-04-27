@@ -19,7 +19,6 @@ public partial class LobbyCtrl : MonoBehaviour {
         bigPopup.SetRanking();
 
 
-        AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.BUTTON_RANKING);
     }
 
 

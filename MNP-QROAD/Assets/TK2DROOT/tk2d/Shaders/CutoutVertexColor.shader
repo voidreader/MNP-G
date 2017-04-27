@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 // unlit, vertex colour, alpha blended
 // cull off
 
@@ -45,7 +47,7 @@ Shader "tk2d/CutoutVertexColor"
 #if UNITY_VERSION > 550
 				o.vertex = UnityObjectToClipPos(v.vertex);
 #else
-				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.vertex = UnityObjectToClipPos(v.vertex);
 #endif
 				o.color = v.color;
 				o.texcoord = v.texcoord;

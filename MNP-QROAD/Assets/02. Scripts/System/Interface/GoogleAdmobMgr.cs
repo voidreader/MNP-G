@@ -8,6 +8,8 @@ public class GoogleAdmobMgr : MonoBehaviour {
     static GoogleAdmobMgr _instance = null;
     BannerView _bottomBannerView;
 
+    bool _isBannerRequested = false;
+
     void Awake() {
 
         DontDestroyOnLoad(this.gameObject);
@@ -16,7 +18,7 @@ public class GoogleAdmobMgr : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        RequestBanner();
+        // RequestBanner();
     }
 
     public static GoogleAdmobMgr Instance {
@@ -47,7 +49,21 @@ public class GoogleAdmobMgr : MonoBehaviour {
         }
     }
 
-    void RequestBanner() {
+    public bool IsBannerRequested {
+        get {
+            return _isBannerRequested;
+        }
+
+        set {
+            _isBannerRequested = value;
+        }
+    }
+
+    public void RequestBanner() {
+
+        if (IsBannerRequested)
+            return;
+
 #if UNITY_EDITOR
         string adUnitId = "unused";
 #elif UNITY_ANDROID
@@ -59,7 +75,9 @@ public class GoogleAdmobMgr : MonoBehaviour {
 #endif
 
         // Create a 320x50 banner at the top of the screen.
-        BottomBannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Bottom);
+        AdSize adsize = new AdSize(320, 40);
+        //BottomBannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Bottom);
+        BottomBannerView = new BannerView(adUnitId, adsize, AdPosition.Bottom);
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().Build();
         // Load the banner with the request.
@@ -71,11 +89,13 @@ public class GoogleAdmobMgr : MonoBehaviour {
 
     private void BottomBannerView_OnAdFailedToLoad(object sender, AdFailedToLoadEventArgs e) {
         Debug.Log("★ Admob banner load fail");
+        IsBannerRequested = false;
     }
 
     private void BottomBannerView_OnAdLoaded(object sender, System.EventArgs e) {
 
         Debug.Log("★ Admob banner loaded");
+        IsBannerRequested = true;
         //throw new System.NotImplementedException();
     }
 }

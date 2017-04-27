@@ -238,7 +238,7 @@ public class BottleManager : MonoBehaviour {
                     _screen.SetActive(false);
                     _btnWakeUp.gameObject.SetActive(false);
                     _timer.localPosition = new Vector3(0, -850, 0);
-                    _timer.DOLocalMoveY(-520, 0.5f).SetDelay(0.5f);
+                    _timer.DOLocalMoveY(-430, 0.5f).SetDelay(0.5f);
                     UpdateWakeUpTime();
                 }
 
@@ -252,7 +252,7 @@ public class BottleManager : MonoBehaviour {
 
                 _onBottleUI = false;
                 _bottleUI.SetActive(false);
-                _bottomUI.DOLocalMoveY(-600, 0.5f);
+                _bottomUI.DOLocalMoveY(-538, 0.5f);
 
             }
 

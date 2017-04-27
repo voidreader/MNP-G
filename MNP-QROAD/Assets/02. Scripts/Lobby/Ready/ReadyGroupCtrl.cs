@@ -543,6 +543,8 @@ public class ReadyGroupCtrl : MonoBehaviour {
 
         // 튜토리얼의 경우에는 하트 소비를 하지 않음.
         if (GameSystem.Instance.TutorialComplete == 0) {
+
+            AdbrixManager.Instance.SendAdbrixNewUserFunnel(AdbrixManager.Instance.TUTORIAL_STEP2);
             GameSystem.Instance.DoGameStart();
             IsTouchLock = true;
         }

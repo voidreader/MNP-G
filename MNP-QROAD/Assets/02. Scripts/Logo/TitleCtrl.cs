@@ -542,8 +542,6 @@ public class TitleCtrl : MonoBehaviour {
         //GameSystem.Instance.IsLiveOpsInit = false;
 
 
-        // Adbrix
-        AdbrixManager.Instance.SendAdbrixNewUserFunnel(AdbrixManager.Instance.CONNECT_SERVER);
 
     }
 
@@ -552,9 +550,6 @@ public class TitleCtrl : MonoBehaviour {
 		LiveOpsPluginIOS.LiveOpsInitPush ();
 
         GameSystem.Instance.IsLiveOpsInit = true;
-
-        // Adbrix
-        AdbrixManager.Instance.SendAdbrixNewUserFunnel(AdbrixManager.Instance.CONNECT_SERVER);
 
     }
 
