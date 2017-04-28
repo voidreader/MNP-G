@@ -702,13 +702,13 @@ public class MNPFacebookCtrl : MonoBehaviour {
     /// <param name="pImage"></param>
     public void PostImage(string pTitle, string pMessage, Texture2D pImage) {
         
-
+        
         Debug.Log(">>>> FB PostImage");
 
         byte[] imageBytes = pImage.EncodeToPNG();
 
         WWWForm wwwForm = new WWWForm();
-        wwwForm.AddField("caption", pMessage);
+        // wwwForm.AddField("caption", pMessage);
         wwwForm.AddBinaryData("image", imageBytes, "picture.png");
         // wwwForm.AddField("name", pMessage);
 

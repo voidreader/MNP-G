@@ -18,7 +18,7 @@ public class TutorialExplainCtrl : MonoBehaviour {
     [SerializeField]
     bool _hasTouchMark = true;
 
-	private Vector3 lowerPos = new Vector3(0,-500,0);
+	private Vector3 lowerPos = new Vector3(0,-460,0);
 	private Vector3 upperPos = new Vector3(0,-250,0);
 
     private Vector3 originArrowPos = new Vector3(-20, 25, 0);

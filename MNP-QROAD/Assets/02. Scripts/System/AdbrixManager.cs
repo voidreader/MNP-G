@@ -19,7 +19,7 @@ public class AdbrixManager : MonoBehaviour {
 
 
     public readonly string BUY_HEART_GEM = "BuyHeartWithGem"; // 젬으로 하트 구매
-    public readonly string BUY_HEART_ADS = "BuyHeartWithGem"; // 광고보고 하트 충전 
+    public readonly string BUY_HEART_ADS = "BuyHeartWithAd"; // 광고보고 하트 충전 
 
 
     // 크레인
@@ -40,6 +40,9 @@ public class AdbrixManager : MonoBehaviour {
     public readonly string NEKO_FEED = "NekoFeed"; // 고양이 물고기 먹이기 
     public readonly string POWER_UPGRADE = "PowerUpgrade"; // 파워 업그레이드
     public readonly string WAKE_UP = "WakeUp"; // 깨우기
+
+    public readonly string NEKO_BONUS_ADS = "MitchiriBonusAds";
+    public readonly string NEKO_BONUS_NOADS = "MitchiriBonusNoAds";
 
     #region New User Funnel
     public readonly string INPUT_FIRSTNAME = "InputFirstName";

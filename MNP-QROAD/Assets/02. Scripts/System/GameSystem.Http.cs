@@ -1537,6 +1537,8 @@ public partial class GameSystem : MonoBehaviour {
         // 준비창 업데이트 
         //PopUpgradeCtrl passiveUpgrade = FindObjectOfType(typeof(PopUpgradeCtrl)) as PopUpgradeCtrl;
 
+        AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.POWER_UPGRADE);
+
         ReadyGroupCtrl.Instance.RefreshPower();
     }
 
@@ -1854,6 +1856,9 @@ public partial class GameSystem : MonoBehaviour {
             UserGold = result["resultcoin"].AsInt;
             LobbyCtrl.Instance.OpenInfoPopUp(PopMessageType.WakeUpCoinAdd, result["giftvalue"].Value);
         }
+
+
+        AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.WAKE_UP);
 
         BottleManager.Instance.WakeUpCallback();
         IsRequestingWakeUp = false;
@@ -3139,6 +3144,8 @@ public partial class GameSystem : MonoBehaviour {
         CurrentSelectNeko.UpdateInfo();
 
 
+        // Adbrix
+        AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.NEKO_FEED);
 
 
         // NekoFeed 창 업데이트 

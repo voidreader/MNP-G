@@ -1270,7 +1270,7 @@ public partial class LobbyCtrl : MonoBehaviour {
         }
 
         // 네코 성장 선택
-        _tutorialHand.SetEnable(new Vector3(-150, -550, 0));
+        _tutorialHand.SetEnable(new Vector3(-300, -520, 0));
         EnableSomeButton("ButtonUp");
 
         // 장착 화면 뜰때까지 대기. 
@@ -1488,7 +1488,7 @@ public partial class LobbyCtrl : MonoBehaviour {
             }
 
             btn = ReturnEnableSomeButton("ButtonAdopt"); // 뽑기 버튼 활성화 
-            _tutorialHand.SetEnable(new Vector3(0, -530, 0));
+            _tutorialHand.SetEnable(new Vector3(-180, -530, 0));
 
 
             // Crane 창 오픈까지 대기 

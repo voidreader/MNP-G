@@ -5,7 +5,6 @@ using IgaworksUnityAOS;
 public partial class GameSystem : MonoBehaviour {
 
 	[SerializeField] string _version;
-    [SerializeField] float _versionFloat;
 	[SerializeField] int _tutorialComplete = 0;
 
     string _javaAndroidID = string.Empty;
@@ -304,10 +303,6 @@ public partial class GameSystem : MonoBehaviour {
 		debugMsg += AndroidAppInfoLoader.Instance.PacakgeInfo.versionName + "\n";
 
         //AndroidAppInfoLoader.Instance.PacakgeInfo.
-
-        // 버전은 그냥 수동으로 작성 
-        //_version = AndroidAppInfoLoader.Instance.PacakgeInfo.versionName;
-        //_versionFloat = float.Parse(_version);
 
         Debug.Log("OnPackageInfoLoaded :: " + debugMsg);
     }

@@ -795,8 +795,8 @@ public partial class GameSystem : MonoBehaviour {
 
         /* 마스터 버전 처리 */
 
-        // 빌드버전이 마스터 버전보다 높은 경우 Test Server로 연동된다. 
-        if ( _gameVesionJSON == null || (float.Parse(_version) > _gameVesionJSON["master_version"].AsFloat)) {
+        //if ( _gameVesionJSON == null || (float.Parse(_version) > _gameVesionJSON["master_version"].AsFloat)) {
+        if (_gameVesionJSON == null || GameVersion.CompareTo(_gameVesionJSON["master_version"]) > 0) {
 
             //WWWHelper.Instance.SetConnectServerURL(true);
 

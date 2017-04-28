@@ -438,13 +438,17 @@ public class WWWHelper : MonoBehaviour {
                 break;
 
             case "request_nekogift":
-                if (pParam <= 0)
+                if (pParam <= 0) {
                     _dataForm["data"]["isads"].AsBool = false;
+                    AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.NEKO_BONUS_NOADS);
+                }
                 else {
                     _dataForm["data"]["isads"].AsBool = true;
 
+                    AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.NEKO_BONUS_ADS);
+
                     // 아이디가 다르면 리턴처리.
-                    if(GameSystem.Instance.AdsID != WWWHelper.Instance.AdsID) {
+                    if (GameSystem.Instance.AdsID != WWWHelper.Instance.AdsID) {
                         print("★★★★ AdsID not equal!! request_nekogift");
                     }
 

@@ -67,8 +67,8 @@ public partial class InGameCtrl : MonoBehaviour {
     [SerializeField] List<MyNekoPassiveCtrl> _listNekoPassive = new List<MyNekoPassiveCtrl>();
     private BlockCtrl pickPassiveBombBlock = null;
     [SerializeField] int _nekoTotalPower = 0; // 네코 파워 합계 
-    [SerializeField] int _bombAppearBlockCount = 50;
-    [SerializeField] int _skillInvokeBlockCount = 40;
+    [SerializeField] int _bombAppearBlockCount = 60;
+    [SerializeField] int _skillInvokeBlockCount = 60;
 
 
     #region 맵 Type 세팅 
@@ -2176,7 +2176,7 @@ public partial class InGameCtrl : MonoBehaviour {
             BombAppearBlockCount -= 5;
 
         if (BoostSpecialAttack)
-            SkillInvokeBlockCount -= 3;
+            SkillInvokeBlockCount -= 5;
 
         UpdateGameTime();
 
