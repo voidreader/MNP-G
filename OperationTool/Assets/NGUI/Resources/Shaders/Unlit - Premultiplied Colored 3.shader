@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "Hidden/Unlit/Premultiplied Colored 3"
 {
 	Properties
@@ -38,7 +40,7 @@ Shader "Hidden/Unlit/Premultiplied Colored 3"
 			#define UNITY_VERTEX_OUTPUT_STEREO
 			#define UNITY_SETUP_INSTANCE_ID(v)
 			#define UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(i)
-			#define UnityObjectToClipPos(v) mul(UNITY_MATRIX_MVP, v)
+			#define UnityObjectToClipPos(v) UnityObjectToClipPos(v)
 			#endif
 
 			sampler2D _MainTex;
