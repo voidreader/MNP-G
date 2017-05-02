@@ -4,8 +4,8 @@ Google Play game services IDs.
 Save this file as res/values/games-ids.xml in your project.
 -->
 <resources>
-  <string name="app_id">com.qroad.google.mitchirinekopop</string>
-  <string name="package_name">com.twowegames.MitchirinekoPop</string>
+  <string name="app_id">77620733441</string>
+  <string name="package_name">com.qroad.google.mitchirinekopop</string>
   <string name="achievement__1___">CgkI6OrzxdAGEAIQAQ</string>
   <string name="achievement__1___">CgkI6OrzxdAGEAIQAg</string>
   <string name="achievement__1___">CgkI6OrzxdAGEAIQAw</string>

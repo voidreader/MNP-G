@@ -88,12 +88,12 @@ MonoBehaviour:
   CameraAPI: 0
   KeepManifestClean: 0
   GooglePlayServiceAppID: 77620733441
-  ToolbarSelectedIndex: 0
+  ToolbarSelectedIndex: 2
   base64EncodedPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjFg2eer9JhGItWdeyZ4logq7RE7hAMuCIz1AUH2Mw/hQrIP9JEpZ+5a0b7UQA5fCCU/KtdeJZ0dGt6ro+khj0Vkwc3Gfq1naVn4eXCth3HIPfE/M183RfkCk7vqJjshaBWlnZcH3H/pEZB2+rd5CC3mee6p+eZHsXiKzRLV572DWV8/VMBc2oMdwPa6HumqLbjOMZ0CP/xGojPfde6EIqCCEXDjKlOc8l3ZILJl6zP8GEDiEl5+da98wSUxl1s7bBe9uoeC5Jb6k+DabkFroFB0dPv+KbnTraNIVcjnObth+TD5Zge+8iIx7PuUbD9okzDjcHkHtxRiRo8uVzZ7iXQIDAQAB
   ShowStoreProducts: 1
   InAppProducts:
   - IsOpen: 1
-    SKU: g0
+    SKU: mn_pkg_01
     _LocalizedPrice: 0.99 $
     _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD
@@ -102,7 +102,7 @@ MonoBehaviour:
     _Texture: {fileID: 0}
     _ProductType: 0
   - IsOpen: 1
-    SKU: g1
+    SKU: mn_cash_01
     _LocalizedPrice: 0.99 $
     _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD
@@ -111,7 +111,7 @@ MonoBehaviour:
     _Texture: {fileID: 0}
     _ProductType: 0
   - IsOpen: 1
-    SKU: g2
+    SKU: mn_cash_02
     _LocalizedPrice: 0.99 $
     _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD
@@ -120,7 +120,7 @@ MonoBehaviour:
     _Texture: {fileID: 0}
     _ProductType: 0
   - IsOpen: 1
-    SKU: g3
+    SKU: mn_cash_03
     _LocalizedPrice: 0.99 $
     _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD
@@ -129,7 +129,7 @@ MonoBehaviour:
     _Texture: {fileID: 0}
     _ProductType: 0
   - IsOpen: 1
-    SKU: g4
+    SKU: mn_cash_04
     _LocalizedPrice: 0.99 $
     _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD
@@ -138,7 +138,7 @@ MonoBehaviour:
     _Texture: {fileID: 0}
     _ProductType: 0
   - IsOpen: 1
-    SKU: g5
+    SKU: mn_cash_05
     _LocalizedPrice: 0.99 $
     _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD
@@ -147,7 +147,7 @@ MonoBehaviour:
     _Texture: {fileID: 0}
     _ProductType: 0
   - IsOpen: 1
-    SKU: g7
+    SKU: mn_cash_06
     _LocalizedPrice: 0.99 $
     _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD
@@ -156,16 +156,7 @@ MonoBehaviour:
     _Texture: {fileID: 0}
     _ProductType: 0
   - IsOpen: 1
-    SKU: g8
-    _LocalizedPrice: 0.99 $
-    _PriceAmountMicros: 990000
-    _PriceCurrencyCode: USD
-    _Description: 
-    _Title: New Product
-    _Texture: {fileID: 0}
-    _ProductType: 0
-  - IsOpen: 1
-    SKU: special_g
+    SKU: mn_pkg_02
     _LocalizedPrice: 0.99 $
     _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD

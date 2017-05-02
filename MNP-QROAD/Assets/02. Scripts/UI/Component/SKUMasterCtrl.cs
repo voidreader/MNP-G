@@ -20,22 +20,25 @@ public class SKUMasterCtrl : MonoBehaviour {
 
         foreach (GoogleProductTemplate p in AndroidInAppPurchaseManager.Client.Inventory.Products) {
             
-            if(p.SKU.Contains("g1")) {
+            if(p.SKU.Contains("mn_cash_01")) {
                 _arrSKUCtrl[0].SetSKUInfo(p.SKU, p.LocalizedPrice);
             }
-            else if(p.SKU.Contains("g2")) {
+            else if(p.SKU.Contains("mn_cash_02")) {
                 _arrSKUCtrl[1].SetSKUInfo(p.SKU, p.LocalizedPrice);
             }
-            else if (p.SKU.Contains("g3")) {
+            else if (p.SKU.Contains("mn_cash_03")) {
                 _arrSKUCtrl[2].SetSKUInfo(p.SKU, p.LocalizedPrice);
             }
-            else if (p.SKU.Contains("g4")) {
+            else if (p.SKU.Contains("mn_cash_04")) {
                 _arrSKUCtrl[3].SetSKUInfo(p.SKU, p.LocalizedPrice);
             }
-            else if (p.SKU.Contains("g5")) { 
+            else if (p.SKU.Contains("mn_cash_05")) { 
                 _arrSKUCtrl[4].SetSKUInfo(p.SKU, p.LocalizedPrice);
             }
-            
+            else if (p.SKU.Contains("mn_cash_06")) {
+                _arrSKUCtrl[5].SetSKUInfo(p.SKU, p.LocalizedPrice);
+            }
+
         }
 #elif UNITY_IOS
 		Debug.Log("SetSKUs in IOS");

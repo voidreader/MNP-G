@@ -51,11 +51,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4eb3a400afab046abb8471a9d746d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mMat: {fileID: 2100000, guid: 9407523e585837d4b97f3f34f068db74, type: 2}
+  mMat: {fileID: 2100000, guid: 7d8be79d22a0a4e409e35fc88edf6ba0, type: 2}
   mUVRect:
     serializedVersion: 2
     x: 0
-    y: 0.111328125
+    y: 0.41503906
     width: 0.25
     height: 0.25
   mFont:
@@ -165,7 +165,7 @@ MonoBehaviour:
       advance: 36
       channel: 15
       kerning: 
-  mAtlas: {fileID: 11432952, guid: 642536337f22e61499cbfa48d78de281, type: 2}
+  mAtlas: {fileID: 114000012348699062, guid: 42cc4060326976d40ba0fd4d6b689d85, type: 2}
   mReplacement: {fileID: 0}
   mSymbols: []
   mDynamicFont: {fileID: 0}

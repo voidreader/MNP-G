@@ -710,7 +710,7 @@ public class MNPFacebookCtrl : MonoBehaviour {
         WWWForm wwwForm = new WWWForm();
         // wwwForm.AddField("caption", pMessage);
         wwwForm.AddBinaryData("image", imageBytes, "picture.png");
-        // wwwForm.AddField("name", pMessage);
+        wwwForm.AddField("name", pMessage);
 
         FB.API("me/photos", HttpMethod.POST, PostCallback_Internal, wwwForm);
     }

@@ -21,13 +21,13 @@ public partial class GameSystem : MonoBehaviour {
 
 
 
-    public readonly string LEADERBOARD_ID = "CgkI6OrzxdAGEAIQDA";
+    public readonly string LEADERBOARD_ID = "CgkIgcy5lKECEAIQAA";
 
-	public readonly string ACHIEVEMENT_ID1 = "CgkI6OrzxdAGEAIQBw"; // 고양이 10마리 
-    public readonly string ACHIEVEMENT_ID2 = "CgkI6OrzxdAGEAIQCA"; // 30마리
-	public readonly string ACHIEVEMENT_ID3 = "CgkI6OrzxdAGEAIQCQ"; // 50마리
-	public readonly string ACHIEVEMENT_ID4 = "CgkI6OrzxdAGEAIQCg"; // 70마리
-	public readonly string ACHIEVEMENT_ID5 = "CgkI6OrzxdAGEAIQCw"; // 100마리
+	public readonly string ACHIEVEMENT_ID1 = "CgkIgcy5lKECEAIQAQ"; // 고양이 10마리 
+    public readonly string ACHIEVEMENT_ID2 = "CgkIgcy5lKECEAIQAg"; // 30마리
+	public readonly string ACHIEVEMENT_ID3 = "CgkIgcy5lKECEAIQAw"; // 50마리
+	public readonly string ACHIEVEMENT_ID4 = "CgkIgcy5lKECEAIQBA"; // 70마리
+	public readonly string ACHIEVEMENT_ID5 = "CgkIgcy5lKECEAIQBQ"; // 100마리
 
     public readonly string IOS_ACHIEVEMENT_ID1 = "mnp.collection.10"; // 고양이 10마리 
     public readonly string IOS_ACHIEVEMENT_ID2 = "mnp.collection.30"; // 30마리

@@ -5,10 +5,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 480246}
-  - 114: {fileID: 11485300}
+  - component: {fileID: 480246}
+  - component: {fileID: 11485300}
   m_Layer: 0
   m_Name: JPComAtlas
   m_TagString: Untagged
@@ -25,10 +25,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &11485300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -148,7 +148,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: common_btn_tap_gray
     x: 410
-    y: 182
+    y: 90
     width: 158
     height: 91
     borderLeft: 0
@@ -161,7 +161,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: common_btn_tap_red
     x: 410
-    y: 90
+    y: 182
     width: 158
     height: 91
     borderLeft: 0
@@ -199,7 +199,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: common_btn_yellow
-    x: 583
+    x: 410
     y: 470
     width: 172
     height: 114
@@ -433,19 +433,6 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: gl-ttr-face
-    x: 410
-    y: 274
-    width: 152
-    height: 98
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: gl-ttr-twit
     x: 255
     y: 1
     width: 152
@@ -458,8 +445,21 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: gl-ttr-twit
+    x: 410
+    y: 274
+    width: 152
+    height: 98
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: gray-bodan
-    x: 486
+    x: 255
     y: 699
     width: 230
     height: 107
@@ -472,8 +472,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: i-heart
-    x: 789
-    y: 150
+    x: 159
+    y: 126
     width: 76
     height: 65
     borderLeft: 0
@@ -577,7 +577,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: main_ico_coin
     x: 866
-    y: 29
+    y: 90
     width: 61
     height: 60
     borderLeft: 0
@@ -590,7 +590,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: main_ico_dia
     x: 866
-    y: 90
+    y: 29
     width: 61
     height: 60
     borderLeft: 0
@@ -602,8 +602,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: main_ico_heart
-    x: 159
-    y: 126
+    x: 789
+    y: 150
     width: 76
     height: 65
     borderLeft: 0
@@ -667,7 +667,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: option_btn_gray
-    x: 410
+    x: 583
     y: 470
     width: 172
     height: 114
@@ -680,8 +680,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: pop-oranges
-    x: 255
-    y: 699
+    x: 0
+    y: 10
     width: 230
     height: 107
     borderLeft: 0
@@ -693,8 +693,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: pop-reds
-    x: 0
-    y: 10
+    x: 486
+    y: 699
     width: 230
     height: 107
     borderLeft: 0

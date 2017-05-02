@@ -252,7 +252,7 @@ public class BottleManager : MonoBehaviour {
 
                 _onBottleUI = false;
                 _bottleUI.SetActive(false);
-                _bottomUI.DOLocalMoveY(-538, 0.5f);
+                _bottomUI.DOLocalMoveY(-570, 0.5f);
 
             }
 

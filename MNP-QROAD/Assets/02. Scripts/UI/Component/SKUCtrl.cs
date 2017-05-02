@@ -8,6 +8,7 @@ public class SKUCtrl : MonoBehaviour {
 	[SerializeField] UILabel _lblPrice;
 	[SerializeField] UILabel _lblGem;
 	[SerializeField] int _gemCount;
+    [SerializeField] UISprite _spriteGem;
 
 	// Use this for initialization
 	void Start () {
@@ -28,24 +29,33 @@ public class SKUCtrl : MonoBehaviour {
 		_price = pPrice;
 		_lblPrice.text = _price;
 
-        if (_sku.Contains("g1")) {
-            _gemCount = 300;
-        }
-        else if (_sku.Contains("g2")) {
-            _gemCount = 530;
-        }
-        else if (_sku.Contains("g3")) {
-            _gemCount = 1100;
-        }
-        else if (_sku.Contains("g4")) {
-            _gemCount = 3400;
-        }
-        else if (_sku.Contains("g5")) {
-            _gemCount = 5800;
-        }
-        
 
-		_lblGem.text = _gemCount.ToString ("#,###");
+        if(_sku.Contains("01")) {
+            _gemCount = 100;
+            _spriteGem.spriteName = "main_ico_dia";
+        }
+        else if(_sku.Contains("02")) {
+            _gemCount = 300;
+            _spriteGem.spriteName = "shop_ico_dia_01";
+        }
+        else if (_sku.Contains("03")) {
+            _gemCount = 530;
+            _spriteGem.spriteName = "shop_ico_dia_02";
+        }
+        else if (_sku.Contains("04")) {
+            _gemCount = 1100;
+            _spriteGem.spriteName = "shop_ico_dia_03";
+        }
+        else if (_sku.Contains("05")) {
+            _gemCount = 3400;
+            _spriteGem.spriteName = "shop_ico_dia_04";
+        }
+        else if (_sku.Contains("06")) {
+            _gemCount = 5800;
+            _spriteGem.spriteName = "shop_ico_dia_05";
+        }
+
+        _lblGem.text = _gemCount.ToString ("#,###");
 	}
 
     public void Purchase() {

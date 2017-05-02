@@ -1356,7 +1356,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11432952, guid: 642536337f22e61499cbfa48d78de281, type: 2}
+  mAtlas: {fileID: 114000012348699062, guid: 42cc4060326976d40ba0fd4d6b689d85, type: 2}
   mSpriteName: gl-m
   mFillCenter: 1
 --- !u!1 &21588192
@@ -1662,7 +1662,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3016
+  startingRenderQueue: 3015
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 3
@@ -4934,7 +4934,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3011
+  startingRenderQueue: 3010
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -6719,7 +6719,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 423702, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -285
+      value: -220
       objectReference: {fileID: 0}
     - target: {fileID: 423702, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7582,11 +7582,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 128798240}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 210, y: 400, z: 0}
+  m_LocalPosition: {x: 295, y: 70, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1470046184}
-  m_RootOrder: 6
+  m_Father: {fileID: 1305488340}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &128798242
 BoxCollider:
@@ -7598,7 +7598,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 80, y: 84, z: 0}
+  m_Size: {x: 124, y: 130, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &128798243
 MonoBehaviour:
@@ -7686,14 +7686,14 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 80
-  mHeight: 84
+  mWidth: 124
+  mHeight: 130
   mDepth: 16
   mMat: {fileID: 0}
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 0.95238096
+  aspectRatio: 0.95384616
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -7708,7 +7708,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 114000012348699062, guid: 42cc4060326976d40ba0fd4d6b689d85, type: 2}
-  mSpriteName: banner-crane-ico
+  mSpriteName: crane-ico
   mFillCenter: 1
 --- !u!114 &128798247
 MonoBehaviour:
@@ -10742,7 +10742,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11432952, guid: 642536337f22e61499cbfa48d78de281, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: event-s-ico
   mFillCenter: 1
 --- !u!114 &190403736
@@ -12862,7 +12862,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3012
+  startingRenderQueue: 3011
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 3
@@ -15683,7 +15683,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11432952, guid: 642536337f22e61499cbfa48d78de281, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: odoku
   mFillCenter: 1
 --- !u!1 &260218192
@@ -16463,7 +16463,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3012
+  startingRenderQueue: 3011
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -17453,11 +17453,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485756, guid: dfd1c20267baafe4db06e460edf7b0a7, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -300
+      value: -70
       objectReference: {fileID: 0}
     - target: {fileID: 485756, guid: dfd1c20267baafe4db06e460edf7b0a7, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 485756, guid: dfd1c20267baafe4db06e460edf7b0a7, type: 2}
       propertyPath: m_LocalPosition.z
@@ -17513,11 +17513,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485756, guid: dfd1c20267baafe4db06e460edf7b0a7, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.75
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 485756, guid: dfd1c20267baafe4db06e460edf7b0a7, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.75
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 485756, guid: dfd1c20267baafe4db06e460edf7b0a7, type: 2}
       propertyPath: m_LocalScale.z
@@ -34348,7 +34348,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11432952, guid: 642536337f22e61499cbfa48d78de281, type: 2}
+  mAtlas: {fileID: 114000012348699062, guid: 42cc4060326976d40ba0fd4d6b689d85, type: 2}
   mSpriteName: gl-base-gauge
   mFillCenter: 1
 --- !u!1 &567018173
@@ -38306,6 +38306,7 @@ Transform:
   - {fileID: 1933688425}
   - {fileID: 1049862205}
   - {fileID: 113527395}
+  - {fileID: 1030169714}
   m_Father: {fileID: 130190282}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -41293,7 +41294,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3011
+  startingRenderQueue: 3010
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 3
@@ -41522,7 +41523,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3011
+  startingRenderQueue: 3010
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -42981,7 +42982,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3012
+  startingRenderQueue: 3011
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -45371,7 +45372,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3018
+  startingRenderQueue: 3017
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -46346,7 +46347,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11432952, guid: 642536337f22e61499cbfa48d78de281, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: warning-ico
   mFillCenter: 1
 --- !u!1001 &768181078
@@ -48456,7 +48457,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11432952, guid: 642536337f22e61499cbfa48d78de281, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: vent-nyang
   mFillCenter: 1
 --- !u!65 &790356802
@@ -50953,7 +50954,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11432952, guid: 642536337f22e61499cbfa48d78de281, type: 2}
+  mAtlas: {fileID: 114000012348699062, guid: 42cc4060326976d40ba0fd4d6b689d85, type: 2}
   mSpriteName: wake-up
   mFillCenter: 1
 --- !u!65 &849478903
@@ -52392,7 +52393,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11432952, guid: 642536337f22e61499cbfa48d78de281, type: 2}
+  mAtlas: {fileID: 114000012348699062, guid: 42cc4060326976d40ba0fd4d6b689d85, type: 2}
   mSpriteName: gl-base-s
   mFillCenter: 1
 --- !u!1 &877163142
@@ -62133,6 +62134,104 @@ MonoBehaviour:
   _blueBombDropCount: 0
   _redBombDropCount: 0
   _blackBombDropCount: 0
+--- !u!1001 &1030169713
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 627920906}
+    m_Modifications:
+    - target: {fileID: 423702, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 423702, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -360
+      objectReference: {fileID: 0}
+    - target: {fileID: 423702, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 423702, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 423702, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 423702, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 423702, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 423702, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 191346, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
+      propertyPath: m_Name
+      value: GemSKUPrefab6
+      objectReference: {fileID: 0}
+    - target: {fileID: 191346, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417724, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
+      propertyPath: mSpriteName
+      value: shop_ico_dia_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417724, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
+      propertyPath: mWidth
+      value: 138
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417724, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
+      propertyPath: mHeight
+      value: 104
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417724, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
+      propertyPath: aspectRatio
+      value: 1.3269231
+      objectReference: {fileID: 0}
+    - target: {fileID: 11459566, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
+      propertyPath: mTrueTypeFont
+      value: 
+      objectReference: {fileID: 12800000, guid: 9c04bcf3c2951624ba083e4d3e4fc7a2,
+        type: 3}
+    - target: {fileID: 11423494, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
+      propertyPath: mTrueTypeFont
+      value: 
+      objectReference: {fileID: 12800000, guid: 9c04bcf3c2951624ba083e4d3e4fc7a2,
+        type: 3}
+    - target: {fileID: 423702, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 423702, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 423702, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1030169714 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 423702, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
+  m_PrefabInternal: {fileID: 1030169713}
+--- !u!114 &1030169715 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11450074, guid: e441fd12b2fdd448ea9d4076d5335247,
+    type: 2}
+  m_PrefabInternal: {fileID: 1030169713}
+  m_Script: {fileID: 11500000, guid: 2c82a15898720473ab4b5bf46f1cc5e1, type: 3}
 --- !u!1 &1030854148
 GameObject:
   m_ObjectHideFlags: 0
@@ -63454,7 +63553,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 423702, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -130
+      value: -80
       objectReference: {fileID: 0}
     - target: {fileID: 423702, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
       propertyPath: m_LocalPosition.z
@@ -73261,7 +73360,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3012
+  startingRenderQueue: 3011
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -75282,11 +75381,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485756, guid: dfd1c20267baafe4db06e460edf7b0a7, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -190
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 485756, guid: dfd1c20267baafe4db06e460edf7b0a7, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 485756, guid: dfd1c20267baafe4db06e460edf7b0a7, type: 2}
       propertyPath: m_LocalPosition.z
@@ -75342,11 +75441,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485756, guid: dfd1c20267baafe4db06e460edf7b0a7, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.76
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 485756, guid: dfd1c20267baafe4db06e460edf7b0a7, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.75
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 485756, guid: dfd1c20267baafe4db06e460edf7b0a7, type: 2}
       propertyPath: m_LocalScale.z
@@ -77556,7 +77655,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 423702, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 335
+      value: 340
       objectReference: {fileID: 0}
     - target: {fileID: 423702, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
       propertyPath: m_LocalPosition.z
@@ -78455,7 +78554,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11432952, guid: 642536337f22e61499cbfa48d78de281, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: odoku
   mFillCenter: 1
 --- !u!1 &1301559345
@@ -78911,6 +79010,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1305488340}
+  - component: {fileID: 1305488341}
   m_Layer: 5
   m_Name: MiddleLine
   m_TagString: Untagged
@@ -78925,14 +79025,69 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1305488339}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -538, z: 0}
+  m_LocalPosition: {x: 0, y: -570, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 285424137}
   - {fileID: 1237459384}
+  - {fileID: 128798241}
   m_Father: {fileID: 1470046184}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1305488341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1305488339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 720
+  mHeight: 133
+  mDepth: -1
+  mMat: {fileID: 0}
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 5.4135337
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
+  mFlip: 0
+  mApplyGradient: 0
+  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
+  mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  centerType: 1
+  leftType: 1
+  rightType: 1
+  bottomType: 1
+  topType: 1
+  mAtlas: {fileID: 114000012348699062, guid: 42cc4060326976d40ba0fd4d6b689d85, type: 2}
+  mSpriteName: down-new-base
+  mFillCenter: 1
 --- !u!1 &1306247036
 GameObject:
   m_ObjectHideFlags: 0
@@ -79951,7 +80106,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3011
+  startingRenderQueue: 3010
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -85022,7 +85177,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3011
+  startingRenderQueue: 3010
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -88035,7 +88190,6 @@ Transform:
   - {fileID: 1767236204}
   - {fileID: 1777144784}
   - {fileID: 1305488340}
-  - {fileID: 128798241}
   m_Father: {fileID: 835827763}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -90553,7 +90707,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3011
+  startingRenderQueue: 3010
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 3
@@ -93028,11 +93182,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 429862, guid: fbefddf443193a84a8e7887393c8639a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -300
+      value: -80
       objectReference: {fileID: 0}
     - target: {fileID: 429862, guid: fbefddf443193a84a8e7887393c8639a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -520
+      value: -500
       objectReference: {fileID: 0}
     - target: {fileID: 429862, guid: fbefddf443193a84a8e7887393c8639a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -93610,7 +93764,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3012
+  startingRenderQueue: 3011
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -94053,7 +94207,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3018
+  startingRenderQueue: 3017
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -95511,7 +95665,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11432952, guid: 642536337f22e61499cbfa48d78de281, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: vent-151
   mFillCenter: 1
 --- !u!1001 &1581569973
@@ -96326,7 +96480,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3016
+  startingRenderQueue: 3015
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -105137,6 +105291,7 @@ MonoBehaviour:
   - {fileID: 1933688426}
   - {fileID: 1049862206}
   - {fileID: 113527396}
+  - {fileID: 1030169715}
 --- !u!1 &1736066923
 GameObject:
   m_ObjectHideFlags: 0
@@ -105463,7 +105618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   springStrength: 8
-  nextPageThreshold: 250
+  nextPageThreshold: 0
 --- !u!114 &1739549584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105530,7 +105685,7 @@ MonoBehaviour:
   smoothDragStart: 1
   iOSDragEmulation: 1
   scrollWheelFactor: 0.25
-  momentumAmount: 0
+  momentumAmount: 35
   dampenStrength: 9
   horizontalScrollBar: {fileID: 0}
   verticalScrollBar: {fileID: 0}
@@ -105829,7 +105984,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3018
+  startingRenderQueue: 3017
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -109335,7 +109490,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11432952, guid: 642536337f22e61499cbfa48d78de281, type: 2}
+  mAtlas: {fileID: 114000012348699062, guid: 42cc4060326976d40ba0fd4d6b689d85, type: 2}
   mSpriteName: gl-base-gauge
   mFillCenter: 1
 --- !u!1 &1793672736
@@ -110973,7 +111128,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3011
+  startingRenderQueue: 3010
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 3
@@ -112258,7 +112413,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3011
+  startingRenderQueue: 3010
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -114722,7 +114877,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 423702, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 180
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 423702, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
       propertyPath: m_LocalPosition.z
@@ -116410,7 +116565,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3018
+  startingRenderQueue: 3017
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -117085,7 +117240,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 423702, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 25
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 423702, guid: e441fd12b2fdd448ea9d4076d5335247, type: 2}
       propertyPath: m_LocalPosition.z
@@ -124982,7 +125137,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11432952, guid: 642536337f22e61499cbfa48d78de281, type: 2}
+  mAtlas: {fileID: 114000012348699062, guid: 42cc4060326976d40ba0fd4d6b689d85, type: 2}
   mSpriteName: gl-s
   mFillCenter: 1
 --- !u!114 &2049582220
@@ -128425,7 +128580,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11432952, guid: 642536337f22e61499cbfa48d78de281, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: vent-text-base
   mFillCenter: 1
 --- !u!114 &2123930043
