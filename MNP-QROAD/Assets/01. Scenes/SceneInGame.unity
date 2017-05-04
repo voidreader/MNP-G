@@ -348,8 +348,8 @@ MonoBehaviour:
   - {fileID: 1133616842}
   - {fileID: 695178181}
   _nekoTotalPower: 0
-  _bombAppearBlockCount: 50
-  _skillInvokeBlockCount: 40
+  _bombAppearBlockCount: 60
+  _skillInvokeBlockCount: 50
   _stageMapType: standard
   _colorCount: 3
   _isCookieMission: 0

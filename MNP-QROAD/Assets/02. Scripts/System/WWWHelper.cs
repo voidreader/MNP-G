@@ -196,11 +196,13 @@ public class WWWHelper : MonoBehaviour {
                 _dataForm["data"]["facebookid"] = GameSystem.Instance.FacebookID;
                 _dataForm["data"]["ver"] = GameSystem.Instance.GameVersion;
 
+
 #if UNITY_IOS
                 _dataForm["data"]["devicetoken"] = PushDeviceToken;
+                _dataForm["data"]["uuid"] = SystemInfo.deviceUniqueIdentifier;
 #else
                 _dataForm["data"]["devicetoken"] = "None";
-                _dataForm["data"]["javaid"] = GameSystem.Instance.JavaAndroidID;
+                _dataForm["data"]["uuid"] = GameSystem.Instance.JavaAndroidID;
 #endif
 
                 break;

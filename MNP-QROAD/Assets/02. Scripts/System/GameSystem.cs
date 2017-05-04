@@ -1963,6 +1963,10 @@ public partial class GameSystem : MonoBehaviour {
 
 
 
+            if (GoogleAdmobMgr.Instance.IsBannerRequested)
+                GoogleAdmobMgr.Instance.BottomBannerView.Show();
+
+
 
         }
 
