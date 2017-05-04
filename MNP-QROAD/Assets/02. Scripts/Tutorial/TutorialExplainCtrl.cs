@@ -100,7 +100,7 @@ public class TutorialExplainCtrl : MonoBehaviour {
         if (pUpperFlag)
 		    this.transform.localPosition = new Vector3 (0, -15, 0);
         else
-            this.transform.localPosition = new Vector3(0, -500, 0);
+            this.transform.localPosition = new Vector3(0, -430, 0);
 
         //_text = GameSystem.Instance.DocsLocalize.get<string> (pLocalizeID.ToString(), "content");
         _text = GameSystem.Instance.GetLocalizeText(pLocalizeID.ToString());
