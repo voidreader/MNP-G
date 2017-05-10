@@ -671,6 +671,9 @@ public static class PuzzleConstBox {
     public static readonly string leafBasePool = "Leaf";
     public static readonly string nekoTicketExchangePool = "NekoTicket";
     public static readonly string inGameUIPool = "UI";
+    public static readonly string worldMapPool = "WorldMapPool";
+
+    public static readonly string prefabMapEpisode = "MapEpisode";
 
     //public static readonly string prefabSmokePuffParticle = "CFXM3_Hit_SmokePuff";
     public static readonly string prefabBlockDestroyParticle = "BlockDestroyBluePrefab";

@@ -602,7 +602,11 @@ public class StageMasterCtrl : MonoBehaviour {
     /// </summary>
     public void MoveToBottle() {
 
-        if(_btnMoveBottle.normalSprite == SPRITE_MOVE_BOTTLE_BTN) {
+
+        StageCenterOnChild.CenterOn(_spawnedCatBottle.transform);
+
+        /*
+        if (_btnMoveBottle.normalSprite == SPRITE_MOVE_BOTTLE_BTN) {
             _btnMoveBottle.normalSprite = SPRITE_MOVE_PRE_CENTER;
             _preCenterObject = StageCenterOnChild.centeredObject;
             StageCenterOnChild.CenterOn(_spawnedCatBottle.transform);
@@ -611,6 +615,7 @@ public class StageMasterCtrl : MonoBehaviour {
             _btnMoveBottle.normalSprite = SPRITE_MOVE_BOTTLE_BTN;
             StageCenterOnChild.CenterOn(_preCenterObject.transform);
         }
+        */
         
     }
 

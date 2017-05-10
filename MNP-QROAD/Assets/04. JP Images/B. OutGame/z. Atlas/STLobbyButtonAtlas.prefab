@@ -54,8 +54,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 7d8be79d22a0a4e409e35fc88edf6ba0, type: 2}
   mSprites:
   - name: banner-crane-ico
-    x: 137
-    y: 5
+    x: 885
+    y: 774
     width: 80
     height: 83
     borderLeft: 0
@@ -158,8 +158,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: gl-m
-    x: 533
-    y: 636
+    x: 966
+    y: 814
     width: 47
     height: 43
     borderLeft: 0
@@ -262,19 +262,6 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: main_btn_bot_bingo
-    x: 0
-    y: 53
-    width: 136
-    height: 144
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: main_btn_bot_key
     x: 259
     y: 629
     width: 136
@@ -287,7 +274,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: main_btn_bot_list
+  - name: main_btn_bot_key
     x: 396
     y: 629
     width: 136
@@ -300,9 +287,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: main_btn_bot_list
+    x: 0
+    y: 198
+    width: 136
+    height: 144
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: main_btn_bot_option
-    x: 885
-    y: 784
+    x: 259
+    y: 279
     width: 70
     height: 73
     borderLeft: 0
@@ -315,7 +315,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: main_btn_bot_shop
     x: 0
-    y: 198
+    y: 53
     width: 136
     height: 144
     borderLeft: 0
@@ -470,8 +470,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: top-coin
-    x: 956
-    y: 793
+    x: 259
+    y: 148
     width: 66
     height: 64
     borderLeft: 0
@@ -497,7 +497,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: top-heart
     x: 259
-    y: 287
+    y: 213
     width: 76
     height: 65
     borderLeft: 0
@@ -509,8 +509,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui-top-full
-    x: 759
-    y: 791
+    x: 137
+    y: 7
     width: 60
     height: 21
     borderLeft: 0
@@ -526,6 +526,19 @@ MonoBehaviour:
     y: 764
     width: 258
     height: 260
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: world-ico
+    x: 137
+    y: 29
+    width: 121
+    height: 59
     borderLeft: 0
     borderRight: 0
     borderTop: 0

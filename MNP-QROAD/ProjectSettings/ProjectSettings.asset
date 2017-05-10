@@ -233,7 +233,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 40a9898ad140f6b4c9ab708cf42965e8, type: 3}
+      m_Icon: {fileID: 2800000, guid: 9cd0efe89da23fa499eaa366661374f3, type: 3}
       m_Width: 128
       m_Height: 128
   m_BuildTargetBatching:
@@ -689,7 +689,7 @@ PlayerSettings:
     Purchasing: 0
     UNet: 1
     Unity_Ads: 0
-  facebookSdkVersion: plugin
+  facebookSdkVersion: pluginIncompatible
   apiCompatibilityLevel: 2
   cloudProjectId: bd57af68-f8a7-4cb3-a76e-1d206faa092e
   projectName: MNP-G

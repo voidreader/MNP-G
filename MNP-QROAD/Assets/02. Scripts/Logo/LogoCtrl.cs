@@ -12,6 +12,9 @@ public class LogoCtrl : MonoBehaviour {
     GameObject _logo;
 
     [SerializeField]
+    GameObject _logo2;
+
+    [SerializeField]
     GameObject _warning;
 
     float _screenRatio;
@@ -107,10 +110,16 @@ public class LogoCtrl : MonoBehaviour {
 
         //Debug.Log(">>> Waiting Start #1");
 
-        _logo.SetActive(true);
+        _logo2.SetActive(true);
         
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.8f);
+
+
+        _logo2.SetActive(false);
+        _logo.SetActive(true);
+
+        yield return new WaitForSeconds(1.8f);
 
         _logo.SetActive(false);
         _warning.gameObject.SetActive(true);
@@ -132,32 +141,6 @@ public class LogoCtrl : MonoBehaviour {
 		GameSystem.Instance.LoadTitleScene ();
         
 	}
-
-
-    public int GetSDKLevel() {
-
-        int sdkLevel = 0;
-
-        try {
-            var clazz = AndroidJNI.FindClass("android.os.Build$VERSION");
-            var fieldID = AndroidJNI.GetStaticFieldID(clazz, "SDK_INT", "I");
-            sdkLevel = AndroidJNI.GetStaticIntField(clazz, fieldID);
-        }
-        catch(Exception e) {
-            Debug.Log("★★★★ GetSDKLevel Exception ");
-
-        }
-
-        Debug.Log("★★★★ GetSDKLevel :: " + sdkLevel);
-
-        return sdkLevel;
-    }
-
-
-    bool _needReadPhoneState = false;
-    bool _needWriteExternal = false;
-    bool _needReadExternal = false;
-
 
 
 

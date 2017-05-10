@@ -16,10 +16,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000013098800366}
-  - 114: {fileID: 114000010938604576}
+  - component: {fileID: 4000013098800366}
+  - component: {fileID: 114000010938604576}
   m_Layer: 0
   m_Name: GStageEffectAtlas
   m_TagString: Untagged
@@ -36,10 +36,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114000010938604576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,8 +54,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: ed46a611076503f47976bcc5769eeb70, type: 2}
   mSprites:
   - name: GTopFont
-    x: 314
-    y: 164
+    x: 306
+    y: 94
     width: 125
     height: 47
     borderLeft: 0
@@ -67,8 +67,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 81
   - name: na-1
-    x: 314
-    y: 34
+    x: 220
+    y: 1
     width: 63
     height: 57
     borderLeft: 0
@@ -80,8 +80,8 @@ MonoBehaviour:
     paddingTop: 14
     paddingBottom: 17
   - name: na-2
-    x: 314
-    y: 92
+    x: 306
+    y: 22
     width: 71
     height: 71
     borderLeft: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
     paddingBottom: 10
   - name: na-3
     x: 220
-    y: 96
+    y: 59
     width: 79
     height: 77
     borderLeft: 0
@@ -106,8 +106,8 @@ MonoBehaviour:
     paddingTop: 4
     paddingBottom: 7
   - name: na-4
-    x: 220
-    y: 174
+    x: 0
+    y: 0
     width: 93
     height: 82
     borderLeft: 0
@@ -184,8 +184,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 3
   - name: na-a
-    x: 220
-    y: 26
+    x: 306
+    y: 142
     width: 87
     height: 69
     borderLeft: 0
@@ -197,8 +197,8 @@ MonoBehaviour:
     paddingTop: 8
     paddingBottom: 11
   - name: na-b
-    x: 0
-    y: 8
+    x: 220
+    y: 137
     width: 85
     height: 74
     borderLeft: 0
@@ -210,8 +210,8 @@ MonoBehaviour:
     paddingTop: 6
     paddingBottom: 8
   - name: na-c
-    x: 386
-    y: 118
+    x: 394
+    y: 166
     width: 87
     height: 45
     borderLeft: 0
@@ -223,8 +223,8 @@ MonoBehaviour:
     paddingTop: 39
     paddingBottom: 4
   - name: na-d
-    x: 386
-    y: 85
+    x: 368
+    y: 224
     width: 85
     height: 32
     borderLeft: 0
@@ -236,7 +236,7 @@ MonoBehaviour:
     paddingTop: 55
     paddingBottom: 1
   - name: star-base
-    x: 314
+    x: 220
     y: 212
     width: 147
     height: 44
@@ -249,10 +249,23 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: stars
-    x: 462
+    x: 454
     y: 219
     width: 36
     height: 37
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: world-ico
+    x: 432
+    y: 111
+    width: 60
+    height: 30
     borderLeft: 0
     borderRight: 0
     borderTop: 0

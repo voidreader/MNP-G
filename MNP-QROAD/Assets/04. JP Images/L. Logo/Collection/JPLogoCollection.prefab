@@ -65,7 +65,7 @@ MonoBehaviour:
   atlasWidth: 1024
   atlasHeight: 1024
   forceSquareAtlas: 0
-  atlasWastage: 45.759583
+  atlasWastage: 38.41095
   allowMultipleAtlases: 0
   removeDuplicates: 1
   textureParams:
@@ -110,11 +110,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: 
+  - name: QROAD_CI_Default_Vertical_Big
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
+    texture: {fileID: 2800000, guid: 5193466f6329f5c4dbb4880d0451aea1, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0

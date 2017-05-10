@@ -78,7 +78,7 @@ public partial class LobbyCtrl : MonoBehaviour {
 
 
     // 객체 모음
-    
+    [SerializeField] WorldMapCtrl _worldMap;
     [SerializeField] UISprite spNekoRewardTop; // 고양이의 보은 선물상자 (Top)
     
 
@@ -276,6 +276,9 @@ public partial class LobbyCtrl : MonoBehaviour {
 
         // PoolManager 관련 
         SetSpawningObject();
+
+        // 월드맵 초기화
+        _worldMap.InitWorldMap();
 
         // 하트 시간 체크 
         UpdateHeartTime();
@@ -1726,6 +1729,10 @@ public partial class LobbyCtrl : MonoBehaviour {
             //Debug.Log("OnResultShow is true");
             return;
         }
+
+        // 월드맵이 떠있을때는 동작하지 않음.
+        if (_worldMap.IsOn)
+            return;
 
 
         // 네코 진화 화면이 떠있는중에는 동작하지 않음 

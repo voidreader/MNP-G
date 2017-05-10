@@ -7,7 +7,12 @@ using Facebook.Unity;
 public class InviteWindowCtrl : MonoBehaviour {
 
 
-    string _message = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4250);
+    string _message = string.Empty;
+        
+    void Start() {
+        _message = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4250);
+    }
+
 
 
 

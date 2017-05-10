@@ -13,7 +13,7 @@ using Google2u;
 public partial class GameSystem : MonoBehaviour {
 
 
-    static GameSystem _instance = null;
+    public static GameSystem Instance = null;
     public bool isInitialize = false;
 
     public bool IgawInitialized = false;
@@ -394,7 +394,7 @@ public partial class GameSystem : MonoBehaviour {
 
     public SystemLanguage GameLanguage;
 
-
+    /*
     public static GameSystem Instance {
         get {
             if (_instance == null) {
@@ -409,10 +409,16 @@ public partial class GameSystem : MonoBehaviour {
             return _instance;
         }
     }
+    */
 
 
 
 	void Awake() {
+
+
+        if (Instance == null)
+            Instance = this;
+
 
         //Debug.Log ("!! Awake in GameSystem :: " + Application.persistentDataPath);
         LoadLocalTutorialStep(); // 디바이스 튜토리얼 스텝 조회 
@@ -3007,8 +3013,6 @@ public partial class GameSystem : MonoBehaviour {
     /// <param name="pType"></param>
     public void ShowAd(AdsType pType) {
 
-
-        int randomNumber = -1;
 
         // AdColony와 UnityAds 번갈아 송출
         if(Application.internetReachability == NetworkReachability.NotReachable) {

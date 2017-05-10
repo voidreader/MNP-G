@@ -331,6 +331,9 @@ public class BingoMasterCtrl : MonoBehaviour {
 
     void Start() {
         SetCurrentBingoID();
+
+
+        _baseSnsText = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4136);
     }
 
     void Update() {
@@ -1763,7 +1766,7 @@ public class BingoMasterCtrl : MonoBehaviour {
     GameObject objWaitingRequest = null;
     bool _isCapturing = false;
     [SerializeField]
-    string _baseSnsText = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4136);
+    string _baseSnsText = string.Empty;
 	string _snstext = "";
     private Texture2D _tex; // 텍스쳐 
 

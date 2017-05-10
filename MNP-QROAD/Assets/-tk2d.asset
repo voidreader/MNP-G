@@ -233,17 +233,17 @@ MonoBehaviour:
     spriteCollectionDataGUID: 27c61d924eccf34458138b507ed34ab2
     spriteNames:
     - 2we-logo
-    - 
+    - QROAD_CI_Default_Vertical_Big
     - 
     - white-paper
     spriteTextureGUIDs:
     - 15d9f87777e9dc64b8e398802698961c
-    - 
+    - 5193466f6329f5c4dbb4880d0451aea1
     - 
     - a1138d592c5367e4e9a5e6f5f43f9bdb
     spriteTextureTimeStamps:
     - 1493371902.68202
-    - 0
+    - 1494438546.20589
     - 0
     - 1493371902.68202
     managedSpriteCollection: 0

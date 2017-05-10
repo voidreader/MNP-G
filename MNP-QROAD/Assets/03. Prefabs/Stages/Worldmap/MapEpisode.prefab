@@ -53,6 +53,9 @@ GameObject:
   - component: {fileID: 4428412259902566}
   - component: {fileID: 114777981992954578}
   - component: {fileID: 114409044255707830}
+  - component: {fileID: 65511260502344314}
+  - component: {fileID: 114314828305756964}
+  - component: {fileID: 114610206069382208}
   m_Layer: 5
   m_Name: MapEpisode
   m_TagString: Untagged
@@ -220,6 +223,18 @@ Transform:
   m_Father: {fileID: 4428412259902566}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65511260502344314
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1391435760046396}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 318, y: 327, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114011065840036596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -396,6 +411,19 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
+--- !u!114 &114314828305756964
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1391435760046396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f02842fa4878db54f9587ff4de7d9f2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollView: {fileID: 0}
+  draggablePanel: {fileID: 0}
 --- !u!114 &114409044255707830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -407,6 +435,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 934fd8171508755408fd32ac4636c88c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lblEpisode: {fileID: 114067963839980842}
+  _objClear: {fileID: 1230637458813360}
+  _lblStarCount: {fileID: 114428633259036390}
+  _objStarCounter: {fileID: 1462968850050210}
+  _spEpisode: {fileID: 114777981992954578}
+  _btnEpisode: {fileID: 114610206069382208}
+  _episodeID: 0
+  _firstStage: 0
+  _lastStage: 0
+  _star: 0
+  _isClear: 0
+  _isOver33Stars: 0
+  _spriteName: 
 --- !u!114 &114428633259036390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -507,7 +548,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 128
   mHeight: 32
-  mDepth: 1
+  mDepth: 2
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
@@ -529,6 +570,35 @@ MonoBehaviour:
   mAtlas: {fileID: 114000013927780484, guid: a09410856ce8f9a4699277813b23dab7, type: 2}
   mSpriteName: world-clear
   mFillCenter: 1
+--- !u!114 &114610206069382208
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1391435760046396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenTarget: {fileID: 1391435760046396}
+  hover: {r: 0.88235295, g: 0.78431374, b: 0.5882353, a: 1}
+  pressed: {r: 0.7176471, g: 0.6392157, b: 0.48235294, a: 1}
+  disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  duration: 0.2
+  dragHighlight: 0
+  hoverSprite: 
+  pressedSprite: 
+  disabledSprite: 
+  hoverSprite2D: {fileID: 0}
+  pressedSprite2D: {fileID: 0}
+  disabledSprite2D: {fileID: 0}
+  pixelSnap: 0
+  onClick:
+  - mTarget: {fileID: 114409044255707830}
+    mMethodName: OnClick
+    mParameters: []
+    oneShot: 0
 --- !u!114 &114777981992954578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -561,9 +631,9 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 318
   mHeight: 327
-  mDepth: 0
+  mDepth: 1
   mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
+  autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 0.9724771

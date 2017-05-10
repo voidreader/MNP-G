@@ -39,7 +39,7 @@ public class BingoMissionInfoCtrl : MonoBehaviour {
     readonly string _africotCode = "[313e89]";
 
 
-    string _missionText = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3242);
+    string _missionText = string.Empty;
     string _boldCode, _code;
     string _endCode = "[-]";
 
@@ -50,7 +50,9 @@ public class BingoMissionInfoCtrl : MonoBehaviour {
 	/// </summary>
 	/// <param name="pNode">P node.</param>
 	private void InitMissionInfo(JSONNode pNode) {
-		_goldClear.gameObject.SetActive (false);
+
+        _missionText = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3242);
+        _goldClear.gameObject.SetActive (false);
 		_greenClear.gameObject.SetActive (false);
 		_lblID.transform.localScale = GameSystem.Instance.BaseScale;
 
