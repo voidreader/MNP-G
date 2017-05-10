@@ -896,6 +896,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 21
 --- !u!23 &2308670
 MeshRenderer:
@@ -927,6 +928,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 21
 --- !u!23 &2316254
 MeshRenderer:
@@ -958,6 +960,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 25
 --- !u!23 &2322790
 MeshRenderer:
@@ -989,6 +992,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 649867431
+  m_SortingLayer: -1
   m_SortingOrder: 10
 --- !u!23 &2328388
 MeshRenderer:
@@ -1020,6 +1024,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 21
 --- !u!23 &2329842
 MeshRenderer:
@@ -1051,6 +1056,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 21
 --- !u!23 &2333300
 MeshRenderer:
@@ -1082,6 +1088,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 25
 --- !u!23 &2342850
 MeshRenderer:
@@ -1113,6 +1120,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 649867431
+  m_SortingLayer: -1
   m_SortingOrder: 0
 --- !u!23 &2351890
 MeshRenderer:
@@ -1144,6 +1152,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1291845475
+  m_SortingLayer: 1
   m_SortingOrder: 0
 --- !u!23 &2355084
 MeshRenderer:
@@ -1175,6 +1184,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 649867431
+  m_SortingLayer: -1
   m_SortingOrder: 6
 --- !u!23 &2356786
 MeshRenderer:
@@ -1206,6 +1216,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 649867431
+  m_SortingLayer: -1
   m_SortingOrder: 4
 --- !u!23 &2358582
 MeshRenderer:
@@ -1237,6 +1248,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 21
 --- !u!23 &2359664
 MeshRenderer:
@@ -1268,6 +1280,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 21
 --- !u!23 &2359820
 MeshRenderer:
@@ -1299,6 +1312,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 21
 --- !u!23 &2363642
 MeshRenderer:
@@ -1330,6 +1344,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 649867431
+  m_SortingLayer: -1
   m_SortingOrder: 9
 --- !u!23 &2365340
 MeshRenderer:
@@ -1361,6 +1376,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 21
 --- !u!23 &2369342
 MeshRenderer:
@@ -1392,6 +1408,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 649867431
+  m_SortingLayer: -1
   m_SortingOrder: 5
 --- !u!23 &2378036
 MeshRenderer:
@@ -1423,6 +1440,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 20
 --- !u!23 &2386918
 MeshRenderer:
@@ -1454,6 +1472,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 25
 --- !u!23 &2389058
 MeshRenderer:
@@ -1485,6 +1504,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 25
 --- !u!23 &2395492
 MeshRenderer:
@@ -1516,6 +1536,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 649867431
+  m_SortingLayer: -1
   m_SortingOrder: 1
 --- !u!33 &3304586
 MeshFilter:

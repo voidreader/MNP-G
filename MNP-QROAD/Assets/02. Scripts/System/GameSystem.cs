@@ -15,7 +15,7 @@ public partial class GameSystem : MonoBehaviour {
 
     static GameSystem _instance = null;
     public bool isInitialize = false;
-    
+
     public bool IgawInitialized = false;
     private bool _isLiveOpsInit = false;
 
@@ -46,7 +46,7 @@ public partial class GameSystem : MonoBehaviour {
     [SerializeField] string _userName = ""; // 사용자 이름 
     [SerializeField] string _platform = "android"; // ios or android
     [SerializeField] string _facebookid = string.Empty; // 페이스북 ID
-    
+
     [SerializeField] int _gatchaCount = 1;
 
 
@@ -80,7 +80,7 @@ public partial class GameSystem : MonoBehaviour {
     [SerializeField]
     bool _optionPuzzleTip = false; // 퍼즐 가이드 표시 0.5초 여부  (false가 초보자, true는 숙련자)
 
-    
+
 
     // 시간값 (유니티 애즈)
     AdsType CurrentAdsType;
@@ -114,7 +114,7 @@ public partial class GameSystem : MonoBehaviour {
     private float _blockStartX, _blockStartY; // 0,0 위치  블록의 최초 생성 위치 
     private int _blockTypeCount; // 일반 블록의 종류 
     private int _fillBlockCount; // 스테이지에 채워지는 블록의 Max 개수
-    private int _activeBlockCount; 
+    private int _activeBlockCount;
     private float _blockScaleValue; // 생성 블록의 크기 값 
     private Vector3 _blockScale; // 생성 블록 Vector3 크기 값 
 
@@ -136,15 +136,15 @@ public partial class GameSystem : MonoBehaviour {
     MNP_Neko _NekoInfo = MNP_Neko.Instance; // 네코 기준 정보 
     MNP_NekoSkill _NekoSkill = MNP_NekoSkill.Instance; // 네코 스킬 정보 
     MNP_NekoSkillValue _SkillValue = MNP_NekoSkillValue.Instance; // 네코 스킬 값
-    
-      
+
+
 
 
     // Load Scene
     private AsyncOperation asyncOp;
     private bool isLoadGame = false;
 
-    
+
 
 
     #region Neko Atlas 
@@ -153,7 +153,7 @@ public partial class GameSystem : MonoBehaviour {
     [SerializeField] UIAtlas globalCatCollection1;
     [SerializeField] UIAtlas globalCatCollection2;
 
- 	public UIAtlas comAtlas;
+    public UIAtlas comAtlas;
 
     public UIFont NormalStarFont;
     public UIFont OrangeStarFont;
@@ -197,13 +197,13 @@ public partial class GameSystem : MonoBehaviour {
     bool _equipGroup31Neko = false;
 
     bool _equipLevel10Neko = false;
-	bool _equipLevel20Neko = false;
+    bool _equipLevel20Neko = false;
     bool _equipLevel30Neko = false;
-	bool _equipLevel50Neko = false; // over level 50 Neko
-	bool _equipRank5Neko = false; // rank5 neko 
+    bool _equipLevel50Neko = false; // over level 50 Neko
+    bool _equipRank5Neko = false; // rank5 neko 
 
     #endregion
-    
+
     float _userNekoBadgeBonus = 0;
 
     [SerializeField] int _matchedRedBlock = 0; // 매치한 각 블록의 수 
@@ -212,9 +212,9 @@ public partial class GameSystem : MonoBehaviour {
     [SerializeField] int _ingameSpecialAttackCount = 0; // 인게임 스페셜 어택 사용 횟수
     [SerializeField] int _ingameBombCount = 0; // 인게임 폭탄 사용 횟수 
     [SerializeField] int _ingameBlueBombCount = 0;
-	[SerializeField] int _ingameYellowBombCount = 0;
-	[SerializeField] int _ingameRedBombCount = 0;
-	[SerializeField] int _ingameBlackBombCount = 0;
+    [SerializeField] int _ingameYellowBombCount = 0;
+    [SerializeField] int _ingameRedBombCount = 0;
+    [SerializeField] int _ingameBlackBombCount = 0;
     [SerializeField] int _ingameMatchThreeCount = 0; // 한번에 3개 매치 
     [SerializeField] int _ingameMatchFourCount = 0; // 한번에 3개 매치 
     [SerializeField] int _ingameBlockCount = 0;
@@ -242,7 +242,7 @@ public partial class GameSystem : MonoBehaviour {
 
     [SerializeField] private bool _inGameStageClear = false;
     [SerializeField] bool _inGameStageUp = false;
-    
+
     private int _inGameStageMissionCount = 0;
 
     [SerializeField] private ObscuredInt _inGameDamage;
@@ -252,7 +252,7 @@ public partial class GameSystem : MonoBehaviour {
     [SerializeField] private ObscuredInt _inGameTotalCoin;
     private ObscuredInt _inGameStage;
     private ObscuredInt _inGameTotalScore;
-    
+
 
     private ObscuredInt _inGameChub; // 고등어 
     private ObscuredInt _inGameTicket; // 인게임 티켓
@@ -278,7 +278,7 @@ public partial class GameSystem : MonoBehaviour {
     [SerializeField] OwnCatCtrl _selectNeko = null; // 방금 선택한 고양이 정보.
     [SerializeField] int _previousSelectNekoID = -1; // 이전 선택한 고양이의 ID 
 
-    
+
 
     // 사용자 정보 
     [SerializeField] int _userCurrentStage;
@@ -303,7 +303,7 @@ public partial class GameSystem : MonoBehaviour {
     private DateTime _dtNextNekoRewardTime; // 다음 네코의 보은 시간
     private TimeSpan _remainNekoRewardTimeSpan; // 다음 네코의 보은 시간 계산 용도 
 
-    
+
     [SerializeField] private bool _isHotTime = false;
 
     [SerializeField]
@@ -317,14 +317,14 @@ public partial class GameSystem : MonoBehaviour {
     public List<NekoDamageInfo> ListNekoDamageInfo = null;
 
 
-    
+
 
     // Fish 먹이주기. 
     [SerializeField] ObscuredInt _feedChub;
     [SerializeField] ObscuredInt _feedTuna;
     [SerializeField] ObscuredInt _feedSalmon;
 
-    
+
 
     [SerializeField] int _remainfreegacha; // 프리가챠 제한 
     [SerializeField] int _remainstartfever; //시작피버 제한 
@@ -359,33 +359,33 @@ public partial class GameSystem : MonoBehaviour {
 
     // 사운드 정보
     private AudioClip _lobbyBGM;
-	private AudioClip _gatchaBGM;
+    private AudioClip _gatchaBGM;
 
-	// 빌링
-	private string _currentSKU = "";
-		
-	private int _gapMoney;
-	private int _dividedGapMoney;
+    // 빌링
+    private string _currentSKU = "";
+
+    private int _gapMoney;
+    private int _dividedGapMoney;
 
 
-	private int _nekodbkey;
-	public OwnCatCtrl CurrentSelectNeko;
+    private int _nekodbkey;
+    public OwnCatCtrl CurrentSelectNeko;
 
-	// 네코의 보은 시간이 되어 대상 네코 정보를 갖고 있는지???
-	// 초기화는 true로 해주고, 로비에서 고양이가 소환될때, false로  변경된다. 
-	[SerializeField] bool _isNekoRewardReady = true;
+    // 네코의 보은 시간이 되어 대상 네코 정보를 갖고 있는지???
+    // 초기화는 true로 해주고, 로비에서 고양이가 소환될때, false로  변경된다. 
+    [SerializeField] bool _isNekoRewardReady = true;
 
     [SerializeField]
     int _adsID = 0;
 
-	int _tempInt;
+    int _tempInt;
 
-	// 게임내에서 사용되는 파티클 
-	public ParticleSystem particleUseHeart; // 하트 소모 
-	public ParticleSystem particleItemEquip; // 아이템 장착
-	public ParticleSystem particleNekoRewardGet; // 네코의 보은 사용
+    // 게임내에서 사용되는 파티클 
+    public ParticleSystem particleUseHeart; // 하트 소모 
+    public ParticleSystem particleItemEquip; // 아이템 장착
+    public ParticleSystem particleNekoRewardGet; // 네코의 보은 사용
 
-	public ParticleSystem particleBombBoard; // 인게임 폭탄 
+    public ParticleSystem particleBombBoard; // 인게임 폭탄 
     public ParticleSystem particleCartoonFight;
     public ParticleSystem particleDeathGhost;
 
@@ -395,28 +395,26 @@ public partial class GameSystem : MonoBehaviour {
     public SystemLanguage GameLanguage;
 
 
-	public static GameSystem Instance {
+    public static GameSystem Instance {
+        get {
+            if (_instance == null) {
+                _instance = FindObjectOfType(typeof(GameSystem)) as GameSystem;
 
-		get {
-			if(_instance == null) {
-				_instance = FindObjectOfType(typeof(GameSystem)) as GameSystem;
+                if (_instance == null) {
+                    //Debug.Log("GameSystem Init Error");
+                    return null;
+                }
+            }
 
-				if(_instance == null) {
-					Debug.Log("Game System Init Error");
-					return null;
-				}
-			}
-
-			return _instance;
-		}
+            return _instance;
+        }
+    }
 
 
-	}
 
 	void Awake() {
 
-		//Debug.Log ("!! Awake in GameSystem :: " + Application.persistentDataPath);
-
+        //Debug.Log ("!! Awake in GameSystem :: " + Application.persistentDataPath);
         LoadLocalTutorialStep(); // 디바이스 튜토리얼 스텝 조회 
 
         // 사운드 Clip 로드
