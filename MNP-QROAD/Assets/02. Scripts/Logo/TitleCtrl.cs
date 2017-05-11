@@ -13,6 +13,7 @@ public class TitleCtrl : MonoBehaviour {
 	static TitleCtrl _instance = null;
 
 
+    [SerializeField] AndroidPermissionCheckerCtrl _aosPermissionChecker;
     [SerializeField] FirstNickCtrl _firstNickCtrl;
 
 	[SerializeField] bool isCompletedLoading = false;
@@ -148,6 +149,21 @@ public class TitleCtrl : MonoBehaviour {
     /// </summary>
     public void StartGame() {
         _isStartBtnClicked = true;
+
+
+        #if UNITY_ANDROID 
+        // 안드로이드 권한 체크 추가 (2017.05)
+        // SDK 레벨이 23이상이고, 권한을 획득하지 않은 상태일때 오픈한다. 
+
+        if(GetSDKLevel() >= 23 
+            && (!PermissionsManager.IsPermissionGranted(AN_Permission.READ_EXTERNAL_STORAGE) && !PermissionsManager.IsPermissionGranted(AN_Permission.WRITE_EXTERNAL_STORAGE))) {
+           
+            _aosPermissionChecker.OpenChecker(StartGame);
+        }
+
+
+        #endif
+
 
         if (string.IsNullOrEmpty(GameSystem.Instance.UserName)) {
 
@@ -600,6 +616,33 @@ public class TitleCtrl : MonoBehaviour {
 
 
     #endregion
+
+
+    #region Permission
+
+#if UNITY_ANDROID
+
+    public int GetSDKLevel() {
+
+        int sdkLevel = 0;
+
+        try {
+            var clazz = AndroidJNI.FindClass("android.os.Build$VERSION");
+            var fieldID = AndroidJNI.GetStaticFieldID(clazz, "SDK_INT", "I");
+            sdkLevel = AndroidJNI.GetStaticIntField(clazz, fieldID);
+        }
+        catch (System.Exception e) {
+            Debug.Log("★★★★ GetSDKLevel Exception ");
+
+        }
+
+        Debug.Log("★★★★ GetSDKLevel :: " + sdkLevel);
+
+        return sdkLevel;
+    }
+#endif 
+
+#endregion
 
 
 }

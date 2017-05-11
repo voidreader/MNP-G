@@ -1169,6 +1169,7 @@ Transform:
   - {fileID: 1455164359}
   - {fileID: 2006180589}
   - {fileID: 1444593842}
+  - {fileID: 1571954869}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2042,6 +2043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb703594cec2e814e9ee8022138f6aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _aosPermissionChecker: {fileID: 1571954872}
   _firstNickCtrl: {fileID: 22142690}
   isCompletedLoading: 0
   _lblLoading: {fileID: 1682503603}
@@ -2745,6 +2747,67 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
+--- !u!1001 &1571954868
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 544591369}
+    m_Modifications:
+    - target: {fileID: 4289414124259700, guid: 966bbe60b81f98d4ca866138aad45c04, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289414124259700, guid: 966bbe60b81f98d4ca866138aad45c04, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289414124259700, guid: 966bbe60b81f98d4ca866138aad45c04, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289414124259700, guid: 966bbe60b81f98d4ca866138aad45c04, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289414124259700, guid: 966bbe60b81f98d4ca866138aad45c04, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289414124259700, guid: 966bbe60b81f98d4ca866138aad45c04, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289414124259700, guid: 966bbe60b81f98d4ca866138aad45c04, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289414124259700, guid: 966bbe60b81f98d4ca866138aad45c04, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1469418321335202, guid: 966bbe60b81f98d4ca866138aad45c04, type: 2}
+      propertyPath: m_Name
+      value: AndroidPermissionCheck
+      objectReference: {fileID: 0}
+    - target: {fileID: 1469418321335202, guid: 966bbe60b81f98d4ca866138aad45c04, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 966bbe60b81f98d4ca866138aad45c04, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1571954869 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4289414124259700, guid: 966bbe60b81f98d4ca866138aad45c04,
+    type: 2}
+  m_PrefabInternal: {fileID: 1571954868}
+--- !u!114 &1571954872 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114685943797857992, guid: 966bbe60b81f98d4ca866138aad45c04,
+    type: 2}
+  m_PrefabInternal: {fileID: 1571954868}
+  m_Script: {fileID: 11500000, guid: bc86939c3efc750479a2d4c6a6fa5cb8, type: 3}
 --- !u!1 &1613112129
 GameObject:
   m_ObjectHideFlags: 0
