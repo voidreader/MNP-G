@@ -148,7 +148,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: common_btn_tap_gray
     x: 410
-    y: 90
+    y: 182
     width: 158
     height: 91
     borderLeft: 0
@@ -161,7 +161,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: common_btn_tap_red
     x: 410
-    y: 182
+    y: 90
     width: 158
     height: 91
     borderLeft: 0
@@ -459,7 +459,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: gray-bodan
-    x: 255
+    x: 486
     y: 699
     width: 230
     height: 107
@@ -680,8 +680,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: pop-oranges
-    x: 0
-    y: 10
+    x: 255
+    y: 699
     width: 230
     height: 107
     borderLeft: 0
@@ -693,8 +693,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: pop-reds
-    x: 486
-    y: 699
+    x: 0
+    y: 10
     width: 230
     height: 107
     borderLeft: 0

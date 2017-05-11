@@ -173,6 +173,8 @@ public class OwnCatCtrl : MonoBehaviour {
         this.transform.localScale = GameSystem.Instance.BaseScale;
 
 
+        SetNoSelectFrameSprite();
+
         _spUsing.SetActive(false);
 
         Id = _info["tid"].AsInt;

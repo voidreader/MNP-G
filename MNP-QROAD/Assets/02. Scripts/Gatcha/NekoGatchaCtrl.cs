@@ -45,8 +45,10 @@ public class NekoGatchaCtrl : MonoBehaviour {
 
 
     [SerializeField] GatchaNekoCtrl _gatchaNeko; // 뽑은 고양이.
-    
 
+
+    [SerializeField] string _getType = string.Empty; // 획득 경로 
+    [SerializeField] int _returnGem = 0;
     [SerializeField] int _gatchNekoID;
 	[SerializeField] int _gatchaNekoLevel;
 	[SerializeField] int _gatchaNekoStar;
@@ -243,6 +245,9 @@ public class NekoGatchaCtrl : MonoBehaviour {
         _touchArea2.gameObject.SetActive(false);
 
 
+        _getType = pNode["gettype"];
+        _returnGem = pNode["returngem"].AsInt;
+
         _gatchNekoID = pNode["tid"].AsInt;
         _gatchaNekoLevel = 1;
         _gatchaNekoStar = pNode["star"].AsInt;
@@ -255,6 +260,18 @@ public class NekoGatchaCtrl : MonoBehaviour {
         else {
             _isFusion = true;
             _newMainNeko = false;
+
+            //생선 설정
+            if (pNode["fishtype"].Value == "chub") {
+                _fishType = FishType.Chub;
+            }
+            else if (pNode["fishtype"].Value == "tuna") {
+                _fishType = FishType.Tuna;
+            }
+            else if (pNode["fishtype"].Value == "salmon") {
+                _fishType = FishType.Salmon;
+            }
+            _fishValue = pNode["fishvalue"].AsInt;
         }
 
         // 네코 네임, 외양 설정 
@@ -287,7 +304,9 @@ public class NekoGatchaCtrl : MonoBehaviour {
         */
 
 
-        
+
+        _getType = GameSystem.Instance.GatchaData["data"]["resultlist"][pIndex]["gettype"];
+        _returnGem = GameSystem.Instance.GatchaData["data"]["resultlist"][pIndex]["returngem"].AsInt;
 
         _gatchNekoID = GameSystem.Instance.GatchaData["data"]["resultlist"][pIndex]["tid"].AsInt;
         _gatchaNekoLevel = 1;
@@ -347,39 +366,7 @@ public class NekoGatchaCtrl : MonoBehaviour {
     }
 
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="pNode"></param>
-    int _tempStar;
-    private void SetResultNekoSprite(UISprite pSprite, JSONNode pNode) { 
 
-        // 소유한 네코와 비교해서, 신규 등급으로 적용 
-        if(pNode["isFusion"].AsInt == 0) {
-            // 신규네코. 
-            _tempStar = pNode["star"].AsInt;
-        }
-        else { // 퓨전의 경우 체크
-
-            // 등급이 같을때
-            if (pNode["star"].AsInt == pNode["origingrade"].AsInt) {
-                // 등급이 동일한경우는 상관없다. 
-                _tempStar = pNode["star"].AsInt;
-            } 
-            else { // 등급이 다를때. 등급 존재하는지 체크한다.
-                if(GameSystem.Instance.GetMatchNekoData(pNode["tid"].AsInt, pNode["star"].AsInt)) {
-                    _tempStar = pNode["origingrade"].AsInt;
-                }
-                else {
-                    _tempStar = pNode["star"].AsInt;
-                }
-            }
-        }
-
-        // Sprite 처리 
-        GameSystem.Instance.SetNekoSprite(pSprite, pNode["tid"].AsInt, _tempStar);
-
-    }
 
 
 
@@ -418,38 +405,6 @@ public class NekoGatchaCtrl : MonoBehaviour {
 
     #endregion
 
-
-    /// <summary>
-    /// 선택한 고양이를 (10회) 메인으로 설정 
-    /// </summary>
-    /// <param name="pIndex"></param>
-    public void SetMainNeko(int pIndex) {
-
-
-        Debug.Log("SetMainNeko :: " + pIndex);
-
-        SetGatchaNeko(pIndex);
-
-        // 외형 설정 
-        _resultNekoSprite.transform.DOKill();
-        _resultNekoSprite.gameObject.SetActive(false);
-        _resultNekoSprite.transform.localPosition = new Vector3(0, 470, 0); // 위치 초기화 
-        _resultNekoSprite.gameObject.SetActive(true);
-
-        StopCoroutine("ShowNekoGrade");
-        InitStars();
-
-
-        Vector3 destPos = new Vector3(0, 470, 0);
-
-        _resultNekoSprite.transform.DOLocalJump(destPos, destPos.y + 100f, 1, 0.5f).OnComplete(OnCompleteMultiLocalJump); // 점핑 등장.
-        GameSystem.Instance.SetNekoSprite(_resultNekoSprite, _gatchNekoID, _gatchaNekoStar);
-
-        _lblNekoName.text = GameSystem.Instance.GetNekoName(_gatchNekoID, _gatchaNekoStar);
-        _lblNekoDetail.text = GameSystem.Instance.GetNekoDetail(_gatchNekoID, _gatchaNekoStar);
-
-        StartCoroutine(ShowNekoGrade(_gatchaNekoStar));
-    }
 
     #region Update
 
@@ -641,12 +596,6 @@ public class NekoGatchaCtrl : MonoBehaviour {
 
     #endregion
 
-    #region 10회 뽑기 결과 화면 오픈 
-
-
-    #endregion
-
-
 
     #region 뽑기 결과 화면 오픈
 
@@ -671,10 +620,10 @@ public class NekoGatchaCtrl : MonoBehaviour {
         _gatchaNeko.SetVisible(false);
 
 
-        _lblExtraInfo.transform.localPosition = new Vector3(0, -200, 0);
-        _resultNekoSprite.transform.localPosition = new Vector3(0, 270, 0);
+        //_lblExtraInfo.transform.localPosition = new Vector3(0, -200, 0);
+        //_resultNekoSprite.transform.localPosition = new Vector3(0, 270, 0);
         _resultCircleFX.transform.DOKill();
-        _resultCircleFX.transform.localPosition = new Vector3(0, 270, 0);
+        //_resultCircleFX.transform.localPosition = new Vector3(0, 270, 0);
         _resultCircleFX.transform.localEulerAngles = Vector3.zero;
 
         Vector3 destPos = new Vector3(0, 270, 0);
@@ -699,7 +648,7 @@ public class NekoGatchaCtrl : MonoBehaviour {
 
     private void EnableTouchArea() {
         _touchArea.gameObject.SetActive(true);
-        _touchArea.transform.localPosition = new Vector3(0, 200, 0);
+        //_touchArea.transform.localPosition = new Vector3(0, 200, 0);
         _touchArea2.gameObject.SetActive(true);
     }
 
@@ -752,8 +701,7 @@ public class NekoGatchaCtrl : MonoBehaviour {
     private void OnCompleteSingleLocalJump() {
         // 퓨전 처리
         if (_isFusion) {
-            //_resultNekoSprite.GetComponent<GatchaNekoReturnCtrl>().SetExtraInfo(_fishType, _gatchNekoID, _gatchaNekoStar, _fishValue, _preGatchaNekoStar);
-            //_resultNekoSprite.GetComponent<GatchaNekoReturnCtrl>().SetExtraInfo(_fishType, _gatchNekoID, _preGatchaNekoStar, _fishValue, _newMainNeko);
+            _resultNekoSprite.GetComponent<GatchaNekoReturnCtrl>().SetExtraInfo(_fishType, _fishValue, _getType, _returnGem);
         }
         else { // 퓨전이 아닌 경우는 무조건 'New'가 표시
             _resultNekoSprite.GetComponent<GatchaNekoReturnCtrl>().SetNewNekoMark(_newMainNeko);
@@ -761,25 +709,6 @@ public class NekoGatchaCtrl : MonoBehaviour {
 
         // 등급 별 효과 
         StartCoroutine(ShowNekoGrade(_gatchaNekoStar));
-    }
-
-    /// <summary>
-    /// 10회 가챠의 등급 표시 후, 추가 정보 표시 
-    /// </summary>
-    private void OnCompleteMultiLocalJump() {
-        // 퓨전 처리
-        if (_isFusion) {
-            //_resultNekoSprite.GetComponent<GatchaNekoReturnCtrl>().SetExtraInfo(_fishType, _gatchNekoID, _gatchaNekoStar, _fishValue, _preGatchaNekoStar);
-            //_resultNekoSprite.GetComponent<GatchaNekoReturnCtrl>().SetExtraInfo(_fishType, _gatchNekoID, _preGatchaNekoStar, _fishValue, _newMainNeko);
-        }
-        else {
-            _resultNekoSprite.GetComponent<GatchaNekoReturnCtrl>().SetNewNekoMark(_newMainNeko);
-        }
-
-        
-
-        // 등급 별 효과 
-        ShowImediateNekoGrade(_gatchaNekoStar);
     }
 
 

@@ -37,6 +37,10 @@ public class SimpleNickCtrl : MonoBehaviour {
     public void Confirm() {
         Debug.Log("New Nick Name ::" + _inputNick.value);
         //GameSystem.Instance.UserName = _inputNick.value;
+
+        if (_inputNick.value == GameSystem.Instance.UserName)
+            return;
+
         GameSystem.Instance.Post2RequestNickName(_inputNick.value);
         //this.SendMessage("CloseSelf");
     }

@@ -1400,6 +1400,9 @@ static public class NGUIText
 				}
 				else
 				{
+					// Skip spaces at the beginning of the line
+					while (start < offset && IsSpace(text[start])) ++start;
+
 					// Revert the position to the beginning of the word and reset the line
 					lineIsEmpty = true;
 					x = 0f;
@@ -1641,7 +1644,7 @@ static public class NGUIText
 					}
 				}
 
-				if (finalSpacingX < 0f) w += finalSpacingX;
+				w += finalSpacingX;
 
 				v0x = glyph.v0.x + x;
 				v0y = glyph.v0.y - y;
@@ -1834,11 +1837,8 @@ static public class NGUIText
 						}
 					}
 
-					if (strikethrough)
-					{
-						v0y = (-y + dash.v0.y);
-						v1y = (-y + dash.v1.y);
-					}
+					v0y = (-y + dash.v0.y);
+					v1y = (-y + dash.v1.y);
 
 					if (bold)
 					{
