@@ -62,6 +62,8 @@ public class AndroidPermissionCheckerCtrl : MonoBehaviour {
             _lblErr.SetActive(false);
         }
 
+        Debug.Log("★★ RequestPermission ");
+
         // 퍼미션 요청 
         PermissionsManager.ActionPermissionsRequestCompleted += PermissionsManager_ActionPermissionsRequestCompleted;
         PermissionsManager.Instance.RequestPermissions(AN_Permission.WRITE_EXTERNAL_STORAGE, AN_Permission.READ_EXTERNAL_STORAGE);
@@ -69,6 +71,9 @@ public class AndroidPermissionCheckerCtrl : MonoBehaviour {
     }
 
     private void PermissionsManager_ActionPermissionsRequestCompleted(AN_GrantPermissionsResult obj) {
+
+        Debug.Log("★★ PermissionsManager_ActionPermissionsRequestCompleted Start ");
+
         PermissionsManager.ActionPermissionsRequestCompleted -= PermissionsManager_ActionPermissionsRequestCompleted;
 
         _isGranted = true; // 권한을 받았다고 치고, 체크 
@@ -84,6 +89,9 @@ public class AndroidPermissionCheckerCtrl : MonoBehaviour {
 
         // 종료 하고 Action 실행 
         if (_isGranted) {
+
+            Debug.Log("★★ PermissionsManager_ActionPermissionsRequestCompleted Granted!!!! ");
+
             OnCompleteGrant();
             
             this.gameObject.SetActive(false); 

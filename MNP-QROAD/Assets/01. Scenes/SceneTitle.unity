@@ -2802,6 +2802,23 @@ Transform:
   m_PrefabParentObject: {fileID: 4289414124259700, guid: 966bbe60b81f98d4ca866138aad45c04,
     type: 2}
   m_PrefabInternal: {fileID: 1571954868}
+--- !u!1 &1571954870 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1983524451080712, guid: 966bbe60b81f98d4ca866138aad45c04,
+    type: 2}
+  m_PrefabInternal: {fileID: 1571954868}
+--- !u!65 &1571954871
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1571954870}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 60, y: 60, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1571954872 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114685943797857992, guid: 966bbe60b81f98d4ca866138aad45c04,

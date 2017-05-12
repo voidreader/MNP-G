@@ -82,28 +82,34 @@ public class TitleCtrl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-        Debug.Log("TitleCtrl Start");
-
-		Debug.Log (Application.dataPath);
-
-        _isLoadingLobbyScene = false;
-
         _lblVersion.text = "Ver " + GameSystem.Instance.GameVersion.ToString();
 
+        _isLoadingLobbyScene = false;
         _currentPopup = null; // 팝업 제어 
-
         _touchScreen.SetActive(false);
         _tapStart.gameObject.SetActive(false);
-		GameSystem.Instance.SetSoundVolumn ();
 
 
-        ConnectGame();
+        if(Application.isEditor) {
+            ConnectGame(); 
+            return;
+        }
+
+
+#if UNITY_ANDROID
+        CheckAndroidRuntimePermission();
+        return;
+#else
+         ConnectGame();
+#endif
 
 
 
-       
-	}
+
+
+    }
+
+
 
 
 	void Update() {
@@ -118,7 +124,7 @@ public class TitleCtrl : MonoBehaviour {
 				_currentPopup.SetActive(false);
 				_currentPopup = null;
 			}
-
+        
 			/*
 			if(objExitPopup.activeSelf) {
 				objExitPopup.SetActive(false);
@@ -138,6 +144,53 @@ public class TitleCtrl : MonoBehaviour {
         _tapStart.transform.localScale = GameSystem.Instance.BaseScale;
     }
 
+
+    /// <summary>
+    /// 안드로이드 런타임 권한 체크 
+    /// </summary>
+    void CheckAndroidRuntimePermission() {
+    #if UNITY_ANDROID
+        // 안드로이드 권한 체크 추가 (2017.05)
+        // SDK 레벨이 23이상이고, 권한을 획득하지 않은 상태일때 오픈한다. 
+
+        if (GetSDKLevel() >= 23) {
+
+            Debug.Log("★ Android Permission Check READ_EXTERNAL_STORAGE :: " + PermissionsManager.IsPermissionGranted(AN_Permission.READ_EXTERNAL_STORAGE));
+            Debug.Log("★ Android Permission Check WRITE_EXTERNAL_STORAGE :: " + PermissionsManager.IsPermissionGranted(AN_Permission.WRITE_EXTERNAL_STORAGE));
+
+            if (!PermissionsManager.IsPermissionGranted(AN_Permission.READ_EXTERNAL_STORAGE)
+                || !PermissionsManager.IsPermissionGranted(AN_Permission.WRITE_EXTERNAL_STORAGE)) {
+
+                // 더이상 팝업하지 않게 했는지 체크
+                if(PermissionsManager.ShouldShowRequestPermission(AN_Permission.READ_EXTERNAL_STORAGE) 
+                    || PermissionsManager.ShouldShowRequestPermission(AN_Permission.WRITE_EXTERNAL_STORAGE)) {
+
+                    Debug.Log("★★★ ShouldShowRequestPermission");
+                    // 팝업 띄우기
+                }
+
+                _aosPermissionChecker.OpenChecker(OnCompleteAndroidRuntimePermissionCheck);
+                //_isStartBtnClicked = false;
+                return;
+
+            }
+        }
+
+
+    #endif
+    }
+
+
+    void OnCompleteAndroidRuntimePermissionCheck() {
+        StartCoroutine(DelayStart());
+    }
+
+    IEnumerator DelayStart() {
+        yield return new WaitForSeconds(2);
+
+        ConnectGame();
+    }
+
     #endregion
 
 
@@ -149,21 +202,6 @@ public class TitleCtrl : MonoBehaviour {
     /// </summary>
     public void StartGame() {
         _isStartBtnClicked = true;
-
-
-        #if UNITY_ANDROID 
-        // 안드로이드 권한 체크 추가 (2017.05)
-        // SDK 레벨이 23이상이고, 권한을 획득하지 않은 상태일때 오픈한다. 
-
-        if(GetSDKLevel() >= 23 
-            && (!PermissionsManager.IsPermissionGranted(AN_Permission.READ_EXTERNAL_STORAGE) && !PermissionsManager.IsPermissionGranted(AN_Permission.WRITE_EXTERNAL_STORAGE))) {
-           
-            _aosPermissionChecker.OpenChecker(StartGame);
-        }
-
-
-        #endif
-
 
         if (string.IsNullOrEmpty(GameSystem.Instance.UserName)) {
 
@@ -296,7 +334,10 @@ public class TitleCtrl : MonoBehaviour {
     /// </summary>
 	private void ConnectGame() {
 
-        
+
+        // 로컬 저장 데이터 로드 
+        GameSystem.Instance.InitExternalGameData();
+
 
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
         ConnectEditor();

@@ -269,9 +269,6 @@ public partial class GameSystem : MonoBehaviour {
             return;
 
 
-        // 2016.08 패키지 정보 조회에서 오류가 발생하는 경우가 있는것 같아 주석처리.
-
-
         #if UNITY_ANDROID
 		
 

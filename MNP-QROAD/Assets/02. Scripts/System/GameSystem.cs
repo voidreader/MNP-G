@@ -16,7 +16,6 @@ public partial class GameSystem : MonoBehaviour {
     public static GameSystem Instance = null;
     public bool isInitialize = false;
 
-    public bool IgawInitialized = false;
     private bool _isLiveOpsInit = false;
 
 
@@ -414,30 +413,56 @@ public partial class GameSystem : MonoBehaviour {
 
 
 	void Awake() {
-
-
         if (Instance == null)
             Instance = this;
 
-
-        //Debug.Log ("!! Awake in GameSystem :: " + Application.persistentDataPath);
-        LoadLocalTutorialStep(); // 디바이스 튜토리얼 스텝 조회 
-
-        // 사운드 Clip 로드
-        LoadSoundResources ();
-        LoadOptionSetting(); // 사운드 옵션 정보 조회 
-        LoadPuzzleTipOption();
-
-		//LoadPushOption (); // 푸시 옵션 정보 조회 
-
+        
         DontDestroyOnLoad(this.gameObject);
 
 	}
 
 	void Start() {
 
-        
 
+        // 사운드 Clip 로드
+        LoadSoundResources();
+
+        // 패키지(디바이스, 앱) 정보 불러오기 
+        LoadPackageInfo();
+
+        Initialize(); // 게임 시스템 초기화 
+
+#if UNITY_ANDROID
+
+        //IGAW 공통 모듈 연동 초기화
+        InitAndroidIGWA();
+
+#elif UNITY_IOS
+
+		//IGAW 공통 모듈 연동 초기화 (ios)
+		InitIosIGAW(); 
+
+        GameCenterManager.OnAchievementsLoaded += OnAchievementsLoadedIOS;
+        GameCenterManager.OnLeadrboardInfoLoaded += OnLeadrboardInfoLoaded;
+
+#endif
+
+
+    }
+
+    #region GameSystem 초기화 부분 
+
+    /// <summary>
+    /// External Storage 관련 데이터 초기화 
+    /// 안드로이드 Runtime Permission 때문에 모아놓고 타이틀 화면에서 호출 
+    /// </summary>
+    public void InitExternalGameData() {
+
+        
+        LoadLocalTutorialStep(); // 디바이스 튜토리얼 스텝 조회 
+        LoadOptionSetting(); // 사운드 옵션 정보 조회 
+        LoadPuzzleTipOption();
+        LoadPushOption(); // 푸시 옵션 정보 조회 
 
         /* 가챠 배너 */
         _fileFishSmallBanner = Application.persistentDataPath + "/" + "small_fish_gatcha.png";
@@ -455,28 +480,12 @@ public partial class GameSystem : MonoBehaviour {
 
 
 
-        LoadPackageInfo(); // 패키지 정보 불러오기
+        // 사용자 장착 고양이 정보 조회
+        LoadEquipNekoInfo();
 
-        InitOS(); // 운영체제별 초기화 
-
-        Initialize(); // 게임 시스템 초기화 
-
-#if UNITY_ANDROID
-
-        //IGAW 공통 모듈 연동 초기화
-        InitAndroidIGWA();
-
-#elif UNITY_IOS
-
-		//IGAW 공통 모듈 연동 초기화 (ios)
-		InitIosIGAW(); 
-
-#endif
-
-
+        SetSoundVolumn();
     }
 
-    #region GameSystem 초기화 부분 
 
     /// <summary>
     /// Game System 초기화
@@ -496,13 +505,10 @@ public partial class GameSystem : MonoBehaviour {
         // 인게임 획득정보 초기화 
         InitInGameAccquireInfo();
 
-        // 사용자 준비창 정보 
-        LoadEquipNekoInfo();
+
 
         // 사용자 정보, 밸런싱 값 조합으로 실제 게임에 사용될 값 수정 
         SetIngameValue();
-
-
     }
 
     /// <summary>
@@ -636,12 +642,8 @@ public partial class GameSystem : MonoBehaviour {
     /// </summary>
     private void SetIngameValue() {
 
-
-        //_feverPlayTime = _feverPlayTime + (_abilityFeverTimeLevel - 1) * _intervalFeverTime;
         _blockAttackPower = _userPowerLevel * 5;
-        //_ingamePlayTime = _ingamePlayTime + (_abilityPlayTimeLevel - 1) * _intervalPlayTime;
-
-        Debug.Log("▶▶▶ SetInGameValue _blockAttackPower :: " + _blockAttackPower);
+        // Debug.Log("▶▶▶ SetInGameValue _blockAttackPower :: " + _blockAttackPower);
 
     }
 
@@ -743,17 +745,7 @@ public partial class GameSystem : MonoBehaviour {
 
         //Debug.Log("InitAndroidIGWA");
         IgaworksUnityPluginAOS.InitPlugin ();
-        //IgaworksUnityPluginAOS.Common.startApplication (); // 네이티브 SDK 초기화 
-        /*
-        if (!Application.isEditor) {
-            AndroidJavaClass jc = new AndroidJavaClass("com.igaworks.unity.IgawUnityUtilityAOS");
-            string IMEI = jc.CallStatic<string>("getAndroidId");
-            IgaworksUnityPluginAOS.Common.startApplication(IMEI);
-        }
-        */
 
-        IgawInitialized = true;
-        //Debug.Log("InitAndroidIGWA End");
     }
 
 	/// <summary>
@@ -765,23 +757,10 @@ public partial class GameSystem : MonoBehaviour {
 		IgaworksCorePluginIOS.SetCallbackHandler("GameSystem");
 		IgaworksCorePluginIOS.SetIgaworksCoreDelegate();
 
-        IgawInitialized = true;
-
-
         ISN_LocalNotificationsController.Instance.RequestNotificationPermissions();
     }
 
-    /// <summary>
-    /// OS 별 초기화 추가 로직 
-    /// </summary>
-    private void InitOS() {
-        #if UNITY_IOS
-        GameCenterManager.OnAchievementsLoaded += OnAchievementsLoadedIOS;
-        GameCenterManager.OnLeadrboardInfoLoaded += OnLeadrboardInfoLoaded;
-        #endif
-    }
-
-
+    
     #endregion
 
 
@@ -2297,7 +2276,7 @@ public partial class GameSystem : MonoBehaviour {
 		ES2.Save (_listEquipNekoID, "EquipNekoPos");
 	}
 
-	public void LoadEquipNekoInfo() {
+    private void LoadEquipNekoInfo() {
 
 
 		_listEquipNekoID = new List<int>();
