@@ -422,10 +422,7 @@ public partial class GameSystem : MonoBehaviour {
 	}
 
 	void Start() {
-
-
-        // 사운드 Clip 로드
-        LoadSoundResources();
+        Debug.Log("★ GameSystem void Start Begin");
 
         // 패키지(디바이스, 앱) 정보 불러오기 
         LoadPackageInfo();
@@ -447,6 +444,7 @@ public partial class GameSystem : MonoBehaviour {
 
 #endif
 
+        Debug.Log("★ GameSystem void Start End");
 
     }
 
@@ -458,7 +456,8 @@ public partial class GameSystem : MonoBehaviour {
     /// </summary>
     public void InitExternalGameData() {
 
-        
+        LoadSoundResources();
+
         LoadLocalTutorialStep(); // 디바이스 튜토리얼 스텝 조회 
         LoadOptionSetting(); // 사운드 옵션 정보 조회 
         LoadPuzzleTipOption();

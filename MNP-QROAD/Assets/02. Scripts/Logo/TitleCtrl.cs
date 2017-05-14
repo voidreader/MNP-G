@@ -161,11 +161,21 @@ public class TitleCtrl : MonoBehaviour {
             if (!PermissionsManager.IsPermissionGranted(AN_Permission.READ_EXTERNAL_STORAGE)
                 || !PermissionsManager.IsPermissionGranted(AN_Permission.WRITE_EXTERNAL_STORAGE)) {
 
+
+                Debug.Log("★ ShouldShowRequestPermission Check READ_EXTERNAL_STORAGE :: " 
+                    + PermissionsManager.ShouldShowRequestPermission(AN_Permission.READ_EXTERNAL_STORAGE));
+                Debug.Log("★ ShouldShowRequestPermission Check WRITE_EXTERNAL_STORAGE :: "
+                    + PermissionsManager.ShouldShowRequestPermission(AN_Permission.WRITE_EXTERNAL_STORAGE));
+
                 // 더이상 팝업하지 않게 했는지 체크
-                if(PermissionsManager.ShouldShowRequestPermission(AN_Permission.READ_EXTERNAL_STORAGE) 
+                if (PermissionsManager.ShouldShowRequestPermission(AN_Permission.READ_EXTERNAL_STORAGE) 
                     || PermissionsManager.ShouldShowRequestPermission(AN_Permission.WRITE_EXTERNAL_STORAGE)) {
 
-                    Debug.Log("★★★ ShouldShowRequestPermission");
+                    Debug.Log("★★★ ShouldShowRequestPermission In!");
+
+                    // 다시 묻지 않음을 체크하면 False가 떨어진다. 
+
+
                     // 팝업 띄우기
                 }
 
@@ -174,6 +184,11 @@ public class TitleCtrl : MonoBehaviour {
                 return;
 
             }
+        }
+        else {
+
+            Debug.Log("★★ Under 23 SDK Level Android ★★★");
+            ConnectGame();
         }
 
 

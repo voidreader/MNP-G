@@ -18,7 +18,7 @@ public class WWWHelper : MonoBehaviour {
     bool _isTestMode = false;
 
 	// 기초 dataset 
-	[SerializeField] TextAsset _text; // 기초  폼을 조회할 json text asset 
+	//[SerializeField] TextAsset _text; // 기초  폼을 조회할 json text asset 
 	[SerializeField] ObscuredString _data; // 실제 서버로 날릴 string data 
 	[SerializeField] JSONNode _dataForm; // 기초 폼 JsonNode
 
@@ -63,6 +63,7 @@ public class WWWHelper : MonoBehaviour {
     string _testURL = "backURL";  // 테스트 서버 
 
     string _requestedNickName = "";
+    readonly string _parsingText = "{}";
 
 	public float timer = 0;
 	public float timeout = 10;
@@ -94,8 +95,9 @@ public class WWWHelper : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		_text = Resources.Load("JSON/UserForm") as TextAsset;
-		_dataForm = JSON.Parse(_text.ToString());
+        //_text = Resources.Load("JSON/UserForm") as TextAsset;
+        //_dataForm = JSON.Parse(_text.ToString());
+        _dataForm = JSON.Parse("{}");
 
 		_header.Add("Content-Type", "application/json; charset=UTF-8");
 
@@ -148,7 +150,8 @@ public class WWWHelper : MonoBehaviour {
 	}
 
 	public void Post2(string requestID, OnRequestFinishedDelegate pCallback, int pParam) {
-        _dataForm = JSON.Parse(_text.ToString());
+        //_dataForm = JSON.Parse(_text.ToString());
+        _dataForm = JSON.Parse(_parsingText);
 
         //_requestURL = GameSystem.Instance.DocsProtocol.get<string>("url", _url) + GameSystem.Instance.DocsProtocol.get<string>("url", requestID);
         _requestURL = _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(_url) + _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(requestID);
@@ -551,7 +554,9 @@ public class WWWHelper : MonoBehaviour {
 
 
     public void Post2WithJSON(string requestID, OnRequestFinishedDelegate pCallback, JSONNode pNode) {
-        _dataForm = JSON.Parse(_text.ToString());
+        //_dataForm = JSON.Parse(_text.ToString());
+        
+        _dataForm = JSON.Parse(_parsingText);
         //_requestURL = GameSystem.Instance.DocsProtocol.get<string>("url", _url) + GameSystem.Instance.DocsProtocol.get<string>("url", requestID);
         _requestURL = _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(_url) + _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(requestID);
         Debug.Log(">>> Post _requestURL :: " + _requestURL);
@@ -612,7 +617,8 @@ public class WWWHelper : MonoBehaviour {
     /// <param name="pParam"></param>
 	public void Post2WithString(string requestID, OnRequestFinishedDelegate pCallback, string pParam) {
 
-		_dataForm = JSON.Parse(_text.ToString());
+        //_dataForm = JSON.Parse(_text.ToString());
+        _dataForm = JSON.Parse(_parsingText);
         //_requestURL = GameSystem.Instance.DocsProtocol.get<string>("url", _url) + GameSystem.Instance.DocsProtocol.get<string>("url", requestID);
         _requestURL = _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(_url) +  _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(requestID);
         Debug.Log(">>> Post _requestURL :: " + _requestURL);
