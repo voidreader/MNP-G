@@ -8,8 +8,12 @@ using System.Collections.Generic;
 using System;
 using Alignment = NGUIText.Alignment;
 
+
+
+
 [ExecuteInEditMode]
 [AddComponentMenu("NGUI/UI/NGUI Label")]
+
 public class UILabel : UIWidget
 {
 	public enum Effect
@@ -1297,7 +1301,20 @@ public class UILabel : UIWidget
 			mTexRebuildAdded = true;
 			Font.textureRebuilt += OnFontChanged;
 		}
-	}
+        
+
+        /* 로컬라이징에 따른 폰트 변경 */
+        if(trueTypeFont != null) {
+
+            if (GameSystem.Instance.GameLanguage == SystemLanguage.Thai) {
+                this.trueTypeFont = GameSystem.Instance.ThaiFont;
+            }
+            else {
+                this.trueTypeFont = GameSystem.Instance.EnglishFont;
+            }
+
+        }
+    }
 #endif
 
 	/// <summary>

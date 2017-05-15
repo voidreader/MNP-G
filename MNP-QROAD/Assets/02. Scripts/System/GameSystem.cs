@@ -419,7 +419,7 @@ public partial class GameSystem : MonoBehaviour {
         if (Instance == null)
             Instance = this;
 
-        
+        GameLanguage = Application.systemLanguage;
         DontDestroyOnLoad(this.gameObject);
 
 	}
@@ -496,6 +496,9 @@ public partial class GameSystem : MonoBehaviour {
         Debug.Log("▶ Game System Init");
 
         isInitialize = true;
+
+        
+
 
         // 블록 생성 변수 세팅 
         SetBlockGenerateSetting();

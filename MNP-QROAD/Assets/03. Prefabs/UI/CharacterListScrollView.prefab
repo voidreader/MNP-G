@@ -16,13 +16,13 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000011744711744}
-  - 114: {fileID: 114000012939555262}
-  - 114: {fileID: 114000014255925452}
-  - 114: {fileID: 114000011966171662}
-  - 114: {fileID: 114000013590235172}
+  - component: {fileID: 4000011744711744}
+  - component: {fileID: 114000012939555262}
+  - component: {fileID: 114000014255925452}
+  - component: {fileID: 114000011966171662}
+  - component: {fileID: 114000013590235172}
   m_Layer: 5
   m_Name: CharacterListScrollView
   m_TagString: Untagged
@@ -39,10 +39,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -220, y: -90, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114000011966171662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,6 +112,7 @@ MonoBehaviour:
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
+  useSortingOrder: 0
 --- !u!114 &114000013590235172
 MonoBehaviour:
   m_ObjectHideFlags: 1

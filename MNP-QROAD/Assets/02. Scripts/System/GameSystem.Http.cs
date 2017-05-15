@@ -3525,7 +3525,7 @@ public partial class GameSystem : MonoBehaviour {
                     return;
                 }
 
-                Debug.Log("Notice Small Banner File :: " + _fileNoticeSmallBanner + i.ToString() + ".png");
+                //Debug.Log("Notice Small Banner File :: " + _fileNoticeSmallBanner + i.ToString() + ".png");
 
                 bytes = File.ReadAllBytes(_fileNoticeSmallBanner + i.ToString() + ".png");
                 ArrNoticeSmallTextures[i] = new Texture2D(0, 0);

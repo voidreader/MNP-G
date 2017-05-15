@@ -56,7 +56,7 @@ public class NewNekoEventCtrl : MonoBehaviour {
         //this.transform.localEulerAngles = Vector3.zero;
 
 
-        StartCoroutine(Changing());
+        //StartCoroutine(Changing());
         //StartCoroutine(Lighting());
     }
 

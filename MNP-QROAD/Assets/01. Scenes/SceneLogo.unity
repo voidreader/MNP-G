@@ -871,6 +871,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1388787984}
   - component: {fileID: 1388787985}
+  - component: {fileID: 1388787987}
   - component: {fileID: 1388787986}
   m_Layer: 5
   m_Name: Warning
@@ -979,6 +980,17 @@ MonoBehaviour:
   _textID: 3201
   _targetLabel: {fileID: 0}
   _text: 
+--- !u!114 &1388787987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1388787983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e99a2172d2c7294a9bf8447c6dd8556, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1412700443
 GameObject:
   m_ObjectHideFlags: 0
@@ -1298,13 +1310,10 @@ Prefab:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11450228, guid: 490f5485c99aa8d4490048f0cdcff8a6, type: 2}
-      propertyPath: _version
-      value: 1.0.4.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11450228, guid: 490f5485c99aa8d4490048f0cdcff8a6, type: 2}
-      propertyPath: _versionFloat
-      value: 1.001
-      objectReference: {fileID: 0}
+      propertyPath: particleUseHeart
+      value: 
+      objectReference: {fileID: 19800004, guid: e116059325ae3e640a98f7a1b89d797b,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 490f5485c99aa8d4490048f0cdcff8a6, type: 2}
   m_IsPrefabParent: 0

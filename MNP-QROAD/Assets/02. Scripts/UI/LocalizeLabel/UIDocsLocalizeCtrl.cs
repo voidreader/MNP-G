@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+
 public class UIDocsLocalizeCtrl : MonoBehaviour {
 
 	public string _textID;
@@ -30,21 +32,23 @@ public class UIDocsLocalizeCtrl : MonoBehaviour {
 
 	private void GetText() {
 
+        if (string.IsNullOrEmpty(_textID))
+            return;
+
 		//Debug.Log ("▶ GetText #1 ");
 		_text = GameSystem.Instance.GetLocalizeText(_textID);
 		_targetLabel.text = _text;
 
-		/*
-		if (_text != null)
-			return;
 
+        /*
+        if (GameSystem.Instance.GameLanguage == SystemLanguage.Thai) {
+            _targetLabel.trueTypeFont = GameSystem.Instance.ThaiFont;
+        }
+        else {
+            _targetLabel.trueTypeFont = GameSystem.Instance.ThaiFont;
+        }
+        */
 
-		if (_textID != null) {
-			Debug.Log ("▶ GetText #2 ");
-			_text = GameSystem.Instance.GetLocalizeText(_textID);
-			_targetLabel.text = _text;
-		}
-		*/
-	}
+    }
 
 }
