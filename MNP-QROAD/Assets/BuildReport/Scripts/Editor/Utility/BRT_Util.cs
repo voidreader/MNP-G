@@ -84,7 +84,7 @@ public static class Util
 				return BuildPlatform.Web;
 #endif
 				
-#if !UNITY_5
+#if UNITY_4
 			case BuildTarget.NaCl:
 				return BuildPlatform.Web;
 
@@ -93,7 +93,7 @@ public static class Util
 				return BuildPlatform.Flash;
 #endif
 
-#if !UNITY_5
+#if UNITY_4
 			case BuildTarget.iPhone:
 #else
 			case BuildTarget.iOS:

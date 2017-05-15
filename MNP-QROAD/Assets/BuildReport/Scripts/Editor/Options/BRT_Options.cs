@@ -40,7 +40,8 @@ public class SavedOptions
 	public bool IncludeUnusedPrefabsInReportCreation = true;
 	public bool IncludeBuildSizeInReportCreation = true;
 
-	public bool GetImportedSizesForUsedAssets = true;
+	public bool GetImportedSizesForUsedAssets = false;
+	public bool ShowImportedSizeForUsedAssets = true;
 	public bool GetImportedSizesForUnusedAssets = true;
 	public bool GetProjectSettings = true;
 
@@ -645,7 +646,25 @@ public static class Options
 			}
 		}
 	}
-
+	
+	public static bool ShowImportedSizeForUsedAssets
+	{
+		get
+		{
+			InitializeOptionsIfNeeded();
+			return _savedOptions.ShowImportedSizeForUsedAssets;
+		}
+		set
+		{
+			InitializeOptionsIfNeeded();
+			if (_savedOptions.ShowImportedSizeForUsedAssets != value)
+			{
+				_savedOptions.ShowImportedSizeForUsedAssets = value;
+				SaveOptions();
+			}
+		}
+	}
+	
 	public static bool GetImportedSizesForUnusedAssets
 	{
 		get

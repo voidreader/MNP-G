@@ -13,6 +13,8 @@ public class AndroidPermissionCheckerCtrl : MonoBehaviour {
 
     bool _isGranted = false;
 
+    [SerializeField] bool _isNeverAsk = false;
+
     public static event Action OnCompleteGrant = delegate { };
 
 
@@ -37,6 +39,8 @@ public class AndroidPermissionCheckerCtrl : MonoBehaviour {
     /// 권한 요청 체커 오픈 
     /// </summary>
     public void OpenChecker(Action pComplete) {
+
+        _isNeverAsk = false;
         this.gameObject.SetActive(true);
 
         OnCompleteGrant = delegate { };
@@ -50,19 +54,62 @@ public class AndroidPermissionCheckerCtrl : MonoBehaviour {
 
 
     /// <summary>
+    /// 다시 묻지 않기를 체크한 경우 
+    /// </summary>
+    /// <param name="pComplete"></param>
+    public void OpenNeverAskChecker(Action pComplete) {
+        _isNeverAsk = true;
+        this.gameObject.SetActive(true);
+
+        OnCompleteGrant = delegate { };
+        OnCompleteGrant += pComplete;
+
+        _btnCheck.normalSprite = "c-none";
+        _isChecked = false;
+        _isGranted = false;
+        _lblErr.SetActive(true);
+        _lblErr.GetComponent<UILabel>().text = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3511);
+    }
+
+
+
+    /// <summary>
     /// 권한 요청 
     /// </summary>
     public void RequestPermission() {
 
+        if(_isNeverAsk) {
+            OnCompleteGrant(); // 다시 묻지 않기를 클릭한 경우는 게임을 종료한다. 
+        }
+
+
         if(!_isChecked) { // 체크되지 않은 경우. 
+
             _lblErr.SetActive(true);
+            _lblErr.GetComponent<UILabel>().text = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3508);
             return;
+
+
         }
         else {
             _lblErr.SetActive(false);
         }
 
         Debug.Log("★★ RequestPermission ");
+
+
+        // 다시 묻지 않음을 체크한 경우. 
+        if (!PermissionsManager.ShouldShowRequestPermission(AN_Permission.READ_EXTERNAL_STORAGE)
+                || !PermissionsManager.ShouldShowRequestPermission(AN_Permission.WRITE_EXTERNAL_STORAGE)) {
+
+            Debug.Log("★★ Checked Never Ask");
+
+            _lblErr.GetComponent<UILabel>().text = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3511);
+            OnCompleteGrant = delegate { };
+            OnCompleteGrant += ExitGame;
+            return;
+        }
+
 
         // 퍼미션 요청 
         PermissionsManager.ActionPermissionsRequestCompleted += PermissionsManager_ActionPermissionsRequestCompleted;
@@ -101,4 +148,8 @@ public class AndroidPermissionCheckerCtrl : MonoBehaviour {
         }
         
     } 
+
+    void ExitGame() {
+        Application.Quit();
+    }
 }

@@ -10,6 +10,18 @@
 #define UNITY_5_1_AND_LESSER
 #endif
 
+#if UNITY_4 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2 || UNITY_5_3
+#define UNITY_5_3_AND_LESSER
+#endif
+
+#if UNITY_4 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2 || UNITY_5_3 || UNITY_5_4
+#define UNITY_5_4_AND_LESSER
+#endif
+
+#if UNITY_4 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2 || UNITY_5_3 || UNITY_5_4 || UNITY_5_5
+#define UNITY_5_5_AND_LESSER
+#endif
+
 using UnityEngine;
 using UnityEditor;
 
@@ -604,7 +616,7 @@ public class BuildSettings : BaseScreen
 
 			if (UnityMajorVersionUsedIsAtMost(4, buildReportToDisplay.UnityVersion))
 			{
-			DrawSetting("Exit on suspend:", settings.iOSExitOnSuspend);
+				DrawSetting("Exit on suspend:", settings.iOSExitOnSuspend);
 			}
 			if (UnityMajorVersionUsedIsAtLeast(5, buildReportToDisplay.UnityVersion))
 			{
@@ -675,6 +687,10 @@ public class BuildSettings : BaseScreen
 		DrawSetting("Enable internal profiler:", settings.EnableInternalProfiler);
 		DrawSetting("Allow debugger:", settings.EnableSourceDebugging);
 		DrawSetting("Enable explicit null checks:", settings.EnableExplicitNullChecks);
+#if !UNITY_5_3_AND_LESSER
+		DrawSetting("Enable explicit divide-by-zero checks:", settings.EnableExplicitDivideByZeroChecks);
+#endif
+
 		DrawSetting("Action on .NET unhandled exception:", settings.ActionOnDotNetUnhandledException);
 		DrawSetting("Enable CrashReport API:", settings.EnableCrashReportApi);
 		DrawSetting("Force script optimization on debug builds:", settings.ForceOptimizeScriptCompilation);
@@ -803,8 +819,8 @@ public class BuildSettings : BaseScreen
 		{
 			if (UnityMajorVersionUsedIsAtMost(4, buildReportToDisplay.UnityVersion))
 			{
-			DrawSetting("Use 24-bit depth buffer:", settings.AndroidUse24BitDepthBuffer);
-		}
+				DrawSetting("Use 24-bit depth buffer:", settings.AndroidUse24BitDepthBuffer);
+			}
 			if (UnityMajorVersionUsedIsAtLeast(5, buildReportToDisplay.UnityVersion))
 			{
 				DrawSetting("Disable depth and stencil buffers:", settings.AndroidDisableDepthAndStencilBuffers);

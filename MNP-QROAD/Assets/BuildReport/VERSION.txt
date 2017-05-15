@@ -1,4 +1,15 @@
-﻿Version 3.2.1
+﻿Version 3.2.2
+- NEW: Added option to show calculated size of used assets instead of the reported size from the build log,
+  as workaround for the Unity bug: https://issuetracker.unity3d.com/issues/unity-reports-incorrect-textures-size-in-the-editor-dot-log-after-building-on-standalone
+  Note: The bug has been fixed in Unity 2017.1, 5.5.3p1 and 5.6.0p1. This option is included for users who can't update to using those new versions.
+- FIX: Fixed compatibility with Unity 2017.1 beta 2.
+- FIX: Fixed report generation when percentage is missing in the build log.
+- FIX: Percentage for all used assets is now calculated properly.
+- FIX: Resources assets that are inside an Editor subfolder are now no longer mistakenly marked as used assets.
+- CHANGE: Streaming Assets is now included in the table for sizes.
+
+
+Version 3.2.1
 - FIX: Threaded file loading is now optional, and turned off by default.
 
 

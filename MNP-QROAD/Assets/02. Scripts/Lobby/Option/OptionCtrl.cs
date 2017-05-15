@@ -80,6 +80,10 @@ public class OptionCtrl : MonoBehaviour {
             GameSystem.Instance.CurrentPlayer = null;
             RefreshFBGoogleState();
         }
+        else {
+            GameSystem.Instance.CurrentPlayer = GooglePlayManager.Instance.player;
+            RefreshFBGoogleState();
+        }
 
         
     }

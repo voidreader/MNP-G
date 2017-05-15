@@ -21,6 +21,8 @@ public class UnityBuildSettings
 	public bool EnableDebugLog; // PlayerSettings.usePlayerLog
 	public bool EnableSourceDebugging; // EditorUserBuildSettings.allowDebugging
 	public bool EnableExplicitNullChecks; // EditorUserBuildSettings.explicitNullChecks
+	public bool EnableExplicitDivideByZeroChecks; // Unity 5.4: EditorUserBuildSettings.explicitDivideByZeroChecks
+
 	public bool EnableCrashReportApi; // PlayerSettings.enableCrashReportAPI
 	public bool EnableInternalProfiler; // PlayerSettings.enableInternalProfiler
 	public bool ConnectProfiler; // EditorUserBuildSettings.connectProfiler

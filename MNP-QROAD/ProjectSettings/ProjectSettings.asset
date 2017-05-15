@@ -580,6 +580,7 @@ PlayerSettings:
     9: DOTWEEN_TK2D
     11: DOTWEEN_TK2D
     12: DOTWEEN_TK2D
+    13: DOTWEEN_TK2D
     14: DOTWEEN_TK2D
     15: DOTWEEN_TK2D
     16: DOTWEEN_TK2D
@@ -589,6 +590,11 @@ PlayerSettings:
     20: DOTWEEN_TK2D
     21: DOTWEEN_TK2D
     22: DOTWEEN_TK2D
+    23: DOTWEEN_TK2D
+    24: DOTWEEN_TK2D
+    25: DOTWEEN_TK2D
+    26: DOTWEEN_TK2D
+    27: DOTWEEN_TK2D
   platformArchitecture:
     iOS: 2
   scriptingBackend:

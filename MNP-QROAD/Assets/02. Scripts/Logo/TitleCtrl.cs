@@ -168,14 +168,14 @@ public class TitleCtrl : MonoBehaviour {
                     + PermissionsManager.ShouldShowRequestPermission(AN_Permission.WRITE_EXTERNAL_STORAGE));
 
                 // 더이상 팝업하지 않게 했는지 체크
-                if (PermissionsManager.ShouldShowRequestPermission(AN_Permission.READ_EXTERNAL_STORAGE) 
-                    || PermissionsManager.ShouldShowRequestPermission(AN_Permission.WRITE_EXTERNAL_STORAGE)) {
+                if (!PermissionsManager.ShouldShowRequestPermission(AN_Permission.READ_EXTERNAL_STORAGE) 
+                    || !PermissionsManager.ShouldShowRequestPermission(AN_Permission.WRITE_EXTERNAL_STORAGE)) {
 
                     Debug.Log("★★★ ShouldShowRequestPermission In!");
 
                     // 다시 묻지 않음을 체크하면 False가 떨어진다. 
-
-
+                    _aosPermissionChecker.OpenNeverAskChecker(ExitGame);
+                    return;
                     // 팝업 띄우기
                 }
 
@@ -197,15 +197,10 @@ public class TitleCtrl : MonoBehaviour {
 
 
     void OnCompleteAndroidRuntimePermissionCheck() {
-        StartCoroutine(DelayStart());
-    }
-
-    IEnumerator DelayStart() {
-        yield return new WaitForSeconds(2);
-
         ConnectGame();
     }
 
+    
     #endregion
 
 

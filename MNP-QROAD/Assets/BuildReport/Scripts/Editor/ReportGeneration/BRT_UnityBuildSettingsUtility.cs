@@ -18,6 +18,10 @@
 #define UNITY_5_3_AND_LESSER
 #endif
 
+#if UNITY_4 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2 || UNITY_5_3 || UNITY_5_4
+#define UNITY_5_4_AND_LESSER
+#endif
+
 #if UNITY_4 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2 || UNITY_5_3 || UNITY_5_4 || UNITY_5_5
 #define UNITY_5_5_AND_LESSER
 #endif
@@ -232,8 +236,12 @@ public static class UnityBuildSettingsUtility
 		settings.EnableDebugLog = PlayerSettings.usePlayerLog;
 		settings.EnableSourceDebugging = EditorUserBuildSettings.allowDebugging;
 		settings.EnableExplicitNullChecks = EditorUserBuildSettings.explicitNullChecks;
+		
+#if !UNITY_5_3_AND_LESSER
+		settings.EnableExplicitDivideByZeroChecks = EditorUserBuildSettings.explicitDivideByZeroChecks;
+#endif
 
-#if UNITY_5
+#if !UNITY_4
 		settings.EnableCrashReportApi = PlayerSettings.enableCrashReportAPI;
 		settings.EnableInternalProfiler = PlayerSettings.enableInternalProfiler;
 		settings.ActionOnDotNetUnhandledException = PlayerSettings.actionOnDotNetUnhandledException.ToString();
@@ -254,18 +262,18 @@ public static class UnityBuildSettingsUtility
 		
 		settings.EnableHeadlessMode = EditorUserBuildSettings.enableHeadlessMode;
 		settings.InstallInBuildFolder = EditorUserBuildSettings.installInBuildFolder;
-#if UNITY_5
+#if !UNITY_4
 		settings.ForceInstallation = EditorUserBuildSettings.forceInstallation;
 		settings.BuildScriptsOnly = EditorUserBuildSettings.buildScriptsOnly;
 		settings.BakeCollisionMeshes = PlayerSettings.bakeCollisionMeshes;
 #endif
 
-#if !UNITY_5
+#if UNITY_4
 		settings.StripPhysicsCode = PlayerSettings.stripPhysics;
 #endif
 		settings.StripUnusedMeshComponents = PlayerSettings.stripUnusedMeshComponents;
 		
-#if UNITY_5_2_AND_GREATER
+#if !UNITY_5_1_AND_LESSER
 		settings.StripEngineCode = PlayerSettings.stripEngineCode;
 #endif
 
@@ -302,7 +310,11 @@ public static class UnityBuildSettingsUtility
 #endif
 
 		settings.AOTOptions = PlayerSettings.aotOptions;
+#if UNITY_5_4_AND_LESSER
+		settings.LocationUsageDescription = PlayerSettings.locationUsageDescription;
+#else
 		settings.LocationUsageDescription = PlayerSettings.iOS.locationUsageDescription;
+#endif
 
 
 
@@ -321,7 +333,7 @@ public static class UnityBuildSettingsUtility
 #endif
 		
 		
-#if UNITY_5_2_AND_GREATER
+#if !UNITY_5_1_AND_LESSER
 		settings.EnableVirtualRealitySupport = PlayerSettings.virtualRealitySupported;
 #endif
 
@@ -348,7 +360,7 @@ public static class UnityBuildSettingsUtility
 		}
 		settings.AspectRatiosAllowed = aspectRatiosList.ToArray();
 
-#if UNITY_5_2_AND_GREATER
+#if !UNITY_5_1_AND_LESSER
 		settings.GraphicsAPIsUsed = PlayerSettings.GetGraphicsAPIs(EditorUserBuildSettings.activeBuildTarget).Select(type => type.ToString()).ToArray();
 #endif
 
@@ -372,10 +384,10 @@ public static class UnityBuildSettingsUtility
 		settings.WebPlayerEnableStreaming = EditorUserBuildSettings.webPlayerStreamed;
 		settings.WebPlayerDeployOffline = EditorUserBuildSettings.webPlayerOfflineDeployment;
 
-#if UNITY_5_3_AND_GREATER
-		settings.WebPlayerFirstStreamedLevelWithResources = 0;
-#else
+#if UNITY_5_2_AND_LESSER
 		settings.WebPlayerFirstStreamedLevelWithResources = PlayerSettings.firstStreamedLevelWithResources;
+#else
+		settings.WebPlayerFirstStreamedLevelWithResources = 0;
 #endif
 
 #if UNITY_5_3_AND_LESSER
@@ -409,7 +421,7 @@ public static class UnityBuildSettingsUtility
 		settings.StandaloneDefaultScreenHeight = PlayerSettings.defaultScreenHeight;
 
 		settings.StandaloneFullScreenByDefault = PlayerSettings.defaultIsFullScreen;
-#if UNITY_5_3_AND_GREATER
+#if !UNITY_5_2_AND_LESSER
 		settings.StandaloneAllowFullScreenSwitch = PlayerSettings.allowFullscreenSwitch;
 #endif
 
@@ -426,7 +438,7 @@ public static class UnityBuildSettingsUtility
 		settings.WinUseDirect3D11IfAvailable = PlayerSettings.useDirect3D11;
 #endif
 		settings.WinDirect3D9FullscreenModeUsed = PlayerSettings.d3d9FullscreenMode.ToString();
-#if UNITY_5
+#if !UNITY_4
 		settings.WinDirect3D11FullscreenModeUsed = PlayerSettings.d3d11FullscreenMode.ToString();
 #endif
 
@@ -438,7 +450,7 @@ public static class UnityBuildSettingsUtility
 
 		// Windows Store App only build settings
 		// ---------------------------------------------------------------
-#if UNITY_5
+#if !UNITY_4
 		settings.WSAGenerateReferenceProjects = EditorUserBuildSettings.wsaGenerateReferenceProjects;
 #endif
 #if UNITY_5_2_AND_GREATER
@@ -460,7 +472,13 @@ public static class UnityBuildSettingsUtility
 		// Mobile build settings
 		// ---------------------------------------------------------------
 
+		
+#if UNITY_5_5_AND_LESSER
+		settings.MobileBundleIdentifier = PlayerSettings.bundleIdentifier; // ("Bundle Identifier" in iOS, "Package Identifier" in Android)
+#else
 		settings.MobileBundleIdentifier = PlayerSettings.applicationIdentifier; // ("Bundle Identifier" in iOS, "Package Identifier" in Android)
+#endif
+
 		settings.MobileBundleVersion = PlayerSettings.bundleVersion; // ("Bundle Version" in iOS, "Version Name" in Android)
 		settings.MobileHideStatusBar = PlayerSettings.statusBarHidden;
 
@@ -481,7 +499,7 @@ public static class UnityBuildSettingsUtility
 		// ---------------------------------------------------------------
 
 		// Unity 5: EditorUserBuildSettings.appendProject is removed
-#if !UNITY_5
+#if UNITY_4
 		settings.iOSAppendedToProject = EditorUserBuildSettings.appendProject;
 #endif
 
@@ -497,18 +515,18 @@ public static class UnityBuildSettingsUtility
 		settings.iOSSDKVersionUsed = PlayerSettings.iOS.sdkVersion.ToString();
 		settings.iOSTargetDevice = PlayerSettings.iOS.targetDevice.ToString();
 
-#if UNITY_5_3_AND_GREATER
+#if UNITY_5_2_AND_LESSER
+		settings.iOSTargetResolution = PlayerSettings.iOS.targetResolution.ToString();
+#else
 		// not sure what the equivalent is for PlayerSettings.iOS.targetResolution in Unity 5.3
 		// Unity 5.3 has a Screen.resolutions but I don't know which of those in the array would be the iOS target resolution
-#else
-		settings.iOSTargetResolution = PlayerSettings.iOS.targetResolution.ToString();
 #endif
 
 		settings.iOSIsIconPrerendered = PlayerSettings.iOS.prerenderedIcon;
 		settings.iOSRequiresPersistentWiFi = PlayerSettings.iOS.requiresPersistentWiFi.ToString();
 		settings.iOSStatusBarStyle = PlayerSettings.iOS.statusBarStyle.ToString();
 		
-#if !UNITY_5
+#if UNITY_4
 		settings.iOSExitOnSuspend = PlayerSettings.iOS.exitOnSuspend;
 #else
 		settings.iOSAppInBackgroundBehavior = PlayerSettings.iOS.appInBackgroundBehavior.ToString();
@@ -516,7 +534,7 @@ public static class UnityBuildSettingsUtility
 
 		settings.iOSShowProgressBarInLoadingScreen = PlayerSettings.iOS.showActivityIndicatorOnLoading.ToString();
 		
-#if UNITY_5
+#if !UNITY_4
 		settings.iOSLogObjCUncaughtExceptions = PlayerSettings.logObjCUncaughtExceptions;
 #endif
 		
@@ -533,7 +551,7 @@ public static class UnityBuildSettingsUtility
 
 		settings.AndroidUseAPKExpansionFiles = PlayerSettings.Android.useAPKExpansionFiles;
 		
-#if UNITY_5
+#if !UNITY_4
 		settings.AndroidAsAndroidProject = EditorUserBuildSettings.exportAsGoogleAndroidProject;
 		settings.AndroidIsGame = PlayerSettings.Android.androidIsGame;
 		settings.AndroidTvCompatible = PlayerSettings.Android.androidTVCompatibility;
@@ -544,7 +562,7 @@ public static class UnityBuildSettingsUtility
 		
 		
 			
-#if !UNITY_5
+#if UNITY_4
 		settings.AndroidUse24BitDepthBuffer = PlayerSettings.Android.use24BitDepthBuffer;
 #else
 		settings.AndroidDisableDepthAndStencilBuffers = PlayerSettings.Android.disableDepthAndStencilBuffers;
@@ -598,7 +616,7 @@ public static class UnityBuildSettingsUtility
 	public static void PopulateTvDeviceSettings(UnityBuildSettings settings)
 	{
 		settings.SamsungTVDeviceAddress = PlayerSettings.SamsungTV.deviceAddress;
-#if UNITY_5
+#if !UNITY_4
 		settings.SamsungTVAuthor = PlayerSettings.SamsungTV.productAuthor;
 		settings.SamsungTVAuthorEmail = PlayerSettings.SamsungTV.productAuthorEmail;
 		settings.SamsungTVAuthorWebsiteUrl = PlayerSettings.SamsungTV.productLink;
@@ -615,7 +633,7 @@ public static class UnityBuildSettingsUtility
 		
 #if UNITY_5_5_OR_NEWER
 		// In Unity 5.5, API for Xbox 360 is still there but build options
-		// do not allow Xbox 360 anymore, so don't bother with it
+		// do not allow Xbox 360 anymore, so we don't bother with it
 #else
 		settings.Xbox360BuildSubtarget = EditorUserBuildSettings.xboxBuildSubtarget.ToString();
 		settings.Xbox360RunMethod = EditorUserBuildSettings.xboxRunMethod.ToString();
@@ -649,7 +667,7 @@ public static class UnityBuildSettingsUtility
 		settings.SCEBuildSubtarget = EditorUserBuildSettings.sceBuildSubtarget.ToString();
 #endif
 
-#if UNITY_5
+#if !UNITY_4
 		settings.CompressBuildWithPsArc = EditorUserBuildSettings.compressWithPsArc;
 		settings.NeedSubmissionMaterials = EditorUserBuildSettings.needSubmissionMaterials;
 #endif
@@ -709,7 +727,7 @@ public static class UnityBuildSettingsUtility
 		// PS Vita build settings
 		// ---------------------------------------------------------------
 
-#if !UNITY_5
+#if UNITY_4
 		settings.PSVTrophyPackagePath = PlayerSettings.psp2NPTrophyPackPath;
 		settings.PSVParamSfxPath = PlayerSettings.psp2ParamSfxPath;
 
@@ -773,7 +791,7 @@ public static class UnityBuildSettingsUtility
 
 	public static void PopulateBigConsoleGen08Settings(UnityBuildSettings settings)
 	{
-#if UNITY_5
+#if !UNITY_4
 		// Xbox One build settings
 		// ---------------------------------------------------------------
 		settings.XboxOneDeployMethod = EditorUserBuildSettings.xboxOneDeployMethod.ToString();

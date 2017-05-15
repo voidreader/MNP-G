@@ -510,11 +510,30 @@ public class AssetList : BaseScreen
 					GUILayout.EndVertical();
 
 
-					
+
 					// --------------------------------------------------------------------------------------------------------
 					// column: raw file size
-					bool pressedRawSizeSortBtn = DrawColumn(viewOffset, len, BuildReportTool.AssetList.SortType.RawSize, (IsShowingUnusedAssets ? "Raw Size" : "Size"), !hasSearchResults, false,
-						list, assetListToUse, (b) => { return b.RawSize; }, ref _assetListScrollPos);
+
+					bool pressedRawSizeSortBtn = false;
+					
+					if (IsShowingUsedAssets && BuildReportTool.Options.ShowImportedSizeForUsedAssets)
+					{
+						pressedRawSizeSortBtn = DrawColumn(viewOffset, len, BuildReportTool.AssetList.SortType.RawSize, "Size", !hasSearchResults, false,
+							list, assetListToUse, (b) =>
+							{
+								if (b.ImportedSize == "N/A")
+								{
+									return b.RawSize;
+								}
+								return b.ImportedSize;
+							}, ref _assetListScrollPos);
+					}
+
+					if ((IsShowingUsedAssets && !BuildReportTool.Options.ShowImportedSizeForUsedAssets) || IsShowingUnusedAssets)
+					{
+						pressedRawSizeSortBtn = DrawColumn(viewOffset, len, BuildReportTool.AssetList.SortType.RawSize, (IsShowingUnusedAssets ? "Raw Size" : "Size"), !hasSearchResults, false,
+							list, assetListToUse, (b) => { return b.RawSize; }, ref _assetListScrollPos);
+					}
 
 
 					bool showScrollbarForImportedSize = IsShowingUnusedAssets;

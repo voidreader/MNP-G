@@ -36,7 +36,7 @@ public class ScissorCtrl : MonoBehaviour {
 
         //Application.targetFrameRate = 60;
 
-        float currentAspectRatio = (float)Screen.width / Screen.height;
+        float currentAspectRatio = (float)Screen.width / (float)Screen.height;
 
         //Debug.Log("★★★ ScissorCtrl currentAspectRatio :: " + currentAspectRatio);
 

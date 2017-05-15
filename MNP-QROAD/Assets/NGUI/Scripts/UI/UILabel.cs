@@ -1304,6 +1304,7 @@ public class UILabel : UIWidget
         
 
         /* 로컬라이징에 따른 폰트 변경 */
+        /*
         if(trueTypeFont != null) {
 
             if (GameSystem.Instance.GameLanguage == SystemLanguage.Thai) {
@@ -1312,8 +1313,8 @@ public class UILabel : UIWidget
             else {
                 this.trueTypeFont = GameSystem.Instance.EnglishFont;
             }
-
         }
+        */
     }
 #endif
 

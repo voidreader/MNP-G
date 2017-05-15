@@ -4,13 +4,17 @@
 #define UNITY_5_3_AND_GREATER
 #endif
 
+#if UNITY_4 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
+#define UNITY_5_2_AND_LESSER
+#endif
+
 #if UNITY_4 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2 || UNITY_5_3 || UNITY_5_4 || UNITY_5_5
 #define UNITY_5_5_AND_LESSER
 #endif
 
 using UnityEngine;
 using UnityEditor;
-#if UNITY_5_3_AND_GREATER
+#if !UNITY_5_2_AND_LESSER
 using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 #endif
@@ -325,7 +329,7 @@ public class ReportGenerator
 
 	static void AddAllPrefabsUsedInCurrentSceneToList()
 	{
-#if UNITY_5_3_AND_GREATER
+#if !UNITY_5_2_AND_LESSER
 		AddAllPrefabsUsedInScene(SceneManager.GetActiveScene().path);
 #else
 		AddAllPrefabsUsedInScene(EditorApplication.currentScene);
@@ -446,7 +450,7 @@ public class ReportGenerator
 			{
 				break;
 			}
-			//Debug.Log("ParseSizePartsFromString: " + line);
+			//Debug.LogFormat("ParseSizePartsFromString: line:\n{0}", line);
 
 			string b = line;
 
@@ -460,22 +464,36 @@ public class ReportGenerator
 				gotName = match.Groups[0].Value;
 				gotName = gotName.Trim();
 				if (gotName == "Scripts") gotName = "Script DLLs";
-				//Debug.Log("    name? " + gotName);
+
+				//Debug.LogFormat("    got name: {0}", gotName);
 			}
 
 			match = Regex.Match(b, @"[0-9.]+ (kb|mb|b|gb)", RegexOptions.IgnoreCase);
 			if (match.Success)
 			{
 				gotSize = match.Groups[0].Value.ToUpper();
-				//Debug.Log("    size? " + gotSize);
+				//Debug.LogFormat("    got size: {0}", gotSize);
 			}
 
-			match = Regex.Match(b, @"[0-9.]+%", RegexOptions.IgnoreCase);
-			if (match.Success)
+			if (b.IndexOf("inf%") >= 0)
 			{
-				gotPercent = match.Groups[0].Value;
-				gotPercent = gotPercent.Substring(0, gotPercent.Length-1);
-				//Debug.Log("    percent? " + gotPercent);
+				gotPercent = "0";
+				//Debug.LogFormat("    got percent (inf): {0}", gotPercent);
+			}
+			else if (b.IndexOf("nan%") >= 0)
+			{
+				gotPercent = "0";
+				//Debug.LogFormat("    got percent (nan): {0}", gotPercent);
+			}
+			else
+			{
+				match = Regex.Match(b, @"[0-9.]+%", RegexOptions.IgnoreCase);
+				if (match.Success)
+				{
+					gotPercent = match.Groups[0].Value;
+					gotPercent = gotPercent.Substring(0, gotPercent.Length - 1);
+					//Debug.LogFormat("    got percent: {0}", gotPercent);
+				}
 			}
 
 			BuildReportTool.SizePart inPart = new BuildReportTool.SizePart();
@@ -486,11 +504,19 @@ public class ReportGenerator
 
 			buildSizes.Add(inPart);
 
-			if (line.IndexOf("100.0%") != -1)
+			if (line.IndexOf("100.0%") != -1 || line.IndexOf("nan%") != -1)
 			{
 				break;
 			}
 		}
+
+		BuildReportTool.SizePart streamingAssetsSize = new BuildReportTool.SizePart();
+		streamingAssetsSize.SetNameToStreamingAssets();
+		streamingAssetsSize.Size = "0";
+		streamingAssetsSize.SizeBytes = 0;
+		streamingAssetsSize.Percentage = 0;
+
+		buildSizes.Add(streamingAssetsSize);
 
 		return buildSizes.ToArray();
 	}
@@ -577,16 +603,23 @@ public class ReportGenerator
 					Debug.Log("didn't find size for :" + line);
 				}
 
-				match = Regex.Match(line, @"[0-9.]+%", RegexOptions.IgnoreCase);
-				if (match.Success)
+				if (line.IndexOf("inf%") >= 0)
 				{
-					gotPercent = match.Groups[0].Value;
-					gotPercent = gotPercent.Substring(0, gotPercent.Length-1);
-					//Debug.Log("    percent? " + gotPercent);
+					gotPercent = "0";
 				}
 				else
 				{
-					Debug.Log("didn't find percent for :" + line);
+					match = Regex.Match(line, @"[0-9.]+%", RegexOptions.IgnoreCase);
+					if (match.Success)
+					{
+						gotPercent = match.Groups[0].Value;
+						gotPercent = gotPercent.Substring(0, gotPercent.Length - 1);
+						//Debug.Log("    percent? " + gotPercent);
+					}
+					else
+					{
+						Debug.Log("didn't find percent for :" + line);
+					}
 				}
 				//Debug.Log("got: " + gotName + " size: " + gotSize);
 
@@ -854,7 +887,7 @@ public class ReportGenerator
 				continue;
 			}
 
-			if (Util.IsFileInAPath(currentAsset, "/resources/"))
+			if (Util.IsFileInAPath(currentAsset, "/resources/") && !Util.IsFileInAPath(currentAsset, "/editor/"))
 			{
 				// ensure this Resources asset is in the used assets list
 				if (inOutAllUsedAssets.All(part => part.Name != currentAsset))
@@ -1616,12 +1649,13 @@ public class ReportGenerator
 
 		buildInfo.BuildSizes = ParseSizePartsFromString(_lastEditorLogPath);
 		
+		//Debug.Log("ParseSizePartsFromString end");
 
 
 
 		// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-		// getting project size (uncompressed)
-
+		// getting total asset size (uncompressed)
+		
 		buildInfo.UsedTotalSize = "";
 
 		foreach (BuildReportTool.SizePart b in buildInfo.BuildSizes)
@@ -1636,10 +1670,24 @@ public class ReportGenerator
 
 		// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		// getting streaming assets size (uncompressed)
+		
+		BRT_BuildReportWindow.GetValueMessage = "Getting Streaming Assets size...";
+
+		var streamingAssetsPath = projectAssetsPath + "/StreamingAssets";
 
 		if (calculateBuildSize) // BuildReportTool.Options.IncludeBuildSizeInReportCreation
 		{
-			buildInfo.StreamingAssetsSize = BuildReportTool.Util.GetFolderSizeReadable(projectAssetsPath + "/StreamingAssets");
+			buildInfo.StreamingAssetsSize = BuildReportTool.Util.GetFolderSizeReadable(streamingAssetsPath);
+		}
+		
+		foreach (BuildReportTool.SizePart b in buildInfo.BuildSizes)
+		{
+			if (b.IsStreamingAssets)
+			{
+				b.DerivedSize = BuildReportTool.Util.GetFolderSizeInBytes(streamingAssetsPath);
+				b.Size = BuildReportTool.Util.GetBytesReadable(b.DerivedSize);
+				break;
+			}
 		}
 
 
@@ -1930,7 +1978,7 @@ public class ReportGenerator
 
 	public static void OnFinishedGetValues(BuildInfo buildInfo)
 	{
-		if (BuildReportTool.Options.GetImportedSizesForUsedAssets && buildInfo.HasUsedAssets)
+		if ((BuildReportTool.Options.GetImportedSizesForUsedAssets || BuildReportTool.Options.ShowImportedSizeForUsedAssets) && buildInfo.HasUsedAssets)
 		{
 			buildInfo.UsedAssets.PopulateImportedSizes();
 		}
@@ -1940,7 +1988,7 @@ public class ReportGenerator
 			buildInfo.UnusedAssets.PopulateImportedSizes();
 		}
 
-		buildInfo.FixSizes();
+		buildInfo.FixReport();
 
 		// ShouldReload is true to indicate
 		// the project was just built and we need

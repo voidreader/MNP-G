@@ -36,7 +36,7 @@ namespace DldUtil
 		{
 			GetUnityVersionNumbers(Application.unityVersion, out major, out minor, out patch);
 
-			Debug.LogFormat("major: {0}, minor: {1}, patch: {2}", major, minor, patch);
+			//Debug.LogFormat("major: {0}, minor: {1}, patch: {2}", major, minor, patch);
 		}
 
 		public static bool IsUnityVersionAtLeast(int majorAtLeast, int minorAtLeast, int patchAtLeast)

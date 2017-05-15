@@ -69,6 +69,29 @@ namespace DG.Tweening
                 .SetTarget(target);
         }
 
+        /// <summary>Tweens a 2D Toolkit Sprite's color using the given gradient
+        /// (NOTE 1: only uses the colors of the gradient, not the alphas - NOTE 2: creates a Sequence, not a Tweener).
+        /// Also stores the image as the tween's target so it can be used for filtered operations</summary>
+        /// <param name="gradient">The gradient to use</param><param name="duration">The duration of the tween</param>
+        public static Sequence DOGradientColor(this tk2dBaseSprite target, Gradient gradient, float duration)
+        {
+            Sequence s = DOTween.Sequence();
+            GradientColorKey[] colors = gradient.colorKeys;
+            int len = colors.Length;
+            for (int i = 0; i < len; ++i) {
+                GradientColorKey c = colors[i];
+                if (i == 0 && c.time <= 0) {
+                    target.color = c.color;
+                    continue;
+                }
+                float colorDuration = i == len - 1
+                    ? duration - s.Duration(false) // Verifies that total duration is correct
+                    : duration * (i == 0 ? c.time : c.time - colors[i - 1].time);
+                s.Append(target.DOColor(c.color, colorDuration).SetEase(Ease.Linear));
+            }
+            return s;
+        }
+
         #endregion
 
         #region tk2dSlicedSprite
@@ -76,7 +99,7 @@ namespace DG.Tweening
         /// <summary>Tweens a 2D Toolkit SlicedSprite's dimensions to the given value.
         /// Also stores the SlicedSprite as the tween's target so it can be used for filtered operations</summary>
         /// <param name="endValue">The end value to reach</param><param name="duration">The duration of the tween</param>
-        public static Tweener DOScale(this tk2dSlicedSprite target, Vector2 endValue, float duration)
+        public static Tweener DOScaleDimensions(this tk2dSlicedSprite target, Vector2 endValue, float duration)
         {
             return DOTween.To(() => target.dimensions, x => target.dimensions = x, endValue, duration)
                 .SetTarget(target);
@@ -84,7 +107,7 @@ namespace DG.Tweening
         /// <summary>Tweens a SlicedSprite's dimensions to the given value.
         /// Also stores the SlicedSprite as the tween's target so it can be used for filtered operations</summary>
         /// <param name="endValue">The end value to reach</param><param name="duration">The duration of the tween</param>
-        public static Tweener DOScaleX(this tk2dSlicedSprite target, float endValue, float duration)
+        public static Tweener DOScaleDimensionsX(this tk2dSlicedSprite target, float endValue, float duration)
         {
             return DOTween.To(() => target.dimensions, x => target.dimensions = x, new Vector2(endValue, 0), duration)
                 .SetOptions(AxisConstraint.X)
@@ -93,7 +116,7 @@ namespace DG.Tweening
         /// <summary>Tweens a SlicedSprite's dimensions to the given value.
         /// Also stores the SlicedSprite as the tween's target so it can be used for filtered operations</summary>
         /// <param name="endValue">The end value to reach</param><param name="duration">The duration of the tween</param>
-        public static Tweener DOScaleY(this tk2dSlicedSprite target, float endValue, float duration)
+        public static Tweener DOScaleDimensionsY(this tk2dSlicedSprite target, float endValue, float duration)
         {
             return DOTween.To(() => target.dimensions, x => target.dimensions = x, new Vector2(0, endValue), duration)
                 .SetOptions(AxisConstraint.Y)
@@ -103,6 +126,42 @@ namespace DG.Tweening
         #endregion
 
         #region TextMesh
+
+        /// <summary>Tweens a 2D Toolkit TextMesh's dimensions to the given value.
+        /// Also stores the TextMesh as the tween's target so it can be used for filtered operations</summary>
+        /// <param name="endValue">The end value to reach</param><param name="duration">The duration of the tween</param>
+        public static Tweener DOScale(this tk2dTextMesh target, Vector3 endValue, float duration)
+        {
+            return DOTween.To(() => target.scale, x => target.scale = x, endValue, duration)
+                .SetTarget(target);
+        }
+        /// <summary>Tweens a 2D Toolkit TextMesh's dimensions to the given value.
+        /// Also stores the TextMesh as the tween's target so it can be used for filtered operations</summary>
+        /// <param name="endValue">The end value to reach</param><param name="duration">The duration of the tween</param>
+        public static Tweener DOScaleX(this tk2dTextMesh target, float endValue, float duration)
+        {
+            return DOTween.To(() => target.scale, x => target.scale = x, new Vector3(endValue, 0, 0), duration)
+                .SetOptions(AxisConstraint.X)
+                .SetTarget(target);
+        }
+        /// <summary>Tweens a 2D Toolkit TextMesh's dimensions to the given value.
+        /// Also stores the TextMesh as the tween's target so it can be used for filtered operations</summary>
+        /// <param name="endValue">The end value to reach</param><param name="duration">The duration of the tween</param>
+        public static Tweener DOScaleY(this tk2dTextMesh target, float endValue, float duration)
+        {
+            return DOTween.To(() => target.scale, x => target.scale = x, new Vector3(0, endValue, 0), duration)
+                .SetOptions(AxisConstraint.Y)
+                .SetTarget(target);
+        }
+        /// <summary>Tweens a 2D Toolkit TextMesh's dimensions to the given value.
+        /// Also stores the TextMesh as the tween's target so it can be used for filtered operations</summary>
+        /// <param name="endValue">The end value to reach</param><param name="duration">The duration of the tween</param>
+        public static Tweener DOScaleZ(this tk2dTextMesh target, float endValue, float duration)
+        {
+            return DOTween.To(() => target.scale, x => target.scale = x, new Vector3(0, 0, endValue), duration)
+                .SetOptions(AxisConstraint.Z)
+                .SetTarget(target);
+        }
 
         /// <summary>Tweens a 2D Toolkit TextMesh's color to the given value.
         /// Also stores the TextMesh as the tween's target so it can be used for filtered operations</summary>
@@ -120,6 +179,29 @@ namespace DG.Tweening
         {
             return DOTween.ToAlpha(() => target.color, x => target.color = x, endValue, duration)
                 .SetTarget(target);
+        }
+
+        /// <summary>Tweens a 2D Toolkit TextMesh's color using the given gradient
+        /// (NOTE 1: only uses the colors of the gradient, not the alphas - NOTE 2: creates a Sequence, not a Tweener).
+        /// Also stores the image as the tween's target so it can be used for filtered operations</summary>
+        /// <param name="gradient">The gradient to use</param><param name="duration">The duration of the tween</param>
+        public static Sequence DOGradientColor(this tk2dTextMesh target, Gradient gradient, float duration)
+        {
+            Sequence s = DOTween.Sequence();
+            GradientColorKey[] colors = gradient.colorKeys;
+            int len = colors.Length;
+            for (int i = 0; i < len; ++i) {
+                GradientColorKey c = colors[i];
+                if (i == 0 && c.time <= 0) {
+                    target.color = c.color;
+                    continue;
+                }
+                float colorDuration = i == len - 1
+                    ? duration - s.Duration(false) // Verifies that total duration is correct
+                    : duration * (i == 0 ? c.time : c.time - colors[i - 1].time);
+                s.Append(target.DOColor(c.color, colorDuration).SetEase(Ease.Linear));
+            }
+            return s;
         }
 
         /// <summary>Tweens a tk2dTextMesh's text to the given value.

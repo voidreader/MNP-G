@@ -127,7 +127,7 @@ public class BuildInfo
 	/// <summary>
 	/// This is called right after generating a build report.
 	/// </summary>
-	public void FixSizes()
+	public void FixReport()
 	{
 #if UNITY_5_2_AND_LESSER
 		// this bug has already been fixed since Unity 5.2.1
@@ -161,6 +161,13 @@ public class BuildInfo
 		// --------------------------------------------------------------------------------
 		// recalculate percentages
 		
+		var totalSizePart = BuildSizes.FirstOrDefault(part => part.IsTotal);
+		if (totalSizePart != null && totalSizePart.DerivedSize == 0)
+		{
+			var totalSize = GetTotalSize();
+			ChangeTotalSize(totalSize);
+		}
+
 		// add textures, meshes, sounds, and animations that are in resources folder to the build size
 		// since they are not included anymore in Unity 5
 		
@@ -180,30 +187,81 @@ public class BuildInfo
 		AddToTotalSize(resourcesMeshSizeSum);
 		AddToTotalSize(resourcesSoundsSizeSum);
 		AddToTotalSize(resourcesAnimationsSizeSum);
+		
+		RecalculatePercentages();
 
-		FixPercentages();
-
+		// sort sizes again since we modified them
+		SortSizes();
+#else
+		
+		var totalSizePart = BuildSizes.FirstOrDefault(part => part.IsTotal);
+		if (totalSizePart != null && totalSizePart.DerivedSize == 0)
+		{
+			var totalSize = GetTotalSize();
+			ChangeTotalSize(totalSize);
+		}
+		
+		RecalculatePercentages();
+		
 		// sort sizes again since we modified them
 		SortSizes();
 #endif
 	}
 
-	void FixPercentages()
+	double GetTotalSize()
 	{
 		double totalSize = 0;
 		
+		// first try getting total size from the build sizes
 		var totalSizePart = BuildSizes.FirstOrDefault(part => part.IsTotal);
-
 		if (totalSizePart != null)
 		{
 			totalSize = totalSizePart.DerivedSize;
 		}
+		
+		// if the total size we got is smaller than any of the individual sizes
+		// then it's wrong and we need to derive the total size instead
+		var totalSizeNeedsFixing = false;
+		
+		for (int n = 0, len = BuildSizes.Length; n < len; ++n)
+		{
+			if (BuildSizes[n].DerivedSize > totalSize)
+			{
+				totalSizeNeedsFixing = true;
+				break;
+			}
+		}
 
+		if (totalSizeNeedsFixing)
+		{
+			totalSize = 0;
+			for (int n = 0, len = BuildSizes.Length; n < len; ++n)
+			{
+				totalSize += BuildSizes[n].DerivedSize;
+			}
+		}
+
+		return totalSize;
+	}
+
+	void RecalculatePercentages()
+	{
+		double totalSize = GetTotalSize();
+		
 		if (totalSize > 0)
 		{
 			for (int n = 0, len = BuildSizes.Length; n < len; ++n)
 			{
-				BuildSizes[n].Percentage = Math.Round((BuildSizes[n].DerivedSize/totalSize) * 100, 2, MidpointRounding.AwayFromZero);
+				BuildSizes[n].Percentage = Math.Round((BuildSizes[n].UsableSize/totalSize) * 100, 2, MidpointRounding.AwayFromZero);
+			}
+
+			if (UsedAssets != null)
+			{
+				UsedAssets.RecalculatePercentages(totalSize);
+			}
+			if (UnusedAssets != null)
+			{
+				UnusedAssets.RecalculatePercentages(totalSize);
 			}
 		}
 	}
@@ -263,6 +321,28 @@ public class BuildInfo
 			AddToSize(buildSize, sizeToAdd);
 
 			UsedTotalSize = buildSize.Size;
+
+			//Debug.LogFormat("total size after: {0}", buildSize.DerivedSize);
+		}
+	}
+	
+	void ChangeTotalSize(double newSize)
+	{
+		if (newSize == 0)
+		{
+			return;
+		}
+
+		BuildReportTool.SizePart totalSize = BuildSizes.FirstOrDefault(part => part.IsTotal);
+
+		if (totalSize != null)
+		{
+			//Debug.LogFormat("total size before: {0}", buildSize.DerivedSize);
+
+			totalSize.DerivedSize = newSize;
+			totalSize.Size = BuildReportTool.Util.GetBytesReadable(totalSize.DerivedSize);
+
+			UsedTotalSize = totalSize.Size;
 
 			//Debug.LogFormat("total size after: {0}", buildSize.DerivedSize);
 		}

@@ -384,6 +384,29 @@ public class AssetList
 	}
 
 
+	public void RecalculatePercentages(double newTotalSize)
+	{
+		if (_all != null)
+		{
+			for (int n = 0, len = _all.Length; n < len; ++n)
+			{
+				_all[n].Percentage = Math.Round((_all[n].UsableSize/newTotalSize) * 100, 2, MidpointRounding.AwayFromZero);
+			}
+		}
+
+		if (_perCategory != null)
+		{
+			for (int catIdx = 0, catLen = _perCategory.Length; catIdx < catLen; ++catIdx)
+			{
+				for (int n = 0, len = _perCategory[catIdx].Length; n < len; ++n)
+				{
+					_perCategory[catIdx][n].Percentage = Math.Round((_perCategory[catIdx][n].UsableSize/newTotalSize) * 100, 2, MidpointRounding.AwayFromZero);
+				}
+			}
+		}
+	}
+
+
 
 	// Commands: Initialization
 	// ==================================================================================

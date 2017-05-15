@@ -183,10 +183,14 @@ public class Options : BaseScreen
 				BuildReportTool.Options.IncludeBuildSizeInReportCreation = GUILayout.Toggle(BuildReportTool.Options.IncludeBuildSizeInReportCreation, "Get build's file size upon creation of a build report");
 
 				BuildReportTool.Options.GetImportedSizesForUsedAssets = GUILayout.Toggle(BuildReportTool.Options.GetImportedSizesForUsedAssets, "Get imported sizes of Used Assets upon creation of a build report");
-
+				
 				BuildReportTool.Options.GetImportedSizesForUnusedAssets = GUILayout.Toggle(BuildReportTool.Options.GetImportedSizesForUnusedAssets, "Get imported sizes of Unused Assets upon creation of a build report");
 
 				BuildReportTool.Options.GetProjectSettings = GUILayout.Toggle(BuildReportTool.Options.GetProjectSettings, "Get Unity project settings upon creation of a build report");
+				
+				GUILayout.Space(10);
+
+				BuildReportTool.Options.ShowImportedSizeForUsedAssets = GUILayout.Toggle(BuildReportTool.Options.ShowImportedSizeForUsedAssets, "Show calculated sizes of Used Assets instead of reported sizes");
 
 				GUILayout.Space(10);
 
