@@ -184,6 +184,9 @@ public class TitleCtrl : MonoBehaviour {
                 return;
 
             }
+            else {
+                ConnectGame();
+            }
         }
         else {
 
