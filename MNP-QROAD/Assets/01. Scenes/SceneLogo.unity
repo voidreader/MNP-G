@@ -871,7 +871,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1388787984}
   - component: {fileID: 1388787985}
-  - component: {fileID: 1388787987}
   - component: {fileID: 1388787986}
   m_Layer: 5
   m_Name: Warning
@@ -932,7 +931,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 1.2
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 9c04bcf3c2951624ba083e4d3e4fc7a2, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
   mText: "\n\uC77C\uBD80 \uC720\uB8CC \uC544\uC774\uD15C\uC744 \uD310\uB9E4\uD558\uACE0
     \uC788\uC2B5\uB2C8\uB2E4.\r\n\r\n20\uC138 \uBBF8\uB9CC\uC774 \uAD6C\uC785\uD558\uB294
@@ -980,17 +979,6 @@ MonoBehaviour:
   _textID: 3201
   _targetLabel: {fileID: 0}
   _text: 
---- !u!114 &1388787987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1388787983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e99a2172d2c7294a9bf8447c6dd8556, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1412700443
 GameObject:
   m_ObjectHideFlags: 0

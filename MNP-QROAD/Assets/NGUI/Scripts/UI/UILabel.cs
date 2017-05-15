@@ -100,11 +100,11 @@ public class UILabel : UIWidget
 	[System.NonSerialized] int mLastWidth = 0;
 	[System.NonSerialized] int mLastHeight = 0;
 
-	/// <summary>
-	/// Font size after modifications got taken into consideration such as shrinking content.
-	/// </summary>
+    /// <summary>
+    /// Font size after modifications got taken into consideration such as shrinking content.
+    /// </summary>
 
-	public int finalFontSize
+    public int finalFontSize
 	{
 		get
 		{
@@ -1303,18 +1303,7 @@ public class UILabel : UIWidget
 		}
         
 
-        /* 로컬라이징에 따른 폰트 변경 */
-        /*
-        if(trueTypeFont != null) {
 
-            if (GameSystem.Instance.GameLanguage == SystemLanguage.Thai) {
-                this.trueTypeFont = GameSystem.Instance.ThaiFont;
-            }
-            else {
-                this.trueTypeFont = GameSystem.Instance.EnglishFont;
-            }
-        }
-        */
     }
 #endif
 
@@ -1326,8 +1315,20 @@ public class UILabel : UIWidget
 	{
 		base.OnStart();
 
-		// Legacy support
-		if (mLineWidth > 0f)
+        #region 개발자 추가 
+        if (bitmapFont == null) {
+
+            if (GameSystem.Instance.GameLanguage == SystemLanguage.Thai) {
+                this.trueTypeFont = GameSystem.Instance.ThaiFont;
+            }
+            else {
+                this.trueTypeFont = GameSystem.Instance.EnglishFont;
+            }
+        }
+        #endregion
+
+        // Legacy support
+        if (mLineWidth > 0f)
 		{
 			mMaxLineWidth = Mathf.RoundToInt(mLineWidth);
 			mLineWidth = 0f;
