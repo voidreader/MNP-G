@@ -61,10 +61,25 @@ public class OptionCtrl : MonoBehaviour {
 
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="pause"></param>
+    private void OnApplicationPause(bool pause) {
+        if (pause)
+            return;
 
-	
 
-	void Start() {
+        Debug.Log("★ In Option OnApplicationPause :: " + pause);
+
+        if(GooglePlayManager.Instance.player == null) {
+            GameSystem.Instance.CurrentPlayer = null;
+            RefreshFBGoogleState();
+        }
+    }
+
+
+    void Start() {
 		if (WWWHelper.Instance != null) {
 			_id = WWWHelper.Instance.UserDBKey;
 			_name = "";

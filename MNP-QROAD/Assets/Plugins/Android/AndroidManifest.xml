@@ -9,6 +9,7 @@
     <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="\ 450213765328544" />
     <meta-data android:name="igaworks_app_key" android:value="390043545" />
     <meta-data android:name="igaworks_hash_key" android:value="0163b0951531474c" />
+    <meta-data android:name="unityplayer.SkipPermissionsDialog" android:value="true" />
     <receiver android:name="com.igaworks.liveops.pushservice.LiveOpsGCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
       <intent-filter>
         <action android:name="com.google.android.c2dm.intent.RECEIVE" />

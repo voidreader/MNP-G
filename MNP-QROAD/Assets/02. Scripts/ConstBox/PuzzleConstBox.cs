@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using SimpleJSON;
 
 
+#region enums
 
 public enum NekoAppearSize {
     Mini,
@@ -220,14 +221,6 @@ public enum PopMessageType {
     GemShortage // 보석 부족, 상점 가세요 
 }
 
-public enum WantedState {
-	Unknown, // 아직 모름 
-	Arrest, // 잡았으나 보상은 받지 않음 
-	Jail // 보상받음. 
-}
-
-
-
 
 
 // 게임 상태 
@@ -284,16 +277,15 @@ public enum NekoSkillType {
 , black_bomb_active
 }
 
+#endregion
+
 // 블럭 좌표 값 
 public struct BlockPos {
 	public int x;
 	public int y;
 }
 
-public struct NekoDeadInfo {
-	public int classID;
-	public int nekoID;
-}
+
 
 public struct NekoDamageInfo {
 	public int nekoID;
@@ -365,14 +357,6 @@ public enum NekoHitType {
 	BigHit
 }
 
-/// <summary>
-/// 로비 방 타입 
-/// </summary>
-public enum LobbyRoomType {
-	Normal,
-	BlueSpecial,
-	Third
-}
 
 public enum AdsType {
 	HeartAds,
@@ -527,10 +511,6 @@ public static class PuzzleConstBox {
 	public static Vector3 minBlockScale = new Vector3 (0.2f, 0.2f, 1);
 
 
-    public static readonly float appearNormalRadius = 0.485f;
-    public static readonly float appearSmallRadius = 0.32f;
-    public static readonly float appearMiniRadius = 0.2f;
-
     // Tags 
     public static readonly string tagFoot = "Foot";
     public static readonly string tagBigFoot = "BigFoot";
@@ -542,8 +522,7 @@ public static class PuzzleConstBox {
     // Neko Skill
     public static List<string> listNekoSkillType = new List<string>(); // 네코 스킬 종류
     public static List<string> listNekoSkillSprite = new List<string>(); // 네코 스킬 스프라이트 
-    public static List<Vector3> listNekoSkillDestPos = new List<Vector3>(); // 인게임 스킬 아이콘 목적지 
-
+    
 
 
     public static List<string> listBlockSprite = new List<string> (); // 블록 Sprite List
@@ -868,32 +847,7 @@ public static class PuzzleConstBox {
 
 
 
-        listNekoSkillDestPos.Add(new Vector3(0, 580, 0));
-        listNekoSkillDestPos.Add(new Vector3(-270, 500, 0));
-        listNekoSkillDestPos.Add(new Vector3(-120, 250, 0));
-        listNekoSkillDestPos.Add(new Vector3(-120, -380, 0)); // fever time
-        listNekoSkillDestPos.Add(new Vector3(125, -470, 0)); // damage
 
-        listNekoSkillDestPos.Add(new Vector3(-280, 80, 0)); // yellow score
-        listNekoSkillDestPos.Add(new Vector3(80, 80, 0)); // blue score
-        listNekoSkillDestPos.Add(new Vector3(-280, -80, 0)); // red score
-
-        listNekoSkillDestPos.Add(new Vector3(80, -80, 0)); // yellow appear
-        listNekoSkillDestPos.Add(new Vector3(-280, -240, 0)); // blue appear
-        listNekoSkillDestPos.Add(new Vector3(80, -240, 0)); // red appear
-
-        listNekoSkillDestPos.Add(new Vector3(280, 320, 0)); // bomb appear
-        listNekoSkillDestPos.Add(new Vector3(0, -580, 0)); // neko skill
-        listNekoSkillDestPos.Add(new Vector3(100, 460, 0)); // exp up
-        listNekoSkillDestPos.Add(Vector3.zero); // random bomb active
-        listNekoSkillDestPos.Add(new Vector3(100, 460, 0)); // combo maintain
-        listNekoSkillDestPos.Add(new Vector3(-120, -380, 0)); // fever gauge up
-        listNekoSkillDestPos.Add(new Vector3(-120, 250, 0)); // game play time active
-
-        listNekoSkillDestPos.Add(Vector3.zero); // yello bomb in
-        listNekoSkillDestPos.Add(Vector3.zero); // blue bomb in
-        listNekoSkillDestPos.Add(Vector3.zero); // red bomb in
-        listNekoSkillDestPos.Add(Vector3.zero); // black bomb in
 
 
         #endregion
