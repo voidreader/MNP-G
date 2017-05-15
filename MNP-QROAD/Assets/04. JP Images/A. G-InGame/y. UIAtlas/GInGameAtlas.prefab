@@ -16,10 +16,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000010093658644}
-  - 114: {fileID: 114000013673586914}
+  - component: {fileID: 4000010093658644}
+  - component: {fileID: 114000013673586914}
   m_Layer: 0
   m_Name: GInGameAtlas
   m_TagString: Untagged
@@ -36,10 +36,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114000013673586914
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55,7 +55,7 @@ MonoBehaviour:
   mSprites:
   - name: 002-miss
     x: 539
-    y: 254
+    y: 219
     width: 120
     height: 53
     borderLeft: 0
@@ -93,8 +93,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: 004-stone-block-1
-    x: 452
-    y: 26
+    x: 539
+    y: 140
     width: 78
     height: 78
     borderLeft: 0
@@ -119,8 +119,8 @@ MonoBehaviour:
     paddingTop: 4
     paddingBottom: 4
   - name: 006-boom-fx-1
-    x: 885
-    y: 110
+    x: 662
+    y: 2
     width: 46
     height: 43
     borderLeft: 0
@@ -132,8 +132,8 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 11
   - name: 006-boom-fx-2
-    x: 952
-    y: 163
+    x: 951
+    y: 76
     width: 50
     height: 47
     borderLeft: 0
@@ -145,8 +145,8 @@ MonoBehaviour:
     paddingTop: 6
     paddingBottom: 8
   - name: 006-boom-fx-3
-    x: 608
-    y: 201
+    x: 846
+    y: 122
     width: 53
     height: 52
     borderLeft: 0
@@ -158,8 +158,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 4
   - name: 006-boom-fx-4
-    x: 962
-    y: 216
+    x: 900
+    y: 124
     width: 55
     height: 50
     borderLeft: 0
@@ -171,8 +171,8 @@ MonoBehaviour:
     paddingTop: 4
     paddingBottom: 7
   - name: 006-boom-fx-5
-    x: 539
-    y: 2
+    x: 906
+    y: 237
     width: 61
     height: 56
     borderLeft: 0
@@ -184,8 +184,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 3
   - name: 006-boom-fx-6
-    x: 662
-    y: 269
+    x: 539
+    y: 13
     width: 64
     height: 59
     borderLeft: 0
@@ -197,8 +197,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 0
   - name: 006-boom-fx-7
-    x: 727
-    y: 23
+    x: 784
+    y: 122
     width: 60
     height: 53
     borderLeft: 0
@@ -210,8 +210,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 5
   - name: 006-boom-fx-8
-    x: 901
-    y: 162
+    x: 900
+    y: 75
     width: 50
     height: 48
     borderLeft: 0
@@ -223,8 +223,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 3
   - name: 006-boom-fx-9
-    x: 971
-    y: 279
+    x: 956
+    y: 125
     width: 51
     height: 49
     borderLeft: 0
@@ -236,8 +236,8 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 5
   - name: 006-boom-fx-a
-    x: 850
-    y: 213
+    x: 959
+    y: 178
     width: 57
     height: 53
     borderLeft: 0
@@ -249,8 +249,8 @@ MonoBehaviour:
     paddingTop: 4
     paddingBottom: 4
   - name: 006-boom-fx-b
-    x: 611
-    y: 129
+    x: 846
+    y: 13
     width: 47
     height: 55
     borderLeft: 0
@@ -262,8 +262,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 3
   - name: 006-boom-fx-c
-    x: 908
-    y: 214
+    x: 846
+    y: 69
     width: 53
     height: 52
     borderLeft: 0
@@ -275,8 +275,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 7
   - name: 006-boom-fx-d
-    x: 845
-    y: 154
+    x: 903
+    y: 175
     width: 55
     height: 56
     borderLeft: 0
@@ -288,8 +288,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 4
   - name: 006-boom-fx-e
-    x: 788
-    y: 211
+    x: 784
+    y: 176
     width: 61
     height: 55
     borderLeft: 0
@@ -327,8 +327,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 24
   - name: 006-coin-ani-1
-    x: 727
-    y: 77
+    x: 604
+    y: 7
     width: 54
     height: 65
     borderLeft: 0
@@ -340,8 +340,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 2
   - name: 006-coin-ani-2
-    x: 845
-    y: 87
+    x: 618
+    y: 152
     width: 39
     height: 66
     borderLeft: 0
@@ -353,8 +353,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: 006-coin-ani-3
-    x: 885
-    y: 44
+    x: 927
+    y: 9
     width: 26
     height: 65
     borderLeft: 0
@@ -379,8 +379,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: 006-coin-ani-5
-    x: 845
-    y: 21
+    x: 900
+    y: 9
     width: 26
     height: 65
     borderLeft: 0
@@ -406,7 +406,7 @@ MonoBehaviour:
     paddingBottom: 1
   - name: 006-coin-ani-7
     x: 602
-    y: 60
+    y: 74
     width: 55
     height: 65
     borderLeft: 0
@@ -418,8 +418,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 2
   - name: 006-coin-ani-8
-    x: 960
-    y: 658
+    x: 539
+    y: 73
     width: 62
     height: 66
     borderLeft: 0
@@ -431,8 +431,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: 006-coin-standard
-    x: 539
-    y: 59
+    x: 960
+    y: 658
     width: 62
     height: 66
     borderLeft: 0
@@ -458,7 +458,7 @@ MonoBehaviour:
     paddingBottom: 13
   - name: 010-i-base-blue-gauge
     x: 452
-    y: 105
+    y: 244
     width: 86
     height: 86
     borderLeft: 0
@@ -484,7 +484,7 @@ MonoBehaviour:
     paddingBottom: 13
   - name: 010-i-base-red-gauge
     x: 452
-    y: 192
+    y: 157
     width: 86
     height: 86
     borderLeft: 0
@@ -536,7 +536,7 @@ MonoBehaviour:
     paddingBottom: 13
   - name: 010-i-base-yellow-gauge
     x: 452
-    y: 279
+    y: 70
     width: 86
     height: 86
     borderLeft: 0
@@ -548,8 +548,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 14
   - name: 021-boom-black-mini
-    x: 602
-    y: 3
+    x: 968
+    y: 237
     width: 56
     height: 56
     borderLeft: 0
@@ -561,8 +561,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: 021-boom-blue-mini
-    x: 788
-    y: 40
+    x: 784
+    y: 65
     width: 56
     height: 56
     borderLeft: 0
@@ -574,8 +574,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: 021-boom-red-mini
-    x: 788
-    y: 154
+    x: 784
+    y: 8
     width: 56
     height: 56
     borderLeft: 0
@@ -587,8 +587,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: 021-boom-yellow-mini
-    x: 788
-    y: 97
+    x: 846
+    y: 175
     width: 56
     height: 56
     borderLeft: 0
@@ -639,8 +639,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: 024-ico_item_5sec
-    x: 727
-    y: 143
+    x: 723
+    y: 108
     width: 60
     height: 61
     borderLeft: 0
@@ -652,8 +652,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: 024-ico_item_5sec-mono
-    x: 910
-    y: 267
+    x: 723
+    y: 232
     width: 60
     height: 61
     borderLeft: 0
@@ -665,8 +665,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: 024-ico_item_critical-in
-    x: 391
-    y: 219
+    x: 784
+    y: 232
     width: 60
     height: 61
     borderLeft: 0
@@ -678,8 +678,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: 024-ico_item_critical-mono
-    x: 727
-    y: 205
+    x: 845
+    y: 232
     width: 60
     height: 61
     borderLeft: 0
@@ -691,8 +691,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: 024-ico_item_ico_item_bomb-in
-    x: 662
-    y: 207
+    x: 723
+    y: 170
     width: 60
     height: 61
     borderLeft: 0
@@ -705,7 +705,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: 024-ico_item_ico_item_bomb-mono
     x: 391
-    y: 281
+    y: 219
     width: 60
     height: 61
     borderLeft: 0
@@ -718,7 +718,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: 024-ico_item_miss-in
     x: 662
-    y: 145
+    y: 232
     width: 60
     height: 61
     borderLeft: 0
@@ -731,7 +731,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: 024-ico_item_miss-mono
     x: 662
-    y: 83
+    y: 170
     width: 60
     height: 61
     borderLeft: 0
@@ -744,7 +744,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: 024-ico_item_neko-skill
     x: 662
-    y: 21
+    y: 108
     width: 60
     height: 61
     borderLeft: 0
@@ -756,8 +756,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: 024-ico_item_neko-skill-mono
-    x: 727
-    y: 267
+    x: 662
+    y: 46
     width: 60
     height: 61
     borderLeft: 0
@@ -769,8 +769,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: 024-ico_item_start-in
-    x: 788
-    y: 267
+    x: 391
+    y: 281
     width: 60
     height: 61
     borderLeft: 0
@@ -782,8 +782,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: 024-ico_item_start-mono
-    x: 849
-    y: 267
+    x: 723
+    y: 46
     width: 60
     height: 61
     borderLeft: 0
@@ -874,7 +874,7 @@ MonoBehaviour:
     paddingBottom: 15
   - name: bonus-time
     x: 452
-    y: 397
+    y: 331
     width: 314
     height: 58
     borderLeft: 0
@@ -912,8 +912,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: boss-gauge-standard
-    x: 705
-    y: 456
+    x: 797
+    y: 314
     width: 134
     height: 16
     borderLeft: 0
@@ -964,7 +964,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: CoinFont
-    x: 452
+    x: 698
     y: 456
     width: 252
     height: 79
@@ -977,8 +977,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 177
   - name: colorfull-top
-    x: 935
-    y: 397
+    x: 921
+    y: 394
     width: 76
     height: 58
     borderLeft: 0
@@ -1003,8 +1003,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: fish-c-clear
-    x: 539
-    y: 126
+    x: 452
+    y: 11
     width: 71
     height: 58
     borderLeft: 0
@@ -1029,8 +1029,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 147
   - name: GInBlueFont_0
-    x: 675
-    y: 727
+    x: 452
+    y: 453
     width: 245
     height: 82
     borderLeft: 0
@@ -1054,8 +1054,21 @@ MonoBehaviour:
     paddingRight: 10
     paddingTop: 0
     paddingBottom: 164
+  - name: GInGreenFont_0
+    x: 675
+    y: 727
+    width: 245
+    height: 82
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 11
+    paddingTop: 0
+    paddingBottom: 174
   - name: GInRedFont_0
-    x: 698
+    x: 452
     y: 536
     width: 245
     height: 82
@@ -1068,7 +1081,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 174
   - name: GInYellowFont_0
-    x: 452
+    x: 698
     y: 536
     width: 245
     height: 82
@@ -1094,8 +1107,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 151
   - name: ico-dias-72
-    x: 539
-    y: 185
+    x: 951
+    y: 467
     width: 68
     height: 68
     borderLeft: 0
@@ -1120,8 +1133,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: mi-gauge
-    x: 701
-    y: 374
+    x: 767
+    y: 336
     width: 240
     height: 22
     borderLeft: 0
@@ -1133,8 +1146,8 @@ MonoBehaviour:
     paddingTop: 4
     paddingBottom: 4
   - name: mi-gauge-base
-    x: 452
-    y: 366
+    x: 767
+    y: 359
     width: 248
     height: 30
     borderLeft: 0
@@ -1225,7 +1238,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: s-bomb-b-gauge
     x: 539
-    y: 308
+    y: 273
     width: 122
     height: 57
     borderLeft: 0
@@ -1238,7 +1251,7 @@ MonoBehaviour:
     paddingBottom: 5
   - name: s-bomb-c-ax
     x: 662
-    y: 329
+    y: 294
     width: 134
     height: 36
     borderLeft: 0
@@ -1276,8 +1289,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: text-great
-    x: 767
-    y: 409
+    x: 753
+    y: 406
     width: 167
     height: 46
     borderLeft: 0
@@ -1289,8 +1302,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: text-perfect
-    x: 705
-    y: 473
+    x: 452
+    y: 390
     width: 300
     height: 62
     borderLeft: 0
