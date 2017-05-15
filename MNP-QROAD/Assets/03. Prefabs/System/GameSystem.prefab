@@ -5,12 +5,12 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 450228}
-  - 114: {fileID: 11450228}
-  - 114: {fileID: 11453504}
-  - 114: {fileID: 11411234}
+  - component: {fileID: 450228}
+  - component: {fileID: 11450228}
+  - component: {fileID: 11453504}
+  - component: {fileID: 11411234}
   m_Layer: 0
   m_Name: GameSystem
   m_TagString: Untagged
@@ -27,10 +27,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &11411234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -53,8 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dadd5415ab09c448f20417a9d6d9d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _version: 2.003
-  _versionFloat: 2.003
+  _version: 1.0.4.1
   _tutorialComplete: 0
   CurrentHeartRequest: {fileID: 0}
   _listBingoGroup18: 
@@ -100,7 +99,6 @@ MonoBehaviour:
   _listClearedBingoCols: 
   _listClearedBingoLines: 
   isInitialize: 0
-  IgawInitialized: 0
   _isAdminUser: 0
   _playStage: 0
   _deviceID: 
@@ -126,43 +124,6 @@ MonoBehaviour:
     type: 2}
   OrangeStarFont: {fileID: 114000011633703676, guid: 97dfc785b71c86a4e86697c710bb6de8,
     type: 2}
-  _equipGroup1Neko: 0
-  _equipGroup2Neko: 0
-  _equipGroup3Neko: 0
-  _equipGroup4Neko: 0
-  _equipGroup5Neko: 0
-  _equipGroup6Neko: 0
-  _equipGroup7Neko: 0
-  _equipGroup8Neko: 0
-  _equipGroup9Neko: 0
-  _equipGroup10Neko: 0
-  _equipGroup11Neko: 0
-  _equipGroup12Neko: 0
-  _equipGroup13Neko: 0
-  _equipGroup14Neko: 0
-  _equipGroup15Neko: 0
-  _equipGroup16Neko: 0
-  _equipGroup17Neko: 0
-  _equipGroup18Neko: 0
-  _equipGroup19Neko: 0
-  _equipGroup20Neko: 0
-  _equipGroup21Neko: 0
-  _equipGroup22Neko: 0
-  _equipGroup23Neko: 0
-  _equipGroup24Neko: 0
-  _equipGroup25Neko: 0
-  _equipGroup26Neko: 0
-  _equipGroup27Neko: 0
-  _equipGroup28Neko: 0
-  _equipGroup29Neko: 0
-  _equipGroup30Neko: 0
-  _equipGroup31Neko: 0
-  _equipLevel10Neko: 0
-  _equipLevel20Neko: 0
-  _equipLevel30Neko: 0
-  _equipLevel50Neko: 0
-  _equipRank5Neko: 0
-  _userNekoBadgeBonus: 0
   _matchedRedBlock: 0
   _matchedBlueBlock: 0
   _matchedYellowBlock: 0
@@ -176,6 +137,7 @@ MonoBehaviour:
   _ingameMatchFourCount: 0
   _ingameBlockCount: 0
   _ingameRemainCookie: 0
+  _ingameFishGrill: 0
   _ingameBoardClearCount: 0
   _ingameBoardPerfectClearCount: 0
   _inGameBoostItemUSE: 0
@@ -279,7 +241,7 @@ MonoBehaviour:
   CurrentSelectNeko: {fileID: 0}
   _isNekoRewardReady: 1
   _adsID: 0
-  particleUseHeart: {fileID: 19800004, guid: e116059325ae3e640a98f7a1b89d797b, type: 2}
+  particleUseHeart: {fileID: 0}
   particleItemEquip: {fileID: 19800000, guid: adf0845286865f74091eaaded9f307ee, type: 2}
   particleNekoRewardGet: {fileID: 19800006, guid: ca7f1dd52e347ab49aded3faaee1f552,
     type: 2}
@@ -288,6 +250,8 @@ MonoBehaviour:
     type: 2}
   particleDeathGhost: {fileID: 19840636, guid: a926cb2868e231942b37fadd5fb73a23, type: 2}
   GameLanguage: 23
+  _EnglishFont: {fileID: 12800000, guid: 9c04bcf3c2951624ba083e4d3e4fc7a2, type: 3}
+  _ThaiFont: {fileID: 12800000, guid: a45580c047da2f643b6758155739a0db, type: 3}
 --- !u!114 &11453504
 MonoBehaviour:
   m_ObjectHideFlags: 1

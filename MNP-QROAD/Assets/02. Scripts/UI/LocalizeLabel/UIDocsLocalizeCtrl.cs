@@ -23,7 +23,10 @@ public class UIDocsLocalizeCtrl : MonoBehaviour {
 		if (_targetLabel == null) {
 			_targetLabel = this.gameObject.GetComponent<UILabel>();
 		}
-	}
+
+
+        
+    }
 
 	private void GetText() {
 

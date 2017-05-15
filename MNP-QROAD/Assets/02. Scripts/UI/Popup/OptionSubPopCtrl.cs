@@ -40,6 +40,26 @@ public class OptionSubPopCtrl : MonoBehaviour {
     }
 
 
+    public void ChangeLangToThai() {
+        LobbyCtrl.Instance.OpenInfoPopUp(PopMessageType.ChangeLang, OnCompleteChangeThai);
+    }
+
+    public void ChangeLangToIndonesian() {
+        LobbyCtrl.Instance.OpenInfoPopUp(PopMessageType.ChangeLang, OnCompleteChangeIndonesian);
+    }
+
+
+    void OnCompleteChangeThai() {
+        GameSystem.Instance.GameLanguage = SystemLanguage.Thai;
+        SaveLanguage(SystemLanguage.Thai);
+    }
+
+    void OnCompleteChangeIndonesian() {
+        GameSystem.Instance.GameLanguage = SystemLanguage.Indonesian;
+        SaveLanguage(SystemLanguage.Indonesian);
+    }
+
+
     /// <summary>
     /// 언어 정보 저장 
     /// </summary>

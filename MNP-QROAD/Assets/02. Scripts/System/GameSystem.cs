@@ -393,6 +393,9 @@ public partial class GameSystem : MonoBehaviour {
 
     public SystemLanguage GameLanguage;
 
+    [SerializeField] Font _EnglishFont;
+    [SerializeField] Font _ThaiFont;
+
     /*
     public static GameSystem Instance {
         get {
@@ -412,7 +415,7 @@ public partial class GameSystem : MonoBehaviour {
 
 
 
-	void Awake() {
+    void Awake() {
         if (Instance == null)
             Instance = this;
 
@@ -5690,6 +5693,26 @@ public partial class GameSystem : MonoBehaviour {
 
         set {
             _isRequestingWakeUp = value;
+        }
+    }
+
+    public Font EnglishFont {
+        get {
+            return _EnglishFont;
+        }
+
+        set {
+            _EnglishFont = value;
+        }
+    }
+
+    public Font ThaiFont {
+        get {
+            return _ThaiFont;
+        }
+
+        set {
+            _ThaiFont = value;
         }
     }
 

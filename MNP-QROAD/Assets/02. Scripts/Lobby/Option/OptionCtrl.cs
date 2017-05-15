@@ -66,18 +66,23 @@ public class OptionCtrl : MonoBehaviour {
     /// </summary>
     /// <param name="pause"></param>
     private void OnApplicationPause(bool pause) {
-        if (pause)
-            return;
+        if (pause) {
+            GooglePlayConnection.ActionConnectionStateChanged += GooglePlayConnection_ActionConnectionStateChanged;
+        }
+            
+    }
 
+    private void GooglePlayConnection_ActionConnectionStateChanged(GPConnectionState obj) {
 
-        Debug.Log("★ In Option OnApplicationPause :: " + pause);
+        GooglePlayConnection.ActionConnectionStateChanged -= GooglePlayConnection_ActionConnectionStateChanged;
 
-        if(GooglePlayManager.Instance.player == null) {
+        if (obj == GPConnectionState.STATE_DISCONNECTED) {
             GameSystem.Instance.CurrentPlayer = null;
             RefreshFBGoogleState();
         }
-    }
 
+        
+    }
 
     void Start() {
 		if (WWWHelper.Instance != null) {

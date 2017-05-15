@@ -11,8 +11,7 @@ public class TalkativeCatCtrl : MonoBehaviour {
     string text1 = "イベントちゅう！";
     string text2 = "たっぷするにゃ！";
 
-    string _spriteNeko1 = "neko150-1";
-    string _spriteNeko2 = "neko150-3";
+
 
 
     int _eventNoticeIndex = -1;

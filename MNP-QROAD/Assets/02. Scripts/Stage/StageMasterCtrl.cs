@@ -12,8 +12,8 @@ public class StageMasterCtrl : MonoBehaviour {
     readonly string STAGE_POOL = "Stages";
     readonly string BOTTLE_PREFAB = "CatBottleUI";
     readonly int STAGE_GAP = 960;
-    readonly string SPRITE_MOVE_BOTTLE_BTN = "main_btn_glass";
-    readonly string SPRITE_MOVE_PRE_CENTER = "main_btn_back";
+    //readonly string SPRITE_MOVE_BOTTLE_BTN = "main_btn_glass";
+    //readonly string SPRITE_MOVE_PRE_CENTER = "main_btn_back";
 
 
     StageBaseCtrl _spawnedTheme;
