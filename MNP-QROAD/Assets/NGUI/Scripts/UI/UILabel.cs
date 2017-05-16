@@ -1315,18 +1315,6 @@ public class UILabel : UIWidget
 	{
 		base.OnStart();
 
-        #region 개발자 추가 
-        if (bitmapFont == null) {
-
-            if (GameSystem.Instance.GameLanguage == SystemLanguage.Thai) {
-                this.trueTypeFont = GameSystem.Instance.ThaiFont;
-            }
-            else {
-                this.trueTypeFont = GameSystem.Instance.EnglishFont;
-            }
-        }
-        #endregion
-
         // Legacy support
         if (mLineWidth > 0f)
 		{
@@ -1345,13 +1333,26 @@ public class UILabel : UIWidget
 
 		// Request the text within the font
 		ProcessAndRequest();
-	}
 
-	/// <summary>
-	/// UILabel needs additional processing when something changes.
-	/// </summary>
 
-	public override void MarkAsChanged ()
+        #region 개발자 추가 
+        if (bitmapFont == null) {
+
+            if (GameSystem.Instance.GameLanguage == SystemLanguage.Thai) {
+                this.trueTypeFont = GameSystem.Instance.ThaiFont;
+            }
+            else {
+                this.trueTypeFont = GameSystem.Instance.EnglishFont;
+            }
+        }
+        #endregion
+    }
+
+    /// <summary>
+    /// UILabel needs additional processing when something changes.
+    /// </summary>
+
+    public override void MarkAsChanged ()
 	{
 		shouldBeProcessed = true;
 		base.MarkAsChanged();

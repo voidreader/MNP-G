@@ -426,9 +426,11 @@ public partial class LobbyCtrl : MonoBehaviour {
     /// PoolManager 관련 초기화 
     /// </summary>
     private void SetSpawningObject() {
-        SetReadyCharacterList(); // 캐릭터 리스트 
+        //SetReadyCharacterList(); // 캐릭터 리스트 
         SetFriendList(); // 친구에게 하트보내기 
         SetNoticeList(); // 공지사항 리스트
+
+        Invoke("SetReadyCharacterList", 0.5f);
     }
     
 
@@ -2900,26 +2902,7 @@ public partial class LobbyCtrl : MonoBehaviour {
 
     #endregion
 
-    #region 파티클 시스템 사용 
 
-    /// <summary>
-    /// 하트 사용시 파티클 효과
-    /// </summary>
-    /// <param name="pos">Position.</param>
-    public void ParticleUseHeart(Vector3 pPos) {
-		PoolManager.Pools [PuzzleConstBox.lobbyParticlePool].Spawn (GameSystem.Instance.particleUseHeart, pPos, Quaternion.identity);
-	}
-
-	public void ParticleEquipItem(Vector3 pos) {
-		PoolManager.Pools [PuzzleConstBox.lobbyParticlePool].Spawn (GameSystem.Instance.particleItemEquip, pos, Quaternion.identity);
-	}
-
-	public void ParticleNekoRewardGet(Vector3 pos) {
-		PoolManager.Pools [PuzzleConstBox.lobbyParticlePool].Spawn (GameSystem.Instance.particleNekoRewardGet, pos, Quaternion.identity);
-		PlayNekoRewardGet (); // 사운드 
-	}
-	
-	#endregion
 
 	#region Properties
 

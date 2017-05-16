@@ -436,6 +436,10 @@ public partial class GameSystem : MonoBehaviour {
             IOSMessage msg = IOSMessage.Create(GameSystem.Instance.GetLocalizeText("3233"), GameSystem.Instance.GetLocalizeText("3054")); // 메세지 가공
             msg.OnComplete += OnSystemReLoginMessageCloseiOS;
         }
+        else if (pMsg.IndexOf("duplication access") >= 0) { // 중복로그인
+            IOSMessage msg = IOSMessage.Create(GameSystem.Instance.GetLocalizeText("3233"), GameSystem.Instance.GetLocalizeText("3550")); // 메세지 가공
+            msg.OnComplete += OnSystemReLoginMessageCloseiOS;
+        }
         else if (pMsg.IndexOf("timeout-connect") >= 0) {
             //IOSMessage msg = IOSMessage.Create(GameSystem.Instance.GetLocalizeText("3233"), GameSystem.Instance.GetLocalizeText("3484")); // 네트워크 환경
             CreateIOS_Dialog(pMsg); //
@@ -495,6 +499,10 @@ public partial class GameSystem : MonoBehaviour {
         }
         else if (pMsg.IndexOf("re-login") >= 0) { // 리 로그인 
             systemMsg = AndroidMessage.Create(GameSystem.Instance.GetLocalizeText("3233"), GameSystem.Instance.GetLocalizeText("3054")); // 메세지 가공
+            systemMsg.ActionComplete += OnSystemReLoginMessageClose;
+        }
+        else if (pMsg.IndexOf("duplication access") >= 0) { // 중복로그인
+            systemMsg = AndroidMessage.Create(GameSystem.Instance.GetLocalizeText("3233"), GameSystem.Instance.GetLocalizeText("3550")); // 메세지 가공
             systemMsg.ActionComplete += OnSystemReLoginMessageClose;
         }
         else if (pMsg.IndexOf("server inspection") >= 0) {

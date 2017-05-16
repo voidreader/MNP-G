@@ -380,11 +380,8 @@ public partial class GameSystem : MonoBehaviour {
     int _tempInt;
 
     // 게임내에서 사용되는 파티클 
-    public ParticleSystem particleUseHeart; // 하트 소모 
-    public ParticleSystem particleItemEquip; // 아이템 장착
-    public ParticleSystem particleNekoRewardGet; // 네코의 보은 사용
 
-    public ParticleSystem particleBombBoard; // 인게임 폭탄 
+    
     public ParticleSystem particleCartoonFight;
     public ParticleSystem particleDeathGhost;
 
@@ -420,6 +417,7 @@ public partial class GameSystem : MonoBehaviour {
             Instance = this;
 
         GameLanguage = Application.systemLanguage;
+
         DontDestroyOnLoad(this.gameObject);
 
 	}
@@ -1774,8 +1772,12 @@ public partial class GameSystem : MonoBehaviour {
 
             if (Application.systemLanguage == SystemLanguage.Korean)
                 GameLanguage = SystemLanguage.Korean;
+            else if (Application.systemLanguage == SystemLanguage.Thai)
+                GameLanguage = SystemLanguage.Thai; 
+            else if (Application.systemLanguage == SystemLanguage.Indonesian)
+                GameLanguage = SystemLanguage.Indonesian; 
             else
-                GameLanguage = SystemLanguage.English; // 한국어 아니면 다 영어로 통일 
+                GameLanguage = SystemLanguage.English; // 그외는 영어
 
             // 언어 정보 저장 
             ES2.Save<SystemLanguage>(GameLanguage, PuzzleConstBox.ES_Language);
