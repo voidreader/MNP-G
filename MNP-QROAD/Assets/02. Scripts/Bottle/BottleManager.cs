@@ -31,6 +31,9 @@ public class BottleManager : MonoBehaviour {
     [SerializeField] Transform _bottomUI;
     [SerializeField] UIProgressBar _progressTimer;
 
+
+    [SerializeField] GameObject _bottleBG;
+
     System.TimeSpan _nextWakeUpTime;
 
     bool _onBottleUI = false;
@@ -297,6 +300,10 @@ public class BottleManager : MonoBehaviour {
     }
 
     IEnumerator Spawning() {
+
+        _bottle.SetActive(true);
+        _bottleBG.SetActive(true);
+
         for (int i = 0; i < GameSystem.Instance.UserNeko.Count; i++) {
 
             PoolManager.Pools[APPEAR_POOL].Spawn(APPEAR_NEKO, Vector3.zero, Quaternion.identity);

@@ -59,7 +59,25 @@ public class SizePart
 		}
 	}
 
+	/// <summary>
+	/// Return value of imported size, but if unavailable, will return raw size instead.
+	/// </summary>
+	public double ImportedSizeOrRawSize
+	{
+		get
+		{
+			if (ImportedSizeBytes > 0)
+				return ImportedSizeBytes;
+				
+			if (DerivedSize > 0)
+				return DerivedSize;
 
+			if (SizeBytes > 0)
+				return SizeBytes;
+
+			return 0;
+		}
+	}
 
 
 	// same as getting the `Size` but since we now have two size types,

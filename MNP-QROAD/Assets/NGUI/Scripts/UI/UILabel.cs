@@ -1338,10 +1338,16 @@ public class UILabel : UIWidget
         #region 개발자 추가 
         if (bitmapFont == null) {
 
-            if (GameSystem.Instance.GameLanguage == SystemLanguage.Thai) {
-                this.trueTypeFont = GameSystem.Instance.ThaiFont;
+            try {
+                if (GameSystem.Instance.GameLanguage == SystemLanguage.Thai) {
+                    this.trueTypeFont = GameSystem.Instance.ThaiFont;
+                }
+                else {
+                    this.trueTypeFont = GameSystem.Instance.EnglishFont;
+                }
             }
-            else {
+            catch(System.Exception e) {
+                //Debug.Log(e.StackTrace);
                 this.trueTypeFont = GameSystem.Instance.EnglishFont;
             }
         }

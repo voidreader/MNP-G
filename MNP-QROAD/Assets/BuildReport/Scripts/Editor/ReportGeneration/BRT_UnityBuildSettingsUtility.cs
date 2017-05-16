@@ -326,10 +326,12 @@ public static class UnityBuildSettingsUtility
 		settings.UseGPUSkinning = PlayerSettings.gpuSkinning;
 		settings.VisibleInBackground = PlayerSettings.visibleInBackground;
 		
+#if (UNITY_EDITOR_WIN || UNITY_EDITOR_OSX)
 #if UNITY_5_5_OR_NEWER
 		settings.RenderingPathUsed = UnityEditor.Rendering.EditorGraphicsSettings.GetTierSettings(EditorUserBuildSettings.selectedBuildTargetGroup, Graphics.activeTier).renderingPath.ToString();
 #else
 		settings.RenderingPathUsed = PlayerSettings.renderingPath.ToString();
+#endif
 #endif
 		
 		

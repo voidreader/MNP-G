@@ -244,7 +244,6 @@ public partial class LobbyCtrl : MonoBehaviour {
     /// </summary>
     public void InitializeLobby(bool pPassLogic = false) {
 
-
         OnResultShow = false;
 
         // 할인 정보 체크 
@@ -253,19 +252,15 @@ public partial class LobbyCtrl : MonoBehaviour {
         // Lock 정보 세팅 
         SetLockState();
 
-
-
-        // 스테이지 초기화
-        StageMasterCtrl.Instance.InitializeStageMaster();
-
-
-
         // 고양이의 보은 오브젝트 초기화
         InitNekoRewardObjects();
 
+        GameSystem.Instance.Post2CheckNewMail(); // 메일 조회 
+        GameSystem.Instance.Post2RequestAdsRemainSimple(); // 광고 회수 리로드
+        GameSystem.Instance.CheckMissionDay();
 
-        _talkingCat.Talk();
-        NewNekoEventButton.Change();
+        // _talkingCat.Talk();
+        // NewNekoEventButton.Change();
         //_freeCraneIconButton.Play();
 
         // 아이템 클리어 
@@ -274,8 +269,35 @@ public partial class LobbyCtrl : MonoBehaviour {
         // 상단 정보 갱신
         UpdateTopInformation();
 
+        // BGM 플레이 
+        bgmSrc.Play();
+
+        StartCoroutine(DelayedInitLobby(pPassLogic));
+    }
+
+    // 일부 Pooling 때문에 IEnumerator 사용 
+    IEnumerator DelayedInitLobby(bool pPassLogic) {
+        
+        yield return new WaitForSeconds(0.1f);
+
+        // 일부 Pooling이 완료될때까지 대기.
+        /*
+        while (!PoolManager.Pools.ContainsKey(PuzzleConstBox.lobbyCharacterPool)
+            || !PoolManager.Pools.ContainsKey(PuzzleConstBox.stagePool)
+            || !PoolManager.Pools.ContainsKey(PuzzleConstBox.worldMapPool)) {
+
+
+            yield return null;
+
+        }
+        */
+
         // PoolManager 관련 
         SetSpawningObject();
+
+
+        // 스테이지 초기화
+        StageMasterCtrl.Instance.InitializeStageMaster();
 
         // 월드맵 초기화
         _worldMap.InitWorldMap();
@@ -288,30 +310,21 @@ public partial class LobbyCtrl : MonoBehaviour {
         if (GameSystem.Instance.TutorialStage == 0 || GameSystem.Instance.TutorialStage == 10) {
             // 튜토리얼 
             CheckLobbyTutorial();
-            return;
+            yield break;
         }
 
 
-        bgmSrc.Play();
-
-
-
-        GameSystem.Instance.Post2CheckNewMail(); // 메일 조회 
-        GameSystem.Instance.Post2RequestAdsRemainSimple(); // 광고 회수 리로드
-        GameSystem.Instance.CheckMissionDay();
+        
 
         UpdateMissionNew(); // 미션 
 
         //CheckBingoFocusMark(); // 빙고 강조 표시체크
+        //CheckNewClearBingo(); // New Bingo Check
 
-		CheckNewClearBingo(); // New Bingo Check
-
-        // 불꽃놀이 
-        //StartCoroutine(Fireworking());
 
         // 후반부는 패스 한다. true 일경우.
         if (pPassLogic)
-            return;
+            yield break;
 
         // 레벨 10 달성 보상, 페이스북 연동 보상 처리 
         if (!string.IsNullOrEmpty(GameSystem.Instance.FacebookID) && !GameSystem.Instance.UserJSON["facebooklinkget"].AsBool) {
@@ -322,11 +335,12 @@ public partial class LobbyCtrl : MonoBehaviour {
 
         // 후반부 체크 시작 
         StartCoroutine(CheckingFirstLobbyEnter());
-        
     }
 
 
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void CheckBingoFocusMark() {
         // 빙고 팁의 해제 여부 확인 
         if (!GameSystem.Instance.LoadESvalueBool(PuzzleConstBox.ES_UnlockBingoTip)) {
@@ -426,11 +440,11 @@ public partial class LobbyCtrl : MonoBehaviour {
     /// PoolManager 관련 초기화 
     /// </summary>
     private void SetSpawningObject() {
-        //SetReadyCharacterList(); // 캐릭터 리스트 
+        SetReadyCharacterList(); // 캐릭터 리스트 
         SetFriendList(); // 친구에게 하트보내기 
         SetNoticeList(); // 공지사항 리스트
 
-        Invoke("SetReadyCharacterList", 0.5f);
+        // Invoke("SetReadyCharacterList", 0.5f);
     }
     
 

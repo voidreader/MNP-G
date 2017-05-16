@@ -388,7 +388,7 @@ public partial class GameSystem : MonoBehaviour {
     readonly string _endBBCode = "[-]";
     readonly string _yellowBBCode = "[FFF55A]";
 
-    public SystemLanguage GameLanguage;
+    public SystemLanguage GameLanguage = SystemLanguage.English;
 
     [SerializeField] Font _EnglishFont;
     [SerializeField] Font _ThaiFont;
@@ -2371,7 +2371,7 @@ public partial class GameSystem : MonoBehaviour {
 
 
 	public void LoadLobbyScene() {
-		Fader.Instance.FadeIn (0.5f).LoadLevel ("SceneLobby").FadeOut (3f);
+		Fader.Instance.FadeIn (0.2f).LoadLevel ("SceneLobby").FadeOut (3f);
 	}
 
 	

@@ -651,6 +651,8 @@ public static class PuzzleConstBox {
     public static readonly string nekoTicketExchangePool = "NekoTicket";
     public static readonly string inGameUIPool = "UI";
     public static readonly string worldMapPool = "WorldMapPool";
+    public static readonly string lobbyCharacterPool = "Characters";
+    public static readonly string stagePool = "Stages";
 
     public static readonly string prefabMapEpisode = "MapEpisode";
 

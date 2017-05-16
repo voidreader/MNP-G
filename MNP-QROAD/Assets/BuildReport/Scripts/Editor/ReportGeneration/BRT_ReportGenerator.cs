@@ -433,7 +433,10 @@ public class ReportGenerator
 		return string.Empty;
 	}
 
-
+	static bool HasInvalidPercentValue(string line)
+	{
+		return line.IndexOf("inf%") >= 0 || line.IndexOf("nan%") >= 0 || line.IndexOf("-1.$%") >= 0 || line.IndexOf("1.$%") >= 0;
+	}
 
 	static BuildReportTool.SizePart[] ParseSizePartsFromString(string editorLogPath)
 	{
@@ -475,15 +478,10 @@ public class ReportGenerator
 				//Debug.LogFormat("    got size: {0}", gotSize);
 			}
 
-			if (b.IndexOf("inf%") >= 0)
+			if (HasInvalidPercentValue(b))
 			{
 				gotPercent = "0";
 				//Debug.LogFormat("    got percent (inf): {0}", gotPercent);
-			}
-			else if (b.IndexOf("nan%") >= 0)
-			{
-				gotPercent = "0";
-				//Debug.LogFormat("    got percent (nan): {0}", gotPercent);
 			}
 			else
 			{
@@ -493,6 +491,10 @@ public class ReportGenerator
 					gotPercent = match.Groups[0].Value;
 					gotPercent = gotPercent.Substring(0, gotPercent.Length - 1);
 					//Debug.LogFormat("    got percent: {0}", gotPercent);
+				}
+				else
+				{
+					gotPercent = "0";
 				}
 			}
 
@@ -504,8 +506,9 @@ public class ReportGenerator
 
 			buildSizes.Add(inPart);
 
-			if (line.IndexOf("100.0%") != -1 || line.IndexOf("nan%") != -1)
+			if (line.IndexOf("100.0%") != -1 || line.IndexOf("nan%") != -1 || gotName.IndexOf("Complete size") != -1)
 			{
+				// that was the final part of the list
 				break;
 			}
 		}
@@ -603,7 +606,7 @@ public class ReportGenerator
 					Debug.Log("didn't find size for :" + line);
 				}
 
-				if (line.IndexOf("inf%") >= 0)
+				if (HasInvalidPercentValue(line))
 				{
 					gotPercent = "0";
 				}
@@ -639,6 +642,11 @@ public class ReportGenerator
 				inPart.ImportedSize = BuildReportTool.Util.GetBytesReadable(importedSizeBytes);
 
 				assetSizes.Add(inPart);
+
+				if (inPart.Name.IndexOf("Rocks_lighup.tif") > -1)
+				{
+					Debug.LogFormat("Rocks_lighup.tif: got Size: {0} Imported Size: {1}", inPart.Size, inPart.ImportedSize);
+				}
 
 				if (gotName.EndsWith(".prefab"))
 				{
@@ -1133,7 +1141,7 @@ public class ReportGenerator
 			}
 
 			// assets in StreamingAssets folder are always included
-			if (Util.IsFileInAPath(currentAsset, "assets/streamingassets"))
+			if (Util.IsFileInAPath(currentAsset, "assets/streamingassets/"))
 			{
 				inOutAllUsedAssets.Add(BuildReportTool.Util.CreateSizePartFromFile(currentAsset, fullAssetPath));
 				continue;

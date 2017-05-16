@@ -67,6 +67,12 @@ public class AssetList
 		AssetFilename,
 		RawSize,
 		ImportedSize,
+
+		/// <summary>
+		/// Try imported size. If imported size is unavailable (N/A) use raw size.
+		/// </summary>
+		ImportedSizeOrRawSize,
+
 		PercentSize
 	}
 
@@ -125,6 +131,14 @@ public class AssetList
 				SortImportedSize(_perCategory[n], sortOrder);
 			}
 		}
+		else if (sortType == SortType.ImportedSizeOrRawSize)
+		{
+			SortImportedSizeOrRawSize(_all, sortOrder);
+			for (int n = 0, len = _perCategory.Length; n < len; ++n)
+			{
+				SortImportedSizeOrRawSize(_perCategory[n], sortOrder);
+			}
+		}
 		else if (sortType == SortType.PercentSize)
 		{
 			SortPercentSize(_all, sortOrder);
@@ -167,6 +181,28 @@ public class AssetList
 			Array.Sort(assetList, delegate(BuildReportTool.SizePart entry1, BuildReportTool.SizePart entry2) {
 				if (entry1.UsableSize > entry2.UsableSize) return 1;
 				if (entry1.UsableSize < entry2.UsableSize) return -1;
+				return 0;
+			});
+		}
+	}
+
+	
+	static void SortImportedSizeOrRawSize(BuildReportTool.SizePart[] assetList, SortOrder sortOrder)
+	{
+		if (sortOrder == SortOrder.Descending)
+		{
+			Array.Sort(assetList, delegate(BuildReportTool.SizePart entry1, BuildReportTool.SizePart entry2) {
+				
+				if (entry1.ImportedSizeOrRawSize > entry2.ImportedSizeOrRawSize) return -1;
+				if (entry1.ImportedSizeOrRawSize < entry2.ImportedSizeOrRawSize) return 1;
+				return 0;
+			});
+		}
+		else
+		{
+			Array.Sort(assetList, delegate(BuildReportTool.SizePart entry1, BuildReportTool.SizePart entry2) {
+				if (entry1.ImportedSizeOrRawSize > entry2.ImportedSizeOrRawSize) return 1;
+				if (entry1.ImportedSizeOrRawSize < entry2.ImportedSizeOrRawSize) return -1;
 				return 0;
 			});
 		}

@@ -518,7 +518,7 @@ public class AssetList : BaseScreen
 					
 					if (IsShowingUsedAssets && BuildReportTool.Options.ShowImportedSizeForUsedAssets)
 					{
-						pressedRawSizeSortBtn = DrawColumn(viewOffset, len, BuildReportTool.AssetList.SortType.RawSize, "Size", !hasSearchResults, false,
+						pressedRawSizeSortBtn = DrawColumn(viewOffset, len, BuildReportTool.AssetList.SortType.ImportedSizeOrRawSize, "Size", !hasSearchResults, false,
 							list, assetListToUse, (b) =>
 							{
 								if (b.ImportedSize == "N/A")
@@ -532,7 +532,7 @@ public class AssetList : BaseScreen
 					if ((IsShowingUsedAssets && !BuildReportTool.Options.ShowImportedSizeForUsedAssets) || IsShowingUnusedAssets)
 					{
 						pressedRawSizeSortBtn = DrawColumn(viewOffset, len, BuildReportTool.AssetList.SortType.RawSize, (IsShowingUnusedAssets ? "Raw Size" : "Size"), !hasSearchResults, false,
-							list, assetListToUse, (b) => { return b.RawSize; }, ref _assetListScrollPos);
+							list, assetListToUse, (b) => b.RawSize, ref _assetListScrollPos);
 					}
 
 
@@ -547,7 +547,7 @@ public class AssetList : BaseScreen
 					if (IsShowingUnusedAssets)
 					{
 						pressedImpSizeSortBtn = DrawColumn(viewOffset, len, BuildReportTool.AssetList.SortType.ImportedSize, "Imported Size   ", !hasSearchResults, showScrollbarForImportedSize,
-							list, assetListToUse, (b) => { return b.ImportedSize; }, ref _assetListScrollPos);
+							list, assetListToUse, (b) => b.ImportedSize, ref _assetListScrollPos);
 					}
 
 					
@@ -576,7 +576,12 @@ public class AssetList : BaseScreen
 					{
 						if (pressedRawSizeSortBtn)
 						{
-							list.ToggleSort(BuildReportTool.AssetList.SortType.RawSize);
+							var sortType = BuildReportTool.AssetList.SortType.RawSize;
+							if (IsShowingUsedAssets && BuildReportTool.Options.ShowImportedSizeForUsedAssets)
+							{
+								sortType = BuildReportTool.AssetList.SortType.ImportedSizeOrRawSize;
+							}
+							list.ToggleSort(sortType);
 						}
 						else if (pressedImpSizeSortBtn)
 						{

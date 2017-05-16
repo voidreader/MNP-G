@@ -1,4 +1,8 @@
-﻿Version 3.2.2
+﻿Version 3.2.3
+- FIX: Fixed compatibility with Unity 5.6.0p3
+
+
+Version 3.2.2
 - NEW: Added option to show calculated size of used assets instead of the reported size from the build log,
   as workaround for the Unity bug: https://issuetracker.unity3d.com/issues/unity-reports-incorrect-textures-size-in-the-editor-dot-log-after-building-on-standalone
   Note: The bug has been fixed in Unity 2017.1, 5.5.3p1 and 5.6.0p1. This option is included for users who can't update to using those new versions.
