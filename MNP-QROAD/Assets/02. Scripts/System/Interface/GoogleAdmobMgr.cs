@@ -69,29 +69,40 @@ public class GoogleAdmobMgr : MonoBehaviour {
         string adUnitId = "unused";
 #elif UNITY_ANDROID
         string adUnitId = "ca-app-pub-7276185723803254/9144810526";
-#elif UNITY_IPHONE
+#elif UNITY_IOS
         string adUnitId = "ca-app-pub-7276185723803254/7528476528";
 #else
         string adUnitId = "unexpected_platform";
 #endif
 
-        // Create a 320x50 banner at the top of the screen.
-        AdSize adsize = new AdSize(320, 40);
-        BottomBannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Bottom);
-        //BottomBannerView = new BannerView(adUnitId, adsize, AdPosition.Bottom);
-        // Create an empty ad request.
-        request = new AdRequest.Builder().Build();
-        // Load the banner with the request.
-        BottomBannerView.LoadAd(request);
-        BottomBannerView.OnAdLoaded += BottomBannerView_OnAdLoaded;
-        BottomBannerView.OnAdFailedToLoad += BottomBannerView_OnAdFailedToLoad;
-        BottomBannerView.OnAdLeavingApplication += BottomBannerView_OnAdLeavingApplication;
+        try {
+            // Create a 320x50 banner at the top of the screen.
+            Debug.Log(">>>> BottomBannerView Create adUnitId : " + adUnitId);
+            BottomBannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Bottom);
+
+            // Create an empty ad request.
+            Debug.Log(">>>> Request Create");
+            request = new AdRequest.Builder().Build();
+            // Load the banner with the request.
+            Debug.Log(">>>> LoadAd BottomBannerView");
+            BottomBannerView.LoadAd(request);
+
+            Debug.Log(">>>> Connect Event");
+            BottomBannerView.OnAdLoaded += BottomBannerView_OnAdLoaded;
+            BottomBannerView.OnAdFailedToLoad += BottomBannerView_OnAdFailedToLoad;
+            BottomBannerView.OnAdLeavingApplication += BottomBannerView_OnAdLeavingApplication;
+        }
+        catch(System.Exception e) {
+            Debug.Log(">>> StackTrace ::" + e.StackTrace);
+            Debug.Log(">>>> LoadAd BottomBannerView");
+            return;
+        }
 
 
     }
 
     private void BottomBannerView_OnAdLeavingApplication(object sender, System.EventArgs e) {
-        Debug.Log("★★★★★ OnAdLeavingApplication");
+        Debug.Log("★★★★★ RequestBanner Exception");
     }
 
     /// <summary>

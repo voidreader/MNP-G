@@ -45,6 +45,7 @@ public class WWWHelper : MonoBehaviour {
 
         
         _dataForm["cmd"] = requestID;
+        _dataForm["data"]["ip"] = Network.player.ipAddress;
 
         switch (requestID) {
             case "request_checkundermaintenance":
