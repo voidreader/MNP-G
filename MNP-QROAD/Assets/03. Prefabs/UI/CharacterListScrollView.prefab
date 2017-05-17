@@ -36,7 +36,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010479133206}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -220, y: -90, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59dfbc0f4f3a98b4ebf4ad40fc3f43aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolName: Characters
+  poolName: CharacterPool
   matchPoolScale: 0
   matchPoolLayer: 0
   dontReparent: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
   _perPrefabPoolOptions:
   - prefab: {fileID: 4000011229073726, guid: 3bf11b87b7b89da47b16766e143690d2, type: 2}
     preloadAmount: 50
-    preloadTime: 0
+    preloadTime: 1
     preloadFrames: 2
     preloadDelay: 0
     limitInstances: 0
@@ -162,10 +162,10 @@ MonoBehaviour:
   restrictWithinPanel: 1
   constrainOnDrag: 0
   disableDragIfFits: 0
-  smoothDragStart: 0
+  smoothDragStart: 1
   iOSDragEmulation: 1
-  scrollWheelFactor: 0.5
-  momentumAmount: 70
+  scrollWheelFactor: 0.25
+  momentumAmount: 35
   dampenStrength: 9
   horizontalScrollBar: {fileID: 0}
   verticalScrollBar: {fileID: 0}

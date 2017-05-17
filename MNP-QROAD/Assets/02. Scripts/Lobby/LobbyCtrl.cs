@@ -277,7 +277,9 @@ public partial class LobbyCtrl : MonoBehaviour {
 
     // 일부 Pooling 때문에 IEnumerator 사용 
     IEnumerator DelayedInitLobby(bool pPassLogic) {
-        
+
+        Debug.Log("★★★ DelayedInitLobby");
+
         yield return new WaitForSeconds(0.1f);
 
         // 일부 Pooling이 완료될때까지 대기.

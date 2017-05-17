@@ -1906,7 +1906,7 @@ public partial class GameSystem : MonoBehaviour {
 	private void OnApplicationPause(bool pauseStatus) {
 
 
-		Debug.Log ("!!! OnApplicationPause pauseStatus :: " + pauseStatus);
+		// Debug.Log ("!!! OnApplicationPause pauseStatus :: " + pauseStatus);
 
 		if (pauseStatus) {  // Pause 
 

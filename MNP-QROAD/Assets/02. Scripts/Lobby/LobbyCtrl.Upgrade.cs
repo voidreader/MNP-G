@@ -18,7 +18,7 @@ public partial class LobbyCtrl : MonoBehaviour {
     List<OwnCatCtrl> _listCharacterList = new List<OwnCatCtrl>();
     [SerializeField] private UIGrid _grdCharacterList;
 
-    readonly string POOL_CHARACTER = "Characters";
+    readonly string POOL_CHARACTER = "CharacterPool";
     readonly string PREFAB_CHARACTER = "OwnCatPrefab";
 
 

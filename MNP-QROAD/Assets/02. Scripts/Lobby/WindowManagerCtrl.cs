@@ -389,7 +389,7 @@ public class WindowManagerCtrl : MonoBehaviour {
 
         foreach (GoogleProductTemplate p in AndroidInAppPurchaseManager.Client.Inventory.Products) {
 
-            if (p.SKU.Contains("special_g")) {
+            if (p.SKU.Contains(PuzzleConstBox.packageSpecial)) {
                 _specialPackage.SetPackageDetail(p.SKU, p.LocalizedPrice);
                 return;
             }
@@ -404,7 +404,7 @@ public class WindowManagerCtrl : MonoBehaviour {
         }
 #endif
 
-        _specialPackage.SetPackageDetail("special_g", "USD 0.99$");
+        _specialPackage.SetPackageDetail("mn_pkg_02", "USD 0.99$");
     }
 
 

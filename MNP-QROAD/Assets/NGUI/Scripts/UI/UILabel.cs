@@ -1340,10 +1340,13 @@ public class UILabel : UIWidget
 
             try {
                 if (GameSystem.Instance.GameLanguage == SystemLanguage.Thai) {
-                    this.trueTypeFont = GameSystem.Instance.ThaiFont;
+
+                    if(GameSystem.Instance.ThaiFont != null)
+                        this.trueTypeFont = GameSystem.Instance.ThaiFont;
                 }
                 else {
-                    this.trueTypeFont = GameSystem.Instance.EnglishFont;
+                    if(GameSystem.Instance.EnglishFont != null)
+                        this.trueTypeFont = GameSystem.Instance.EnglishFont;
                 }
             }
             catch(System.Exception e) {

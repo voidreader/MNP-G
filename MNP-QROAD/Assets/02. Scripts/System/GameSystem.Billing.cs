@@ -37,7 +37,7 @@ public partial class GameSystem : MonoBehaviour {
     public readonly string _600Pack8_android = "mn_pkg_01_8";
     public readonly string _600Pack9_android = "mn_pkg_01_9";
 
-    public readonly string _special_package = "special_g";
+    public readonly string _special_package = "mn_pkg_02";
 
 
     /// <summary>
@@ -150,7 +150,7 @@ public partial class GameSystem : MonoBehaviour {
             WWWHelper.Instance.PackageSKU = "mn_pkg_01_9";
         }
         else if (pPackageName.Equals(PuzzleConstBox.packageSpecial)) {
-            WWWHelper.Instance.PackageSKU = "special_g";
+            WWWHelper.Instance.PackageSKU = "mn_pkg_02";
         }
 
         _currentSKU = WWWHelper.Instance.CurrentSKU; // currentSKU는 실제 스토어 등록ID를 사용
@@ -197,7 +197,7 @@ public partial class GameSystem : MonoBehaviour {
             WWWHelper.Instance.PackageSKU = "mn_pkg_01_9";
         }
         else if (pPackageName.Equals(PuzzleConstBox.packageSpecial)) {
-            WWWHelper.Instance.PackageSKU = "special_g";
+            WWWHelper.Instance.PackageSKU = "mn_pkg_02";
         }
 
 

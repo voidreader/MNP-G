@@ -389,7 +389,7 @@ public static class PuzzleConstBox {
 
     public static readonly string packageSanta600 = "santa_600";
     public static readonly string packageFish600 = "fish_600";
-    public static readonly string packageSpecial = "special_g";
+    public static readonly string packageSpecial = "mn_pkg_02";
 
 
     public static List<int> listNekoSpawnOrder = new List<int> (); // 네코 Spawn Order 
@@ -651,7 +651,7 @@ public static class PuzzleConstBox {
     public static readonly string nekoTicketExchangePool = "NekoTicket";
     public static readonly string inGameUIPool = "UI";
     public static readonly string worldMapPool = "WorldMapPool";
-    public static readonly string lobbyCharacterPool = "Characters";
+    public static readonly string lobbyCharacterPool = "CharacterPool";
     public static readonly string stagePool = "Stages";
 
     public static readonly string prefabMapEpisode = "MapEpisode";
