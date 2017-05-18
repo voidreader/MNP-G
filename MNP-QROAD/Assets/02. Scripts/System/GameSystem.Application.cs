@@ -420,8 +420,14 @@ public partial class GameSystem : MonoBehaviour {
         }
         else if (pMsg.IndexOf("server inspection") >= 0) { // 서버 점검 처리 
 
+            /*
             IOSMessage msg = IOSMessage.Create(GameSystem.Instance.GetLocalizeText("3233")
                 , GameSystem.Instance.GetLocalizeText("3485") + "[" + _resultForm["data"]["starttime"].Value + "] ~ [" + _resultForm["data"]["endtime"].Value + "]");
+                */
+
+            IOSMessage msg = IOSMessage.Create(GameSystem.Instance.GetLocalizeText("3233")
+                , GameSystem.Instance.GetLocalizeText("3485") + _resultForm["data"]["msg"].Value); 
+            //msg = GameSystem.Instance.GetLocalizeText("3485") + _resultForm["data"]["msg"].Value;
 
             msg.OnComplete += OnSystemUnderInspectioniOS;
 
@@ -507,7 +513,8 @@ public partial class GameSystem : MonoBehaviour {
         }
         else if (pMsg.IndexOf("server inspection") >= 0) {
             string msg;
-            msg = GameSystem.Instance.GetLocalizeText("3485") + "[" + _resultForm["data"]["starttime"].Value + "] ~ [" + _resultForm["data"]["endtime"].Value + "]";
+            // msg = GameSystem.Instance.GetLocalizeText("3485") + "[" + _resultForm["data"]["starttime"].Value + "] ~ [" + _resultForm["data"]["endtime"].Value + "]";
+            msg = GameSystem.Instance.GetLocalizeText("3485") + _resultForm["data"]["msg"].Value;
             systemMsg = AndroidMessage.Create(GameSystem.Instance.GetLocalizeText("3233"), msg); // 메세지 가공
             systemMsg.ActionComplete += OnSystemUnderInspection;
         }

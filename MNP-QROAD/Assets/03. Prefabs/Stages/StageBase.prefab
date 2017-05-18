@@ -19236,7 +19236,7 @@ MonoBehaviour:
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 114000014102111268, guid: 8eec55bbd44973447b71b43fe6bd1305, type: 2}
   mText: 1
-  mFontSize: 36
+  mFontSize: 32
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 0
@@ -19249,7 +19249,7 @@ MonoBehaviour:
   mApplyGradient: 0
   mGradientTop: {r: 1, g: 1, b: 1, a: 1}
   mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  mSpacingX: 0
+  mSpacingX: -5
   mSpacingY: 0
   mUseFloatSpacing: 0
   mFloatSpacingX: 0

@@ -151,7 +151,7 @@ public class FishGatchCtrl : MonoBehaviour {
 
 
         _fish.transform.localPosition = _fishOriginPos;
-        _fish.transform.DOLocalJump(_fishDestPos, 200, 1, 1f).OnComplete(OnCompleteFirstFishJump);
+        _fish.transform.DOLocalJump(_fishDestPos, 650, 1, 1f).OnComplete(OnCompleteFirstFishJump);
         _fish.transform.DOLocalRotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360).SetEase(Ease.Linear).SetLoops(-1, LoopType.Restart);
         Invoke("OnCompleteFishInBucket", 1.5f);
 
@@ -185,7 +185,7 @@ public class FishGatchCtrl : MonoBehaviour {
 
 
         _fish.transform.localPosition = _fishOriginPos;
-        _fish.transform.DOLocalJump(_fishDestPos, 200, 1, 1f).OnComplete(OnCompleteFirstFishJump);
+        _fish.transform.DOLocalJump(_fishDestPos, 650, 1, 1f).OnComplete(OnCompleteFirstFishJump);
         _fish.transform.DOLocalRotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360).SetEase(Ease.Linear).SetLoops(-1, LoopType.Restart);
 
         Invoke("OnCompleteFishInBucket", 1.5f);
@@ -241,6 +241,7 @@ public class FishGatchCtrl : MonoBehaviour {
         LobbyCtrl.Instance.PlayEffect(SoundConstBox.acGatchaResult);
 
         _resultAuraGroup.SetActive(true);
+        _resultAura.DOKill();
         _resultAura.localScale = Vector3.zero;
         _resultAura.localEulerAngles = Vector3.zero;
         _resultAura.DOScale(1, 0.5f).OnComplete(OnCompleteAuraScale);
@@ -306,6 +307,8 @@ public class FishGatchCtrl : MonoBehaviour {
         LobbyCtrl.Instance.PlayEffect(SoundConstBox.acGatchaResult);
 
         _resultAuraGroup.SetActive(true);
+
+        _resultAura.DOKill();
         _resultAura.localScale = Vector3.zero;
         _resultAura.localEulerAngles = Vector3.zero;
         _resultAura.DOScale(1, 0.5f).OnComplete(OnCompleteAuraScale);
@@ -350,6 +353,8 @@ public class FishGatchCtrl : MonoBehaviour {
 
     private void OnCompleteAuraScale() {
         // 회전 처리 
+
+        _resultAura.DOKill();
         _resultAura.DOLocalRotate(new Vector3(0, 0, 360), 2, RotateMode.FastBeyond360).SetEase(Ease.Linear).SetLoops(-1, LoopType.Restart);
 
 

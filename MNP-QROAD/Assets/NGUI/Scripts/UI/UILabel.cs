@@ -1351,7 +1351,7 @@ public class UILabel : UIWidget
             }
             catch(System.Exception e) {
                 //Debug.Log(e.StackTrace);
-                this.trueTypeFont = GameSystem.Instance.EnglishFont;
+                //this.trueTypeFont = Ngui
             }
         }
         #endregion

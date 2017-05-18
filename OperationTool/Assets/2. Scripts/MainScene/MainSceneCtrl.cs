@@ -38,6 +38,10 @@ public class MainSceneCtrl : MonoBehaviour {
         Application.LoadLevel("MaintenanceScene");
     }
 
+    public void GoStageScene() {
+        Application.LoadLevel("StageScene");
+    }
+
 
     #region HTTP
 

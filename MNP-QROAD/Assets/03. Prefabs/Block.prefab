@@ -348,6 +348,7 @@ MonoBehaviour:
   blockID: -1
   itemID: -1
   currentState: 0
+  preState: 0
   spBlock: {fileID: 11418922}
   trBlockSprite: {fileID: 418922}
   _spCoverBlock: {fileID: 114000011509880526}

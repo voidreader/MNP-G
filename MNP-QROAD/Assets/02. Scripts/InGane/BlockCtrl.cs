@@ -8,7 +8,9 @@ public class BlockCtrl : MonoBehaviour {
 
 	public int blockID = -1;
 	public int itemID = -1;
-	public BlockState currentState = BlockState.None;
+
+    public BlockState currentState = BlockState.None;
+    public BlockState preState = BlockState.None;
 
 
 	[SerializeField] tk2dSprite spBlock; // 블록 본체
@@ -171,8 +173,12 @@ public class BlockCtrl : MonoBehaviour {
         spBlock.transform.localScale = GameSystem.Instance.BaseScale;
 
         // 블록 커버 
-        _spCoverBlock.gameObject.SetActive(false);
-        _spCoverBlock.transform.localPosition = Vector3.zero;
+        if(preState != BlockState.Stone && preState != BlockState.StrongStone) {
+            _spCoverBlock.gameObject.SetActive(false);
+            _spCoverBlock.transform.localPosition = Vector3.zero;
+        }
+
+
 
         bombFX.SetActive(false);
         spBlockNavigator.gameObject.SetActive(false);
@@ -201,6 +207,9 @@ public class BlockCtrl : MonoBehaviour {
     /// </summary>
     /// <param name="bs">Bs.</param>
     public void SetState(BlockState bs) {
+
+        // 이전 상태를 저장한다.
+        preState = currentState;
 
         // 초기화 로직 
         InitBlockCtrl();
@@ -511,8 +520,11 @@ public class BlockCtrl : MonoBehaviour {
             PoolManager.Pools[PuzzleConstBox.objectPool].Spawn("GrillStick", Vector3.zero, Quaternion.identity).GetComponent<GrillStickCtrl>().SetGrillStick(this.transform.localPosition);
 
             InSoundManager.Instance.PlayFishStick();
-
-            GameSystem.Instance.FillBlockCount++; // 유효블록수 증가
+            
+            // 이동미션이 아닐때만 액티브 블록 카운트 증가 
+            if (!InGameCtrl.Instance.IsMoveMission)
+                GameSystem.Instance.FillBlockCount++;
+            
 
             // invoke 시킨다. 
             Invoke("InvokedExitGrill", 0.5f);
@@ -544,7 +556,10 @@ public class BlockCtrl : MonoBehaviour {
             SetState(BlockState.Stone);
         else if(currentState == BlockState.Stone) {
             SetState(BlockState.None);
-            GameSystem.Instance.FillBlockCount++;
+
+            // 이동미션이 아닐때만 액티브 블록 카운트 증가 
+            if(!InGameCtrl.Instance.IsMoveMission)
+                GameSystem.Instance.FillBlockCount++;
         }
 
         InSoundManager.Instance.PlayIceBlockBreak();

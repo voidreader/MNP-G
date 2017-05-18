@@ -12,7 +12,7 @@ public class YellowLightCtrl : MonoBehaviour {
         _yellowSprite.transform.localPosition = pPos;
 
         // 크기 
-        _randomScale = Random.Range(400, 600);
+        _randomScale = Random.Range(300, 500);
         _yellowSprite.GetComponent<UIWidget>().width = _randomScale;
         _yellowSprite.GetComponent<UIWidget>().height = _randomScale;
 

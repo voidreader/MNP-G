@@ -10,7 +10,7 @@ public class WWWHelper : MonoBehaviour {
 
     JSONNode _dataForm;
     public string _requestURL = "http://ec2-13-124-50-170.ap-northeast-2.compute.amazonaws.com:7120/op";
-    // public string _router = string.Empty;
+    //ec2-13-124-50-170.ap-northeast-2.compute.amazonaws.com
     string _data = string.Empty;
 
 
@@ -48,6 +48,27 @@ public class WWWHelper : MonoBehaviour {
         _dataForm["data"]["ip"] = Network.player.ipAddress;
 
         switch (requestID) {
+
+            case "request_findid":
+                _dataForm["data"]["userdbkey"] = pNode["id"];
+                break;
+
+
+            case "request_updatealluserstage":
+                _dataForm["data"]["userdbkey"] = pNode["id"];
+                _dataForm["data"]["stage"] = pNode["stage"];
+                break;
+
+            case "request_updateuserstage":
+                _dataForm["data"]["userdbkey"] = pNode["id"];
+                _dataForm["data"]["stage"] = pNode["stage"];
+                break;
+
+            case "request_inituserstage":
+                _dataForm["data"]["userdbkey"] = pNode["id"];
+                break;
+
+
             case "request_checkundermaintenance":
                 break;
 

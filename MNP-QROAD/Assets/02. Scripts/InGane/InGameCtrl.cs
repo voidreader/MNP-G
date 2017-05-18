@@ -1350,6 +1350,10 @@ public partial class InGameCtrl : MonoBehaviour {
 
             ListMoveTiles.Add(movetile.GetComponent<MoveTileCtrl>());
             ListMoveTilesBlock.Add(_listFieldBlock[movepos[i].AsInt]);
+
+            // 이동 미션은 타일만큼 감소시킨다. 
+            GameSystem.Instance.FillBlockCount--; // FillBlockCount를 하나씩 감소 
+
         }
 
 

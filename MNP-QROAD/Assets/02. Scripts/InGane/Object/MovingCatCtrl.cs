@@ -21,7 +21,8 @@ public class MovingCatCtrl : MonoBehaviour {
         _body.DOKill();
 
 
-        this.transform.DOJump(this.transform.position, this.transform.position.y + 0.5f, 1, 0.3f).OnComplete(OnCompleteIdleJumping);
+        //this.transform.DOJump(this.transform.position, this.transform.position.y + 0.5f, 1, 0.3f).OnComplete(OnCompleteIdleJumping);
+        this.transform.DOJump(this.transform.position, 0.5f, 1, 0.3f).OnComplete(OnCompleteIdleJumping);
 
     }
 
@@ -40,13 +41,15 @@ public class MovingCatCtrl : MonoBehaviour {
     /// <param name="pPos"></param>
     public void SetJumping(Vector3 pPos) {
         _head.DOKill();
-        this.transform.DOJump(pPos, this.transform.position.y + 0.3f, 1, 0.15f);
+        //this.transform.DOJump(pPos, this.transform.position.y + 0.3f, 1, 0.15f);
+        this.transform.DOJump(pPos, 0.3f, 1, 0.15f);
         InSoundManager.Instance.PlayMovingJump();
     }
 
     public void SetLastJumping(Vector3 pPos) {
         _head.DOKill();
-        this.transform.DOJump(pPos, this.transform.position.y + 0.3f, 1, 0.15f).OnComplete(OnCompleteJumping);
+        //this.transform.DOJump(pPos, this.transform.position.y + 0.3f, 1, 0.15f).OnComplete(OnCompleteJumping);
+        this.transform.DOJump(pPos, 0.3f, 1, 0.15f).OnComplete(OnCompleteJumping);
         InSoundManager.Instance.PlayMovingJump();
     }
 

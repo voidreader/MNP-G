@@ -1728,10 +1728,10 @@ MonoBehaviour:
     - title-1
     - tap-start
     spriteTextureGUIDs:
-    - 0eb28c646a664df41a0b33a4214abf5e
+    - 366eb14553a39d842abce5691fe6bf6e
     - d4f312232eba1c14a95d2f0833d351df
     spriteTextureTimeStamps:
-    - 1493371903.55094
+    - 1494952038.23014
     - 1493371903.55094
     managedSpriteCollection: 0
     loadable: 0

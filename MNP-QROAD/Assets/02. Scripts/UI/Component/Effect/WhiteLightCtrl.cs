@@ -16,7 +16,7 @@ public class WhiteLightCtrl : MonoBehaviour {
         _whiteSprite.transform.localPosition = pPos;
 
         // 크기 
-        _randomScale = UnityEngine.Random.Range(350, 500);
+        _randomScale = UnityEngine.Random.Range(250, 400);
         _whiteSprite.GetComponent<UIWidget>().width = _randomScale;
         _whiteSprite.GetComponent<UIWidget>().height = _randomScale;
 
