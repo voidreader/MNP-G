@@ -99,6 +99,7 @@ public class AndroidPermissionCheckerCtrl : MonoBehaviour {
 
 
         // 다시 묻지 않음을 체크한 경우. 
+        /*
         if (!PermissionsManager.ShouldShowRequestPermission(AN_Permission.READ_EXTERNAL_STORAGE)
                 || !PermissionsManager.ShouldShowRequestPermission(AN_Permission.WRITE_EXTERNAL_STORAGE)) {
 
@@ -109,6 +110,7 @@ public class AndroidPermissionCheckerCtrl : MonoBehaviour {
             OnCompleteGrant += ExitGame;
             return;
         }
+        */
 
 
         // 퍼미션 요청 

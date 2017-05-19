@@ -169,7 +169,7 @@ public class TitleCtrl : MonoBehaviour {
                     + PermissionsManager.ShouldShowRequestPermission(AN_Permission.WRITE_EXTERNAL_STORAGE));
 
                 // 더이상 팝업하지 않게 했는지 체크
-                
+                /*
                 if (!PermissionsManager.ShouldShowRequestPermission(AN_Permission.READ_EXTERNAL_STORAGE) 
                     || !PermissionsManager.ShouldShowRequestPermission(AN_Permission.WRITE_EXTERNAL_STORAGE)) {
 
@@ -180,6 +180,7 @@ public class TitleCtrl : MonoBehaviour {
                     return;
                     // 팝업 띄우기
                 }
+                */
                 
 
                 _aosPermissionChecker.OpenChecker(OnCompleteAndroidRuntimePermissionCheck);
