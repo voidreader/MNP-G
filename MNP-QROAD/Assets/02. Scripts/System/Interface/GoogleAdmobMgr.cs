@@ -77,8 +77,10 @@ public class GoogleAdmobMgr : MonoBehaviour {
 
         try {
             // Create a 320x50 banner at the top of the screen.
+            AdSize newSize = new AdSize(320, 38);
             Debug.Log(">>>> BottomBannerView Create adUnitId : " + adUnitId);
-            BottomBannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Bottom);
+            //BottomBannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Bottom);
+            BottomBannerView = new BannerView(adUnitId, newSize, AdPosition.Bottom);
 
             // Create an empty ad request.
             Debug.Log(">>>> Request Create");

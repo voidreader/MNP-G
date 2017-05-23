@@ -1,6 +1,8 @@
 using UnityEngine;
 using System;
+using System.Text;
 using System.Collections;
+using System.Collections.Generic;
 
 public class AndroidSocialGate : MonoBehaviour {
 
@@ -64,6 +66,23 @@ public class AndroidSocialGate : MonoBehaviour {
     public static void ShareTwitterGif(string gifPath, string message) {
         AN_SocialSharingProxy.ShareTwitterGif(gifPath, message);
     }
+
+	public static void SendTextMessage (string body, string recepient){
+		List<string> recepients = new List<string> ();
+		recepients.Add (recepient);
+		SendTextMessage (body, recepients);
+	}
+
+	public static void SendTextMessage (string body, List<string> recipients){
+		StringBuilder builder = new StringBuilder ();
+		foreach (string recipient in recipients) {
+			builder.Append (recipient);
+			builder.Append ("|");
+		}
+
+		AN_SocialSharingProxy.SendTextMessage (body, builder.ToString());
+	}
+
 
 	private static void CheckAndCreateInstance() {
 		if (_Instance == null) {

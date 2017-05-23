@@ -11,22 +11,16 @@ using SA.Common.Editor;
 [CustomEditor(typeof(AndroidNativeSettings))]
 public class AndroidNativeSettingsEditor : Editor {
 	
-	
 	GUIContent PlusApiLabel   		= new GUIContent("Enable Plus API [?]:", "API used for account managment");
 	GUIContent GamesApiLabel   		= new GUIContent("Enable Games API [?]:", "API used for achivements and leaderboards");
 	GUIContent DriveApiLabel 		= new GUIContent("Enable Drive API [?]:", "API used for saved games");
-	GUIContent AppInviteAPILabel 	= new GUIContent("Enable AppInvite API [?]:", "API used for invite");
-	
-	
-	
+	GUIContent AppInviteAPILabel 	= new GUIContent("Enable AppInvite API [?]:", "API used for invite");	
 	
 	GUIContent Base64KeyLabel 	= new GUIContent("Base64 Key[?]:", "Base64 Key app key.");
 	GUIContent SdkVersion   	= new GUIContent("Plugin Version [?]", "This is Plugin version.  If you have problems or compliments please include this so we know exactly what version to look out for.");
-	GUIContent GPSdkVersion   	= new GUIContent("Google Play SDK Version [?]", "Version of Google Play SDK used by the plugin");
+	GUIContent GPSdkVersion   	= new GUIContent("Google Play SDK Version [?]", "Version of Google Play SDK used by the plugin");	
 	
-	
-	private AndroidNativeSettings settings;
-	
+	private AndroidNativeSettings settings;	
 	
 	void Awake() {
 		ApplaySettings();
@@ -392,7 +386,7 @@ public class AndroidNativeSettingsEditor : Editor {
 		AndroidNativeSettings.Instance.GCM_SenderId = "216817929098";
 		AndroidNativeSettings.Instance.GooglePlayServiceAppID = "216817929098";
 		
-		PlayerSettings.applicationIdentifier = "com.unionassets.android.plugin.preview";
+		SA.Common.Editor.Tools.ApplicationIdentifier = "com.unionassets.android.plugin.preview";
 		
 		SocialPlatfromSettingsEditor.LoadExampleSettings();
 	}
@@ -850,7 +844,7 @@ public class AndroidNativeSettingsEditor : Editor {
 			receiver.SetValue ("android:exported", "true");
 			SA.Manifest.PropertyTemplate filter = receiver.GetOrCreateIntentFilterWithName ("com.google.android.c2dm.intent.RECEIVE");
 			filter.GetOrCreatePropertyWithName ("action", "com.google.android.c2dm.intent.REGISTRATION");
-			filter.GetOrCreatePropertyWithName ("category", PlayerSettings.applicationIdentifier);
+			filter.GetOrCreatePropertyWithName ("category", SA.Common.Editor.Tools.ApplicationIdentifier);
 
 			service.SetValue ("android:exported", "true");
 			SA.Manifest.PropertyTemplate intentFilter = service.GetOrCreateIntentFilterWithName ("com.google.firebase.INSTANCE_ID_EVENT");
@@ -858,12 +852,28 @@ public class AndroidNativeSettingsEditor : Editor {
 
 			provider.SetValue ("android:initOrder", "100");
 			provider.SetValue ("android:exported", "false");
-			provider.SetValue ("android:authorities", PlayerSettings.applicationIdentifier + ".firebaseinitprovider");
+			provider.SetValue ("android:authorities", SA.Common.Editor.Tools.ApplicationIdentifier + ".firebaseinitprovider");
 		} else {
 			application.RemoveProperty (internalReceiver);
 			application.RemoveProperty (provider);
 			application.RemoveProperty (service);
 			application.RemoveProperty (receiver);
+		}
+
+		////////////////////////
+		/// Google Fit
+		////////////////////////
+
+		UpdateId++;
+		/// Activity for Google Fit connection
+		SA.Manifest.ActivityTemplate GoogleFitConnectionActivity = application.GetOrCreateActivityWithName("com.stansassets.fitness.ConnectionActivity");
+		if(AndroidNativeSettings.Instance.GoogleFitEnabled) {
+			GoogleFitConnectionActivity.SetValue("android:launchMode", "singleTask");
+			GoogleFitConnectionActivity.SetValue("android:label", "@string/app_name");
+			GoogleFitConnectionActivity.SetValue("android:configChanges", "fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen");
+			GoogleFitConnectionActivity.SetValue("android:theme", "@android:style/Theme.Translucent.NoTitleBar");
+		} else {
+			application.RemoveActivity(GoogleFitConnectionActivity);
 		}
 		
 		////////////////////////
@@ -916,7 +926,7 @@ public class AndroidNativeSettingsEditor : Editor {
 			Manifest.RemoveProperty(permission_C2D_MESSAGE_Old);
 		}
 		
-		SA.Manifest.PropertyTemplate permission_C2D_MESSAGE = Manifest.GetOrCreatePropertyWithName("permission", PlayerSettings.applicationIdentifier + ".permission.C2D_MESSAGE");
+		SA.Manifest.PropertyTemplate permission_C2D_MESSAGE = Manifest.GetOrCreatePropertyWithName("permission", SA.Common.Editor.Tools.ApplicationIdentifier + ".permission.C2D_MESSAGE");
 		permission_C2D_MESSAGE.SetValue("android:protectionLevel", "signature");
 		
 		SA.Manifest.PropertyTemplate GcmBroadcastReceiver = application.GetOrCreatePropertyWithName("receiver",  "com.androidnative.gcm.GcmBroadcastReceiver");
@@ -940,7 +950,7 @@ public class AndroidNativeSettingsEditor : Editor {
 				SA.Manifest.PropertyTemplate intent_filter = GcmBroadcastReceiver.GetOrCreateIntentFilterWithName("com.google.android.c2dm.intent.RECEIVE");
 				intent_filter.GetOrCreatePropertyWithName("action", "com.androidnative.push.intent.OPEN");
 				SA.Manifest.PropertyTemplate category = intent_filter.GetOrCreatePropertyWithTag("category");
-				category.SetValue("android:name", PlayerSettings.applicationIdentifier);
+				category.SetValue("android:name", SA.Common.Editor.Tools.ApplicationIdentifier);
 				
 				//Clean Up other push notifications providers
 				application.RemoveActivity(gameThriveActivity);
@@ -958,7 +968,7 @@ public class AndroidNativeSettingsEditor : Editor {
 				gameThriveReceiver.SetValue("android:permission", "com.google.android.c2dm.permission.SEND");
 				
 				SA.Manifest.PropertyTemplate gameThriveIntentFilter = gameThriveReceiver.GetOrCreateIntentFilterWithName("com.google.android.c2dm.intent.RECEIVE");
-				gameThriveIntentFilter.GetOrCreatePropertyWithName("category", PlayerSettings.applicationIdentifier);
+				gameThriveIntentFilter.GetOrCreatePropertyWithName("category", SA.Common.Editor.Tools.ApplicationIdentifier);
 				
 				//Clean Up other push notifications providers
 				application.RemoveProperty(GcmBroadcastReceiver);
@@ -974,7 +984,7 @@ public class AndroidNativeSettingsEditor : Editor {
 				
 				SA.Manifest.PropertyTemplate parseIntentFilter = ParseBroadcastReceiver.GetOrCreateIntentFilterWithName("com.google.android.c2dm.intent.RECEIVE");
 				parseIntentFilter.GetOrCreatePropertyWithName("action", "com.google.android.c2dm.intent.REGISTRATION");
-				parseIntentFilter.GetOrCreatePropertyWithName("category", PlayerSettings.applicationIdentifier);
+				parseIntentFilter.GetOrCreatePropertyWithName("category", SA.Common.Editor.Tools.ApplicationIdentifier);
 				
 				//Clean Up other push notifications providers
 				application.RemoveProperty(GcmBroadcastReceiver);
@@ -1078,7 +1088,10 @@ public class AndroidNativeSettingsEditor : Editor {
 
 
 		SA.Manifest.PropertyTemplate LocalNotificationReceiver = application.GetOrCreatePropertyWithName("receiver",  "com.androidnative.features.notifications.LocalNotificationReceiver");
+		LocalNotificationReceiver.SetValue ("android:enabled", "true");
+		LocalNotificationReceiver.SetValue ("android:exported", "true");
 		SA.Manifest.PropertyTemplate ReceiverIntentFilter = LocalNotificationReceiver.GetOrCreateIntentFilterWithName ("com.androidnative.local.intent.OPEN");
+		ReceiverIntentFilter.GetOrCreatePropertyWithName ("action", "android.intent.action.BOOT_COMPLETED");
 		ReceiverIntentFilter.GetOrCreatePropertyWithName ("category", "android.intent.category.DEFAULT");
 
 		if(!AndroidNativeSettings.Instance.LocalNotificationsAPI) {
@@ -1146,7 +1159,7 @@ public class AndroidNativeSettingsEditor : Editor {
 			List<SA.Manifest.PropertyTemplate> properties = Manifest.Properties["permission"];
 			foreach (SA.Manifest.PropertyTemplate permission in properties) {
 				if (permission.Name.EndsWith(".permission.C2D_MESSAGE")
-				    && !permission.Name.Equals(PlayerSettings.applicationIdentifier + ".permission.C2D_MESSAGE")) {
+				    && !permission.Name.Equals(SA.Common.Editor.Tools.ApplicationIdentifier + ".permission.C2D_MESSAGE")) {
 					properties.Remove(permission);
 					duplicated = true;
 					break;
@@ -1163,7 +1176,7 @@ public class AndroidNativeSettingsEditor : Editor {
 			List<SA.Manifest.PropertyTemplate> properties = Manifest.Permissions;
 			foreach (SA.Manifest.PropertyTemplate permission in properties) {
 				if (permission.Name.EndsWith(".permission.C2D_MESSAGE")
-				    && !permission.Name.Equals(PlayerSettings.applicationIdentifier + ".permission.C2D_MESSAGE")) {
+				    && !permission.Name.Equals(SA.Common.Editor.Tools.ApplicationIdentifier + ".permission.C2D_MESSAGE")) {
 					properties.Remove(permission);
 					duplicated = true;
 					break;
@@ -1192,13 +1205,14 @@ public class AndroidNativeSettingsEditor : Editor {
 		
 		if(AndroidNativeSettings.Instance.PushNotificationsAPI) {
 			permissions.Add("com.google.android.c2dm.permission.RECEIVE");
-			permissions.Add(PlayerSettings.applicationIdentifier + ".permission.C2D_MESSAGE");
+			permissions.Add(SA.Common.Editor.Tools.ApplicationIdentifier + ".permission.C2D_MESSAGE");
 			permissions.Add("android.permission.WAKE_LOCK");
 		}
 		
 		if(AndroidNativeSettings.Instance.LocalNotificationsAPI || AndroidNativeSettings.Instance.PushNotificationsAPI) {
-			permissions.Add("android.permission.VIBRATE");
-			permissions.Add("android.permission.GET_TASKS");
+			permissions.Add ("android.permission.VIBRATE");
+			permissions.Add ("android.permission.GET_TASKS");
+			permissions.Add ("android.permission.RECEIVE_BOOT_COMPLETED");
 		}
 		
 		
@@ -1659,6 +1673,11 @@ public class AndroidNativeSettingsEditor : Editor {
 		EditorGUILayout.LabelField("Show Connecting Popup");
 		settings.ShowConnectingPopup	= EditorGUILayout.Toggle(settings.ShowConnectingPopup);
 		EditorGUILayout.EndHorizontal();
+
+		EditorGUILayout.BeginHorizontal();
+		EditorGUILayout.LabelField("Auto Load Local Player Score");
+		settings.AutoLoadLocalPlayerScore	= EditorGUILayout.Toggle(settings.AutoLoadLocalPlayerScore);
+		EditorGUILayout.EndHorizontal();
 		EditorGUI.indentLevel--;
 		
 		
@@ -1926,34 +1945,48 @@ public class AndroidNativeSettingsEditor : Editor {
 		AndroidNativeSettings.Instance.Is_Leaderboards_Editor_Notifications_Enabled = SA.Common.Editor.Tools.ToggleFiled("Leaderboards", AndroidNativeSettings.Instance.Is_Leaderboards_Editor_Notifications_Enabled);
 		AndroidNativeSettings.Instance.Is_Achievements_Editor_Notifications_Enabled = SA.Common.Editor.Tools.ToggleFiled("Achievements", AndroidNativeSettings.Instance.Is_Achievements_Editor_Notifications_Enabled);
 	}
-	
-	public static void ThirdPartyParams(bool showTitle = false) {
 
-		if(showTitle) {
-			EditorGUILayout.Space();
-			EditorGUILayout.HelpBox("Third-Party Plug-Ins Support Seettings", MessageType.None);
+    public static void ThirdPartyParams(bool showTitle = false) {
+
+        if (showTitle) {
+            EditorGUILayout.Space();
+            EditorGUILayout.HelpBox("Third-Party Plug-Ins Support Seettings", MessageType.None);
+        }
+
+		SA.Common.Editor.Tools.BlockHeader("Google Fit");
+
+		EditorGUI.BeginChangeCheck ();
+		EditorGUI.indentLevel++;
+		{
+			AndroidNativeSettings.Instance.GoogleFitEnabled = ToggleFiled ("Enable Google Fit", AndroidNativeSettings.Instance.GoogleFitEnabled);
+		}
+		EditorGUI.indentLevel--;
+
+		if (EditorGUI.EndChangeCheck ()) {
+			UpdateManifest ();
+			UpdatePluginDefines ();
+
+			if (AndroidNativeSettings.Instance.GoogleFitEnabled) {
+				Instalation.EnableGoogleFit ();
+			} else {
+				Instalation.DisableGoogleFit ();
+			}
 		}
 
-		
-		EditorGUI.BeginChangeCheck ();
-		
-		
-		SA.Common.Editor.Tools.BlockHeader("Anti-Cheat Toolkit");
+        EditorGUI.BeginChangeCheck();
+        SA.Common.Editor.Tools.BlockHeader("Anti-Cheat Toolkit");
 
 		EditorGUI.indentLevel++; {
 			EditorGUILayout.BeginHorizontal ();
 			EditorGUILayout.LabelField ("Anti-Cheat Toolkit Support");
 			AndroidNativeSettings.Instance.EnableATCSupport = EditorGUILayout.Toggle ("", AndroidNativeSettings.Instance.EnableATCSupport);
-			
-			
+
 			EditorGUILayout.Space ();
 			EditorGUILayout.EndHorizontal ();
 			
 			if(EditorGUI.EndChangeCheck()) {
 				UpdatePluginDefines();
-			}
-			
-			
+			}			
 			
 			EditorGUILayout.BeginHorizontal ();
 			EditorGUILayout.Space ();

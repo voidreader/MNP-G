@@ -217,6 +217,7 @@ public enum PopMessageType {
     WakeUpCoinAdd,
 
     PostCompleted,
+    RuntimePermissionDenied,
 
     GemShortage // 보석 부족, 상점 가세요 
 }

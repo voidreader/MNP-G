@@ -12,7 +12,7 @@ public class TitleCtrl : MonoBehaviour {
 
 	static TitleCtrl _instance = null;
 
-
+    [SerializeField] SmallWindowCtrl _titleMessageBox;
     [SerializeField] AndroidPermissionCheckerCtrl _aosPermissionChecker;
     [SerializeField] FirstNickCtrl _firstNickCtrl;
 
@@ -117,21 +117,22 @@ public class TitleCtrl : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 
 			// 현재 뜬 팝업이 아무것도 없을시에는 exit 팝업이 뜬다. 
-			if(_currentPopup == null) {
+			if(_currentPopup == null && !_titleMessageBox.gameObject.activeSelf) {
 				objExitPopup.SetActive(true);
 				_currentPopup = objExitPopup;
 			} else { // 현재 팝업이 있는 경우. 
+
+                if (_titleMessageBox.gameObject.activeSelf) {
+                    _titleMessageBox.gameObject.SetActive(false);
+                    return;
+                }
+                    
+
 				_currentPopup.SetActive(false);
 				_currentPopup = null;
 			}
         
-			/*
-			if(objExitPopup.activeSelf) {
-				objExitPopup.SetActive(false);
-			} else {
-				objExitPopup.SetActive(true);
-			}
-			*/
+
 		}
 
 
@@ -144,6 +145,10 @@ public class TitleCtrl : MonoBehaviour {
         _tapStart.transform.localScale = GameSystem.Instance.BaseScale;
     }
 
+
+    public void OpenTitleMessage(PopMessageType pType, System.Action pAction) {
+        _titleMessageBox.OpenMessage(pType, pAction);
+    }
 
     /// <summary>
     /// 안드로이드 런타임 권한 체크 
@@ -168,6 +173,8 @@ public class TitleCtrl : MonoBehaviour {
                 Debug.Log("★ ShouldShowRequestPermission Check WRITE_EXTERNAL_STORAGE :: "
                     + PermissionsManager.ShouldShowRequestPermission(AN_Permission.WRITE_EXTERNAL_STORAGE));
 
+
+                // ShouldShowRequestPermission의 비정확성으로 인하여 사용하지 않음. 
                 // 더이상 팝업하지 않게 했는지 체크
                 /*
                 if (!PermissionsManager.ShouldShowRequestPermission(AN_Permission.READ_EXTERNAL_STORAGE) 
@@ -181,8 +188,8 @@ public class TitleCtrl : MonoBehaviour {
                     // 팝업 띄우기
                 }
                 */
-                
 
+                // 바로 권한 설명창을 띄운다.
                 _aosPermissionChecker.OpenChecker(OnCompleteAndroidRuntimePermissionCheck);
                 //_isStartBtnClicked = false;
                 return;

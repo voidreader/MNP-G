@@ -24,7 +24,7 @@ public class SA_EditorNotifications {
 		get {
 			#if UNITY_EDITOR
 			if (_EditorUI == null) {
-				GameObject o = AssetDatabase.LoadAssetAtPath("Assets/Extensions/StansAssetsCommon/EditorTesting/UI/Prefabs/NotificationsEditorTestingUI.prefab", typeof(GameObject)) as GameObject;
+				GameObject o = AssetDatabase.LoadAssetAtPath("Assets/Plugins/StansAssets/Support/EditorTesting/UI/Prefabs/NotificationsEditorTestingUI.prefab", typeof(GameObject)) as GameObject;
 				GameObject go = GameObject.Instantiate(o) as GameObject;
 				_EditorUI = go.GetComponent<SA_Notifications_EditorUIController>();
 			}

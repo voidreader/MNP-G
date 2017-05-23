@@ -55,7 +55,7 @@ MonoBehaviour:
   mSprites:
   - name: banner-crane-ico
     x: 885
-    y: 774
+    y: 860
     width: 80
     height: 83
     borderLeft: 0
@@ -107,9 +107,22 @@ MonoBehaviour:
     paddingBottom: 0
   - name: down-new-base
     x: 571
-    y: 858
+    y: 944
     width: 432
     height: 80
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: free-ico
+    x: 727
+    y: 763
+    width: 92
+    height: 96
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -132,8 +145,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 147
   - name: gl-base-gauge
-    x: 348
-    y: 607
+    x: 415
+    y: 693
     width: 192
     height: 21
     borderLeft: 0
@@ -146,7 +159,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: gl-base-s
     x: 259
-    y: 774
+    y: 860
     width: 311
     height: 164
     borderLeft: 0
@@ -158,8 +171,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: gl-m
-    x: 966
-    y: 814
+    x: 727
+    y: 719
     width: 47
     height: 43
     borderLeft: 0
@@ -209,22 +222,9 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: ico-base
-    x: 259
-    y: 939
-    width: 720
-    height: 85
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
   - name: ico-new
     x: 700
-    y: 778
+    y: 864
     width: 58
     height: 34
     borderLeft: 0
@@ -236,8 +236,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ico-top-key
-    x: 625
-    y: 682
+    x: 259
+    y: 163
     width: 88
     height: 91
     borderLeft: 0
@@ -249,8 +249,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: main_btn_back
-    x: 714
-    y: 682
+    x: 259
+    y: 255
     width: 88
     height: 91
     borderLeft: 0
@@ -262,58 +262,6 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: main_btn_bot_bingo
-    x: 259
-    y: 629
-    width: 136
-    height: 144
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: main_btn_bot_key
-    x: 396
-    y: 629
-    width: 136
-    height: 144
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: main_btn_bot_list
-    x: 0
-    y: 198
-    width: 136
-    height: 144
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: main_btn_bot_option
-    x: 259
-    y: 279
-    width: 70
-    height: 73
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: main_btn_bot_shop
     x: 0
     y: 53
     width: 136
@@ -326,9 +274,61 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: main_btn_bot_key
+    x: 259
+    y: 715
+    width: 136
+    height: 144
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_btn_bot_list
+    x: 396
+    y: 715
+    width: 136
+    height: 144
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_btn_bot_option
+    x: 259
+    y: 89
+    width: 70
+    height: 73
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_btn_bot_shop
+    x: 0
+    y: 198
+    width: 136
+    height: 144
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: main_btn_glass
-    x: 803
-    y: 682
+    x: 912
+    y: 768
     width: 88
     height: 91
     borderLeft: 0
@@ -340,8 +340,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: main_btn_mail
-    x: 892
-    y: 682
+    x: 259
+    y: 623
     width: 88
     height: 91
     borderLeft: 0
@@ -354,7 +354,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: main_btn_mission
     x: 259
-    y: 537
+    y: 531
     width: 88
     height: 91
     borderLeft: 0
@@ -380,7 +380,7 @@ MonoBehaviour:
     paddingBottom: 1
   - name: main_btn_ranking
     x: 259
-    y: 445
+    y: 439
     width: 88
     height: 91
     borderLeft: 0
@@ -393,7 +393,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: main_btn_wanted
     x: 259
-    y: 353
+    y: 347
     width: 88
     height: 91
     borderLeft: 0
@@ -404,9 +404,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: moving-l-r
+    x: 966
+    y: 868
+    width: 58
+    height: 75
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: present-box
-    x: 137
-    y: 89
+    x: 634
+    y: 751
     width: 92
     height: 108
     borderLeft: 0
@@ -417,9 +430,35 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: sa-base
+  - name: q-crane-ico
     x: 533
-    y: 680
+    y: 753
+    width: 100
+    height: 106
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: q-fish-ico
+    x: 137
+    y: 81
+    width: 100
+    height: 116
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sa-base
+    x: 820
+    y: 766
     width: 91
     height: 93
     borderLeft: 0
@@ -432,7 +471,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: spc-1
     x: 571
-    y: 780
+    y: 866
     width: 128
     height: 77
     borderLeft: 0
@@ -458,7 +497,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: top-base
     x: 700
-    y: 813
+    y: 899
     width: 184
     height: 44
     borderLeft: 0
@@ -470,8 +509,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: top-coin
-    x: 259
-    y: 148
+    x: 348
+    y: 650
     width: 66
     height: 64
     borderLeft: 0
@@ -497,7 +536,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: top-heart
     x: 259
-    y: 213
+    y: 23
     width: 76
     height: 65
     borderLeft: 0
@@ -509,8 +548,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui-top-full
-    x: 137
-    y: 7
+    x: 759
+    y: 877
     width: 60
     height: 21
     borderLeft: 0
@@ -536,7 +575,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: world-ico
     x: 137
-    y: 29
+    y: 21
     width: 121
     height: 59
     borderLeft: 0

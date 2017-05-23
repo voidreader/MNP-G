@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public static class FirebaseAnalytics {
 
-	private const string SEPARATOR1 = "|%|";
+	private const string SEPARATOR1 = "%";
 	private const string SEPARATOR2 = "|";
 
 	public static void Init () {

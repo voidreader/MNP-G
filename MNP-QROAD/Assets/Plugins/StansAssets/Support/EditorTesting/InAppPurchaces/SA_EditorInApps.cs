@@ -22,7 +22,7 @@ public class SA_EditorInApps  {
 		get {
 			#if UNITY_EDITOR
 			if (_EditorUI == null) {
-				GameObject o = AssetDatabase.LoadAssetAtPath("Assets/Extensions/StansAssetsCommon/EditorTesting/UI/Prefabs/InAppsEditorTestingUI.prefab", typeof(GameObject)) as GameObject;
+				GameObject o = AssetDatabase.LoadAssetAtPath("Assets/Plugins/StansAssets/Support/EditorTesting/UI/Prefabs/InAppsEditorTestingUI.prefab", typeof(GameObject)) as GameObject;
 				GameObject go = GameObject.Instantiate(o) as GameObject;
 				_EditorUI = go.GetComponent<SA_InApps_EditorUIController>();
 			}

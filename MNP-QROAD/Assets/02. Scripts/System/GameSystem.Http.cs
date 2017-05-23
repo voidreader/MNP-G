@@ -665,6 +665,9 @@ public partial class GameSystem : MonoBehaviour {
         if (!CheckRequestState(request))
             return;
 
+
+        Debug.Log("OnFinishedNekoData :: " + response.DataAsText);
+
         JSONNode resultNode = JSON.Parse(response.DataAsText);
         GameSystem.Instance.UserNeko = resultNode[_jData]["nekodatas"];
 
@@ -677,6 +680,8 @@ public partial class GameSystem : MonoBehaviour {
     private void OnFinishedSyncTime(HTTPRequest request, HTTPResponse response) {
         if (!CheckRequestState(request))
             return;
+
+        Debug.Log("OnFinishedSyncTime :: " + response.DataAsText);
 
         GameSystem.Instance.SyncTimeData = JSON.Parse(response.DataAsText);
 

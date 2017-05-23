@@ -129,7 +129,7 @@ public class SA_EditorAd : SA.Common.Pattern.Singleton<SA_EditorAd> {
 		get {
 #if UNITY_EDITOR
 			if (_EditorUI == null) {
-				GameObject o = AssetDatabase.LoadAssetAtPath("Assets/Extensions/StansAssetsCommon/EditorTesting/UI/Prefabs/AdsEditorTestingUI.prefab", typeof(GameObject)) as GameObject;
+				GameObject o = AssetDatabase.LoadAssetAtPath("Assets/Plugins/StansAssets/Support/EditorTesting/UI/Prefabs/AdsEditorTestingUI.prefab", typeof(GameObject)) as GameObject;
 				GameObject go = Instantiate(o) as GameObject;
 				_EditorUI = go.GetComponent<SA_Ad_EditorUIController>();
 			}

@@ -94,12 +94,9 @@ public partial class LobbyCtrl : MonoBehaviour {
 
     #endregion
 
-    GameObject _lobbyLowerButtons; // 로비 하단 버튼들 
-    [SerializeField] TalkativeCatCtrl _talkingCat;
-    [SerializeField] NewNekoEventCtrl _newNekoEventButton;
-    [SerializeField] FreeCraneIconCtrl _freeCraneIconButton;
-
-    [SerializeField] GameObject objWaitingRequest = null;
+    
+    [SerializeField] FreeSignObjectCtrl _btnCrane; // 크레인 버튼 
+    [SerializeField] GameObject objWaitingRequest = null; // 서버 통신중 화면 가림막 오브젝트 
 
     // 핫타임 마크 
     [SerializeField] GameObject _objHotTimeMark = null;
@@ -197,7 +194,6 @@ public partial class LobbyCtrl : MonoBehaviour {
         _heartBar = GameObject.FindGameObjectWithTag("HeartBar").GetComponent<HeartBarCtrl>();
         //_adsPointBar = GameObject.FindGameObjectWithTag("AdsBar").GetComponent<AdsPointBarCtrl>();
 
-        _lobbyLowerButtons = GameObject.FindGameObjectWithTag("RollupButton");
 
         spNekoRewardTop.GetComponent<UIButton>().enabled = false;
 
@@ -1247,7 +1243,7 @@ public partial class LobbyCtrl : MonoBehaviour {
         - 고양이 생선 먹이기가 완료되면 6
         - 튜토리얼 완전 종료 후 7
         */
-        if (GameSystem.Instance.LocalTutorialStep < 4) {
+        if (GameSystem.Instance.LocalTutorialStep < 4 && GameSystem.Instance.UserCurrentStage == 1) {
             StartCoroutine(TeachingStep1());
         } else {
             // 첫 인게임을 완료한 경우
@@ -1815,27 +1811,14 @@ public partial class LobbyCtrl : MonoBehaviour {
     #region 네코의 보은 관련 처리 
 
 
+    /// <summary>
+    /// 크레인의 Free 사인 세팅 
+    /// </summary>
+    /// <param name="pEnable"></param>
     public void SetFreeCraneIcon(bool pEnable) {
 
-        Debug.Log("▶▶ SetFreeCraneIcon :: " + pEnable);
-
-
-        if(pEnable) {
-            /*
-            if(spNekoRewardTop.gameObject.activeSelf) { // 네코 선물의 활성화 여부에 따라 위치 조정 
-                _freeCraneIconButton.transform.localPosition = PuzzleConstBox.lowerFreeCranePos;
-            }
-            else {
-                _freeCraneIconButton.transform.localPosition = PuzzleConstBox.upperFreeCranePos;
-            }
-            */
-
-            _freeCraneIconButton.Play();
-        }
-        else {
-            //_freeCraneIconButton.StopAllCoroutines();
-            _freeCraneIconButton.gameObject.SetActive(false);
-        }
+        //Debug.Log("▶▶ SetFreeCraneIcon :: " + pEnable);
+        _btnCrane.OnFreeSign(pEnable);
     }
 
     /// <summary>
@@ -3025,16 +3008,7 @@ public partial class LobbyCtrl : MonoBehaviour {
         }
     }
 
-    public NewNekoEventCtrl NewNekoEventButton {
-        get {
-            return _newNekoEventButton;
-        }
-
-        set {
-            _newNekoEventButton = value;
-        }
-    }
-
+    
     public GameObject ObjHotTimeMark {
         get {
             return _objHotTimeMark;

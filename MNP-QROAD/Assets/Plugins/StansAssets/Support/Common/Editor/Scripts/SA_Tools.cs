@@ -49,7 +49,43 @@ namespace SA.Common.Editor {
 				return _SALogo;
 			}
 		}
-		
+
+
+
+		//--------------------------------------
+		// App info
+		//--------------------------------------
+
+
+		public static string ApplicationIdentifier {
+
+			get {
+				#if UNITY_5_6_OR_NEWER
+				return PlayerSettings.applicationIdentifier;
+				#else
+				return PlayerSettings.bundleIdentifier;
+				#endif
+			}
+
+			set {
+				#if UNITY_5_6_OR_NEWER
+				PlayerSettings.applicationIdentifier = value;
+				#else
+				PlayerSettings.bundleIdentifier = value;
+				#endif
+			}
+		}
+
+
+
+		public static Texture2D GetEditorTexture(string path) {
+			path = "Assets/" + path;
+			TextureImporter importer = (TextureImporter)TextureImporter.GetAtPath(path);
+			importer.textureType = TextureImporterType.GUI;
+			AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate);
+
+			return  AssetDatabase.LoadAssetAtPath(path, typeof(Texture2D)) as Texture2D;
+		}
 		
 		public static void DrawSALogo() {
 			
@@ -62,7 +98,20 @@ namespace SA.Common.Editor {
 			}
 		}
 
-		public static bool ToggleFiled(string title, bool value) {
+
+		public static void DrawSeparatorLine()  {
+			GUI.enabled = false ;
+			EditorGUILayout.TextArea("",GUI.skin.horizontalSlider);
+			GUI.enabled = true;
+		}
+
+
+		public static bool ToggleFiled(string title, bool value, string tooltip = "") {
+			return ToggleFiled (new GUIContent (title, tooltip), value);
+		}
+
+
+		public static bool ToggleFiled(GUIContent title, bool value) {
 			
 			Bool initialValue = Bool.Enabled;
 			if(!value) {
@@ -82,8 +131,11 @@ namespace SA.Common.Editor {
 			return value;
 		}
 
+		public static bool YesNoFiled(string title, bool value, string tooltip = "") {
+			return YesNoFiled (new GUIContent (title, tooltip), value);
+		}
 
-		public static bool YesNoFiled(string title, bool value) {
+		public static bool YesNoFiled(GUIContent title, bool value) {
 
 			SA_YesNoBool initialValue = SA_YesNoBool.Yes;
 			if(!value) {
@@ -104,8 +156,26 @@ namespace SA.Common.Editor {
 		}
 
 
-		public static string TextField(string title, string value) {
-			GUIContent c =  new GUIContent(title);
+		public static  System.Enum EnumPopup(string title, System.Enum selected, string tooltip = "") {
+			GUIContent c =  new GUIContent(title, tooltip);
+			return EnumPopup(c, selected);
+		}
+
+		public static  System.Enum EnumPopup(GUIContent title, System.Enum selected) {
+
+			EditorGUILayout.BeginHorizontal();
+			EditorGUILayout.LabelField(title);
+			System.Enum value = EditorGUILayout.EnumPopup (selected);
+			EditorGUILayout.EndHorizontal();
+
+			return value;
+
+		}
+			
+
+
+		public static string TextField(string title, string value, string tooltip = "") {
+			GUIContent c =  new GUIContent(title, tooltip);
 			return TextField(c, value);
 		}
 
@@ -124,6 +194,34 @@ namespace SA.Common.Editor {
 
 		}
 
+		public static void LabelField(string title, string message) {
+			GUIContent c =  new GUIContent(title, "");
+			LabelField (c, message);
+		}
+
+		public static void LabelField(GUIContent label, string message) {
+			EditorGUILayout.BeginHorizontal();
+			EditorGUILayout.LabelField(label);
+			EditorGUILayout.LabelField(message);
+			EditorGUILayout.EndHorizontal();
+		}
+
+
+		public static void SelectableLabel(string title, string message) {
+			GUIContent c =  new GUIContent(title, "");
+			SelectableLabel (c, message);
+		}
+
+		public static void SelectableLabel(GUIContent label, string message) {
+			EditorGUILayout.BeginHorizontal();
+			EditorGUILayout.LabelField(label, GUILayout.Width(180), GUILayout.Height(16));
+			EditorGUILayout.SelectableLabel(message, GUILayout.Height(16));
+			EditorGUILayout.EndHorizontal();
+		}
+
+		public static void SelectableLabelField(GUIContent label, string message) {
+			SelectableLabel (label, message);
+		}
 
 
 
@@ -215,15 +313,6 @@ namespace SA.Common.Editor {
 			SelectableLabelField(FBdkVersion,  SdkVersionCode);
 		}
 
-
-
-		
-		public static void SelectableLabelField(GUIContent label, string value) {
-			EditorGUILayout.BeginHorizontal();
-			EditorGUILayout.LabelField(label, GUILayout.Width(180), GUILayout.Height(16));
-			EditorGUILayout.SelectableLabel(value, GUILayout.Height(16));
-			EditorGUILayout.EndHorizontal();
-		}
 
 	}
 

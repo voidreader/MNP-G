@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.unity3d.player" android:installLocation="preferExternal" android:theme="@android:style/Theme.NoTitleBar" android:versionCode="1" android:versionName="1.0">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="preferExternal" package="APP_BUNDLE_ID" android:versionName="2.0" android:versionCode="2">
   <supports-screens android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:xlargeScreens="true" android:anyDensity="true" />
+  <uses-feature android:glEsVersion="0x00020000" />
   <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="25" />
   <permission android:name="com.qroad.google.mitchirinekopop.permission.C2D_MESSAGE" android:protectionLevel="signature" />
   <application android:icon="@drawable/app_icon" android:label="@string/app_name" android:debuggable="true" android:largeHeap="true" android:theme="@style/UnityThemeSelector" android:name="io.fabric.unity.android.FabricApplication">
@@ -21,12 +22,7 @@
         <action android:name="com.igaworks.liveops.pushservice.CLIENT_PUSH_RECEIVE" />
       </intent-filter>
     </receiver>
-    <receiver android:name="com.androidnative.features.notifications.LocalNotificationReceiver">
-      <intent-filter>
-        <action android:name="com.androidnative.local.intent.OPEN" />
-        <category android:name="android.intent.category.DEFAULT" />
-      </intent-filter>
-    </receiver>
+
     <receiver android:name="com.androidnative.gcm.GcmBroadcastReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
       <intent-filter>
         <action android:name="com.google.android.c2dm.intent.RECEIVE" />
@@ -34,12 +30,17 @@
         <category android:name="com.qroad.google.mitchirinekopop" />
       </intent-filter>
     </receiver>
-    <service android:name="com.androidnative.features.notifications.LocalNotificationService" />
+    <receiver android:name="com.androidnative.features.notifications.LocalNotificationReceiver" android:enabled="true" android:exported="true">
+      <intent-filter>
+        <action android:name="com.androidnative.local.intent.OPEN" />
+        <action android:name="android.intent.action.BOOT_COMPLETED" />
+        <category android:name="android.intent.category.DEFAULT" />
+      </intent-filter>
+    </receiver>
     <service android:enabled="true" android:name="com.igaworks.liveops.pushservice.GCMIntentService" />
     <service android:name="com.androidnative.gcm.GcmIntentService" />
-    <provider android:name="com.facebook.FacebookContentProvider" android:authorities="com.facebook.app.FacebookContentProvider450213765328544" android:exported="true" />
-    <activity android:name="com.unity3d.player.UnityPlayerNativeActivity" android:label="@string/app_name">
-      <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
+    <service android:name="com.androidnative.features.notifications.LocalNotificationService" />
+    <activity android:name="com.unity3d.player.UnityPlayerActivity" android:label="@string/app_name" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:launchMode="singleTask" android:screenOrientation="landscape">
       <meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="false" />
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
@@ -59,14 +60,9 @@
       </intent-filter>
     </activity>
     <activity android:name="com.facebook.LoginActivity" android:label="@string/app_name" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:configChanges="keyboardHidden|orientation" />
-    <activity android:name="com.facebook.unity.FBUnityLoginActivity" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+    <activity android:name="com.facebook.unity.FBUnityLoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" />
     <activity android:name="com.facebook.unity.FBUnityDeepLinkingActivity" android:exported="true" />
-    <activity android:name="com.facebook.unity.FBUnityDialogsActivity" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
-    <activity android:name="com.facebook.unity.FBUnityAppLinkActivity" android:exported="true" />
-    <activity android:name="com.facebook.unity.FBUnityGameRequestActivity" />
-    <activity android:name="com.facebook.unity.FBUnityCreateGameGroupActivity" />
-    <activity android:name="com.facebook.unity.FBUnityJoinGameGroupActivity" />
-    <activity android:name="com.facebook.unity.AppInviteDialogActivity" />
+    <activity android:name="com.facebook.unity.FBUnityDialogsActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" />
     <activity android:name="com.facebook.FacebookActivity" android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
     <activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:theme="@android:style/Theme.Translucent" />
   </application>
@@ -77,6 +73,7 @@
   <uses-permission android:name="android.permission.WAKE_LOCK" />
   <uses-permission android:name="android.permission.VIBRATE" />
   <uses-permission android:name="android.permission.GET_TASKS" />
+  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 </manifest>

@@ -179,6 +179,23 @@ public class AndroidNative {
 		CallAndroidNativeBridge ("GenerateRefreshToken", redirectUrl, clientId);
 	}
 
+	public static void SaveToCacheStorage(string key, string value) {
+		CallUtility ("SaveToCacheStorage", key, value);
+	}
+
+	public static string GetFromCacheStorage(string key) {
+		#if UNITY_ANDROID
+		return CallUtilityForResult<string> ("GetFromCacheStorage", key);
+		#else
+		return string.Empty;
+		#endif
+
+	}
+
+	public static void RemoveData(string key) {
+		CallAndroidNativeBridge ("RemoveData", key);
+	}
+
 	private const string UTILITY_CLASSS = "com.androidnative.features.common.AndroidNativeUtility";
 	
 	private static void CallUtility(string methodName, params object[] args) {

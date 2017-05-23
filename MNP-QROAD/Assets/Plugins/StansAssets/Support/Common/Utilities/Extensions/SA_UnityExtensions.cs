@@ -10,36 +10,95 @@
 using UnityEngine;
 using System.Collections;
 
-//namespace SA.Common.Extensions {
 
-	public static class SA_UnityExtensions  {
+public static class SA_UnityExtensions  {
 
-
-		public static void MoveTo(this GameObject go, Vector3 position, float time, SA.Common.Animation.EaseType easeType = SA.Common.Animation.EaseType.linear, System.Action OnCompleteAction = null ) {
-			SA.Common.Animation.ValuesTween tw = go.AddComponent<SA.Common.Animation.ValuesTween>();
-
-			tw.DestoryGameObjectOnComplete = false;
-			tw.VectorTo(go.transform.position, position, time, easeType);
-
-			tw.OnComplete += OnCompleteAction;
-		}
+	//--------------------------------------
+	// GameObject
+	//--------------------------------------
 
 
-		public static void ScaleTo(this GameObject go, Vector3 scale, float time, SA.Common.Animation.EaseType easeType = SA.Common.Animation.EaseType.linear, System.Action OnCompleteAction = null ) {
-			SA.Common.Animation.ValuesTween tw = go.AddComponent<SA.Common.Animation.ValuesTween>();
+	public static void MoveTo(this GameObject go, Vector3 position, float time, SA.Common.Animation.EaseType easeType = SA.Common.Animation.EaseType.linear, System.Action OnCompleteAction = null ) {
+		SA.Common.Animation.ValuesTween tw = go.AddComponent<SA.Common.Animation.ValuesTween>();
 
-			tw.DestoryGameObjectOnComplete = false;
-			tw.ScaleTo(go.transform.localScale, scale, time, easeType);
+		tw.DestoryGameObjectOnComplete = false;
+		tw.VectorTo(go.transform.position, position, time, easeType);
 
-			tw.OnComplete += OnCompleteAction;
-		}
-
-
-		public static Sprite ToSprite(this Texture2D texture) {
-			return Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f)); 
-		}
-			
-
+		tw.OnComplete += OnCompleteAction;
 	}
 
-//}
+
+	public static void ScaleTo(this GameObject go, Vector3 scale, float time, SA.Common.Animation.EaseType easeType = SA.Common.Animation.EaseType.linear, System.Action OnCompleteAction = null ) {
+		SA.Common.Animation.ValuesTween tw = go.AddComponent<SA.Common.Animation.ValuesTween>();
+
+		tw.DestoryGameObjectOnComplete = false;
+		tw.ScaleTo(go.transform.localScale, scale, time, easeType);
+
+		tw.OnComplete += OnCompleteAction;
+	}
+
+	//--------------------------------------
+	// Texture2D
+	//--------------------------------------
+
+	public static Sprite ToSprite(this Texture2D texture) {
+		return Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f)); 
+	}
+
+	//--------------------------------------
+	// Vector3
+	//--------------------------------------
+
+	public static Vector3 Reset(this Vector3 vec) {
+		return Vector3.zero;
+	}
+		
+
+	public static Vector3 ResetXCoord(this Vector3 vec) {
+		Vector3 newVec = vec;
+		newVec.x = 0f;
+
+		return newVec;
+	}
+
+	public static Vector3 ResetYCoord(this Vector3 vec) {
+		Vector3 newVec = vec;
+		newVec.y = 0f;
+
+		return newVec;
+	}
+
+	public static Vector3 ResetZCoord(this Vector3 vec) {
+		Vector3 newVec = vec;
+		newVec.z = 0f;
+
+		return newVec;
+	}
+
+
+	//--------------------------------------
+	// String
+	//--------------------------------------
+
+
+	public static string GetLast(this string source, int count) {
+		if(count >= source.Length)
+			return source;
+		return source.Substring(source.Length - count);
+	}
+
+	public static string GetFirst(this string source, int count) {
+
+
+		if(count >= source.Length)
+			return source;
+		return source.Substring (0, count);
+	}
+
+
+
+		
+
+}
+
+

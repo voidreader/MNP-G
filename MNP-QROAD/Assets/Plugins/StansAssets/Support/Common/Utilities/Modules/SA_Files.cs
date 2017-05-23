@@ -112,6 +112,11 @@ namespace SA.Common.Util {
 			return Directory.Exists (GetFullPath(folderPath));
 		}
 
+		public static string[] GetFoldersAt(string folderPath) {
+			
+			return Directory.GetDirectories (GetFullPath(folderPath));
+		}
+
 		public static void CreateFolder(string folderPath) {
 			if (!IsFolderExists (folderPath)) {
 				Directory.CreateDirectory (GetFullPath (folderPath));

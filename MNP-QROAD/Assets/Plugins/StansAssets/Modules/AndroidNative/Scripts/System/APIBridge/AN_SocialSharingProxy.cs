@@ -51,7 +51,9 @@ public class AN_SocialSharingProxy {
 		CallActivityFunction("InstagramPostImage", data, cpation);
 	}
 
-
+	public static void SendTextMessage(string message, string recepients){
+		CallActivityFunction ("SendTextMessage", message, recepients);
+	}
 
 
 

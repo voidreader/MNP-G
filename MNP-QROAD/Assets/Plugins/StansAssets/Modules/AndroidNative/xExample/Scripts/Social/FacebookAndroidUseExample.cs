@@ -46,21 +46,13 @@ public class FacebookAndroidUseExample : MonoBehaviour {
 //	private Dictionary<string, FBPermission> permissions = new Dictionary<string, FBPermission>();
 	
 	void Awake() {
-		
-
 		SPFacebook.OnInitCompleteAction += OnInit;
 		SPFacebook.OnFocusChangedAction += OnFocusChanged;
 
-
 		SPFacebook.OnAuthCompleteAction += OnAuth;
-
-		
 
 		SPFacebook.OnPostingCompleteAction += OnPost;
 
-		
-
-		
 		//scores Api events
 		SPFacebook.OnPlayerScoresRequestCompleteAction += OnPlayerScoreRequestComplete; 
 		SPFacebook.OnAppScoresRequestCompleteAction += OnAppScoreRequestComplete; 
@@ -72,12 +64,7 @@ public class FacebookAndroidUseExample : MonoBehaviour {
 		
 		SPFacebook.Instance.Init();
 		
-		
-		
 		SA_StatusBar.text = "initializing Facebook";
-		
-		
-		
 	}
 
 	void HandleOnRevokePermission (FB_Result result)
@@ -161,14 +148,14 @@ public class FacebookAndroidUseExample : MonoBehaviour {
 
 	
 	private void PostWithAuthCheck() {
-		SPFacebook.Instance.FeedShare (
+        SPFacebook.Instance.FeedShare (
 			link: "https://example.com/myapp/?storyID=thelarch",
 			linkName: "The Larch",
 			linkCaption: "I thought up a witty tagline about larches",
 			linkDescription: "There are a lot of larch trees around here, aren't there?",
 			picture: "https://example.com/myapp/assets/1/larch.jpg"
 			);
-	}
+    }
 	
 	
 	private void PostNativeScreenshot() {

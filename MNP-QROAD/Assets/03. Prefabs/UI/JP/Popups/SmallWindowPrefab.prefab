@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 114043690519253378}
   - component: {fileID: 114484446655039282}
   m_Layer: 5
-  m_Name: Label
+  m_Name: lblPermission
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -216,7 +216,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1983524451080712
 GameObject:
   m_ObjectHideFlags: 1
@@ -227,13 +227,14 @@ GameObject:
   - component: {fileID: 4486800290256970}
   - component: {fileID: 114578646640137758}
   - component: {fileID: 114338942220025066}
+  - component: {fileID: 65076951886500520}
   m_Layer: 5
   m_Name: Checker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4002833223685410
 Transform:
   m_ObjectHideFlags: 1
@@ -307,12 +308,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1349454151778406}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 246, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 70, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4486800290256970}
-  m_RootOrder: 0
+  m_Father: {fileID: 4678471959409758}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4341654874677850
 Transform:
@@ -334,7 +335,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1305350111620920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -207, z: 0}
+  m_LocalPosition: {x: 0, y: -215, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4253607598526904}
@@ -363,8 +364,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -230, y: 70, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4304473999920044}
+  m_Children: []
   m_Father: {fileID: 4678471959409758}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -386,6 +386,7 @@ Transform:
   - {fileID: 4341654874677850}
   - {fileID: 4002833223685410}
   - {fileID: 4886338799086764}
+  - {fileID: 4304473999920044}
   m_Father: {fileID: 4289414124259700}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -409,12 +410,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1828358996616684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -123, z: 0}
+  m_LocalPosition: {x: 0, y: -125, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4678471959409758}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65076951886500520
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1983524451080712}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 60, y: 60, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65095717390360696
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -490,12 +503,12 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 15.384615
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 9c04bcf3c2951624ba083e4d3e4fc7a2, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
   mText: "\uC0AC\uC9C4, \uBBF8\uB514\uC5B4, \uD30C\uC77C \uC0AC\uC6A9 (\uD544\uC218)"
   mFontSize: 25
   mFontStyle: 0
-  mAlignment: 1
+  mAlignment: 2
   mEncoding: 0
   mMaxLineCount: 0
   mEffectStyle: 0
@@ -558,7 +571,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 3.6666667
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 9c04bcf3c2951624ba083e4d3e4fc7a2, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
   mText: OK
   mFontSize: 36
@@ -740,19 +753,20 @@ MonoBehaviour:
   mColor: {r: 0.834, g: 0.1764706, b: 0.078431375, a: 1}
   mPivot: 4
   mWidth: 600
-  mHeight: 25
+  mHeight: 50
   mDepth: 10
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 24
+  aspectRatio: 12
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 9c04bcf3c2951624ba083e4d3e4fc7a2, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
-  mText: "\uAD8C\uD55C\uC774 \uD5C8\uC6A9\uB418\uC9C0 \uC54A\uC73C\uBA74 \uC815\uC0C1\uC801\uC778
-    \uC124\uCE58 \uBC0F \uC774\uC6A9\uC774 \uBD88\uAC00\uB2A5\uD569\uB2C8\uB2E4."
-  mFontSize: 24
+  mText: "\uAD8C\uD55C \uC694\uCCAD\uC5D0 \uB300\uD574 \uB2E4\uC2DC \uBB3B\uC9C0 \uC54A\uAE30\uB97C
+    \uCCB4\uD06C\uD558\uC600\uC2B5\uB2C8\uB2E4.\n\uC571 \uC124\uC815\uC5D0\uC11C \uAD8C\uD55C
+    \uC2B9\uC778\uC774 \uD544\uC694\uD569\uB2C8\uB2E4."
+  mFontSize: 23
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 0
@@ -933,7 +947,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 7.142857
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 9c04bcf3c2951624ba083e4d3e4fc7a2, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
   mText: "\uAC8C\uC784 \uC774\uC6A9\uC744 \uC704\uD55C \uAD8C\uD55C \uC694\uCCAD"
   mFontSize: 40
@@ -1096,6 +1110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15131742f69ab1349b57a838b9beda2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scaleSize: 1.02
 --- !u!114 &114685943797857992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1109,6 +1124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _btnCheck: {fileID: 114338942220025066}
   _lblErr: {fileID: 1828358996616684}
+  _isNeverAsk: 0
 --- !u!114 &114744166788945208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1285,7 +1301,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 6.7105265
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 9c04bcf3c2951624ba083e4d3e4fc7a2, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
   mText: "[FFF55AFF]\uACE0\uAC1D\uB2D8\uC758 \uC0AC\uC9C4\uACFC \uD30C\uC77C\uC5D0\uB294
     \uC811\uADFC\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4.[-]\n\n\uC774 \uAD8C\uD55C\uC740

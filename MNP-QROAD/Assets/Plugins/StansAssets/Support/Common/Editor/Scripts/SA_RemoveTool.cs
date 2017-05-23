@@ -31,7 +31,7 @@ namespace SA.Common.Editor {
 		public static void RemovePlugins() {
 			
 			int option = EditorUtility.DisplayDialogComplex(
-				"Remove Stans Asets Plugins",
+				"Remove Stan's Assets Plugins",
 				"Following plugins wiil be removed:\n" + VersionsManager.InstalledPluginsList,
 				"Remove",
 				"Cancel",
@@ -54,6 +54,8 @@ namespace SA.Common.Editor {
 		
 		
 		private static void ProcessRemove() {
+
+			//Old plugins location, just in case
 			SA.Common.Util.Files.DeleteFolder ("Extensions/AllDocumentation");
 			SA.Common.Util.Files.DeleteFolder ("Extensions/FlashLikeEvents");
 			SA.Common.Util.Files.DeleteFolder ("Extensions/AndroidManifestManager");
@@ -61,58 +63,38 @@ namespace SA.Common.Editor {
 			SA.Common.Util.Files.DeleteFolder ("Extensions/StansAssetsCommon");
 			SA.Common.Util.Files.DeleteFolder ("Extensions/StansAssetsPreviewUI");
 			SA.Common.Util.Files.DeleteFolder ("Extensions/IOSDeploy");
+			SA.Common.Util.Files.DeleteFolder ("Extensions/AndroidNative");
+			SA.Common.Util.Files.DeleteFolder ("Extensions/MobileSocialPlugin");
+			SA.Common.Util.Files.DeleteFolder ("Extensions/GoogleMobileAd");
+			SA.Common.Util.Files.DeleteFolder("Extensions/IOSNative");
+			SA.Common.Util.Files.DeleteFolder("Extensions/UltimateMobile");
+			SA.Common.Util.Files.DeleteFolder("Extensions/WP8Native");
+			SA.Common.Util.Files.DeleteFolder("WebPlayerTemplates");
+			SA.Common.Util.Files.DeleteFolder("Extensions/GoogleAnalytics");
+			SA.Common.Util.Files.DeleteFolder("Extensions/MobileNativePopUps");
 
-			
-			if (VersionsManager.Is_AN_Installed) {
-				SA.Common.Util.Files.DeleteFolder ("Extensions/AndroidNative");
-                SA.Common.Util.Files.DeleteFolder(SA.Common.Config.MODULS_PATH + "AndroidNative");
-				RemoveAndroidPart();	
-			}
-			
-			
-			if (VersionsManager.Is_MSP_Installed){
-				SA.Common.Util.Files.DeleteFolder ("Extensions/MobileSocialPlugin");
-                SA.Common.Util.Files.DeleteFolder(SA.Common.Config.MODULS_PATH + "MobileSocialPlugin");
-                RemoveIOSPart();
-				RemoveAndroidPart();
-			}
-			
-			
-			if (VersionsManager.Is_GMA_Installed){
-				SA.Common.Util.Files.DeleteFolder ("Extensions/GoogleMobileAd");
-                SA.Common.Util.Files.DeleteFolder(SA.Common.Config.MODULS_PATH + "GoogleMobileAd");
-                RemoveIOSPart();
-				RemoveAndroidPart();
-				RemoveWP8Part();
-			}
-			
-			
-			
-			if (VersionsManager.Is_ISN_Installed){
-				SA.Common.Util.Files.DeleteFolder("Extensions/IOSNative");
-                SA.Common.Util.Files.DeleteFolder(SA.Common.Config.MODULS_PATH + "IOSNative");
-                RemoveIOSPart();
-			}
-			
-			
-			if (VersionsManager.Is_UM_Installed){
-				SA.Common.Util.Files.DeleteFolder("Extensions/UltimateMobile");
-				SA.Common.Util.Files.DeleteFolder("Extensions/WP8Native");
-				SA.Common.Util.Files.DeleteFolder("WebPlayerTemplates");
-				SA.Common.Util.Files.DeleteFolder("Extensions/GoogleAnalytics");
-				SA.Common.Util.Files.DeleteFolder("Extensions/MobileNativePopUps");
-				
-				RemoveWP8Part();
-				RemoveIOSPart();
-				RemoveAndroidPart();
-			}
-			
-			
-			SA.Common.Util.Files.DeleteFolder ("Plugins/StansAssets");
+
+
+
+			RemoveWP8Part();
+			RemoveIOSPart();
+			RemoveAndroidPart();
+
+
+			SA.Common.Util.Files.DeleteFolder (SA.Common.Config.MODULS_PATH);
+			SA.Common.Util.Files.DeleteFolder (SA.Common.Config.BUNDLES_PATH);
+
+	
+			SA.Common.Util.Files.DeleteFolder (SA.Common.Config.COMMON_LIB_PATH);
+			SA.Common.Util.Files.DeleteFolder (SA.Common.Config.VERSION_INFO_PATH);
+			SA.Common.Util.Files.DeleteFolder (SA.Common.Config.NATIVE_LIBRARIES_PATH);
+			SA.Common.Util.Files.DeleteFolder (SA.Common.Config.EDITOR_TESTING_LIB_PATH);
+		
+
+
+
 			AssetDatabase.Refresh();
-			
-			
-			EditorUtility.DisplayDialog("Plugins Removed", "Unity Editor relaunch required.", "Okay");
+			EditorUtility.DisplayDialog("Plugins Removed Successfully", "Unity Editor Restart Required.", "Okay");
 		}
 		
 		

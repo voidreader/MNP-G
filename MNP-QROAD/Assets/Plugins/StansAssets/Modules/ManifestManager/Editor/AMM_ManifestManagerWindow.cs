@@ -243,11 +243,11 @@ namespace SA.Manifest {
 							dlg.onClose += OnPermissionDlgClose;
 							dlg.onAddClick += OnAddActivityClick;
 							
-							#if UNITY_5 && !UNITY_5_0
+#if UNITY_5 && !UNITY_5_0
 							dlg.titleContent.text = "Add Activity";
-							#else
+#else
 							dlg.title = "Add Activity";
-							#endif
+#endif
 							
 							dlg.ShowAuxWindow();
 						}
@@ -308,11 +308,11 @@ namespace SA.Manifest {
 							dlg.onClose += OnPermissionDlgClose;
 							dlg.onAddClick += OnAddPermissionClick;
 							
-							#if UNITY_5 && !UNITY_5_0
+#if UNITY_5 && !UNITY_5_0
 							dlg.titleContent.text = "Add Permission";
-							#else
+#else
 							dlg.title = "Add Permission";
-							#endif
+#endif
 							
 							
 							dlg.ShowAuxWindow();
@@ -343,7 +343,7 @@ namespace SA.Manifest {
 			SelectableLabelField(SupportEmail, "stans.assets@gmail.com");
 
 
-			#if DISABLED
+#if DISABLED
 			
 			EditorGUILayout.Space();
 			EditorGUILayout.LabelField("Note: ", EditorStyles.boldLabel);
@@ -367,7 +367,7 @@ namespace SA.Manifest {
 			
 			EditorGUILayout.EndHorizontal();
 
-			#endif
+#endif
 		}
 
 		private void SelectableLabelField(GUIContent label, string value) {
@@ -491,11 +491,11 @@ namespace SA.Manifest {
 			dialog.onAddClick += OnAddValueClick;
 			dialog.onClose += OnValueDlgClose;
 
-			#if UNITY_5 && !UNITY_5_0
+#if UNITY_5 && !UNITY_5_0
 			dialog.titleContent.text = "Add Value";
-			#else
+#else
 			dialog.title = "Add Value";
-			#endif
+#endif
 
 			dialog.ShowAuxWindow();
 		}
@@ -507,11 +507,11 @@ namespace SA.Manifest {
 			dialog.onAddClick += OnAddPropertyClick;
 			dialog.onClose += OnPropertyDlgClose;
 
-			#if UNITY_5 && !UNITY_5_0
+#if UNITY_5 && !UNITY_5_0
 			dialog.titleContent.text = "Add Property";
-			#else
+#else
 			dialog.title = "Add Property";
-			#endif
+#endif
 
 			dialog.ShowAuxWindow();
 		}

@@ -89,10 +89,12 @@ namespace SA.Common.Editor {
 			SA.Common.Util.Files.DeleteFolder(SA.Common.Config.ANDROID_DESTANATION_PATH + "facebook");
 			SA.Common.Util.Files.DeleteFolder("Plugins/facebook", false);
 			SA.Common.Util.Files.DeleteFolder("Facebook", false);
-			SA.Common.Util.Files.DeleteFolder("FacebookSDK", false);
-			
-			//MSP
-			SA.Common.Util.Files.DeleteFile("Extensions/MobileSocialPlugin/Example/Scripts/MSPFacebookUseExample.cs", false);
+            SA.Common.Util.Files.DeleteFolder("Plugins/Facebook", false);
+            SA.Common.Util.Files.DeleteFolder("FacebookSDK", false);
+            SA.Common.Util.Files.DeleteFolder("Plugins/FacebookSDK", false);
+
+            //MSP
+            SA.Common.Util.Files.DeleteFile("Extensions/MobileSocialPlugin/Example/Scripts/MSPFacebookUseExample.cs", false);
 			SA.Common.Util.Files.DeleteFile("Extensions/MobileSocialPlugin/Example/Scripts/MSP_FacebookAnalyticsExample.cs", false);
 			SA.Common.Util.Files.DeleteFile("Extensions/MobileSocialPlugin/Example/Scripts/MSP_FacebookAndroidTurnBasedAndGiftsExample.cs", false);
 			
@@ -262,6 +264,26 @@ namespace SA.Common.Editor {
 			SA.Common.Util.Files.DeleteFile(SA.Common.Config.ANDROID_DESTANATION_PATH + "libs/firebase-analytics-impl.aar");
 			SA.Common.Util.Files.DeleteFile(SA.Common.Config.ANDROID_DESTANATION_PATH + "libs/firebase-common.aar");
 			SA.Common.Util.Files.DeleteFile(SA.Common.Config.ANDROID_DESTANATION_PATH + "libs/firebase-iid.aar");
+		}
+
+		public static void EnableGoogleFit() {
+			#if UNITY_4_6 || UNITY_4_7
+			SA.Common.Util.Files.CopyFile(SA.Common.Config.ANDROID_SOURCE_PATH + "fitness/an_fitness.jar.txt", 				SA.Common.Config.ANDROID_DESTANATION_PATH + "libs/an_fitness.jar");
+			SA.Common.Util.Files.CopyFile(SA.Common.Config.ANDROID_SOURCE_PATH + "fitness/play-services-fitness.jar.txt", 	SA.Common.Config.ANDROID_DESTANATION_PATH + "libs/play-services-fitness.jar");
+			#else
+			SA.Common.Util.Files.CopyFile(SA.Common.Config.ANDROID_SOURCE_PATH + "fitness/an_fitness.txt", 					SA.Common.Config.ANDROID_DESTANATION_PATH + "libs/an_fitness.aar");
+			SA.Common.Util.Files.CopyFile(SA.Common.Config.ANDROID_SOURCE_PATH + "fitness/play-services-fitness.txt", 		SA.Common.Config.ANDROID_DESTANATION_PATH + "libs/play-services-fitness.aar");
+			#endif
+		}
+
+		public static void DisableGoogleFit() {
+			#if UNITY_4_6 || UNITY_4_7
+			SA.Common.Util.Files.DeleteFile(SA.Common.Config.ANDROID_DESTANATION_PATH + "libs/an_fitness.jar");
+			SA.Common.Util.Files.DeleteFile(SA.Common.Config.ANDROID_DESTANATION_PATH + "libs/play-services-fitness.jar");
+			#else
+			SA.Common.Util.Files.DeleteFile(SA.Common.Config.ANDROID_DESTANATION_PATH + "libs/an_fitness.aar");
+			SA.Common.Util.Files.DeleteFile(SA.Common.Config.ANDROID_DESTANATION_PATH + "libs/play-services-fitness.aar");
+			#endif
 		}
 		
 		public static void EnableGooglePlayAPI() {
@@ -676,8 +698,10 @@ namespace SA.Common.Editor {
 		public static bool IsFacebookInstalled {
 			get {
 				return SA.Common.Util.Files.IsFileExists("Facebook/Scripts/FB.cs")
-					|| SA.Common.Util.Files.IsFileExists("FacebookSDK/SDK/Scripts/FB.cs")
-					|| SA.Common.Util.Files.IsFileExists("FacebookSDK/Plugins/Facebook.Unity.dll");
+                    || SA.Common.Util.Files.IsFileExists("Plugins/Facebook/Scripts/FB.cs")
+                    || SA.Common.Util.Files.IsFileExists("FacebookSDK/SDK/Scripts/FB.cs")
+					|| SA.Common.Util.Files.IsFileExists("FacebookSDK/Plugins/Facebook.Unity.dll")
+					|| SA.Common.Util.Files.IsFileExists("Plugins/FacebookSDK/Plugins/Facebook.Unity.dll");
 			}
 		}
 		

@@ -392,7 +392,7 @@ public class PlayServiceExample : AndroidNativeExampleBase {
 		if (result.IsSucceeded) {
 			SA_StatusBar.text = "Score Submited:  " + result.Message
 			+ " LeaderboardId: " + result.Leaderboard.Id
-			+ " LongScore: " + result.Leaderboard.GetCurrentPlayerScore(GPBoardTimeSpan.ALL_TIME, GPCollectionType.GLOBAL).LongScore;
+				+ " LongScore: " + result.Leaderboard.GetCurrentPlayerScore(GPBoardTimeSpan.ALL_TIME, GPCollectionType.FRIENDS).LongScore;
 		} else {
 			SA_StatusBar.text = "Score Submit Fail:  " + result.Message;
 		}

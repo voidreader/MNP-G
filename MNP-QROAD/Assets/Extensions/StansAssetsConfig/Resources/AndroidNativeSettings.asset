@@ -21,6 +21,8 @@ MonoBehaviour:
   LoadQuestsIcons: 1
   LoadEventsIcons: 1
   ShowConnectingPopup: 1
+  AutoLoadLocalPlayerScore: 0
+  GoogleFitEnabled: 0
   EnableATCSupport: 0
   OneSignalEnabled: 0
   OneSignalAppID: YOUR_ONESIGNAL_APP_ID

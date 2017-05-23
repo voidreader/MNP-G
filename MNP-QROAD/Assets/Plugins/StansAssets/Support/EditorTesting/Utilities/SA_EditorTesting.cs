@@ -42,7 +42,7 @@ public static class SA_EditorTesting  {
 
 		if(es == null) {
 			#if UNITY_EDITOR
-			GameObject o = AssetDatabase.LoadAssetAtPath("Assets/Extensions/StansAssetsCommon/EditorTesting/UI/Prefabs/EventSystem.prefab", typeof(GameObject)) as GameObject;
+			GameObject o = AssetDatabase.LoadAssetAtPath("Assets/Plugins/StansAssets/Support/EditorTesting/UI/Prefabs/EventSystem.prefab", typeof(GameObject)) as GameObject;
 			GameObject.Instantiate(o);
 			#endif
 		}

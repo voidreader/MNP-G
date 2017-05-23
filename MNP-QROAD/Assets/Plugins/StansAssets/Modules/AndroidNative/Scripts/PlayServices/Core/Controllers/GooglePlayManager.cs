@@ -165,18 +165,12 @@ public class GooglePlayManager : SA.Common.Pattern.Singleton<GooglePlayManager> 
 		AN_GMSGeneralProxy.loadTopScores(leaderboardId, (int) span, (int) collection, maxResults);
 	}
 
-
-
-
-
 	public void UnlockAchievement(string achievementName) {
 		if(AndroidNativeSettings.Instance.Is_Achievements_Editor_Notifications_Enabled)
 			SA_EditorNotifications.ShowNotification(achievementName, "Unlock Method Called", SA_EditorNotificationType.Achievement);
 
 		if (!GooglePlayConnection.CheckState ()) { return; }
 		AN_GMSGeneralProxy.reportAchievement (achievementName);
-
-
 	}
 	
 	public void UnlockAchievementById(string achievementId) {
@@ -205,8 +199,7 @@ public class GooglePlayManager : SA.Common.Pattern.Singleton<GooglePlayManager> 
 
 		if (!GooglePlayConnection.CheckState ()) { return; }
 		AN_GMSGeneralProxy.revealAchievementById (achievementId);
-	}
-	
+	}	
 
 
 	public void IncrementAchievement(string achievementName, int numsteps) {
@@ -245,11 +238,8 @@ public class GooglePlayManager : SA.Common.Pattern.Singleton<GooglePlayManager> 
 
 	public void ResetAllAchievements() {
 		if (!GooglePlayConnection.CheckState ()) { return; }
-		AN_GMSGeneralProxy.ResetAllAchievements();
-		
-	}
-
-	
+		AN_GMSGeneralProxy.ResetAllAchievements();		
+	}	
 
 	public void ResetLeaderBoard(string leaderboardId) {
 		if (!GooglePlayConnection.CheckState ()) { return; }
@@ -639,7 +629,11 @@ public class GooglePlayManager : SA.Common.Pattern.Singleton<GooglePlayManager> 
 		if (result.IsSucceeded) {
 			Debug.Log("Score was submitted to leaderboard -> " + lb);
 
-			UpdatePlayerScoreLocal(lb);
+			if (AndroidNativeSettings.Instance.AutoLoadLocalPlayerScore) {
+				UpdatePlayerScoreLocal (lb);
+			} else {
+				ActionScoreSubmited (result);
+			}
 		} else {
 			ActionScoreSubmited(result);
 		}

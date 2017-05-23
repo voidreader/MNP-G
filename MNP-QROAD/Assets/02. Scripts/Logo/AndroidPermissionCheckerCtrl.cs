@@ -6,14 +6,14 @@ using UnityEngine;
 
 public class AndroidPermissionCheckerCtrl : MonoBehaviour {
 
-    bool _isChecked = false;
+    //bool _isChecked = false;
 
     [SerializeField] UIButton _btnCheck;
     [SerializeField] GameObject _lblErr;
 
     bool _isGranted = false;
 
-    [SerializeField] bool _isNeverAsk = false;
+    //[SerializeField] bool _isNeverAsk = false;
 
     public static event Action OnCompleteGrant = delegate { };
 
@@ -24,6 +24,7 @@ public class AndroidPermissionCheckerCtrl : MonoBehaviour {
 	}
 
     public void OnCheck() {
+        /*
         if (_btnCheck.normalSprite == "c-none") { // 체크되지 않은 상태에서  체크로 변경 
             _btnCheck.normalSprite = "c-in";
             _isChecked = true;
@@ -32,6 +33,7 @@ public class AndroidPermissionCheckerCtrl : MonoBehaviour {
             _btnCheck.normalSprite = "c-none";
             _isChecked = false;
         }
+        */
     }
 
 
@@ -40,14 +42,14 @@ public class AndroidPermissionCheckerCtrl : MonoBehaviour {
     /// </summary>
     public void OpenChecker(Action pComplete) {
 
-        _isNeverAsk = false;
+        //_isNeverAsk = false;
         this.gameObject.SetActive(true);
 
         OnCompleteGrant = delegate { };
         OnCompleteGrant += pComplete;
 
         _btnCheck.normalSprite = "c-none";
-        _isChecked = false;
+        //_isChecked = false;
         _isGranted = false;
         _lblErr.SetActive(false);
     }
@@ -58,14 +60,14 @@ public class AndroidPermissionCheckerCtrl : MonoBehaviour {
     /// </summary>
     /// <param name="pComplete"></param>
     public void OpenNeverAskChecker(Action pComplete) {
-        _isNeverAsk = true;
+        //_isNeverAsk = true;
         this.gameObject.SetActive(true);
 
         OnCompleteGrant = delegate { };
         OnCompleteGrant += pComplete;
 
         _btnCheck.normalSprite = "c-none";
-        _isChecked = false;
+        //_isChecked = false;
         _isGranted = false;
         _lblErr.SetActive(true);
         _lblErr.GetComponent<UILabel>().text = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3511);
@@ -78,22 +80,23 @@ public class AndroidPermissionCheckerCtrl : MonoBehaviour {
     /// </summary>
     public void RequestPermission() {
 
+        /*
         if(_isNeverAsk) {
             OnCompleteGrant(); // 다시 묻지 않기를 클릭한 경우는 게임을 종료한다. 
         }
+        */
 
-
+        /*
         if(!_isChecked) { // 체크되지 않은 경우. 
 
             _lblErr.SetActive(true);
             _lblErr.GetComponent<UILabel>().text = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3508);
             return;
-
-
         }
         else {
             _lblErr.SetActive(false);
         }
+        */
 
         Debug.Log("★★ RequestPermission ");
 
@@ -146,7 +149,11 @@ public class AndroidPermissionCheckerCtrl : MonoBehaviour {
             this.gameObject.SetActive(false); 
         }
         else {
-            _lblErr.SetActive(true);
+            // _lblErr.SetActive(true);
+            Debug.Log("★★ PermissionsManager_ActionPermissionsRequestCompleted Denied!!!! ");
+            // 거부된 경우는 안내팝업창을 띄운다.
+            TitleCtrl.Instance.OpenTitleMessage(PopMessageType.RuntimePermissionDenied, delegate { });
+
         }
         
     } 

@@ -25,8 +25,6 @@ public class PermissionsAPIExample : MonoBehaviour {
 	}
 
 	public void RequestPermission() {
-
-
         PermissionsManager.Instance.RequestPermissions(AN_Permission.WRITE_EXTERNAL_STORAGE, AN_Permission.CAMERA);
 	}
 
