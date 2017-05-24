@@ -253,7 +253,7 @@ public class FishGatchCtrl : MonoBehaviour {
         _resultMainFishGroup.SetActive(true);
         GameSystem.Instance.SetFishSprite(_resultMainFish, GameSystem.Instance.FishGachaJSON["fishlist"][0]["type"].Value);
 
-        //_resultNekoSprite.transform.DOLocalJump(destPos, destPos.y + 100f, 1, 1f).OnComplete(OnCompleteSingleLocalJump); // 점핑 등장.
+        
         Vector3 jumpDestPos = Vector3.zero;
         _resultMainFish.transform.DOLocalJump(jumpDestPos, 100, 1, 0.5f);
 

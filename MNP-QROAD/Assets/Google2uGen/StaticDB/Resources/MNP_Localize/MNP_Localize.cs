@@ -223,7 +223,7 @@ namespace Google2u
 			, "L3439", "L3440", "L3441", "L3442", "L3443", "L3444", "L3445", "L3446", "L3447", "L3448", "L3449", "L3450", "L3451", "L3452", "L3453", "L3454", "L3455", "L3456", "L3457", "L3458"
 			, "L3459", "L3460", "L3461", "L3462", "L3463", "L3464", "L3465", "L3466", "L3467", "L3468", "L3469", "L3470", "L3471", "L3472", "L3473", "L3474", "L3475", "L3476", "L3477", "L3478"
 			, "L3479", "L3480", "L3481", "L3482", "L3483", "L3484", "L3485", "L3486", "L3487", "L3488", "L3489", "L3490", "L3491", "L3492", "L3493", "L3494", "L3495", "L3496", "L3497", "L3498"
-			, "L3500", "L3501", "L3502", "L3503", "L3504", "L3505", "L3506", "L3507", "L3508", "L3509", "L3510", "L3511", "L3512", "L3550", "L3551", "L3551", "L3553", "L3600", "L3601", "L3602"
+			, "L3500", "L3501", "L3502", "L3503", "L3504", "L3505", "L3506", "L3507", "L3508", "L3509", "L3510", "L3511", "L3512", "L3550", "L3551", "L3552", "L3553", "L3600", "L3601", "L3602"
 			, "L3603", "L3604", "L3605", "L3606", "L3607", "L3608", "L3609", "L3610", "L3611", "L3822", "L3900", "L3901", "L3902", "L3950", "L3951", "L3952", "L3953", "L3954", "L3955", "L3956"
 			, "L3957", "L3958", "L3959", "L3960", "L3961", "L3962", "L3963", "L3964", "L3965", "L3966", "L3967", "L3968", "L3969", "L3970", "L3971", "L3972", "L3973", "L3974", "L3975", "L3976"
 			, "L3977", "L3978", "L3979", "L3980", "L3981", "L3982", "L3983", "L3984", "L3985", "L3986", "L3987", "L3988", "L3989", "L4100", "L4101", "L4102", "L4103", "L4104", "L4105", "L4106"
@@ -872,7 +872,7 @@ namespace Google2u
 			Rows.Add( new MNP_LocalizeRow("L3109", "3109", "[FF6E00FF]다음 테마는 업데이트를 기다려 달라냥! [-]", "[FF6E00FF]Next episode will be updated soon! [-]", "[FF6E00FF]Episode selanjutnya akan segera diperbarui! [-]", "[FF6E00FF]เอพิโสดต่อไปจะทำการอัปเดทในไม่ช้านี้! [-]", ""));
 			Rows.Add( new MNP_LocalizeRow("L3110", "3110", "닫기", "Close", "Tutup", "ปิด", ""));
 			Rows.Add( new MNP_LocalizeRow("L3111", "3111", "무료 크레인을\n모두 사용하였습니다.\n\n매일 오전 7시에\n충전됩니다.", "It will charge at 22:00 (GMT).", "Ini akan diisi pada jam 22:00 (GMT).", "จะทำการชาร์จในเวลา 22:00 (GMT)", ""));
-			Rows.Add( new MNP_LocalizeRow("L3112", "3112", "", "", "", "", ""));
+			Rows.Add( new MNP_LocalizeRow("L3112", "3112", "스테이지 『[n]』부터 오픈 됩니다. ", "스테이지 『[n]』부터 오픈 됩니다. ", "스테이지 『[n]』부터 오픈 됩니다. ", "스테이지 『[n]』부터 오픈 됩니다. ", "게임내 잠금 기능들을 터치했을때, 안내 메세지"));
 			Rows.Add( new MNP_LocalizeRow("L3113", "3113", "", "", "", "", ""));
 			Rows.Add( new MNP_LocalizeRow("L3114", "3114", "", "", "", "", ""));
 			Rows.Add( new MNP_LocalizeRow("L3115", "3115", "", "", "", "", ""));
@@ -1035,7 +1035,7 @@ namespace Google2u
 			Rows.Add( new MNP_LocalizeRow("L3451", "3451", "SNS 업로드 보수", "SNS Share Reward", "Imbalan Berbagi SNS", "รางวัลจากการแบ่งปันผ่านโซเชี่ยลเน็ทเวิร์ค", ""));
 			Rows.Add( new MNP_LocalizeRow("L3452", "3452", "동영상 광고 시청 보상", "Video Ads Reward", "Imbalan Iklan Video", "รางวัลการรับชมวิดีโอโฆษณา", ""));
 			Rows.Add( new MNP_LocalizeRow("L3453", "3453", "신규 고양이 승리 보상", "New Cat Victory Reward", "Imbalan Kemenangan Kucing Baru", "รางวัลชัยชนะเหมียวใหม่", ""));
-			Rows.Add( new MNP_LocalizeRow("L3454", "3454", "크레인 환불", "Crane Return", "Imbalan Fusi Tidak Kompatibel", "รางวัลการผสมไม่ลงตัว", "스페셜 크레인에서 동일한 고양이를 뽑은 경우 보석을 환불해 줄때 제목으로 사용"));
+			Rows.Add( new MNP_LocalizeRow("L3454", "3454", "크레인 환불", "Crane Refund", "Pengembalian Dana Derek", "รีฟันเครน", "스페셜 크레인에서 동일한 고양이를 뽑은 경우 보석을 환불해 줄때 제목으로 사용"));
 			Rows.Add( new MNP_LocalizeRow("L3455", "3455", "시리얼 코드 보수", "Serial Code Reward", "Imbalan Kode Seri", "รางวัลรหัสซีเรียล", ""));
 			Rows.Add( new MNP_LocalizeRow("L3456", "3456", "친구 보너스", "Friends Bonus", "Bonus Teman", "โบนัสเพื่อน", ""));
 			Rows.Add( new MNP_LocalizeRow("L3457", "3457", "선물 보너스", "Gift Bonus", "Bonus Hadiah", "โบนัสของขวัญ", ""));
@@ -1087,15 +1087,15 @@ namespace Google2u
 			Rows.Add( new MNP_LocalizeRow("L3504", "3504", "성공", "Clear", "Kosongkan", "เคลียร์", "결과창의 미션들의 성공 안내"));
 			Rows.Add( new MNP_LocalizeRow("L3505", "3505", "실패", "Fail", "Gagal", "ล้มเหลว", "결과창의 미션들의 실패 안내"));
 			Rows.Add( new MNP_LocalizeRow("L3506", "3506", "코인 2배\n핫타임!!", "Coin\nHot Time!", "Koin\nWaktu Cepat!", "เหรียญ\nช่วงเร่งด่วน!", ""));
-			Rows.Add( new MNP_LocalizeRow("L3507", "3507", "게임 이용을 위한 권한 요청", "게임 이용을 위한 권한 요청", "게임 이용을 위한 권한 요청", "게임 이용을 위한 권한 요청", "타이틀 화면 권한요청"));
-			Rows.Add( new MNP_LocalizeRow("L3508", "3508", "권한이 허용되지 않으면 정상적인 설치 및 이용이 불가능합니다.", "권한이 허용되지 않으면 정상적인 설치 및 이용이 불가능합니다.", "권한이 허용되지 않으면 정상적인 설치 및 이용이 불가능합니다.", "권한이 허용되지 않으면 정상적인 설치 및 이용이 불가능합니다.", "타이틀 화면 권한요청"));
-			Rows.Add( new MNP_LocalizeRow("L3509", "3509", "사진, 미디어, 파일 사용 (필수)", "사진, 미디어, 파일 사용 (필수)", "사진, 미디어, 파일 사용 (필수)", "사진, 미디어, 파일 사용 (필수)", "타이틀 화면 권한요청"));
-			Rows.Add( new MNP_LocalizeRow("L3510", "3510", "[FFF55AFF]고객님의 사진과 파일에는 접근하지 않습니다.[-]\n\n이 권한은 게임 설치를 위해 필요합니다.", "[FFF55AFF]고객님의 사진과 파일에는 접근하지 않습니다.[-]\n\n이 권한은 게임 설치를 위해 필요합니다.", "[FFF55AFF]고객님의 사진과 파일에는 접근하지 않습니다.[-]\n\n이 권한은 게임 설치를 위해 필요합니다.", "[FFF55AFF]고객님의 사진과 파일에는 접근하지 않습니다.[-]\n\n이 권한은 게임 설치를 위해 필요합니다.", "타이틀 화면 권한요청"));
-			Rows.Add( new MNP_LocalizeRow("L3511", "3511", "권한 요청에 대해 다시 묻지 않기를 체크하였습니다.\n앱 설정에서 권한 승인이 필요합니다.", "권한 요청에 대해 다시 묻지 않기를 체크하였습니다.\n앱 설정에서 권한 승인이 필요합니다.", "권한 요청에 대해 다시 묻지 않기를 체크하였습니다.\n앱 설정에서 권한 승인이 필요합니다.", "권한 요청에 대해 다시 묻지 않기를 체크하였습니다.\n앱 설정에서 권한 승인이 필요합니다.", "타이틀 화면 권한요청"));
+			Rows.Add( new MNP_LocalizeRow("L3507", "3507", "게임 이용을 위한 권한 요청", "Request Permission for Game Use", "Permintaan Izin Penggunaan Game", "ขออนุญาตสำหรับการใช้งานเกม", "타이틀 화면 권한요청"));
+			Rows.Add( new MNP_LocalizeRow("L3508", "3508", "권한이 허용되지 않으면 정상적인 설치 및 이용이 불가능합니다.", "If you don't grant the permission, it cannot be installed and used properly.", "Jika tidak diberi izin, game tidak dapat diinstal dan digunakan dengan benar.", "หากคุณไม่อนุญาต คุณจะไม่สามารถติดตั้งและใช้งานได้อย่างเหมาะสม", "타이틀 화면 권한요청"));
+			Rows.Add( new MNP_LocalizeRow("L3509", "3509", "사진, 미디어, 파일 사용 (필수)", "Photo, Media, File Use (required)", "Penggunaan Foto, Media, File (wajib)", "ภาพ มีเดีย การใช้ไฟล์ (ต้องมี)", "타이틀 화면 권한요청"));
+			Rows.Add( new MNP_LocalizeRow("L3510", "3510", "[FFF55AFF]고객님의 사진과 파일에는 접근하지 않습니다.[-]\n\n이 권한은 게임 설치를 위해 필요합니다.", "[FFF55AFF]It does not access to your photos and files.[-]\n\nThe permission is required to install the game.", "[FFF55AFF]Foto dan file Anda tidak akan diakses.[-]\n\nIzin dibutuhkan untuk menginstal game.", "[FFF55AFF]แอปจะไม่เข้าถึงภาพและไฟล์ของคุณ [-]\n\nต้องอนุญาตเพื่อติดตั้งเกม", "타이틀 화면 권한요청"));
+			Rows.Add( new MNP_LocalizeRow("L3511", "3511", "권한 요청에 대해 다시 묻지 않기를 체크하였습니다.\n앱 설정에서 권한 승인이 필요합니다.", "You checked not to ask again for the permission request.\nYou need to grant the permission at the app's setting.", "Anda mencentang untuk tidak ditanya lagi tentang permintaan izin.\nAnda harus memberi izin di setelan aplikasi.", "คุณทำเครื่องหมายไม่ให้ขออนุญาตอีก\nคุณต้องทำการอนุญาตที่การตั้งค่าของแอป", "타이틀 화면 권한요청"));
 			Rows.Add( new MNP_LocalizeRow("L3512", "3512", "[FFF55A]권한이 허용되지 않으면 \n정상적인 설치 및 이용이 불가능합니다.\r[-]\n\r\n[FFF55A]'다시묻지않음'[-] 을 체크하고 거부를 하신 경우는 \r\n설정 - '애플리케이션 - 밋치리네코 - 권한' 에서 \r\n권한 부여를 부탁드립니다. ", "[FFF55A]권한이 허용되지 않으면 \n정상적인 설치 및 이용이 불가능합니다.\r[-]\n\r\n[FFF55A]'다시묻지않음'[-] 을 체크하고 거부를 하신 경우는 \r\n설정 - '애플리케이션 - 밋치리네코 - 권한' 에서 \r\n권한 부여를 부탁드립니다. ", "[FFF55A]권한이 허용되지 않으면 \n정상적인 설치 및 이용이 불가능합니다.\r[-]\n\r\n[FFF55A]'다시묻지않음'[-] 을 체크하고 거부를 하신 경우는 \r\n설정 - '애플리케이션 - 밋치리네코 - 권한' 에서 \r\n권한 부여를 부탁드립니다. ", "[FFF55A]권한이 허용되지 않으면 \n정상적인 설치 및 이용이 불가능합니다.\r[-]\n\r\n[FFF55A]'다시묻지않음'[-] 을 체크하고 거부를 하신 경우는 \r\n설정 - '애플리케이션 - 밋치리네코 - 권한' 에서 \r\n권한 부여를 부탁드립니다. ", "타이틀 화면 권한요청"));
-			Rows.Add( new MNP_LocalizeRow("L3550", "3550", "다른 기기에서의 접속이 감지 되었습니다.\n타이틀 화면으로 돌아갑니다. ", "다른 기기에서의 접속이 감지 되었습니다.\n타이틀 화면으로 돌아갑니다. ", "다른 기기에서의 접속이 감지 되었습니다.\n타이틀 화면으로 돌아갑니다. ", "다른 기기에서의 접속이 감지 되었습니다.\n타이틀 화면으로 돌아갑니다. ", "중복 접속 안내 메세지"));
+			Rows.Add( new MNP_LocalizeRow("L3550", "3550", "다른 기기에서의 접속이 감지 되었습니다.\n타이틀 화면으로 돌아갑니다. ", "Login from another device is detected.\nIt goes back to the title screen. ", "Login dari perangkat lain terdeteksi.\nIni kembali ke layar judul. ", "ตรวจพบการเข้าถึงจากอุปกรณ์อื่น\nกลับไปยังหน้าจอเริ่มต้น", "중복 접속 안내 메세지"));
 			Rows.Add( new MNP_LocalizeRow("L3551", "3551", "", "", "", "", ""));
-			Rows.Add( new MNP_LocalizeRow("L3551", "3552", "", "", "", "", ""));
+			Rows.Add( new MNP_LocalizeRow("L3552", "3552", "", "", "", "", ""));
 			Rows.Add( new MNP_LocalizeRow("L3553", "3553", "", "", "", "", ""));
 			Rows.Add( new MNP_LocalizeRow("L3600", "3600", "게임 팁", "Game Tips", "Kiat Game", "เคล็ดลับเกม", ""));
 			Rows.Add( new MNP_LocalizeRow("L3601", "3601", "인계코드\n발행", "Issue\nTransfer Code", "Keluarkan\nKode Transfer", "ทำการออก\nรหัสถ่ายโอน", "옵션창의 코드 발급"));
@@ -1365,7 +1365,7 @@ namespace Google2u
 			Rows.Add( new MNP_LocalizeRow("L5053", "5053", "", "", "", "", "일일 미션"));
 			Rows.Add( new MNP_LocalizeRow("L5054", "5054", "", "", "", "", "일일 미션"));
 			Rows.Add( new MNP_LocalizeRow("L5055", "5055", "", "", "", "", "일일 미션"));
-			Rows.Add( new MNP_LocalizeRow("L5056", "5056", "밋치리네코 보너스를 [n]회 받는다.", "Got [n] Mitchiri bonus.", "Mendapat Got [n] bonus Mitchiri.", "ได้รับ [n] โบนัสมิตชิริ", "일일 미션"));
+			Rows.Add( new MNP_LocalizeRow("L5056", "5056", "밋치리 보너스를 [n]회 받는다.", "Got [n] Mitchiri bonus.", "Mendapat Got [n] bonus Mitchiri.", "ได้รับ [n] โบนัสมิตชิริ", "일일 미션"));
 			Rows.Add( new MNP_LocalizeRow("L5057", "5057", "", "", "", "", "일일 미션"));
 			Rows.Add( new MNP_LocalizeRow("L5058", "5058", "", "", "", "", "일일 미션"));
 			Rows.Add( new MNP_LocalizeRow("L5059", "5059", "", "", "", "", "일일 미션"));

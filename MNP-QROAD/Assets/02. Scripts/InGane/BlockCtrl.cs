@@ -521,11 +521,6 @@ public class BlockCtrl : MonoBehaviour {
 
             InSoundManager.Instance.PlayFishStick();
             
-            // 이동미션이 아닐때만 액티브 블록 카운트 증가 
-            if (!InGameCtrl.Instance.IsMoveMission)
-                GameSystem.Instance.FillBlockCount++;
-            
-
             // invoke 시킨다. 
             Invoke("InvokedExitGrill", 0.5f);
         }
@@ -557,9 +552,6 @@ public class BlockCtrl : MonoBehaviour {
         else if(currentState == BlockState.Stone) {
             SetState(BlockState.None);
 
-            // 이동미션이 아닐때만 액티브 블록 카운트 증가 
-            if(!InGameCtrl.Instance.IsMoveMission)
-                GameSystem.Instance.FillBlockCount++;
         }
 
         InSoundManager.Instance.PlayIceBlockBreak();

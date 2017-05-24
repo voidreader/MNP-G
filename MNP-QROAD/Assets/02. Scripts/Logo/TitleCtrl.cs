@@ -553,7 +553,7 @@ public class TitleCtrl : MonoBehaviour {
 
         GameSystem.Instance.ConnectServer();
 
-        GameSystem.Instance.SetLongTimeDisconnectPush();
+        // GameSystem.Instance.SetLongTimeDisconnectPush();
     }
 
     /// <summary>

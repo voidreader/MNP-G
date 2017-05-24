@@ -7,6 +7,9 @@ public class HeartShopCtrl : MonoBehaviour {
 	[SerializeField] UILabel _lblGem;
     [SerializeField] GameObject _max;
     [SerializeField] UIButton _btnFree;
+
+    [SerializeField] UILabel _lblFreeChargeButton;
+
     int _heartCount = 0;
 
     int getHeart;
@@ -26,6 +29,17 @@ public class HeartShopCtrl : MonoBehaviour {
 
         _lblHeartCount.text = string.Empty;
         _heartCount = GameSystem.Instance.HeartCount;
+
+        
+
+        if(GameSystem.Instance.Remainheartcharge <= 0) {
+            _btnFree.normalSprite = "gray-bodan";
+            _lblFreeChargeButton.text = "Free";
+        }
+        else {
+            _btnFree.normalSprite = "pop-reds";
+            _lblFreeChargeButton.text = "Free(" + GameSystem.Instance.Remainheartcharge + ")";
+        }
 
         for (int i = 0; i < 5; i++) {
             arrHearts[i].gameObject.SetActive(false);

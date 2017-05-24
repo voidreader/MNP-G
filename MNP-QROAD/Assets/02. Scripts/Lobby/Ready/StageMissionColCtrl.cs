@@ -126,7 +126,7 @@ public class StageMissionColCtrl : MonoBehaviour {
     void SetCookieMissionInGameDetailInfo() {
 
         // 강제적으로 current를 0으로, value는 액티브 블록 숫자로 변경한다. 
-        _lblProgress.text = string.Format("{0:n0}", 0) + " / " + string.Format("{0:n0}", GameSystem.Instance.ActiveBlockCount);
+        _lblProgress.text = string.Format("{0:n0}", 0) + " / " + string.Format("{0:n0}", GameSystem.Instance.ResultValidBlockSpaceCount);
         _progressBar.value = 0;
     }
 
@@ -134,14 +134,14 @@ public class StageMissionColCtrl : MonoBehaviour {
     /// 쿠키 미션 예외설정 (결과 화면 초기화)
     /// </summary>
     void SetCookieMissionResultInit() {
-        _lblProgress.text = _bbcode + string.Format("{0:n0}", 0) + "/" + string.Format("{0:n0}", GameSystem.Instance.ActiveBlockCount) + "[-]";
+        _lblProgress.text = _bbcode + string.Format("{0:n0}", 0) + "/" + string.Format("{0:n0}", GameSystem.Instance.ResultValidBlockSpaceCount) + "[-]";
     }
 
     void SetCookieMissionResult() {
 
         // curret와 questvalue를 재설정 
-        _current = GameSystem.Instance.ActiveBlockCount - GameSystem.Instance.IngameRemainCookie; 
-        _questValue = GameSystem.Instance.ActiveBlockCount;
+        _current = GameSystem.Instance.ResultValidBlockSpaceCount - GameSystem.Instance.IngameRemainCookie; 
+        _questValue = GameSystem.Instance.ResultValidBlockSpaceCount;
     }
 
 

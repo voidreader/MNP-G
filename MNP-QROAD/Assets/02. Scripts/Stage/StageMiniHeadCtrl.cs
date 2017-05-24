@@ -40,7 +40,7 @@ public class StageMiniHeadCtrl : MonoBehaviour {
 
 
         // Jump
-        this.transform.DOLocalJump(_destPos, _destPos.y + 50, 1, 0.6f);
+        this.transform.DOLocalJump(_destPos, 50, 1, 0.6f);
 
     }
     

@@ -264,7 +264,11 @@ public class SimplePopupCtrl : MonoBehaviour {
 		} else if (_messageType == PopMessageType.Lock) {
             _message = GameSystem.Instance.GetLocalizeText("3080");
 
-		} else if (_messageType == PopMessageType.UseTicket) {
+		} else if (_messageType == PopMessageType.BoostItemLock) {
+            _message = GameSystem.Instance.GetLocalizeText("3112").Replace("[n]", "7");
+        }
+
+        else if (_messageType == PopMessageType.UseTicket) {
 
             _message = GameSystem.Instance.GetLocalizeText("3081");
 

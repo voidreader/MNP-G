@@ -96,11 +96,6 @@ public class BottleManager : MonoBehaviour {
             UpdateWakeUpTime();
         }
         
-
-        if (Input.GetKeyDown(KeyCode.A)) {
-            UpdateWakeUpTime();
-        }
-
     }
 
     void UpdateWakeUpTime() {
@@ -113,6 +108,7 @@ public class BottleManager : MonoBehaviour {
 
         if(_nextWakeUpTime == System.TimeSpan.Zero || GameSystem.Instance.IsRequestingWakeUp) {
             _timer.gameObject.SetActive(false);
+            OnSleepUI();
             return;
         }
 
@@ -161,6 +157,20 @@ public class BottleManager : MonoBehaviour {
         this._btnWakeUp.gameObject.SetActive(false);
     }
     
+    void OnSleepUI() {
+        //Debug.Log("★ OnSleepUI");
+
+        if (_btnWakeUp.gameObject.activeSelf)
+            return;
+
+        _screen.SetActive(true);
+
+        _btnWakeUp.gameObject.SetActive(true);
+        _btnWakeUp.localPosition = new Vector3(0, -100, 0);
+        _btnWakeUp.DOLocalMoveY(-20, 0.5f);
+
+        _timer.gameObject.SetActive(false);
+    }
 
     /// <summary>
     /// 
@@ -223,13 +233,9 @@ public class BottleManager : MonoBehaviour {
                         SleepNekos();
                     }
 
-                    _screen.SetActive(true);
+                    OnSleepUI();
 
-                    _btnWakeUp.gameObject.SetActive(true);
-                    _btnWakeUp.localPosition = new Vector3(0, -100, 0);
-                    _btnWakeUp.DOLocalMoveY(-20, 0.5f);
 
-                    _timer.gameObject.SetActive(false);
                 }
                 else {
 

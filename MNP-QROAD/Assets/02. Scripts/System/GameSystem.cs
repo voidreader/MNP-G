@@ -112,8 +112,8 @@ public partial class GameSystem : MonoBehaviour {
     private int _height, _width;
     private float _blockStartX, _blockStartY; // 0,0 위치  블록의 최초 생성 위치 
     private int _blockTypeCount; // 일반 블록의 종류 
-    private int _fillBlockCount; // 스테이지에 채워지는 블록의 Max 개수
-    private int _activeBlockCount;
+    
+    
     private float _blockScaleValue; // 생성 블록의 크기 값 
     private Vector3 _blockScale; // 생성 블록 Vector3 크기 값 
 
@@ -204,6 +204,8 @@ public partial class GameSystem : MonoBehaviour {
     #endregion
 
     float _userNekoBadgeBonus = 0;
+
+    [SerializeField] int _resultValidBlockSpaceCount = 0;
 
     [SerializeField] int _matchedRedBlock = 0; // 매치한 각 블록의 수 
     [SerializeField] int _matchedBlueBlock = 0;
@@ -1916,8 +1918,8 @@ public partial class GameSystem : MonoBehaviour {
 
             // Pause 시에 PushNotification 사용 
             SetHeartFullLocalNotification();
-            //SetFreeCraneResetNotification();
-            //SetHotTimeLocalNotification();
+            SetFreeCraneResetNotification();
+            SetLongTimeDisconnectPush();
 
             EndIgaWorkSession();
 
@@ -2339,7 +2341,7 @@ public partial class GameSystem : MonoBehaviour {
 		_height = 9; // 세로 컬럼
 		_width = 9; // 가로 컬럼 
 
-		_fillBlockCount = 25;
+		
 		_blockTypeCount = 3;
 
 		_blockStartX = -3.1f;
@@ -2384,7 +2386,7 @@ public partial class GameSystem : MonoBehaviour {
     /// </summary>
     public void LoadTitleSceneWithInitialize() {
         DeleteAllLocalData();
-        //Application.Quit(); // 종료로 변경. 2016.07
+        
         ExitGame();
     }
 
@@ -2392,8 +2394,11 @@ public partial class GameSystem : MonoBehaviour {
     /// 게임 종료 
     /// </summary>
     public void ExitGame() {
-        SetHeartFullLocalNotification(); // Local Notification을 OnApplicationQuit에서 실행하면 게임 종료 후 Crash 가 발생한다.
-        // SetFreeCraneResetNotification();
+        SetHeartFullLocalNotification();
+        SetFreeCraneResetNotification();
+        SetLongTimeDisconnectPush();
+
+        // 딜레이를 주고 종료해야 푸시 때문에 Crash가 안난다. 
         Invoke("Quit", 0.5f);
     }
 
@@ -3901,15 +3906,7 @@ public partial class GameSystem : MonoBehaviour {
 		}
 	}
 
-	public int FillBlockCount {
-		get {
-			return this._fillBlockCount;
-		}
-
-        set {
-            this._fillBlockCount = value;
-        }
-	}
+	
 
 	public int BlockTypeCount {
 		get {
@@ -5581,15 +5578,7 @@ public partial class GameSystem : MonoBehaviour {
         }
     }
 
-    public int ActiveBlockCount {
-        get {
-            return _activeBlockCount;
-        }
-
-        set {
-            _activeBlockCount = value;
-        }
-    }
+    
 
     public int IngameRemainCookie {
         get {
@@ -5718,6 +5707,16 @@ public partial class GameSystem : MonoBehaviour {
 
         set {
             _ThaiFont = value;
+        }
+    }
+
+    public int ResultValidBlockSpaceCount {
+        get {
+            return _resultValidBlockSpaceCount;
+        }
+
+        set {
+            _resultValidBlockSpaceCount = value;
         }
     }
 

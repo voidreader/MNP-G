@@ -293,7 +293,7 @@ public class EventPageCtrl : MonoBehaviour {
 
         _watermelonNeko.DOKill();
         _watermelonNeko.localPosition = _originNekoPos;
-        _watermelonNeko.DOLocalJump(_watermelonNeko.localPosition, _watermelonNeko.localPosition.y + 100, 1, 0.5f);
+        _watermelonNeko.DOLocalJump(_watermelonNeko.localPosition, 100, 1, 0.5f);
 
         LobbyCtrl.Instance.ForceSetMailBoxNew();
 
@@ -346,7 +346,7 @@ public class EventPageCtrl : MonoBehaviour {
 
         _sunburnNeko.DOKill();
         _sunburnNeko.localPosition = _originNekoPos;
-        _sunburnNeko.DOLocalJump(_sunburnNeko.localPosition, _sunburnNeko.localPosition.y + 100, 1, 0.5f);
+        _sunburnNeko.DOLocalJump(_sunburnNeko.localPosition, 100, 1, 0.5f);
 
         LobbyCtrl.Instance.ForceSetMailBoxNew();
 

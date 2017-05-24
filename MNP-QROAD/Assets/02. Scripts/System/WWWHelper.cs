@@ -56,11 +56,12 @@ public class WWWHelper : MonoBehaviour {
 	private string _preRequestID;
 
     private string _url = "baseURL"; // live server
-    //private string _url = "backURL"; // test server
-    //private string _url = "ipURL"; // 
 
-    string _baseURL = "baseURL"; // 라이브 서버 
-    string _testURL = "backURL";  // 테스트 서버 
+    //string _baseURL = "baseURL"; // 라이브 서버 
+    //string _testURL = "backURL";  // 테스트 서버 
+
+    [SerializeField] string _baseURL = string.Empty;
+    [SerializeField] string _testURL = string.Empty;
 
     string _requestedNickName = "";
     readonly string _parsingText = "{}";
@@ -98,20 +99,18 @@ public class WWWHelper : MonoBehaviour {
         //_text = Resources.Load("JSON/UserForm") as TextAsset;
         //_dataForm = JSON.Parse(_text.ToString());
         _dataForm = JSON.Parse("{}");
-
 		_header.Add("Content-Type", "application/json; charset=UTF-8");
 
 
-        if(IsTestMode)
+        _baseURL = EnvManagerCtrl.Instance.liveServerURL;
+        _testURL = EnvManagerCtrl.Instance.testServerURL;
+
+        _url = _baseURL;
+
+        if (IsTestMode)
             _url = _testURL;
 
-        // 우회 빌드 작성용도
         
-        //_url = "ipURL";
-        //_url = "http://localhost:8124/";
-        //_url = "http://127.0.0.1:8124/";
-
-
     }
 
 
@@ -120,6 +119,10 @@ public class WWWHelper : MonoBehaviour {
     /// </summary>
     /// <param name="pLiveServer"></param>
     public void SetConnectServerURL(bool pLiveServer) {
+
+
+        //_baseURL = EnvManagerCtrl.Instance.liveServerURL;
+        //_testURL = EnvManagerCtrl.Instance.testServerURL;
 
         if (pLiveServer) {
             _url = _baseURL;
@@ -134,10 +137,8 @@ public class WWWHelper : MonoBehaviour {
             _url = _testURL;
         }
 
-        // 우회 빌드 작성용도
-        //_url = "ipURL";
-        //_url = "http://localhost:8124/";
-        //_url = "http://127.0.0.1:8124/";
+
+        Debug.Log("★SetConnectServerURL :: " + _url);
     }
 
 	/// <summary>
@@ -153,8 +154,8 @@ public class WWWHelper : MonoBehaviour {
         //_dataForm = JSON.Parse(_text.ToString());
         _dataForm = JSON.Parse(_parsingText);
 
-        //_requestURL = GameSystem.Instance.DocsProtocol.get<string>("url", _url) + GameSystem.Instance.DocsProtocol.get<string>("url", requestID);
-        _requestURL = _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(_url) + _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(requestID);
+        _requestURL = _url + _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(requestID);
+        //_requestURL = _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(_url) + _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(requestID);
 
         Debug.Log(">>> Post _requestURL :: " + _requestURL);
 
@@ -433,8 +434,9 @@ public class WWWHelper : MonoBehaviour {
                 Debug.Log("passiveskill :: " + _dataForm["data"]["passiveskill"]);
 
                 // requestURL 변경 
-                //_requestURL = GameSystem.Instance.DocsProtocol.get<string>("url", _url) + GameSystem.Instance.DocsProtocol.get<string>("url", _dataForm["cmd"]);
-                _requestURL = _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(_url) + _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(_dataForm["cmd"]);
+                //_requestURL = _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(_url) + _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(_dataForm"cmd"]);
+                _requestURL = _url + _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(_dataForm["cmd"]);
+
                 requestID = _dataForm["cmd"];
                 break;
 
@@ -557,8 +559,9 @@ public class WWWHelper : MonoBehaviour {
         //_dataForm = JSON.Parse(_text.ToString());
         
         _dataForm = JSON.Parse(_parsingText);
-        //_requestURL = GameSystem.Instance.DocsProtocol.get<string>("url", _url) + GameSystem.Instance.DocsProtocol.get<string>("url", requestID);
-        _requestURL = _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(_url) + _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(requestID);
+        
+        //_requestURL = _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(_url) + _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(requestID);
+        _requestURL = _url + _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(requestID);
         Debug.Log(">>> Post _requestURL :: " + _requestURL);
 
         _dataForm["cmd"] = requestID;
@@ -619,8 +622,9 @@ public class WWWHelper : MonoBehaviour {
 
         //_dataForm = JSON.Parse(_text.ToString());
         _dataForm = JSON.Parse(_parsingText);
-        //_requestURL = GameSystem.Instance.DocsProtocol.get<string>("url", _url) + GameSystem.Instance.DocsProtocol.get<string>("url", requestID);
-        _requestURL = _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(_url) +  _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(requestID);
+        //_requestURL = _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(_url) +  _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(requestID);
+        _requestURL = _url + _httpProtocol.Rows[(int)MNP_HTTP.rowIds.url].GetStringData(requestID);
+
         Debug.Log(">>> Post _requestURL :: " + _requestURL);
 		
 		_dataForm["cmd"] = requestID;

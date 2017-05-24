@@ -1360,7 +1360,7 @@ public partial class LobbyCtrl : MonoBehaviour {
         while (GameSystem.Instance.LocalTutorialStep < 5) {
             yield return null;
         }
-
+        
         _tutorialHand.SetDisable();
         DisableAllButton();
 
@@ -1504,7 +1504,7 @@ public partial class LobbyCtrl : MonoBehaviour {
                 yield return null;
             }
 
-            btn = ReturnEnableSomeButton("ButtonAdopt"); // 뽑기 버튼 활성화 
+            btn = ReturnEnableSomeButton("btnCrane"); // 뽑기 버튼 활성화 
             _tutorialHand.SetEnable(new Vector3(50, -500, 0));
 
 
@@ -1745,8 +1745,8 @@ public partial class LobbyCtrl : MonoBehaviour {
         }
 
         // 월드맵이 떠있을때는 동작하지 않음.
-        if (_worldMap.IsOn)
-            return;
+        //if (_worldMap.IsOn)
+            //return;
 
 
         // 네코 진화 화면이 떠있는중에는 동작하지 않음 
@@ -2116,10 +2116,13 @@ public partial class LobbyCtrl : MonoBehaviour {
             CloseStack();
         }
         else if (StackPopup.Count == 0 && _objGatchaScreen.activeSelf) {
-
             return; // 아무것도 하지 않음 
-
-
+        }
+        else if(StackPopup.Count == 0 && _worldMap.IsOn) { // 월드맵에서의 뒤로가기 버튼 체크 
+            _worldMap.OffWorldMap();
+        }
+        else if (StackPopup.Count == 0 && WindowManagerCtrl.Instance.CollectionMaster.gameObject.activeSelf) { // 컬렉션에서의 뒤로가기 버튼 체크 
+            WindowManagerCtrl.Instance.CollectionMaster.CloseCollection();
         }
         else {
             // Exit 팝업 발생 

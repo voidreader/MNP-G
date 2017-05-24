@@ -44,7 +44,7 @@ public class EquipItemCtrl : MonoBehaviour {
 
         // Lock 상태 체크
         if(_lockSprite.gameObject.activeSelf) {
-            LobbyCtrl.Instance.OpenInfoPopUp(PopMessageType.Lock);
+            LobbyCtrl.Instance.OpenInfoPopUp(PopMessageType.BoostItemLock);
             return;
         }
 

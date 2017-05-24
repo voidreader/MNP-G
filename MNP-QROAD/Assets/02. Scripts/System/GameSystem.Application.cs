@@ -769,12 +769,13 @@ public partial class GameSystem : MonoBehaviour {
 
 
 
+    /// <summary>
+    /// 장기 미접속자에게 푸시 
+    /// </summary>
     public void SetLongTimeDisconnectPush() {
 
         if (Application.isEditor)
             return;
-
-        CancelAllLocalNotification();
 
         SetAndroidLocalNotification(GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3483), GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3494), 86400); // 하루
         SetAndroidLocalNotification(GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3483), GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3495), 259200); // 3일
@@ -825,6 +826,8 @@ public partial class GameSystem : MonoBehaviour {
         }
 
 
+        Debug.Log(">>>> SetHeartFullLocalNotification Sec :: " + GetHeartFullChargeSeconds());
+
         if (Application.isEditor)
             return;
 
@@ -834,7 +837,7 @@ public partial class GameSystem : MonoBehaviour {
 #if UNITY_ANDROID
 
         if (GetHeartFullChargeSeconds() > 60) {
-            SetAndroidLocalNotification(GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3483), GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3494), GetHeartFullChargeSeconds());
+            SetAndroidLocalNotification(GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3483), GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3498), GetHeartFullChargeSeconds());
         }
 
         // Android에서 Application.Quit 에서 발생하는 문제로 게임 시작시점으로 옮긴다. (TitleCtrl)
@@ -886,9 +889,11 @@ public partial class GameSystem : MonoBehaviour {
             return;
         }
 
-        Debug.Log("SetAndroidLocalNotification pSec :: " + pSec);
+        //Debug.Log("SetAndroidLocalNotification pSec :: " + pSec);
 
-        _previousHeartNotificationID = AndroidNotificationManager.Instance.ScheduleLocalNotification(pTitle, pMsg, pSec);
+        AndroidNotificationBuilder builder = new AndroidNotificationBuilder(SA.Common.Util.IdFactory.NextId, pTitle, pMsg, pSec);
+        AndroidNotificationManager.Instance.ScheduleLocalNotification(builder);
+        //_previousHeartNotificationID = AndroidNotificationManager.Instance.ScheduleLocalNotification(pTitle, pMsg, pSec);
 
     }
 

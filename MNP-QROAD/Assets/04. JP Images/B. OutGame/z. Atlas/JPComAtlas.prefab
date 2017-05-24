@@ -109,7 +109,7 @@ MonoBehaviour:
     paddingBottom: 3
   - name: common_btn_facebook
     x: 0
-    y: 551
+    y: 436
     width: 242
     height: 114
     borderLeft: 0
@@ -174,7 +174,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: common_btn_twitter
     x: 0
-    y: 436
+    y: 551
     width: 242
     height: 114
     borderLeft: 0
@@ -278,7 +278,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: fr-bronze
     x: 255
-    y: 544
+    y: 234
     width: 154
     height: 154
     borderLeft: 0
@@ -304,7 +304,7 @@ MonoBehaviour:
     paddingBottom: 2
   - name: fr-gold
     x: 255
-    y: 389
+    y: 544
     width: 154
     height: 154
     borderLeft: 0
@@ -343,7 +343,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: frm_nekobox_yellow
     x: 0
-    y: 118
+    y: 277
     width: 158
     height: 158
     borderLeft: 0
@@ -408,7 +408,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: fr-rainbow
     x: 0
-    y: 277
+    y: 118
     width: 158
     height: 158
     borderLeft: 0
@@ -421,7 +421,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: fr-silver
     x: 255
-    y: 234
+    y: 389
     width: 154
     height: 154
     borderLeft: 0
@@ -472,8 +472,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: i-heart
-    x: 159
-    y: 126
+    x: 789
+    y: 150
     width: 76
     height: 65
     borderLeft: 0
@@ -537,7 +537,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: line-b
-    x: 717
+    x: 599
     y: 355
     width: 117
     height: 114
@@ -563,7 +563,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: mail-b
-    x: 599
+    x: 717
     y: 355
     width: 117
     height: 114
@@ -602,8 +602,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: main_ico_heart
-    x: 789
-    y: 150
+    x: 159
+    y: 126
     width: 76
     height: 65
     borderLeft: 0

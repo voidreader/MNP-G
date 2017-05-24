@@ -203,6 +203,7 @@ public enum PopMessageType {
 
     ExistsCantReadMail, // 일괄메일 읽기에서 읽지 못한 메일이 있음.
     Lock, // 잠금상태의 버튼
+    BoostItemLock,
     UseTicket,
     AddFreeTicket,
     AddRareTicket,

@@ -4652,6 +4652,8 @@ public partial class GameSystem : MonoBehaviour {
 			
 			_nextHeartTakeTime = _dtNextHeartTakeTime.Ticks;
 		}
+
+        Remainheartcharge = pNode[_jData]["remainheartcharge"].AsInt;
 		
 		if (LobbyCtrl.Instance != null) {
 			LobbyCtrl.Instance.UpdateHearts ();

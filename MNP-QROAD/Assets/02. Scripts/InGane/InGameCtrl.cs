@@ -46,6 +46,12 @@ public partial class InGameCtrl : MonoBehaviour {
     private float localX; // 좌표
     private float localY;
 
+    // 필드에 리스폰 되는 블록의 수 
+    [SerializeField] int _fillBlockCount = 0;
+
+    // 블록이 생성될 수 있는 유효 공간
+    [SerializeField] int _validBlockSpaceCount = 0;
+
 
     // 장착 부스트 아이템 체크 
     bool _boostPlayTime = false; // 플레이 시간 증가 
@@ -478,6 +484,74 @@ public partial class InGameCtrl : MonoBehaviour {
 
     }
 
+
+    /// <summary>
+    /// 
+    /// </summary>
+    void SetValidBlockSpaceCount() {
+        for (int i = 0; i < GameSystem.Instance.Height; i++) {
+            for (int j = 0; j < GameSystem.Instance.Width; j++) {
+
+                if (fieldBlocks[i, j].currentState == BlockState.None)
+                    ValidBlockSpaceCount++;
+            }
+        }
+
+
+        Debug.Log(">>>> SetValidBlockSpaceCount :: " + ValidBlockSpaceCount);
+    }
+
+    /// <summary>
+    /// 리스폰 되는 블록 수 설정 (매번 스테이지 갱신시점 마다 처리)
+    /// </summary>
+    void SetFillBlockCount() {
+
+
+        int tempFillBlockCount = ValidBlockSpaceCount / 2;
+
+        int stone = 0;
+        int fish = 0;
+        int moving = 0;
+        int firework = 0;
+
+        // 필드에 출현한 특수블록 개수 만큼 제외해야한다. 
+        // 바위, 생선, 무빙, 폭죽
+
+        for (int i = 0; i < GameSystem.Instance.Height; i++) {
+            for (int j = 0; j < GameSystem.Instance.Width; j++) {
+
+                if (fieldBlocks[i, j].currentState == BlockState.Inactive)
+                    continue;
+
+                if (fieldBlocks[i, j].currentState == BlockState.FishGrill)
+                    fish++;
+
+                if (fieldBlocks[i, j].currentState == BlockState.StrongStone || fieldBlocks[i, j].currentState == BlockState.Stone)
+                    stone++;
+
+                moving = ListMoveTiles.Count;
+
+                if (fieldBlocks[i, j].currentState == BlockState.Firework || fieldBlocks[i, j].currentState == BlockState.FireworkCap)
+                    firework++;
+            }
+        }
+
+
+        // 나누기 2한다. 
+        stone = stone / 2;
+        fish = fish / 2;
+        moving = moving / 2;
+        firework = firework / 2;
+
+        tempFillBlockCount = tempFillBlockCount - (stone + fish + moving + firework);
+
+        FillBlockCount = tempFillBlockCount;
+
+        Debug.Log(">>>> SetFillBlockCount :: " + FillBlockCount);
+
+
+    }
+
     /// <summary>
     /// 스테이지 생성
     /// </summary>
@@ -503,8 +577,11 @@ public partial class InGameCtrl : MonoBehaviour {
             }
         }
 
+        SetFillBlockCount(); // FillBlockCount 
+
+
         // Idle 생성 시작
-        for (int i = 0; i < GameSystem.Instance.FillBlockCount; i++) {
+        for (int i = 0; i < FillBlockCount; i++) {
 
             // listEmptyBlock에서 임의의 공간을 골라서 Idle 상태로 변경(listEmptyBlock은 Block Ctrl에서 제거
             emptyIndx = Random.Range(0, listEmptyBlock.Count);
@@ -540,8 +617,6 @@ public partial class InGameCtrl : MonoBehaviour {
     /// </summary>
     /// <param name="pMapType"></param>
     private void SetFieldNoneStateBlocks(string pMapType) {
-
-        SetFillBlockCount(pMapType);
 
         switch (pMapType) {
             case "7x7": // 7x7 기본 형태 
@@ -606,7 +681,9 @@ public partial class InGameCtrl : MonoBehaviour {
 
         }
 
-        CheckSpecialTile();
+        SetValidBlockSpaceCount();
+        CheckSpecialTile(); // 특수 타일 구현 
+        SetFillBlockCount(); // 리스폰 블록 개수 정하기 
 
     }
 
@@ -616,20 +693,16 @@ public partial class InGameCtrl : MonoBehaviour {
     /// 7x7 맵 설정 
     /// </summary>
     void InitMap7x7() {
-        int activeBlock = 0;
- 
+
         // 1~7 index 
         for (int i = 1; i < 8; i++) {
 
             for (int j = 1; j < 8; j++) {
-
                 fieldBlocks[i, j].SetState(BlockState.None); // 상태값 None 으로 초기화 
-                activeBlock++;
-
             }
         }
 
-        GameSystem.Instance.ActiveBlockCount = activeBlock;
+        
        
     }
     #endregion
@@ -640,7 +713,6 @@ public partial class InGameCtrl : MonoBehaviour {
     /// SmallType1 
     /// </summary>
     void InitSmallType1() {
-        int activeBlock = 0;
 
         // 1~7 index 
         for (int i = 1; i < 8; i++) {
@@ -660,12 +732,11 @@ public partial class InGameCtrl : MonoBehaviour {
                     continue;
 
                 fieldBlocks[i, j].SetState(BlockState.None); // 상태값 None 으로 초기화 
-                activeBlock++;
 
             }
         }
 
-        GameSystem.Instance.ActiveBlockCount = activeBlock;
+        
     }
 
     #endregion
@@ -676,17 +747,16 @@ public partial class InGameCtrl : MonoBehaviour {
     /// </summary>
     void InitMap9x9() {
 
-        int activeBlock = 0;
+        
 
         for (int i = 0; i < GameSystem.Instance.Height; i++) {
 
             for (int j = 0; j < GameSystem.Instance.Width; j++) {
                 fieldBlocks[i, j].SetState(BlockState.None); // 상태값 None 으로 초기화 
-                activeBlock++;
             }
         }
 
-        GameSystem.Instance.ActiveBlockCount = activeBlock;
+        
 
     }
     #endregion
@@ -697,31 +767,31 @@ public partial class InGameCtrl : MonoBehaviour {
     /// 지그재그 구멍 맵
     /// </summary>
     void InitMapBigZigzag() {
-        int activeBlock = 0;
+        
 
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 7; j++) {
                 fieldBlocks[i, j].SetState(BlockState.None);
-                activeBlock++;
+        
             }
         }
 
         for (int i = 2; i < 4; i++) {
             for (int j = 0; j < 2; j++) {
                 fieldBlocks[i, j].SetState(BlockState.None);
-                activeBlock++;
+        
             }
 
             for (int j = 4; j < 9; j++) {
                 fieldBlocks[i, j].SetState(BlockState.None);
-                activeBlock++;
+        
             }
         }
 
         for (int i = 4; i < 5; i++) {
             for (int j = 0; j < 9; j++) {
                 fieldBlocks[i, j].SetState(BlockState.None);
-                activeBlock++;
+        
             }
         }
 
@@ -730,24 +800,24 @@ public partial class InGameCtrl : MonoBehaviour {
         for (int i = 5; i < 7; i++) {
             for (int j = 0; j < 5; j++) {
                 fieldBlocks[i, j].SetState(BlockState.None);
-                activeBlock++;
+        
             }
 
             for (int j = 7; j < 9; j++) {
                 fieldBlocks[i, j].SetState(BlockState.None);
-                activeBlock++;
+        
             }
         }
 
         for (int i = 7; i < 9; i++) {
             for (int j = 2; j < 9; j++) {
                 fieldBlocks[i, j].SetState(BlockState.None);
-                activeBlock++;
+        
             }
 
         }
 
-        GameSystem.Instance.ActiveBlockCount = activeBlock;
+        
     }
 
     #endregion
@@ -758,19 +828,19 @@ public partial class InGameCtrl : MonoBehaviour {
     /// 도넛 맵 
     /// </summary>
     void InitMapBigDoughnut() {
-        int activeBlock = 0;
+        
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 9; j++) {
                 fieldBlocks[i, j].SetState(BlockState.None);
-                activeBlock++;
+                
             }
         }
 
         for (int i = 3; i < 6; i++) {
             for (int j = 0; j < 3; j++) {
                 fieldBlocks[i, j].SetState(BlockState.None);
-                activeBlock++;
+                
             }
         }
 
@@ -778,7 +848,7 @@ public partial class InGameCtrl : MonoBehaviour {
         for (int i = 3; i < 6; i++) {
             for (int j = 6; j < 9; j++) {
                 fieldBlocks[i, j].SetState(BlockState.None);
-                activeBlock++;
+        
             }
         }
 
@@ -787,11 +857,11 @@ public partial class InGameCtrl : MonoBehaviour {
         for (int i = 6; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 fieldBlocks[i, j].SetState(BlockState.None);
-                activeBlock++;
+        
             }
         }
 
-        GameSystem.Instance.ActiveBlockCount = activeBlock;
+        
     }
     #endregion
 
@@ -801,12 +871,12 @@ public partial class InGameCtrl : MonoBehaviour {
     /// </summary>
     void InitMapBigFatCross() {
 
-        int activeBlock = 0;
+        
         // 2~6 index 
         for (int i = 2; i < 7; i++) {
             for (int j = 0; j < 9; j++) {
                 fieldBlocks[i, j].SetState(BlockState.None);
-                activeBlock++;
+        
             }
         }
 
@@ -814,19 +884,19 @@ public partial class InGameCtrl : MonoBehaviour {
         for (int i = 0; i < 2; i++) {
             for (int j = 2; j < 7; j++) {
                 fieldBlocks[i, j].SetState(BlockState.None);
-                activeBlock++;
+        
             }
         }
 
         for (int i = 7; i < 9; i++) {
             for (int j = 2; j < 7; j++) {
                 fieldBlocks[i, j].SetState(BlockState.None);
-                activeBlock++;
+        
             }
         }
 
 
-        GameSystem.Instance.ActiveBlockCount = activeBlock;
+        
     }
 
     #endregion
@@ -897,7 +967,7 @@ public partial class InGameCtrl : MonoBehaviour {
         _listFieldBlock[79].SetState(BlockState.None);
         _listFieldBlock[80].SetState(BlockState.None);
 
-        GameSystem.Instance.ActiveBlockCount = 61;
+        
 
 
     }
@@ -975,7 +1045,7 @@ public partial class InGameCtrl : MonoBehaviour {
         _listFieldBlock[75].SetState(BlockState.None);
         _listFieldBlock[76].SetState(BlockState.None);
 
-        GameSystem.Instance.ActiveBlockCount = 61;
+        
     }
     #endregion
 
@@ -1048,7 +1118,7 @@ public partial class InGameCtrl : MonoBehaviour {
         _listFieldBlock[76].SetState(BlockState.None);
         _listFieldBlock[77].SetState(BlockState.None);
 
-        GameSystem.Instance.ActiveBlockCount = 57;
+        
     }
     #endregion
 
@@ -1126,13 +1196,13 @@ public partial class InGameCtrl : MonoBehaviour {
         _listFieldBlock[79].SetState(BlockState.None);
         _listFieldBlock[80].SetState(BlockState.None);
 
-        GameSystem.Instance.ActiveBlockCount = 64;
+        
     }
     #endregion
 
     #region Pyramid
     void InitPyramid() {
-        GameSystem.Instance.ActiveBlockCount = 43;
+        
 
         _listFieldBlock[22].SetState(BlockState.None);
         _listFieldBlock[30].SetState(BlockState.None);
@@ -1161,22 +1231,17 @@ public partial class InGameCtrl : MonoBehaviour {
 
     #region Narrow
     void InitNarrow() {
-        int activeBlock = 0;
-
         for(int i=0; i<9; i++) {
             for(int j=3;j<6;j++) {
                 fieldBlocks[i, j].SetState(BlockState.None);
-                activeBlock++;
             }
         }
-
-        GameSystem.Instance.ActiveBlockCount = activeBlock;
     }
     #endregion
 
     #region Big X
     void InitX() {
-        GameSystem.Instance.ActiveBlockCount = 64;
+        
 
         for(int i=0; i<81; i++) {
             _listFieldBlock[i].SetState(BlockState.None);
@@ -1206,7 +1271,7 @@ public partial class InGameCtrl : MonoBehaviour {
 
     #region Hourglass
     void InitHourglass() {
-        GameSystem.Instance.ActiveBlockCount = 49;
+        
 
         _listFieldBlock[0].SetState(BlockState.None);
         _listFieldBlock[1].SetState(BlockState.None);
@@ -1268,15 +1333,7 @@ public partial class InGameCtrl : MonoBehaviour {
     }
     #endregion
 
-    void InitDotType1() {
-        int activeBlock = 0;
-        GameSystem.Instance.ActiveBlockCount = activeBlock;
-    }
-
-    void InitIrregularType1() {
-        int activeBlock = 0;
-        GameSystem.Instance.ActiveBlockCount = activeBlock;
-    }
+    
 
 
     #region Custom Map
@@ -1289,12 +1346,6 @@ public partial class InGameCtrl : MonoBehaviour {
             activeBlock++;
         }
 
-        // FillBlockCount 세팅 
-
-        GameSystem.Instance.FillBlockCount = activeBlock / 2;
-
-
-        GameSystem.Instance.ActiveBlockCount = activeBlock;
     }
     #endregion
 
@@ -1302,6 +1353,7 @@ public partial class InGameCtrl : MonoBehaviour {
 
     /// <summary>
     /// 스테이지 스페셜 타일 체크 
+    /// 스페셜 타일이 존재하면 필드에 구현 
     /// </summary>
     void CheckSpecialTile() {
 
@@ -1351,9 +1403,6 @@ public partial class InGameCtrl : MonoBehaviour {
             ListMoveTiles.Add(movetile.GetComponent<MoveTileCtrl>());
             ListMoveTilesBlock.Add(_listFieldBlock[movepos[i].AsInt]);
 
-            // 이동 미션은 타일만큼 감소시킨다. 
-            GameSystem.Instance.FillBlockCount--; // FillBlockCount를 하나씩 감소 
-
         }
 
 
@@ -1397,9 +1446,6 @@ public partial class InGameCtrl : MonoBehaviour {
 
         for (int i = 0; i < grillpos.Count; i++) {
             _listFieldBlock[grillpos[i].AsInt].SetFishGrill();
-
-            if(i%2 == 0)
-                GameSystem.Instance.FillBlockCount--; // FillBlockCount를 하나씩 감소 
         }
     }
 
@@ -1425,9 +1471,6 @@ public partial class InGameCtrl : MonoBehaviour {
 
         for (int i=0; i<rockpos.Count;i++) {
             _listFieldBlock[rockpos[i].AsInt].SetState(BlockState.StrongStone);
-
-            if (i % 2 == 0)
-                GameSystem.Instance.FillBlockCount--; // FillBlockCount를 하나씩 감소 
         }
     }
 
@@ -1445,20 +1488,6 @@ public partial class InGameCtrl : MonoBehaviour {
 
     }
 
-
-    /// <summary>
-    /// 유효 블록 수 처리 
-    /// </summary>
-    void SetFillBlockCount(string pMapType) {
-
-        if(pMapType == "Custom") {
-
-        }
-        else {
-            GameSystem.Instance.FillBlockCount = GameSystem.Instance.StageDetailJSON[GameSystem.Instance.PlayStage - 1]["fillcount"].AsInt;
-        }
-        
-    }
 
     /// <summary>
     /// 쿠키 미션 체크 
@@ -1575,8 +1604,10 @@ public partial class InGameCtrl : MonoBehaviour {
             }
         }
 
+        SetFillBlockCount();
+
         // 모든 스테이지 블록이 None 상태 이어야 한다. 
-        for (int i = 0; i < GameSystem.Instance.FillBlockCount; i++) {
+        for (int i = 0; i < FillBlockCount; i++) {
             // listEmptyBlock에서 임의의 공간을 골라서 Idle 상태로 변경(listEmptyBlock은 Block Ctrl에서 제거
             emptyIndx = Random.Range(0, listEmptyBlock.Count);
 
@@ -1623,7 +1654,7 @@ public partial class InGameCtrl : MonoBehaviour {
         // listEmptyBlock 의 수가 height * width - fillBlockCount 의 수로 맞춰야된다. 
 
         int emptyIndx = -1;
-        int loopCount = listEmptyBlock.Count - (GameSystem.Instance.Height * GameSystem.Instance.Width - GameSystem.Instance.FillBlockCount);
+        int loopCount = listEmptyBlock.Count - (GameSystem.Instance.Height * GameSystem.Instance.Width - FillBlockCount);
 
         // loopCount 만큼 Idle 블록으로 처리 
 
@@ -1883,10 +1914,10 @@ public partial class InGameCtrl : MonoBehaviour {
                 if (GameSystem.Instance.IngameRemainCookie == 0)
                     progress = 100;
                 else
-                    progress = GameSystem.Instance.ActiveBlockCount - GameSystem.Instance.IngameRemainCookie;
+                    progress = ValidBlockSpaceCount - GameSystem.Instance.IngameRemainCookie;
 
                 // questvalue 강제로 수정 
-                pCurrentStage["questvalue" + pQuestIndex.ToString()].AsInt = GameSystem.Instance.ActiveBlockCount;
+                pCurrentStage["questvalue" + pQuestIndex.ToString()].AsInt = ValidBlockSpaceCount;
 
                 break;
 
@@ -2724,6 +2755,27 @@ public partial class InGameCtrl : MonoBehaviour {
 
         set {
             _isFireworking = value;
+        }
+    }
+
+    public int FillBlockCount {
+        get {
+            return _fillBlockCount;
+        }
+
+        set {
+            _fillBlockCount = value;
+        }
+    }
+
+    public int ValidBlockSpaceCount {
+        get {
+            return _validBlockSpaceCount;
+        }
+
+        set {
+            _validBlockSpaceCount = value;
+            GameSystem.Instance.ResultValidBlockSpaceCount = value;
         }
     }
 

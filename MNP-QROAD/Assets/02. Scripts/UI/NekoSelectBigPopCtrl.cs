@@ -501,7 +501,7 @@ public class NekoSelectBigPopCtrl : MonoBehaviour {
         Neko.UpdateInfo();
         SetCurrentNeko(Neko);
 
-        if(GameSystem.Instance.LocalTutorialStep == 4) {
+        if(GameSystem.Instance.LocalTutorialStep <= 4) {
             GameSystem.Instance.SaveLocalTutorialStep(5); // 5으로 저장 (고양이 레벨 업그레이드 완료)
         }
 
