@@ -943,6 +943,7 @@ public static class PuzzleConstBox {
         listEquipItemClip.Add("ready-bomb-150-g");
         listEquipItemClip.Add("ready-neko-skill-g");
         listEquipItemClip.Add("CommingSoon");
+        //listEquipItemClip.Add("");
 
         listColoredEquipItemClip.Add("ready-5sec");
         listColoredEquipItemClip.Add("ready-bomb-150");

@@ -1515,6 +1515,9 @@ public partial class GameSystem : MonoBehaviour {
             else if ("Not enough coin".Equals(result["error"].Value)) {
                 LobbyCtrl.Instance.OpenUpperInfoPopUp(PopMessageType.GemShortage);
             }
+            else if(result["error"].Value.Contains("Not enough gem")) {
+                LobbyCtrl.Instance.OpenInfoPopUp(PopMessageType.GemShortage, LobbyCtrl.Instance.OpenJewelShop);
+            }
             return;
 		}
 

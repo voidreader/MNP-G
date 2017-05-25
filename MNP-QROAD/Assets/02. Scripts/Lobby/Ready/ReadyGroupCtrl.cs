@@ -336,6 +336,12 @@ public class ReadyGroupCtrl : MonoBehaviour {
         _arrStageMissionCols[3].SetMissionInfo(_currentStage["questid4"].AsInt, _currentStage["questvalue4"].AsInt);
 
         SetNormalGame();
+
+
+        // 보스 & 구출 미션에서 추가 아이템 처리 
+        if(_currentStage["questid1"].AsInt == 10 || _currentStage["questid1"].AsInt == 11) {
+            _arrEquipItem[3].SetFireworkItem();
+        }
     }
 
     void OnEnable() {

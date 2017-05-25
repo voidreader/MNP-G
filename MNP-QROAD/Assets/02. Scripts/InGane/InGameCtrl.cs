@@ -57,6 +57,7 @@ public partial class InGameCtrl : MonoBehaviour {
     bool _boostPlayTime = false; // 플레이 시간 증가 
     bool _boostBombCreate = false; // 폭탄 생성에 필요한 블록 감소 
     bool _boostSpecialAttack = false; // 스페셜 어택에 필요한 블록 감소 
+    bool _boostFirework = false;
     
 
     public int _equipItemCount = 0;
@@ -570,7 +571,7 @@ public partial class InGameCtrl : MonoBehaviour {
         }
 
         // 보스&구출 스테이지일때 폭죽 추가 
-        if (IsBossStage || IsRescueStage) {
+        if ( (IsBossStage || IsRescueStage ) && BoostFirework) {
             for (int i = 0; i < 3; i++) {
                 emptyIndx = Random.Range(0, listEmptyBlock.Count);
                 listEmptyBlock[emptyIndx].SetState(BlockState.FireworkCap);
@@ -2111,6 +2112,7 @@ public partial class InGameCtrl : MonoBehaviour {
         _boostPlayTime = false;
         _boostBombCreate = false;
         _boostSpecialAttack = false;
+        _boostFirework = false;
           
 
         GameSystem.Instance.ListPreEquipItemID.Clear();
@@ -2131,6 +2133,10 @@ public partial class InGameCtrl : MonoBehaviour {
                 _boostSpecialAttack = true;
                 _equipItemCount++;
                 GameSystem.Instance.ListPreEquipItemID.Add(2);
+            } else if (GameSystem.Instance.ListEquipItemID[i] == 3) {
+                _boostFirework = true;
+                _equipItemCount++;
+                GameSystem.Instance.ListPreEquipItemID.Add(3);
             }
         }
 
@@ -2776,6 +2782,16 @@ public partial class InGameCtrl : MonoBehaviour {
         set {
             _validBlockSpaceCount = value;
             GameSystem.Instance.ResultValidBlockSpaceCount = value;
+        }
+    }
+
+    public bool BoostFirework {
+        get {
+            return _boostFirework;
+        }
+
+        set {
+            _boostFirework = value;
         }
     }
 

@@ -37,6 +37,11 @@ public class EquipItemCtrl : MonoBehaviour {
     [SerializeField] SparkLightCtrl _sparkLight;
 
 
+    // 특수 폭죽 아이템 
+    string _spriteFireworkdColored = "ready-attack200";
+    string _spriteFireworkdBW = "ready-attack200-g";
+
+
     /// <summary>
     /// 아이템 장착 
     /// </summary>
@@ -69,8 +74,16 @@ public class EquipItemCtrl : MonoBehaviour {
             // 체크 표시 
             spFillColumn.gameObject.SetActive(true);
 
+
             // ICON 칼라로 변경
-            spItem.spriteName = PuzzleConstBox.listColoredEquipItemClip[EquipItemIndex];
+            if (equipItemIndex == 3) {
+                spItem.spriteName = _spriteFireworkdColored;
+            }
+            else {
+                spItem.spriteName = PuzzleConstBox.listColoredEquipItemClip[EquipItemIndex];
+            }
+
+            
 
 
             // 아이템 정보를 Add
@@ -90,8 +103,18 @@ public class EquipItemCtrl : MonoBehaviour {
             GameSystem.Instance.CheckedBoostItemsPrice -= Price;
             LobbyCtrl.Instance.UpdateMoney();
 
-            // 흑백 칼라로 변경
-            spItem.spriteName = PuzzleConstBox.listEquipItemClip[EquipItemIndex];
+            
+            //spItem.spriteName = PuzzleConstBox.listEquipItemClip[EquipItemIndex];
+
+
+            // 흑백 칼라로 변경// ICON 칼라로 변경
+            if (equipItemIndex == 3) {
+                spItem.spriteName = _spriteFireworkdBW;
+            }
+            else {
+                spItem.spriteName = PuzzleConstBox.listEquipItemClip[EquipItemIndex];
+            }
+
 
 
             // 아이템 정보를 Remove
@@ -128,9 +151,10 @@ public class EquipItemCtrl : MonoBehaviour {
 	public void SetEquipItem(int pIndex) {
 		equipItemIndex = pIndex;
 		spItem.spriteName = PuzzleConstBox.listEquipItemClip [pIndex];
+        spItem.MakePixelPerfect();
 
         // 가격설정 
-        switch(pIndex) {
+        switch (pIndex) {
             case 0:
                 _lblPrice.text = GameSystem.Instance.GetNumberToString(PuzzleConstBox.originalBoostItemPrice); // 원 가격
                 _lblBargainPrice.text = GameSystem.Instance.GetNumberToString(GameSystem.Instance.BoostShieldPrice); // 변경 가격 
@@ -147,8 +171,8 @@ public class EquipItemCtrl : MonoBehaviour {
                 Price = GameSystem.Instance.BoostCriticalPrice;
                 break;
             case 3:
-                //_lblPrice.text = "Free";
-                //_price = 0;
+                _defaultPriceInfo.SetActive(false);
+                spItem.gameObject.SetActive(false);
 
                 _lblPrice.text = GameSystem.Instance.GetNumberToString(PuzzleConstBox.originalBoostStartFever);
                 _lblBargainPrice.text = GameSystem.Instance.GetNumberToString(GameSystem.Instance.BoostStartFeverPrice);
@@ -184,6 +208,20 @@ public class EquipItemCtrl : MonoBehaviour {
 
 
         
+    }
+
+    /// <summary>
+    /// 폭죽 부스트 아이템 추가 설정
+    /// </summary>
+    public void SetFireworkItem() {
+        _defaultPriceInfo.SetActive(true);
+
+        spItem.spriteName = _spriteFireworkdBW;
+        spItem.MakePixelPerfect();
+        spItem.gameObject.SetActive(true);
+
+        if (_isLock)
+            _defaultPriceInfo.SetActive(false);
     }
 
 	/// <summary>
@@ -227,8 +265,10 @@ public class EquipItemCtrl : MonoBehaviour {
             spItem.gameObject.SetActive(true);
         }
 
-        if (equipItemIndex == 3)
+        if (equipItemIndex == 3) {
             _defaultPriceInfo.SetActive(false);
+            spItem.gameObject.SetActive(false);
+        }
     }
 
 

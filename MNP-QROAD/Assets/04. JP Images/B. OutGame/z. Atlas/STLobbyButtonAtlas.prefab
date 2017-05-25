@@ -237,7 +237,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: ico-top-key
     x: 259
-    y: 163
+    y: 439
     width: 88
     height: 91
     borderLeft: 0
@@ -250,7 +250,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: main_btn_back
     x: 259
-    y: 255
+    y: 347
     width: 88
     height: 91
     borderLeft: 0
@@ -327,8 +327,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: main_btn_glass
-    x: 912
-    y: 768
+    x: 259
+    y: 531
     width: 88
     height: 91
     borderLeft: 0
@@ -353,8 +353,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: main_btn_mission
-    x: 259
-    y: 531
+    x: 912
+    y: 768
     width: 88
     height: 91
     borderLeft: 0
@@ -380,7 +380,7 @@ MonoBehaviour:
     paddingBottom: 1
   - name: main_btn_ranking
     x: 259
-    y: 439
+    y: 255
     width: 88
     height: 91
     borderLeft: 0
@@ -393,7 +393,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: main_btn_wanted
     x: 259
-    y: 347
+    y: 163
     width: 88
     height: 91
     borderLeft: 0

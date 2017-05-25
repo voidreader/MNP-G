@@ -931,7 +931,7 @@ public class InUICtrl : MonoBehaviour {
 	/// 코입 흡수 효과 
 	/// </summary>
 	public void PlayCoinFx() {
-		PlayCoinFx (4);
+		PlayCoinFx (1);
 	}
 
 	public void PlayCoinFx(int pValue) {

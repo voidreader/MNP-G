@@ -377,7 +377,7 @@ public partial class InGameCtrl : MonoBehaviour {
 		for (int i=0; i<GameSystem.Instance.Height; i++) {
 			for (int j=0; j<GameSystem.Instance.Width; j++) {
 
-				if(fieldBlocks[i,j].GetBlockLock() || fieldBlocks[i,j].currentState != BlockState.None)
+				if(fieldBlocks[i,j].currentState != BlockState.None)
 					continue;
 
 				// 체크 
@@ -1080,8 +1080,7 @@ public partial class InGameCtrl : MonoBehaviour {
             || pBC.currentState == BlockState.Stone
             || pBC.currentState == BlockState.FishGrill
             || pBC.currentState == BlockState.Firework
-            || pBC.currentState == BlockState.FireworkCap
-            || pBC.GetBlockLock ()) {
+            || pBC.currentState == BlockState.FireworkCap) {
 			return false;
 		}
 
@@ -1138,9 +1137,11 @@ public partial class InGameCtrl : MonoBehaviour {
 		// 1. up 방향 체크 
 		for(int i=pX; i>=0; i--) {
 
+            // 길이 막혔으면 대상 방향은 탐색을 종료한다. 
             if (CheckBlockingLine(fieldBlocks[i, pY]))
                 break;
 
+            // 유효한 블록의 경우만 리스트에 ADD 해주고 종료 
 			if(ValidateIdleBlockCheck(fieldBlocks[i,pY])) {
 				listAroundBlock.Add(fieldBlocks[i,pY]);
 				break; 
@@ -1238,7 +1239,7 @@ public partial class InGameCtrl : MonoBehaviour {
         for (int i = 0; i < GameSystem.Instance.Height; i++) {
             for (int j = 0; j < GameSystem.Instance.Width; j++) {
 
-                if (fieldBlocks[i, j].GetBlockLock() || fieldBlocks[i, j].currentState == BlockState.Idle)
+                if (fieldBlocks[i, j].currentState == BlockState.Idle)
                     return true;
             }
         }
@@ -1360,7 +1361,7 @@ public partial class InGameCtrl : MonoBehaviour {
         for (int i = 0; i < GameSystem.Instance.Height; i++) {
             for (int j = 0; j < GameSystem.Instance.Width; j++) {
 
-                if (fieldBlocks[i, j].GetBlockLock() || fieldBlocks[i, j].currentState != BlockState.None)
+                if (fieldBlocks[i, j].currentState != BlockState.None)
                     continue;
 
                 // 체크 

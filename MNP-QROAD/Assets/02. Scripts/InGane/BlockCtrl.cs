@@ -35,9 +35,6 @@ public class BlockCtrl : MonoBehaviour {
 	// 매칭 체크 변수 
 	public bool isMatchingChecked = false;
 
-	// 포지션 Lock 변수
-	[SerializeField]
-	private bool isLock = false;
 
 	private Vector3 pos;
 	private Vector3 smokePos;
@@ -760,11 +757,9 @@ public class BlockCtrl : MonoBehaviour {
     /// </summary>
     public void TouchBlock() {
 		
-		if (isLock)
-			return;
 
 		// Idle 상태이거나 ItemSpot(아이템 생성위치)의 경우 터치 불가 
-		if(currentState == BlockState.Idle || GetBlockLock())
+		if(currentState == BlockState.Idle)
 			return;
 		
 
@@ -1187,13 +1182,7 @@ public class BlockCtrl : MonoBehaviour {
     }
 	
 
-	public void SetBlockLock(bool pLock) {
-		isLock = pLock;
-	}
 
-	public bool GetBlockLock() {
-		return isLock;
-	}
 
 
 	/// <summary>
@@ -1236,7 +1225,7 @@ public class BlockCtrl : MonoBehaviour {
 
 	public void OnSpawned() {
 		isMatchingChecked = false;
-		isLock = false;
+		
 
         //spBlockNavigator.gameObject.SetActive(false);
         

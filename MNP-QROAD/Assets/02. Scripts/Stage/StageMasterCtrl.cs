@@ -39,8 +39,11 @@ public class StageMasterCtrl : MonoBehaviour {
 
     [SerializeField] UIButton _btnMoveBottle;
     [SerializeField] GameObject _preCenterObject;
+    [SerializeField] GameObject _currentCenterObject;
 
 
+    [SerializeField] GameObject _btnLeftEpisodeMove;
+    [SerializeField] GameObject _btnRightEpisodeMove;
 
     // 다시하기 용도
     public static event Action<int> OnCompleteStageClearDirect = delegate { };
@@ -105,9 +108,43 @@ public class StageMasterCtrl : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-	
-	}
 
+        _stageCenterOnChild.onCenter = OnCenter;
+        
+
+    }
+
+    void OnCenter(GameObject pObj) {
+
+        if (pObj == null)
+            return;
+
+
+        // 중복실행을 막는다. 
+        if (pObj == _currentCenterObject)
+            return;
+
+        Debug.Log("OnCenter :: " + pObj.ToString());
+        _currentCenterObject = pObj;
+
+        if(pObj.GetComponent<CatBottleCtrl>() != null ) {
+            // 유리병 Center의 경우
+            _btnLeftEpisodeMove.SetActive(false);
+            _btnRightEpisodeMove.SetActive(true);
+        }
+        else {
+            // 나머지는 스테이지 
+            if(pObj.GetComponent<StageBaseCtrl>().ThemeID >= GameSystem.Instance.StageMasterJSON.Count) {
+                _btnLeftEpisodeMove.SetActive(true);
+                _btnRightEpisodeMove.SetActive(false);
+            } 
+            else {
+                _btnLeftEpisodeMove.SetActive(true);
+                _btnRightEpisodeMove.SetActive(true);
+            }
+        }
+
+    }
 
 
     /// <summary>
@@ -119,8 +156,8 @@ public class StageMasterCtrl : MonoBehaviour {
         int movepos = GetThemeIndex(pStage);
 
 
-        Debug.Log("★ SetCameraPos pStage  :: " + pStage);
-        Debug.Log("★ SetCameraPos GetThemeIndex  :: " + movepos);
+        //Debug.Log("★ SetCameraPos pStage  :: " + pStage);
+        //Debug.Log("★ SetCameraPos GetThemeIndex  :: " + movepos);
         
 
         if(movepos < 0) {
@@ -139,6 +176,8 @@ public class StageMasterCtrl : MonoBehaviour {
         _stagePanel.transform.localPosition = new Vector3((movepos + 1) * STAGE_GAP * -1, 0, 0);
         _stagePanel.clipOffset = new Vector2((movepos + 1) * STAGE_GAP, 0);
 
+        _currentCenterObject = _listThemes[movepos].gameObject;
+        
 
     }
 
@@ -426,12 +465,13 @@ public class StageMasterCtrl : MonoBehaviour {
         }
 
         _stageCenterOnChild.CenterOn(ListThemes[pTargetTheme - 1].transform);
+
     }
 
 
 
     void MoveCurrentStageTheme() {
-
+        
         _stageCenterOnChild.CenterOn(ListThemes[GetThemeIndex(GameSystem.Instance.UserCurrentStage)].transform);
         //GetThemeIndex(GameSystem.Instance.UserStageJSON["laststage"].AsInt)
     }
@@ -597,6 +637,9 @@ public class StageMasterCtrl : MonoBehaviour {
     }
 
 
+    #region 버튼 이동 
+
+
     /// <summary>
     /// 유리병으로 이동 
     /// </summary>
@@ -618,5 +661,43 @@ public class StageMasterCtrl : MonoBehaviour {
         */
         
     }
+
+
+    public void MoveRightEpisode() {
+
+
+        if (_currentCenterObject == null)
+            _currentCenterObject = StageCenterOnChild.centeredObject;
+
+        // 유리병이 Center에 와있는 경우 
+        if (_currentCenterObject.GetComponent<CatBottleCtrl>() != null) {
+            MoveTheme(1);
+        }
+        else {
+            // 나머지는 스테이지 
+            if (_currentCenterObject.GetComponent<StageBaseCtrl>().ThemeID >= GameSystem.Instance.StageMasterJSON.Count) {
+                return;
+            }
+
+
+            MoveTheme(_currentCenterObject.GetComponent<StageBaseCtrl>().ThemeID + 1);
+        }
+    }
+
+
+    public void MoveLeftEpisode() {
+
+        if (_currentCenterObject == null)
+            _currentCenterObject = StageCenterOnChild.centeredObject;
+
+        if (_currentCenterObject.GetComponent<StageBaseCtrl>().ThemeID == 1)
+            MoveToBottle();
+        else {
+            MoveTheme(_currentCenterObject.GetComponent<StageBaseCtrl>().ThemeID - 1);
+        }
+
+    }
+
+    #endregion
 
 }

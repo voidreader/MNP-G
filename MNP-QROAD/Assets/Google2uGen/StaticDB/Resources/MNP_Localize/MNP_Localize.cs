@@ -770,7 +770,7 @@ namespace Google2u
 			Rows.Add( new MNP_LocalizeRow("L3006", "3006", "스킬", "Skill", "Skill", "สกิล", ""));
 			Rows.Add( new MNP_LocalizeRow("L3007", "3007", "예", "Yes", "Ya", "ใช่", ""));
 			Rows.Add( new MNP_LocalizeRow("L3008", "3008", "아니오", "No", "Tidak", "ไม่ใช่", ""));
-			Rows.Add( new MNP_LocalizeRow("L3009", "3009", "보석가 부족합니다\n구매 하시겠습니까?", "Not enough Gem.\nWould you like to make purchase?", "Permata tidak cukup.\nKamu ingin melakukan pembelian?", "มีอัญมณีไม่พอ\nคุณต้องการซื้ออัญมณีหรือไม่?", "재화 부족 안내 팝업"));
+			Rows.Add( new MNP_LocalizeRow("L3009", "3009", "보석이 부족합니다\n구매 하시겠습니까?", "Not enough Gem.\nWould you like to make purchase?", "Permata tidak cukup.\nKamu ingin melakukan pembelian?", "มีอัญมณีไม่พอ\nคุณต้องการซื้ออัญมณีหรือไม่?", "재화 부족 안내 팝업"));
 			Rows.Add( new MNP_LocalizeRow("L3010", "3010", "코인이 부족합니다\n구매 하시겠습니까?", "Not enough Coin.\nWould you like to make purchase?", "Koin tidak cukup.\nKamu ingin melakukan pembelian?", "มีเหรียญไม่พอ\nคุณต้องการซื้อเหรียญเพิ่มหรือไม่?", "재화 부족 안내 팝업"));
 			Rows.Add( new MNP_LocalizeRow("L3011", "3011", "하트가 부족합니다.\n충전 하시겠습니까?", "Not enough Heart.\nWould you like to charge?", "Hati tidak cukup.\nKamu ingin mengisi?", "มีหัวใจไม่พอ\nคุณต้องการชาร์จหัวใจหรือไม่?", "재화 부족 안내 팝업"));
 			Rows.Add( new MNP_LocalizeRow("L3012", "3012", "마리를 얻었다.", "fish earned.", "Ikan didapat.", "ได้รับปลา", "생선 획득 메세지(일반)"));
