@@ -33,7 +33,10 @@ public class InviteWindowCtrl : MonoBehaviour {
 
 
     public void OpenTwitterInvite() {
-        SocialWorker.PostTwitter(_message, null, null, onResult);
+
+        AndroidSocialGate.StartShareIntent("#mitchirinekopop", _message, "twi");
+        
+        // SocialWorker.PostTwitter(_message, null, null, onTwitterResult);
 
     }
 
@@ -67,6 +70,16 @@ public class InviteWindowCtrl : MonoBehaviour {
 
 
     private void onResult(SocialWorkerResult obj) {
+        if (obj == SocialWorkerResult.Success) {
+            Debug.Log("Post Success");
+        }
+        else {
+            Debug.Log("Post Fail");
+        }
+    }
+
+
+    private void onTwitterResult(SocialWorkerResult obj) {
         if (obj == SocialWorkerResult.Success) {
             Debug.Log("Post Success");
         }

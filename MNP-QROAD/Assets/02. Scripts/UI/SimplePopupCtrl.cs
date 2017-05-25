@@ -316,6 +316,10 @@ public class SimplePopupCtrl : MonoBehaviour {
         else if (_messageType == PopMessageType.PostCompleted) {
             _message = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4262);
         }
+        else if (_messageType == PopMessageType.TwitterNotInstalled) {
+            //_message = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3554);
+        }
+
 
         _lblMessage.text = _message;
         _lblConfirmMessage.text = _message;
