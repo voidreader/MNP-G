@@ -339,6 +339,8 @@ MonoBehaviour:
   updateLock: 1
   timerLock: 0
   listEmptyBlock: []
+  _fillBlockCount: 0
+  _validBlockSpaceCount: 0
   _equipItemCount: 0
   _passiveSkillCount: 0
   _isShowingSkillAndIcon: 1

@@ -273,6 +273,8 @@ MonoBehaviour:
   _preItemAdsID: -1
   _itemAdsID: 0
   _adsID: 0
+  _baseURL: 
+  _testURL: 
   timer: 0
   timeout: 10
   failed: 0
@@ -1129,6 +1131,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   liveServerURL: http://ec2-13-124-50-170.ap-northeast-2.compute.amazonaws.com:8124/
   testServerURL: http://ec2-54-193-101-29.us-west-1.compute.amazonaws.com:8124/
+  googleAdMobAOS: ca-app-pub-7276185723803254/9144810526
+  googleAdMobIOS: ca-app-pub-7276185723803254/7528476528
+  unityAdsAOS: 1394443
+  unityAdsIOS: 1394442
 --- !u!1001 &1579925865
 Prefab:
   m_ObjectHideFlags: 0

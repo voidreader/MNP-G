@@ -362,7 +362,6 @@ MonoBehaviour:
   posX: 0
   posY: 0
   isMatchingChecked: 0
-  isLock: 0
   _isCookie: 0
   _isStone: 0
   _isMovementBlock: 0

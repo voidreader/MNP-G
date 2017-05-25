@@ -16,10 +16,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000010718968820}
-  - 114: {fileID: 114000013674925562}
+  - component: {fileID: 4000010718968820}
+  - component: {fileID: 114000013674925562}
   m_Layer: 0
   m_Name: GBlockAnimation
   m_TagString: Untagged
@@ -36,10 +36,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114000013674925562
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -80,7 +80,7 @@ MonoBehaviour:
     frames:
     - spriteCollection: {fileID: 114000012464359038, guid: 5921481c0e35ebe40bb3f1993aa0c51f,
         type: 2}
-      spriteId: 186
+      spriteId: 212
       triggerEvent: 0
       eventInfo: 
       eventInt: 0
@@ -92,84 +92,42 @@ MonoBehaviour:
     frames:
     - spriteCollection: {fileID: 114000012464359038, guid: 5921481c0e35ebe40bb3f1993aa0c51f,
         type: 2}
-      spriteId: 186
+      spriteId: 212
       triggerEvent: 0
       eventInfo: 
       eventInt: 0
       eventFloat: 0
     - spriteCollection: {fileID: 114000012464359038, guid: 5921481c0e35ebe40bb3f1993aa0c51f,
         type: 2}
-      spriteId: 191
+      spriteId: 213
       triggerEvent: 0
       eventInfo: 
       eventInt: 0
       eventFloat: 0
     - spriteCollection: {fileID: 114000012464359038, guid: 5921481c0e35ebe40bb3f1993aa0c51f,
         type: 2}
-      spriteId: 180
+      spriteId: 213
       triggerEvent: 0
       eventInfo: 
       eventInt: 0
       eventFloat: 0
     - spriteCollection: {fileID: 114000012464359038, guid: 5921481c0e35ebe40bb3f1993aa0c51f,
         type: 2}
-      spriteId: 179
+      spriteId: 213
       triggerEvent: 0
       eventInfo: 
       eventInt: 0
       eventFloat: 0
     - spriteCollection: {fileID: 114000012464359038, guid: 5921481c0e35ebe40bb3f1993aa0c51f,
         type: 2}
-      spriteId: 187
+      spriteId: 213
       triggerEvent: 0
       eventInfo: 
       eventInt: 0
       eventFloat: 0
     - spriteCollection: {fileID: 114000012464359038, guid: 5921481c0e35ebe40bb3f1993aa0c51f,
         type: 2}
-      spriteId: 182
-      triggerEvent: 0
-      eventInfo: 
-      eventInt: 0
-      eventFloat: 0
-    - spriteCollection: {fileID: 114000012464359038, guid: 5921481c0e35ebe40bb3f1993aa0c51f,
-        type: 2}
-      spriteId: 188
-      triggerEvent: 0
-      eventInfo: 
-      eventInt: 0
-      eventFloat: 0
-    - spriteCollection: {fileID: 114000012464359038, guid: 5921481c0e35ebe40bb3f1993aa0c51f,
-        type: 2}
-      spriteId: 184
-      triggerEvent: 0
-      eventInfo: 
-      eventInt: 0
-      eventFloat: 0
-    - spriteCollection: {fileID: 114000012464359038, guid: 5921481c0e35ebe40bb3f1993aa0c51f,
-        type: 2}
-      spriteId: 181
-      triggerEvent: 0
-      eventInfo: 
-      eventInt: 0
-      eventFloat: 0
-    - spriteCollection: {fileID: 114000012464359038, guid: 5921481c0e35ebe40bb3f1993aa0c51f,
-        type: 2}
-      spriteId: 178
-      triggerEvent: 0
-      eventInfo: 
-      eventInt: 0
-      eventFloat: 0
-    - spriteCollection: {fileID: 114000012464359038, guid: 5921481c0e35ebe40bb3f1993aa0c51f,
-        type: 2}
-      spriteId: 190
-      triggerEvent: 0
-      eventInfo: 
-      eventInt: 0
-      eventFloat: 0
-    - spriteCollection: {fileID: 114000012464359038, guid: 5921481c0e35ebe40bb3f1993aa0c51f,
-        type: 2}
-      spriteId: 185
+      spriteId: 212
       triggerEvent: 0
       eventInfo: 
       eventInt: 0

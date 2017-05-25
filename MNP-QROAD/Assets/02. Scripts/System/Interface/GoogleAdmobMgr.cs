@@ -65,12 +65,13 @@ public class GoogleAdmobMgr : MonoBehaviour {
         if (IsBannerRequested)
             return;
 
+        
 #if UNITY_EDITOR
         string adUnitId = "unused";
 #elif UNITY_ANDROID
-        string adUnitId = "ca-app-pub-7276185723803254/9144810526";
+        string adUnitId = EnvManagerCtrl.Instance.googleAdMobAOS;
 #elif UNITY_IOS
-        string adUnitId = "ca-app-pub-7276185723803254/7528476528";
+        string adUnitId = EnvManagerCtrl.Instance.googleAdMobIOS;
 #else
         string adUnitId = "unexpected_platform";
 #endif

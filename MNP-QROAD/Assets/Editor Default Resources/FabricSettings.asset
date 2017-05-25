@@ -12,22 +12,22 @@ MonoBehaviour:
   m_Name: FabricSettings
   m_EditorClassIdentifier: 
   email: radiogaga.jin@gmail.com
-  rawToken: '{"access_token":"d0589888e26dec21e927252578247060aac024f862f94dac7f570e90954d2e8f","refresh_token":"07ae50662887b62f3048ac40330e4e90a63b6502a0f8f0ba6415e730a4154188","token_type":"bearer","expires_in":86400}'
+  rawToken: '{"access_token":"51f71a6fab2571e22ab6eaa7f66f4be4bd2cd70646059f81a249003b16040bb2","refresh_token":"1b87186680631411702a245ff782e5255e92ba2dfcc48ded3d8f56f488c978bc","token_type":"bearer","expires_in":86400}'
   organization:
     Name: PIER
     Id: 59190f4e5680c04d8300042a
     ApiKey: ad95835d3a3f6c8bac9453d2a54e4b3d26ca2d2e
     BuildSecret: 34de4dc1f74de11896d5ff041e43e5e9c80d7d6c06e19b43c9ffdb0696134366
-  iconUrl: 
-  dashboardUrl: 
+  iconUrl: https://s3.amazonaws.com/assets.crashlytics.com/production/project/6597953/project_icon/3050315/icon.png
+  dashboardUrl: https://www.fabric.io/pier/android/apps/com.qroad.google.mitchirinekopop
   initialization: 0
   flowSequence: 0
   conflict: 
   kit: 
   installedKits:
   - Name: Crashlytics
-    InstallationStatus: 1
-    Installed: 0
+    InstallationStatus: 2
+    Installed: 1
     Enabled: 1
     Meta:
     - Key: ConfiguredTimestamp

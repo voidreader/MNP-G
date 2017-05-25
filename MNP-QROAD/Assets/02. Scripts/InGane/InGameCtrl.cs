@@ -74,8 +74,8 @@ public partial class InGameCtrl : MonoBehaviour {
     [SerializeField] List<MyNekoPassiveCtrl> _listNekoPassive = new List<MyNekoPassiveCtrl>();
     private BlockCtrl pickPassiveBombBlock = null;
     [SerializeField] int _nekoTotalPower = 0; // 네코 파워 합계 
-    [SerializeField] int _bombAppearBlockCount = 60;
-    [SerializeField] int _skillInvokeBlockCount = 50;
+    [SerializeField] int _bombAppearBlockCount = 80;
+    [SerializeField] int _skillInvokeBlockCount = 60;
 
 
     #region 맵 Type 세팅 
@@ -2214,7 +2214,7 @@ public partial class InGameCtrl : MonoBehaviour {
         SkillInvokeBlockCount -= GameSystem.Instance.NekoSkillInvokeBonus;
 
         if (BoostBombCreate) 
-            BombAppearBlockCount -= 5;
+            BombAppearBlockCount -= 10;
 
         if (BoostSpecialAttack)
             SkillInvokeBlockCount -= 5;
@@ -2371,7 +2371,17 @@ public partial class InGameCtrl : MonoBehaviour {
 
         if (_listNaviTarget.Count == 0) {
             Debug.Log("★_listNaviTarget.Count : 0 ");
+
             InputCtrl.Instance.NoInputTime = 0; // 미입력 시간 초기화 
+
+            /* 만약을 위해서 한번더 체크 */
+            if (!CheckStageMatch()) {
+                //Debug.Log("♠♠♠ No Match In this Stage!");
+                SetBoardClearResult();
+                RemoveAllIdleBlocks();
+                StartCoroutine(RespawnStageBlock());
+            }
+
             return;
         }
 
@@ -2386,6 +2396,9 @@ public partial class InGameCtrl : MonoBehaviour {
         for (int i = 0; i < _listNaviTouchPos.Count; i++) {
             _listNaviTouchPos[i].OnNaviTile();
         }
+
+
+
 
     }
 

@@ -6,10 +6,7 @@ public class UnityAdsMgr : MonoBehaviour {
 
 
     // Serialize private fields
-    [SerializeField]
-    string iosGameId;
-    [SerializeField]
-    string androidGameId;
+    
     [SerializeField]
     bool enableTestMode = true;
 
@@ -42,16 +39,17 @@ public class UnityAdsMgr : MonoBehaviour {
     // Use this for initialization
     IEnumerator Start() {
         string gameId = null;
+        
 
 #if UNITY_IOS // If build platform is set to iOS...
-        gameId = iosGameId;
+        gameId = EnvManagerCtrl.Instance.unityAdsIOS;
 #elif UNITY_ANDROID // Else if build platform is set to Android...
-        gameId = androidGameId;
+        gameId = EnvManagerCtrl.Instance.unityAdsAOS;
 #endif
 
 
 
-        
+
         if (Advertisement.isSupported) { // If runtime platform is supported...
             Advertisement.Initialize(gameId, enableTestMode); // ...initialize.
         }

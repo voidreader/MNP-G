@@ -1072,18 +1072,6 @@ public partial class InGameCtrl : MonoBehaviour {
     /// <returns><c>true</c>, if idle block check was validated, <c>false</c> otherwise.</returns>
     private bool ValidateIdleBlockCheck(BlockCtrl pBC) {
 
-		// 빈공간이거나 비활성 블록, Lock걸린 블록은 return false; 
-		if (pBC.currentState == BlockState.None 
-		    || pBC.currentState == BlockState.Inactive 
-		    || pBC.currentState == BlockState.Item 
-            || pBC.currentState == BlockState.StrongStone
-            || pBC.currentState == BlockState.Stone
-            || pBC.currentState == BlockState.FishGrill
-            || pBC.currentState == BlockState.Firework
-            || pBC.currentState == BlockState.FireworkCap) {
-			return false;
-		}
-
 		// Idle 상태의 블록 return true;
 		if (pBC.currentState == BlockState.Idle) {
 			pBC.isMatchingChecked = false; // 매칭체크 변수를 false로 바꿔준다.
@@ -1141,7 +1129,7 @@ public partial class InGameCtrl : MonoBehaviour {
             if (CheckBlockingLine(fieldBlocks[i, pY]))
                 break;
 
-            // 유효한 블록의 경우만 리스트에 ADD 해주고 종료 
+            // 유효한 블록의 경우만 리스트에 ADD 해주고 방향탐색을 종료 
 			if(ValidateIdleBlockCheck(fieldBlocks[i,pY])) {
 				listAroundBlock.Add(fieldBlocks[i,pY]);
 				break; 
@@ -1450,7 +1438,7 @@ public partial class InGameCtrl : MonoBehaviour {
 
 
         // 5. 방향 체크 후, 동일 ID의 블록 확인 
-        for (int i = 0; i < GameSystem.Instance.BlockTypeCount; i++) { // 방해블록 때문에 + 1 해준다. 
+        for (int i = 0; i < GameSystem.Instance.BlockTypeCount; i++) { 
 
             naviLoopCount = 0;
 
@@ -1518,11 +1506,7 @@ public partial class InGameCtrl : MonoBehaviour {
             else { // 일직선 아님 
                 _listNaviTouchPos.Add(fieldBlocks[pX, pY]); // 체크지점을 넣는다. 
             }
-            
-
         }
-
-
     }
 
     #endregion
