@@ -2310,6 +2310,9 @@ public partial class LobbyCtrl : MonoBehaviour {
         else if (pType == PopMessageType.CompleteDataTranfer) {  // 초기화와 함께 타이틀 이동처리
             _objSimplePopup.GetComponent<SimplePopupCtrl>().SetInfoMessage(pType, GameSystem.Instance.LoadTitleSceneWithInitialize);
         }
+        else if (pType == PopMessageType.PlayerInfoModified) {  // 초기화와 함께 타이틀 이동처리
+            _objSimplePopup.GetComponent<SimplePopupCtrl>().SetInfoMessage(pType, GameSystem.Instance.LoadTitleSceneWithInitialize);
+        }
         else if(pType == PopMessageType.NickNameChanged) {
             _objSimplePopup.GetComponent<SimplePopupCtrl>().SetInfoMessage(pType, RefreshOptionUserInfo);
         }

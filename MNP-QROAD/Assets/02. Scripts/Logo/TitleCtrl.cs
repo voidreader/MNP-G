@@ -471,6 +471,9 @@ public class TitleCtrl : MonoBehaviour {
 		Debug.Log ("!! ActionConnectionResultReceived ");
         GooglePlayConnection.ActionConnectionResultReceived -= ActionConnectionResultReceived; // 이벤트에서 제거 한다. 
 
+        GameSystem.Instance.PreGPConnectionState = GooglePlayConnection.State;
+
+
         if (result.IsSuccess) {
 			Debug.Log("Connected!");
 			GameSystem.Instance.CurrentPlayer = GooglePlayManager.Instance.player;
@@ -492,6 +495,8 @@ public class TitleCtrl : MonoBehaviour {
 
         ConnectMNP(); // MNP 서버 접속 시작 
 
+        
+        GooglePlayConnection.ActionConnectionStateChanged += GameSystem.Instance.GooglePlayConnection_ActionConnectionStateChanged;
     }
 
 
@@ -614,7 +619,7 @@ public class TitleCtrl : MonoBehaviour {
 
         //라이브옵스 초기화
         IgaworksUnityPluginAOS.LiveOps.initialize();
-        //IgaworksUnityPluginAOS.LiveOps.setNotificationIconStyle("push_small_icon", "app_icon", "ffffffff");
+        IgaworksUnityPluginAOS.LiveOps.setNotificationIconStyle("push_small_icon", "push_small_icon", "ffffffff");
 
         Debug.Log("▶▶▶▶ InitLiveOpsAOS Inited");
 

@@ -26,7 +26,7 @@ public class WWWHelper : MonoBehaviour {
 	[SerializeField] ObscuredInt _dbkey;
     [SerializeField] int _root = 0;
 
-	[SerializeField] string _coupon;
+	
     [SerializeField] string _deviceuniqueID;
 
     /* 결제 사용 */
@@ -226,9 +226,7 @@ public class WWWHelper : MonoBehaviour {
                 _dataForm["data"]["targetdbkey"].AsInt = pParam;
                 break;
 
-            case "request_usecoupon":
-                _dataForm["data"]["coupon"] = _coupon;
-                break;
+
 
             case "request_updateuserbingo":
                 _dataForm["data"]["currentbingoid"].AsInt = pParam ;
@@ -636,6 +634,10 @@ public class WWWHelper : MonoBehaviour {
 
 		switch (requestID) {
 
+            case "request_usecoupon":
+                _dataForm["data"]["couponid"] = pParam;
+                break;
+
             case "request_wakeup":
                 _dataForm["data"]["wakeuptime"] = pParam;
                 break;
@@ -735,13 +737,6 @@ public class WWWHelper : MonoBehaviour {
 		}
 	}
 
-	public string Coupon {
-		get {
-			return this._coupon;
-		} set{
-			this._coupon = value;
-		}
-	}
 
 	public string CurrentSKU {
 		get {

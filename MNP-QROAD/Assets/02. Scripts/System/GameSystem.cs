@@ -33,6 +33,8 @@ public partial class GameSystem : MonoBehaviour {
     // 안드로이드 구글 현재 유저.
     GooglePlayerTemplate _currentPlayer = null;
 
+    GPConnectionState _preGPConnectionState;
+
 
     // 데이터 이전 
     string _dataCode = null;
@@ -79,6 +81,9 @@ public partial class GameSystem : MonoBehaviour {
     [SerializeField]
     bool _optionPuzzleTip = false; // 퍼즐 가이드 표시 0.5초 여부  (false가 초보자, true는 숙련자)
 
+
+    string _urlTerm;
+    string _urlFAQ;
 
 
     // 시간값 (유니티 애즈)
@@ -1077,7 +1082,7 @@ public partial class GameSystem : MonoBehaviour {
             DownloadPackageImages();
         }
 
-
+        SetURLInfo(EnvInitJSON);
         SetPriceInfo(EnvInitJSON);
         SetCoinShopInfo(CoinShopInitJSON);
 
@@ -1458,6 +1463,15 @@ public partial class GameSystem : MonoBehaviour {
         ES2.Save<int>(NOTICE_BANNER_VERSION, NOTICE_BANNER_DATA); // 공지 
     }
 
+
+
+    private void SetURLInfo(JSONNode pNode) {
+        UrlFAQ = pNode["urlfaq"];
+        UrlTerm = pNode["urlterm"];
+
+
+        Debug.Log(">>>>>>>>>>>>>>>>>>>>>> URL FAQ :: " + UrlFAQ);
+    }
 
     /// <summary>
     /// 게임내 가격정보 세팅 
@@ -1911,6 +1925,9 @@ public partial class GameSystem : MonoBehaviour {
 		// Debug.Log ("!!! OnApplicationPause pauseStatus :: " + pauseStatus);
 
 		if (pauseStatus) {  // Pause 
+
+
+            PreGPConnectionState = GooglePlayConnection.State;
 
             // 비활성화된 시간을 체크 
             LastActiveHour = DateTime.Now.Hour;
@@ -2386,8 +2403,9 @@ public partial class GameSystem : MonoBehaviour {
     /// </summary>
     public void LoadTitleSceneWithInitialize() {
         DeleteAllLocalData();
-        
-        ExitGame();
+
+        // ExitGame();
+        LoadTitleScene();
     }
 
     /// <summary>
@@ -3865,12 +3883,41 @@ public partial class GameSystem : MonoBehaviour {
 
     #endregion
 
+    public void GooglePlayConnection_ActionConnectionStateChanged(GPConnectionState obj) {
 
+        if (LobbyCtrl.Instance == null)
+            return;
+
+
+        if (obj == PreGPConnectionState)
+            return;
+
+        Debug.Log(">>>> GooglePlayConnection_ActionConnectionStateChanged In");
+
+        // 접속이 끊어진 상태의 경우. 
+        if(obj == GPConnectionState.STATE_DISCONNECTED) {
+            // 기존에 로그인 된 상태였던 경우. 
+            if(CurrentPlayer != null) {
+                LobbyCtrl.Instance.OpenInfoPopUp(PopMessageType.PlayerInfoModified);
+                GooglePlayConnection.ActionConnectionStateChanged -= GooglePlayConnection_ActionConnectionStateChanged;
+            }
+        }
+        else if(obj == GPConnectionState.STATE_CONNECTED) {
+
+            if (GameSystem.Instance.CurrentPlayer != GooglePlayManager.Instance.player) {
+                LobbyCtrl.Instance.OpenInfoPopUp(PopMessageType.PlayerInfoModified);
+                GooglePlayConnection.ActionConnectionStateChanged -= GooglePlayConnection_ActionConnectionStateChanged;
+            }
+
+        }
+
+
+    }
 
     #region Properties 
 
 
-	public int Height {
+    public int Height {
 		get {
 			return this._height;
 		}
@@ -5717,6 +5764,36 @@ public partial class GameSystem : MonoBehaviour {
 
         set {
             _resultValidBlockSpaceCount = value;
+        }
+    }
+
+    public string UrlTerm {
+        get {
+            return _urlTerm;
+        }
+
+        set {
+            _urlTerm = value;
+        }
+    }
+
+    public string UrlFAQ {
+        get {
+            return _urlFAQ;
+        }
+
+        set {
+            _urlFAQ = value;
+        }
+    }
+
+    public GPConnectionState PreGPConnectionState {
+        get {
+            return _preGPConnectionState;
+        }
+
+        set {
+            _preGPConnectionState = value;
         }
     }
 

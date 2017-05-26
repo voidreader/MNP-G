@@ -6,6 +6,8 @@ public class OptionCtrl : MonoBehaviour {
 	[SerializeField] OptionSubPopCtrl _subPopUp;
     [SerializeField] OptionSoundPushCtrl _settingList;
 
+    [SerializeField] CouponInputCtrl _couponInput;
+
     [SerializeField] UILabel lblID;
 	[SerializeField] UILabel lblName;
 
@@ -67,26 +69,12 @@ public class OptionCtrl : MonoBehaviour {
     /// <param name="pause"></param>
     private void OnApplicationPause(bool pause) {
         if (pause) {
-            GooglePlayConnection.ActionConnectionStateChanged += GooglePlayConnection_ActionConnectionStateChanged;
+            // GooglePlayConnection.ActionConnectionStateChanged += GooglePlayConnection_ActionConnectionStateChanged;
         }
             
     }
 
-    private void GooglePlayConnection_ActionConnectionStateChanged(GPConnectionState obj) {
 
-        GooglePlayConnection.ActionConnectionStateChanged -= GooglePlayConnection_ActionConnectionStateChanged;
-
-        if (obj == GPConnectionState.STATE_DISCONNECTED) {
-            GameSystem.Instance.CurrentPlayer = null;
-            RefreshFBGoogleState();
-        }
-        else {
-            GameSystem.Instance.CurrentPlayer = GooglePlayManager.Instance.player;
-            RefreshFBGoogleState();
-        }
-
-        
-    }
 
     void Start() {
 		if (WWWHelper.Instance != null) {
@@ -380,13 +368,16 @@ public class OptionCtrl : MonoBehaviour {
 
 
     public void OpenFAQ() {
-        // Application.OpenURL("https://mnpop.x-legend.co.jp/sp/faq/");
-        Application.OpenURL("https://game.nanoo.so/mitchirinekopop/forum?code=82f08b144e3b0daba9a3313a433fa5d8");
+        
+        Application.OpenURL(GameSystem.Instance.UrlFAQ);
     }
 
     public void OpenQuestion() {
         // Application.OpenURL("https://mnpop.x-legend.co.jp/sp/contact/");
-        Application.OpenURL("https://game.nanoo.so/mitchirinekopop/customer/inquiry");
+        //Application.OpenURL("https://game.nanoo.so/mitchirinekopop/customer/inquiry");
+
+        Application.OpenURL(GameSystem.Instance.UrlFAQ);
+
     }
 
     public void OpenInviteWindow() {
@@ -400,6 +391,10 @@ public class OptionCtrl : MonoBehaviour {
     public void OpenUserRecord() {
         GameSystem.Instance.Post2UserRecord(WWWHelper.Instance.UserDBKey);
             
+    }
+
+    public void OpenCouponInput() {
+        _couponInput.OpenCouponInput();
     }
 
     #region 팁 화면 관련 제어

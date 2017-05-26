@@ -79,7 +79,7 @@ MonoBehaviour:
   FirebaseAnalytics: 0
   InAppPurchasesAPI: 1
   GooglePlayServicesAPI: 1
-  PlayServicesAdvancedSignInAPI: 0
+  PlayServicesAdvancedSignInAPI: 1
   GoogleButtonAPI: 0
   AnalyticsAPI: 0
   GoogleCloudSaveAPI: 0

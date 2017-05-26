@@ -223,7 +223,7 @@ namespace Google2u
 			, "L3439", "L3440", "L3441", "L3442", "L3443", "L3444", "L3445", "L3446", "L3447", "L3448", "L3449", "L3450", "L3451", "L3452", "L3453", "L3454", "L3455", "L3456", "L3457", "L3458"
 			, "L3459", "L3460", "L3461", "L3462", "L3463", "L3464", "L3465", "L3466", "L3467", "L3468", "L3469", "L3470", "L3471", "L3472", "L3473", "L3474", "L3475", "L3476", "L3477", "L3478"
 			, "L3479", "L3480", "L3481", "L3482", "L3483", "L3484", "L3485", "L3486", "L3487", "L3488", "L3489", "L3490", "L3491", "L3492", "L3493", "L3494", "L3495", "L3496", "L3497", "L3498"
-			, "L3500", "L3501", "L3502", "L3503", "L3504", "L3505", "L3506", "L3507", "L3508", "L3509", "L3510", "L3511", "L3512", "L3550", "L3551", "L3552", "L3553", "L3554", "L3553", "L3600"
+			, "L3500", "L3501", "L3502", "L3503", "L3504", "L3505", "L3506", "L3507", "L3508", "L3509", "L3510", "L3511", "L3512", "L3550", "L3551", "L3552", "L3553", "L3554", "L3555", "L3600"
 			, "L3601", "L3602", "L3603", "L3604", "L3605", "L3606", "L3607", "L3608", "L3609", "L3610", "L3611", "L3822", "L3900", "L3901", "L3902", "L3950", "L3951", "L3952", "L3953", "L3954"
 			, "L3955", "L3956", "L3957", "L3958", "L3959", "L3960", "L3961", "L3962", "L3963", "L3964", "L3965", "L3966", "L3967", "L3968", "L3969", "L3970", "L3971", "L3972", "L3973", "L3974"
 			, "L3975", "L3976", "L3977", "L3978", "L3979", "L3980", "L3981", "L3982", "L3983", "L3984", "L3985", "L3986", "L3987", "L3988", "L3989", "L4100", "L4101", "L4102", "L4103", "L4104"
@@ -873,14 +873,14 @@ namespace Google2u
 			Rows.Add( new MNP_LocalizeRow("L3110", "3110", "닫기", "Close", "Tutup", "ปิด", ""));
 			Rows.Add( new MNP_LocalizeRow("L3111", "3111", "무료 크레인을\n모두 사용하였습니다.\n\n매일 오전 7시에\n충전됩니다.", "It will charge at 22:00 (GMT).", "Ini akan diisi pada jam 22:00 (GMT).", "จะทำการชาร์จในเวลา 22:00 (GMT)", ""));
 			Rows.Add( new MNP_LocalizeRow("L3112", "3112", "스테이지 『[n]』부터 오픈 됩니다. ", "스테이지 『[n]』부터 오픈 됩니다. ", "스테이지 『[n]』부터 오픈 됩니다. ", "스테이지 『[n]』부터 오픈 됩니다. ", "게임내 잠금 기능들을 터치했을때, 안내 메세지"));
-			Rows.Add( new MNP_LocalizeRow("L3113", "3113", "", "", "", "", ""));
-			Rows.Add( new MNP_LocalizeRow("L3114", "3114", "", "", "", "", ""));
-			Rows.Add( new MNP_LocalizeRow("L3115", "3115", "", "", "", "", ""));
-			Rows.Add( new MNP_LocalizeRow("L3116", "3116", "", "", "", "", ""));
-			Rows.Add( new MNP_LocalizeRow("L3117", "3117", "", "", "", "", ""));
-			Rows.Add( new MNP_LocalizeRow("L3118", "3118", "", "", "", "", ""));
-			Rows.Add( new MNP_LocalizeRow("L3119", "3119", "", "", "", "", ""));
-			Rows.Add( new MNP_LocalizeRow("L3120", "3120", "", "", "", "", ""));
+			Rows.Add( new MNP_LocalizeRow("L3113", "3113", "쿠폰입력", "Promotion", "Promotion", "Promotion", "쿠폰 입력창"));
+			Rows.Add( new MNP_LocalizeRow("L3114", "3114", "입력", "Enter", "Enter", "Enter", "쿠폰 입력의 버튼 레이블"));
+			Rows.Add( new MNP_LocalizeRow("L3115", "3115", "쿠폰 코드를 입력해주세요", "Enter your promotion code", "Enter your promotion code", "Enter your promotion code", "쿠폰 입력창"));
+			Rows.Add( new MNP_LocalizeRow("L3116", "3116", "대소문자를 구별하지 않습니다.", "It is not case-sensitive.", "It is not case-sensitive.", "It is not case-sensitive.", "쿠폰 입력창"));
+			Rows.Add( new MNP_LocalizeRow("L3117", "3117", "올바른 쿠폰 코드를 입력해주세요", "Please enter valid promotion code", "Please enter valid promotion code", "Please enter valid promotion code", "쿠폰 입력창"));
+			Rows.Add( new MNP_LocalizeRow("L3118", "3118", "이미 사용 완료된 쿠폰 코드 입니다.", "This code is already used.", "This code is already used.", "This code is already used.", "쿠폰 입력창"));
+			Rows.Add( new MNP_LocalizeRow("L3119", "3119", "한 캠페인에서 쿠폰은 한번만 사용할 수 있습니다. ", "Promotion code can only be used once in each campaign", "Promotion code can only be used once in each campaign", "Promotion code can only be used once in each campaign", "쿠폰 입력창"));
+			Rows.Add( new MNP_LocalizeRow("L3120", "3120", "완료되었습니다.\n메일함으로 선물이 발송되었습니다.", "Promotion gifts are sent to your mailbox", "Promotion gifts are sent to your mailbox", "Promotion gifts are sent to your mailbox", "쿠폰 입력창"));
 			Rows.Add( new MNP_LocalizeRow("L3121", "3121", "", "", "", "", ""));
 			Rows.Add( new MNP_LocalizeRow("L3122", "3122", "", "", "", "", ""));
 			Rows.Add( new MNP_LocalizeRow("L3123", "3123", "", "", "", "", ""));
@@ -1098,7 +1098,7 @@ namespace Google2u
 			Rows.Add( new MNP_LocalizeRow("L3552", "3552", "", "", "", "", ""));
 			Rows.Add( new MNP_LocalizeRow("L3553", "3553", "", "", "", "", ""));
 			Rows.Add( new MNP_LocalizeRow("L3554", "3554", "트위터 앱이 설치되어 있지 않습니다.", "트위터 앱이 설치되어 있지 않습니다.", "트위터 앱이 설치되어 있지 않습니다.", "트위터 앱이 설치되어 있지 않습니다.", "트위터 공유 실패 메세지(안드로이드)"));
-			Rows.Add( new MNP_LocalizeRow("L3553", "3555", "", "", "", "", ""));
+			Rows.Add( new MNP_LocalizeRow("L3555", "3555", "", "", "", "", ""));
 			Rows.Add( new MNP_LocalizeRow("L3600", "3600", "게임 팁", "Game Tips", "Kiat Game", "เคล็ดลับเกม", ""));
 			Rows.Add( new MNP_LocalizeRow("L3601", "3601", "인계코드\n발행", "Issue\nTransfer Code", "Keluarkan\nKode Transfer", "ทำการออก\nรหัสถ่ายโอน", "옵션창의 코드 발급"));
 			Rows.Add( new MNP_LocalizeRow("L3602", "3602", "인계코드\n입력", "Enter\nTransfer Code", "Masukkan\nKode Transfer", "ทำการป้อน\nรหัสถ่ายโอน", "옵션창의 코드 입력"));

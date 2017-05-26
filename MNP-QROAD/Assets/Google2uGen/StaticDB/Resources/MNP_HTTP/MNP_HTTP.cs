@@ -84,8 +84,9 @@ namespace Google2u
 		public string _request_findaccount;
 		public string _request_wakeup;
 		public string _request_checksharegift;
+		public string _request_usecoupon;
 		public string _request_getsharegift;
-		public MNP_HTTPRow(string __id, string __baseURL, string __backURL, string __ipURL, string __request_login, string __request_userdata, string __request_bankdata, string __request_nekodata, string __request_gacha, string __request_powerupgrade, string __request_synctime, string __request_nekoupgrade, string __request_maillist, string __request_mailread, string __request_gamestart, string __request_gameresult, string __request_rescuehistory, string __request_takeheart, string __request_nekoreward, string __request_payload, string __request_verifypayload, string __request_purchase, string __request_viewads, string __request_itemads, string __request_exchangegold, string __request_tutorialcomplete, string __request_nickname, string __request_checknewmail, string __request_ranking, string __request_heartcharge, string __request_facebooklink, string __request_sendheart, string __request_facebookinvite, string __request_rankreward, string __request_attendance, string __request_gachaads, string __request_heartads, string __request_nekorewarddbkey, string __request_rescuerewardupdate, string __request_facebookshare, string __request_rating, string __request_nekoreward2nd, string __request_eatfish, string __request_fishgacha, string __request_nekogift, string __request_adsremaincount, string __request_gemdata, string __request_environment, string __request_dataversion, string __request_gamedata, string __request_missionreward, string __request_mainneko, string __request_transfercode, string __request_datatransfer, string __request_continue10sec, string __request_updateunlock, string __request_rewardtrespass, string __request_clearbingo, string __request_eventreward, string __request_updateuserbingo, string __request_aroundranking, string __request_nekoticketlist, string __request_userrecord, string __request_takethemepay, string __request_lineinvite, string __request_updatebingoprogress, string __request_updatemissionprogress, string __request_usermission, string __request_findaccount, string __request_wakeup, string __request_checksharegift, string __request_getsharegift) 
+		public MNP_HTTPRow(string __id, string __baseURL, string __backURL, string __ipURL, string __request_login, string __request_userdata, string __request_bankdata, string __request_nekodata, string __request_gacha, string __request_powerupgrade, string __request_synctime, string __request_nekoupgrade, string __request_maillist, string __request_mailread, string __request_gamestart, string __request_gameresult, string __request_rescuehistory, string __request_takeheart, string __request_nekoreward, string __request_payload, string __request_verifypayload, string __request_purchase, string __request_viewads, string __request_itemads, string __request_exchangegold, string __request_tutorialcomplete, string __request_nickname, string __request_checknewmail, string __request_ranking, string __request_heartcharge, string __request_facebooklink, string __request_sendheart, string __request_facebookinvite, string __request_rankreward, string __request_attendance, string __request_gachaads, string __request_heartads, string __request_nekorewarddbkey, string __request_rescuerewardupdate, string __request_facebookshare, string __request_rating, string __request_nekoreward2nd, string __request_eatfish, string __request_fishgacha, string __request_nekogift, string __request_adsremaincount, string __request_gemdata, string __request_environment, string __request_dataversion, string __request_gamedata, string __request_missionreward, string __request_mainneko, string __request_transfercode, string __request_datatransfer, string __request_continue10sec, string __request_updateunlock, string __request_rewardtrespass, string __request_clearbingo, string __request_eventreward, string __request_updateuserbingo, string __request_aroundranking, string __request_nekoticketlist, string __request_userrecord, string __request_takethemepay, string __request_lineinvite, string __request_updatebingoprogress, string __request_updatemissionprogress, string __request_usermission, string __request_findaccount, string __request_wakeup, string __request_checksharegift, string __request_usecoupon, string __request_getsharegift) 
 		{
 			_baseURL = __baseURL.Trim();
 			_backURL = __backURL.Trim();
@@ -157,10 +158,11 @@ namespace Google2u
 			_request_findaccount = __request_findaccount.Trim();
 			_request_wakeup = __request_wakeup.Trim();
 			_request_checksharegift = __request_checksharegift.Trim();
+			_request_usecoupon = __request_usecoupon.Trim();
 			_request_getsharegift = __request_getsharegift.Trim();
 		}
 
-		public int Length { get { return 71; } }
+		public int Length { get { return 72; } }
 
 		public string this[int i]
 		{
@@ -386,6 +388,9 @@ namespace Google2u
 					ret = _request_checksharegift.ToString();
 					break;
 				case 70:
+					ret = _request_usecoupon.ToString();
+					break;
+				case 71:
 					ret = _request_getsharegift.ToString();
 					break;
 			}
@@ -608,6 +613,9 @@ namespace Google2u
 				case "request_checksharegift":
 					ret = _request_checksharegift.ToString();
 					break;
+				case "request_usecoupon":
+					ret = _request_usecoupon.ToString();
+					break;
 				case "request_getsharegift":
 					ret = _request_getsharegift.ToString();
 					break;
@@ -688,6 +696,7 @@ namespace Google2u
 			ret += "{" + "request_findaccount" + " : " + _request_findaccount.ToString() + "} ";
 			ret += "{" + "request_wakeup" + " : " + _request_wakeup.ToString() + "} ";
 			ret += "{" + "request_checksharegift" + " : " + _request_checksharegift.ToString() + "} ";
+			ret += "{" + "request_usecoupon" + " : " + _request_usecoupon.ToString() + "} ";
 			ret += "{" + "request_getsharegift" + " : " + _request_getsharegift.ToString() + "} ";
 			return ret;
 		}
@@ -715,7 +724,7 @@ namespace Google2u
 
 		private MNP_HTTP()
 		{
-			Rows.Add( new MNP_HTTPRow("url", "http://ec2-13-124-50-170.ap-northeast-2.compute.amazonaws.com:8124/", "http://ec2-13-124-50-170.ap-northeast-2.compute.amazonaws.com:8124/", "http://www.2we-fb.com:9124/", "account", "lobby", "lobby", "lobby", "lobby", "lobby", "account", "lobby", "lobby", "lobby", "game", "game", "lobby", "lobby", "lobby", "billing", "billing", "billing", "lobby", "lobby", "lobby", "lobby", "lobby ", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "account", "account", "account", "lobby", "lobby", "lobby", "lobby", "game", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "game", "game", "lobby", "lobby", "lobby", "lobby", "lobby", "account", "lobby", "lobby", "lobby"));
+			Rows.Add( new MNP_HTTPRow("url", "http://ec2-13-124-50-170.ap-northeast-2.compute.amazonaws.com:8124/", "http://ec2-13-124-50-170.ap-northeast-2.compute.amazonaws.com:8124/", "http://www.2we-fb.com:9124/", "account", "lobby", "lobby", "lobby", "lobby", "lobby", "account", "lobby", "lobby", "lobby", "game", "game", "lobby", "lobby", "lobby", "billing", "billing", "billing", "lobby", "lobby", "lobby", "lobby", "lobby ", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "account", "account", "account", "lobby", "lobby", "lobby", "lobby", "game", "lobby", "lobby", "lobby", "lobby", "lobby", "lobby", "game", "game", "lobby", "lobby", "lobby", "lobby", "lobby", "account", "lobby", "lobby", "lobby", "lobby"));
 		}
 		public IGoogle2uRow GetGenRow(string in_RowString)
 		{

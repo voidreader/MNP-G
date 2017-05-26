@@ -63,6 +63,9 @@ public class LogoCtrl : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
+
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
         _waiting = false;
 
         //ScissorCtrl.Instance.UpdateResolution();

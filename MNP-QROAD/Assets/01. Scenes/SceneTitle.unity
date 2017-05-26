@@ -1310,9 +1310,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 10.615385
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 9c04bcf3c2951624ba083e4d3e4fc7a2, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
-  mText: "\u5229\u7528\u898F\u7D04\u3092\u78BA\u8A8D\r"
+  mText: "\uC774\uC6A9\uC57D\uAD00 \uD655\uC778"
   mFontSize: 24
   mFontStyle: 0
   mAlignment: 0
@@ -2419,7 +2419,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 16.428572
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 9c04bcf3c2951624ba083e4d3e4fc7a2, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
   mText: 
   mFontSize: 28
@@ -2516,7 +2516,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 1.5555556
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 9c04bcf3c2951624ba083e4d3e4fc7a2, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
   mText: OK
   mFontSize: 36
@@ -2866,6 +2866,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1475181168}
   - component: {fileID: 1475181169}
+  - component: {fileID: 1475181170}
   m_Layer: 5
   m_Name: LabelError
   m_TagString: Untagged
@@ -2925,7 +2926,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 13.333333
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 9c04bcf3c2951624ba083e4d3e4fc7a2, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
   mText: "\u203B\uB2C9\uB124\uC784\uC744 \uC785\uB825\uD558\uC2ED\uC2DC\uC624"
   mFontSize: 28
@@ -2954,6 +2955,20 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
+--- !u!114 &1475181170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1475181167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00f2bda95370967428150305be6c9f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textID: 4203
+  _targetLabel: {fileID: 0}
+  _text: 
 --- !u!1 &1511348722
 GameObject:
   m_ObjectHideFlags: 0
@@ -3310,7 +3325,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 12
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 9c04bcf3c2951624ba083e4d3e4fc7a2, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
   mText: "\uB2C9\uB124\uC784\uC744 \uC785\uB825\uD558\uC2ED\uC2DC\uC624"
   mFontSize: 32
@@ -4047,7 +4062,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 18.416666
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 9c04bcf3c2951624ba083e4d3e4fc7a2, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
   mText: "\u203B\uB2C9\uB124\uC784\uC740 \uAC8C\uC784\uB0B4\uC5D0\uC11C \uBCC0\uACBD
     \uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
@@ -4333,7 +4348,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 10
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 9c04bcf3c2951624ba083e4d3e4fc7a2, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
   mText: "\uC774\uC6A9\uC57D\uAD00\uC5D0 \uB3D9\uC758\uD569\uB2C8\uB2E4"
   mFontSize: 32

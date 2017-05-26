@@ -107,9 +107,10 @@ public class FirstNickCtrl : MonoBehaviour {
     }
 
     /// <summary>
-    /// 이용규약 클릭 
+    /// 이용약관 클릭 
     /// </summary>
     public void OnClickURL() {
-        Application.OpenURL("https://partners.nanoo.so/game/bbs/view/1/424697?code=538eaceb469d24570207033e341a1c17"); 
+        //Application.OpenURL("https://partners.nanoo.so/game/bbs/view/1/424697?code=538eaceb469d24570207033e341a1c17"); 
+        Application.OpenURL(GameSystem.Instance.UrlTerm);
     }
 }

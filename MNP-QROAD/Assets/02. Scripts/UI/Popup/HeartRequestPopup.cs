@@ -149,7 +149,7 @@ public class HeartRequestPopup : MonoBehaviour {
 
 
     public void OpenTwitterInvite() {
-        SocialWorker.PostTwitter(_twitterMessage, null, null, onResult);
+        SocialWorker.PostTwitter(_twitterMessage, null, null, onTwitterResult);
 
     }
 
@@ -179,6 +179,20 @@ public class HeartRequestPopup : MonoBehaviour {
             Debug.Log("Post Fail");
         }
     }
+
+    private void onTwitterResult(SocialWorkerResult obj) {
+        if (obj == SocialWorkerResult.Success) {
+            Debug.Log("Post Success");
+        }
+        else {
+            Debug.Log("Post Fail");
+
+
+            string url = "https://twitter.com/intent/tweet?text=" + WWW.EscapeURL(_twitterMessage, System.Text.Encoding.UTF8);
+            Application.OpenURL(url);
+        }
+    }
+
 
     public void OpenExplain() {
         WindowManagerCtrl.Instance.OpenInviteExplain();

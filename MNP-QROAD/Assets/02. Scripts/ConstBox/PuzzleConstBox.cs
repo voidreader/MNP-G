@@ -219,8 +219,8 @@ public enum PopMessageType {
 
     PostCompleted,
     RuntimePermissionDenied,
-    TwitterNotInstalled,
-
+    
+    PlayerInfoModified,
     GemShortage // 보석 부족, 상점 가세요 
 }
 

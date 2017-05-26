@@ -2057,9 +2057,9 @@ public partial class GameSystem : MonoBehaviour {
 
 	#region 쿠폰 사용 request_usecoupon
 
-	public void Post2UseCoupon() {
+	public void Post2UseCoupon(string pParam) {
 		OnOffWaitingRequestInLobby (true);
-		WWWHelper.Instance.Post2 ("request_usecoupon", OnFinishedUseCoupon);
+		WWWHelper.Instance.Post2WithString ("request_usecoupon", OnFinishedUseCoupon, pParam);
 	}
 	
 	private void OnFinishedUseCoupon(HTTPRequest request, HTTPResponse response) {
@@ -2078,12 +2078,12 @@ public partial class GameSystem : MonoBehaviour {
 
         if (result ["result"].AsInt != 0) {
 			// 쿠폰 사용 기간이 지났습니다.
-			if (result ["error"].Value.IndexOf ("coupon days") >= 0) {
-				LobbyCtrl.Instance.OpenInfoPopUp(PopMessageType.CouponOutOf);
-			} else if (result ["error"].Value.IndexOf ("already use") >= 0) { // 이미 사용됨 
-				LobbyCtrl.Instance.OpenInfoPopUp(PopMessageType.CouponUsed);
-			} else if (result ["error"].Value.IndexOf ("Invalid coupon") >= 0) { // 잘못된 쿠폰번호 
+			if (result ["error"].Value.IndexOf ("Already attended campaign") >= 0) {
 				LobbyCtrl.Instance.OpenInfoPopUp(PopMessageType.CouponFail);
+			} else if (result ["error"].Value.IndexOf ("Used Coupon") >= 0) { // 이미 사용됨 
+				LobbyCtrl.Instance.OpenInfoPopUp(PopMessageType.CouponUsed);
+			} else if (result ["error"].Value.IndexOf ("No Exists") >= 0) { // 잘못된 쿠폰번호 
+				LobbyCtrl.Instance.OpenInfoPopUp(PopMessageType.CouponInput);
 			}
 
 			return;
@@ -2092,7 +2092,15 @@ public partial class GameSystem : MonoBehaviour {
 			Post2CheckNewMail(); // 새로운 메일 체크 
 			LobbyCtrl.Instance.OpenInfoPopUp(PopMessageType.CouponSucceed); // 쿠폰 사용 완료 
 		}
-	}
+
+        // 쿠폰 화면 종료 
+        CouponInputCtrl coupoinInput = FindObjectOfType<CouponInputCtrl>();
+        coupoinInput.SendMessage("CloseSelf");
+
+
+
+
+    }
 
 	#endregion
 

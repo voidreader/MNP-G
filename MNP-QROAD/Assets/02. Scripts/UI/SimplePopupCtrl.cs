@@ -112,13 +112,12 @@ public class SimplePopupCtrl : MonoBehaviour {
 			
             _message = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3902);
 
-        } else if (pType == PopMessageType.CouponFail) { // 없는 쿠폰 번호
+        } else if (pType == PopMessageType.CouponFail) { 
 
-			//_message = GameSystem.Instance.DocsLocalize.get<string> ("3024", "content");
-			//2015.11.14 수정
-			_message = "등록되지 않은 쿠폰 번호에요!\n쿠폰 입력에 실패했어요";
+			// 쿠폰 입력실패 (동일 캠페인 쿠폰 입력)
+			_message = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3119);
 
-		} else if (pType == PopMessageType.CouponOutOf) { // 기간지난 쿠폰번호
+        } else if (pType == PopMessageType.CouponOutOf) { // 기간지난 쿠폰번호
 
 			//_message = GameSystem.Instance.DocsLocalize.get<string> ("3024", "content");
 			//2015.11.14 수정
@@ -126,16 +125,15 @@ public class SimplePopupCtrl : MonoBehaviour {
 
 		} else if (pType == PopMessageType.CouponUsed) { // 이미 사용된 쿠폰 번호 
 
-			//2015.11.14 수정
-			_message = "이미 사용된 쿠폰이에요!\n쿠폰 입력에 실패했어요";
+			_message = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3118);
 
-		} else if (pType == PopMessageType.CouponSucceed) { // 쿠폰 성공
-
-			
-            _message = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3023);
+        } else if (pType == PopMessageType.CouponSucceed) { // 쿠폰 성공
+		
+            _message = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3120);
 
         } else if (pType == PopMessageType.CouponInput) {
-			_message = "쿠폰 코드가 입력되지 않았어요!";
+            _message = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3117);
+
 		} else if (pType == PopMessageType.HeartPurchase) {
 			_message = GameSystem.Instance.GetLocalizeText ("3204"); // 하트를 충전했습니다.
 
@@ -316,8 +314,9 @@ public class SimplePopupCtrl : MonoBehaviour {
         else if (_messageType == PopMessageType.PostCompleted) {
             _message = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4262);
         }
-        else if (_messageType == PopMessageType.TwitterNotInstalled) {
-            //_message = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3554);
+
+        else if(_messageType == PopMessageType.PlayerInfoModified) {
+            _message = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3554);
         }
 
 

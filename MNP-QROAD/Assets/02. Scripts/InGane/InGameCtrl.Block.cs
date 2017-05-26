@@ -443,7 +443,8 @@ public partial class InGameCtrl : MonoBehaviour {
             // 경로를 가로막고 있는 것이 있으면 return
             if (ListMoveTilesBlock[i].currentState == BlockState.Idle
                 || ListMoveTilesBlock[i].IsFishGrill
-                || ListMoveTilesBlock[i].IsStone)
+                || ListMoveTilesBlock[i].IsStone
+                || ListMoveTilesBlock[i].currentState == BlockState.Item)
 
                 return;
         }
@@ -472,6 +473,11 @@ public partial class InGameCtrl : MonoBehaviour {
         // 카운트 만큼 생성 
         for (int i = 0; i < spawnCount; i++) {
             copyIndex = Random.Range(0, _listCopyMoveTileBlock.Count);
+
+
+            // 생성위치에 폭탄이 있으면 생성되지 않도록 변경 
+            if (_listCopyMoveTileBlock[copyIndex].currentState == BlockState.Item)
+                continue; 
 
             if(MoveDefenceType == 0)
                 _listCopyMoveTileBlock[copyIndex].SetState(BlockState.Idle);

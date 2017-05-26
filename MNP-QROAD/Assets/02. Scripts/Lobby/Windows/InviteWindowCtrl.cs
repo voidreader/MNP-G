@@ -34,10 +34,20 @@ public class InviteWindowCtrl : MonoBehaviour {
 
     public void OpenTwitterInvite() {
 
-        AndroidSocialGate.StartShareIntent("#mitchirinekopop", _message, "twi");
+        //AndroidSocialGate.OnShareIntentCallback += AndroidSocialGate_OnShareIntentCallback;
+        //AndroidSocialGate.StartShareIntent("#mitchirinekopop", _message, "twi");
         
-        // SocialWorker.PostTwitter(_message, null, null, onTwitterResult);
+        SocialWorker.PostTwitter(_message, null, null, onTwitterResult);
 
+    }
+
+    private void AndroidSocialGate_OnShareIntentCallback(bool arg1, string arg2) {
+
+        AndroidSocialGate.OnShareIntentCallback -= AndroidSocialGate_OnShareIntentCallback;
+
+        if(!arg1) {
+            string url = "http://twitter.com/intent/tweet?text=" + _message;
+        }
     }
 
     public void OpenLineInvite() {
@@ -85,6 +95,11 @@ public class InviteWindowCtrl : MonoBehaviour {
         }
         else {
             Debug.Log("Post Fail");
+
+
+            string url = "https://twitter.com/intent/tweet?text=" + WWW.EscapeURL(_message, System.Text.Encoding.UTF8);
+            // string url = "http://twitter.com/intent/tweet?text=" + _message;
+            Application.OpenURL(url);
         }
     }
 
