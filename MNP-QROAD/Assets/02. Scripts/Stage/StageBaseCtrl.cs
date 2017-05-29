@@ -547,7 +547,7 @@ public class StageBaseCtrl : MonoBehaviour {
 
 
     /// <summary>
-    /// 게임 플레이 후 플레이 스테이지 클리어 
+    /// 게임 플레이 후 플레이 스테이지 클리어 연출 처리 
     /// </summary>
     /// <param name="pStage">마지막으로 플레이했던 스테이지 </param>
     public void SetClearEffect(int pStage, Action<int> pCallback) {
@@ -685,6 +685,11 @@ public class StageBaseCtrl : MonoBehaviour {
     /// </summary>
     /// <param name="pStage"></param>
     public void OpenReady(int pStage) {
+
+        // 잠금처리 
+        if (StageMasterCtrl.Instance.IsLockedByLoadReplayOrNextStage)
+            return;
+
 
         if (IsLock) {
             LobbyCtrl.Instance.OpenInfoPopUp(PopMessageType.ThemeLock);

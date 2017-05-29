@@ -16,10 +16,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000010919808838}
-  - 114: {fileID: 114000012036726548}
+  - component: {fileID: 4000010919808838}
+  - component: {fileID: 114000012036726548}
   m_Layer: 0
   m_Name: GReadyAtlas
   m_TagString: Untagged
@@ -36,10 +36,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114000012036726548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -93,8 +93,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 161
   - name: CommingSoon
-    x: 829
-    y: 519
+    x: 919
+    y: 862
     width: 93
     height: 53
     borderLeft: 0
@@ -106,8 +106,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: mission-ico
-    x: 919
-    y: 823
+    x: 311
+    y: 316
     width: 96
     height: 96
     borderLeft: 0
@@ -146,7 +146,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: ready-5sec
     x: 205
-    y: 90
+    y: 304
     width: 100
     height: 104
     borderLeft: 0
@@ -158,8 +158,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 4
   - name: ready-5sec-g
-    x: 311
-    y: 413
+    x: 205
+    y: 199
     width: 100
     height: 104
     borderLeft: 0
@@ -170,32 +170,6 @@ MonoBehaviour:
     paddingRight: 3
     paddingTop: 2
     paddingBottom: 4
-  - name: ready-attack200
-    x: 311
-    y: 308
-    width: 100
-    height: 104
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 4
-    paddingRight: 3
-    paddingTop: 3
-    paddingBottom: 3
-  - name: ready-attack200-g
-    x: 311
-    y: 203
-    width: 100
-    height: 104
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 4
-    paddingRight: 3
-    paddingTop: 3
-    paddingBottom: 3
   - name: ready-bomb-150
     x: 829
     y: 573
@@ -211,7 +185,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: ready-bomb-150-g
     x: 311
-    y: 2
+    y: 220
     width: 95
     height: 95
     borderLeft: 0
@@ -261,6 +235,32 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: ready-firework
+    x: 919
+    y: 916
+    width: 105
+    height: 108
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 1
+    paddingTop: 0
+    paddingBottom: 2
+  - name: ready-firework-g
+    x: 205
+    y: 409
+    width: 105
+    height: 108
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 1
+    paddingTop: 0
+    paddingBottom: 2
   - name: ready-item-base
     x: 0
     y: 226
@@ -275,7 +275,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ready-item-base-coins
-    x: 513
+    x: 412
     y: 468
     width: 146
     height: 49
@@ -301,8 +301,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ready-item-check
-    x: 412
-    y: 294
+    x: 829
+    y: 519
     width: 60
     height: 53
     borderLeft: 0
@@ -313,35 +313,9 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: ready-miss1
-    x: 205
-    y: 300
-    width: 105
-    height: 108
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 1
-    paddingRight: 1
-    paddingTop: 0
-    paddingBottom: 2
-  - name: ready-miss-g
-    x: 205
-    y: 409
-    width: 105
-    height: 108
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 1
-    paddingRight: 1
-    paddingTop: 0
-    paddingBottom: 2
   - name: ready-neko-skill
     x: 205
-    y: 195
+    y: 94
     width: 100
     height: 104
     borderLeft: 0
@@ -353,8 +327,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 4
   - name: ready-neko-skill-g
-    x: 919
-    y: 920
+    x: 311
+    y: 413
     width: 100
     height: 104
     borderLeft: 0
@@ -391,32 +365,6 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: ready-start-fever
-    x: 311
-    y: 98
-    width: 100
-    height: 104
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 4
-    paddingRight: 3
-    paddingTop: 2
-    paddingBottom: 4
-  - name: ready-start-fever-g
-    x: 412
-    y: 413
-    width: 100
-    height: 104
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 4
-    paddingRight: 3
-    paddingTop: 2
-    paddingBottom: 4
   - name: ready-top-base
     x: 0
     y: 683
@@ -483,8 +431,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: top-coin
-    x: 412
-    y: 348
+    x: 311
+    y: 155
     width: 66
     height: 64
     borderLeft: 0
@@ -497,7 +445,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: yellow-base
     x: 205
-    y: 21
+    y: 25
     width: 64
     height: 68
     borderLeft: 0

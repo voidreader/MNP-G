@@ -45,6 +45,11 @@ public class StageMasterCtrl : MonoBehaviour {
     [SerializeField] GameObject _btnLeftEpisodeMove;
     [SerializeField] GameObject _btnRightEpisodeMove;
 
+
+    // 결과화면에서 다시하기 혹은 다음 스테이지를 실행했을때
+    // 연출 도중 타 스테이지의 진입을 방지하기 위한 변수 
+    bool _isLockedByLoadReplayOrNextStage = false;
+
     // 다시하기 용도
     public static event Action<int> OnCompleteStageClearDirect = delegate { };
 
@@ -101,6 +106,16 @@ public class StageMasterCtrl : MonoBehaviour {
 
         set {
             _listThemes = value;
+        }
+    }
+
+    public bool IsLockedByLoadReplayOrNextStage {
+        get {
+            return _isLockedByLoadReplayOrNextStage;
+        }
+
+        set {
+            _isLockedByLoadReplayOrNextStage = value;
         }
     }
 
@@ -241,6 +256,16 @@ public class StageMasterCtrl : MonoBehaviour {
             SetCameraPos(GameSystem.Instance.UserCurrentStage);
             SetCurrentStageFromMaster();
         }
+
+
+        // 튜토리얼이 완료되지 않은 경우는 scroll view를 동작하지 않도록 처리
+        if(GameSystem.Instance.TutorialComplete <2 ) {
+            _stagePanel.GetComponent<UIScrollView>().enabled = false;
+        }
+        else {
+            _stagePanel.GetComponent<UIScrollView>().enabled = true;
+        }
+
 
     }
 
@@ -645,6 +670,8 @@ public class StageMasterCtrl : MonoBehaviour {
     /// </summary>
     public void MoveToBottle() {
 
+        if (GameSystem.Instance.TutorialComplete < 2)
+            return;
 
         StageCenterOnChild.CenterOn(_spawnedCatBottle.transform);
 
@@ -664,6 +691,9 @@ public class StageMasterCtrl : MonoBehaviour {
 
 
     public void MoveRightEpisode() {
+
+        if (GameSystem.Instance.TutorialComplete < 2)
+            return;
 
 
         if (_currentCenterObject == null)
@@ -686,6 +716,9 @@ public class StageMasterCtrl : MonoBehaviour {
 
 
     public void MoveLeftEpisode() {
+
+        if (GameSystem.Instance.TutorialComplete < 2)
+            return;
 
         if (_currentCenterObject == null)
             _currentCenterObject = StageCenterOnChild.centeredObject;

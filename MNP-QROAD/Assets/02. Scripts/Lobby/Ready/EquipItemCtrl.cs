@@ -38,8 +38,8 @@ public class EquipItemCtrl : MonoBehaviour {
 
 
     // 특수 폭죽 아이템 
-    string _spriteFireworkdColored = "ready-attack200";
-    string _spriteFireworkdBW = "ready-attack200-g";
+    string _spriteFireworkdColored = "ready-firework";
+    string _spriteFireworkdBW = "ready-firework-g";
 
 
     /// <summary>
@@ -220,8 +220,10 @@ public class EquipItemCtrl : MonoBehaviour {
         spItem.MakePixelPerfect();
         spItem.gameObject.SetActive(true);
 
-        if (_isLock)
+        if (_isLock) {
             _defaultPriceInfo.SetActive(false);
+            spItem.gameObject.SetActive(false);
+        }
     }
 
 	/// <summary>

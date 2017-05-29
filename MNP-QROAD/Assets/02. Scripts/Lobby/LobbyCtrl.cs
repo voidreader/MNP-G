@@ -229,6 +229,7 @@ public partial class LobbyCtrl : MonoBehaviour {
             GameResultManager.Instance.BeginShowingResult();
         } else { // 로비 오픈 
             InitializeLobby();
+
         }
 
 
@@ -268,27 +269,6 @@ public partial class LobbyCtrl : MonoBehaviour {
         // BGM 플레이 
         bgmSrc.Play();
 
-        StartCoroutine(DelayedInitLobby(pPassLogic));
-    }
-
-    // 일부 Pooling 때문에 IEnumerator 사용 
-    IEnumerator DelayedInitLobby(bool pPassLogic) {
-
-        Debug.Log("★★★ DelayedInitLobby");
-
-        yield return new WaitForSeconds(0.1f);
-
-        // 일부 Pooling이 완료될때까지 대기.
-        /*
-        while (!PoolManager.Pools.ContainsKey(PuzzleConstBox.lobbyCharacterPool)
-            || !PoolManager.Pools.ContainsKey(PuzzleConstBox.stagePool)
-            || !PoolManager.Pools.ContainsKey(PuzzleConstBox.worldMapPool)) {
-
-
-            yield return null;
-
-        }
-        */
 
         // PoolManager 관련 
         SetSpawningObject();
@@ -308,11 +288,11 @@ public partial class LobbyCtrl : MonoBehaviour {
         if (GameSystem.Instance.TutorialStage == 0 || GameSystem.Instance.TutorialStage == 10) {
             // 튜토리얼 
             CheckLobbyTutorial();
-            yield break;
+            return;
         }
 
 
-        
+
 
         UpdateMissionNew(); // 미션 
 
@@ -322,7 +302,7 @@ public partial class LobbyCtrl : MonoBehaviour {
 
         // 후반부는 패스 한다. true 일경우.
         if (pPassLogic)
-            yield break;
+            return;
 
         // 레벨 10 달성 보상, 페이스북 연동 보상 처리 
         if (!string.IsNullOrEmpty(GameSystem.Instance.FacebookID) && !GameSystem.Instance.UserJSON["facebooklinkget"].AsBool) {
@@ -333,6 +313,7 @@ public partial class LobbyCtrl : MonoBehaviour {
 
         // 후반부 체크 시작 
         StartCoroutine(CheckingFirstLobbyEnter());
+
     }
 
 
@@ -1272,7 +1253,7 @@ public partial class LobbyCtrl : MonoBehaviour {
             yield break;
         }
 
-        bgmSrc.Play();
+        
 
         AdbrixManager.Instance.SendAdbrixNewUserFunnel(AdbrixManager.Instance.TUTORIAL_STEP3);
 
@@ -1470,7 +1451,7 @@ public partial class LobbyCtrl : MonoBehaviour {
     /// <returns></returns>
     IEnumerator TeachingStep1() {
 
-        bgmSrc.Play();
+        
         Debug.Log(">>>>> TeachingStep1 Start");
 
         
@@ -1792,14 +1773,31 @@ public partial class LobbyCtrl : MonoBehaviour {
         }
 
         if (Input.GetMouseButtonDown(0)) {
+
+
+            // 추가 조건 추가 
+            // 일부 창이 오픈되어있을때는 동작하지 않음 
+            if (WindowManagerCtrl.Instance.CollectionMaster.gameObject.activeSelf)
+                return;
+
+            if (_worldMap.IsOn)
+                return;
+
+
+            // 유리병이 중앙일때만 동작하도록 처리 
+            if (StageMasterCtrl.Instance.StageCenterOnChild.centeredObject == null)
+                return;
+
+            if (!StageMasterCtrl.Instance.StageCenterOnChild.centeredObject.CompareTag("CatBottle"))
+                return;
+
             ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
             mask = 1 << LayerMask.NameToLayer("LobbyNeko");
+
 
             if (Physics.Raycast(ray, out hit, 10f, mask)) {
                 //hit.transform.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-600, 600), Random.Range(-600, 600) , 0));
                 hit.transform.GetComponent<BottleNekoCtrl>().HitLobbyNeko();
-                
-
             }
         }
 
@@ -2848,25 +2846,9 @@ public partial class LobbyCtrl : MonoBehaviour {
         objReadyGroup.gameObject.SetActive(true);
         objReadyGroup.SetStageGame(pStage);
 
-        /*
-        for (int i = 0; i < 3; i++) {
-            arrEquipNeko[i].SetNekoInfo(GameSystem.Instance.ListEquipNekoID[i]);
-        }
+        // 잠금해제
+        StageMasterCtrl.Instance.IsLockedByLoadReplayOrNextStage = false;
 
-        // 튜토리얼 처리
-        if (GameSystem.Instance.LocalTutorialStep == 2) {
-            DisableAllButton();
-
-            // 첫번째 칸 활성화처리
-            arrEquipNeko[0].GetComponent<UIButton>().enabled = true;
-
-            Debug.Log("First Equip Neko Enable");
-        }
-
-        */
-
-
-        //CheckReadyUnlock();
     }
 
 

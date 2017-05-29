@@ -471,7 +471,7 @@ public class TitleCtrl : MonoBehaviour {
 		Debug.Log ("!! ActionConnectionResultReceived ");
         GooglePlayConnection.ActionConnectionResultReceived -= ActionConnectionResultReceived; // 이벤트에서 제거 한다. 
 
-        GameSystem.Instance.PreGPConnectionState = GooglePlayConnection.State;
+        
 
 
         if (result.IsSuccess) {
@@ -496,7 +496,7 @@ public class TitleCtrl : MonoBehaviour {
         ConnectMNP(); // MNP 서버 접속 시작 
 
         
-        GooglePlayConnection.ActionConnectionStateChanged += GameSystem.Instance.GooglePlayConnection_ActionConnectionStateChanged;
+        // GooglePlayConnection.ActionConnectionStateChanged += GameSystem.Instance.GooglePlayConnection_ActionConnectionStateChanged;
     }
 
 

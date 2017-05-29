@@ -943,13 +943,15 @@ public static class PuzzleConstBox {
         listEquipItemClip.Add("ready-5sec-g");
         listEquipItemClip.Add("ready-bomb-150-g");
         listEquipItemClip.Add("ready-neko-skill-g");
-        listEquipItemClip.Add("CommingSoon");
-        //listEquipItemClip.Add("");
+        //listEquipItemClip.Add("ready-firework-g");
+        listEquipItemClip.Add("NONO");
+
 
         listColoredEquipItemClip.Add("ready-5sec");
         listColoredEquipItemClip.Add("ready-bomb-150");
         listColoredEquipItemClip.Add("ready-neko-skill");
-        listColoredEquipItemClip.Add("ready-start-fever");
+        listEquipItemClip.Add("NONO");
+        //listColoredEquipItemClip.Add("ready-firework");
 
 
         listPlayerAbilityClip.Add ("ico_upgrade_time");
@@ -975,12 +977,12 @@ public static class PuzzleConstBox {
 		listEquipBoostItemColorSprite.Add ("024-ico_item_5sec");
 		listEquipBoostItemColorSprite.Add ("024-ico_item_ico_item_bomb-in");
 		listEquipBoostItemColorSprite.Add ("024-ico_item_neko-skill");
-		listEquipBoostItemColorSprite.Add ("024-ico_item_start-in");
+		listEquipBoostItemColorSprite.Add ("024-ico_item_firework-in");
 
 		listEquipBoostItemDarkSprite.Add ("024-ico_item_5sec-mono");
 		listEquipBoostItemDarkSprite.Add ("024-ico_item_ico_item_bomb-mono");
 		listEquipBoostItemDarkSprite.Add ("024-ico_item_neko-skill-mono");
-		listEquipBoostItemDarkSprite.Add ("024-ico_item_start-mono");
+		listEquipBoostItemDarkSprite.Add ("024-ico_item_firework-mono");
 
 
         listFallingLeafPrefix.Add("d-red");

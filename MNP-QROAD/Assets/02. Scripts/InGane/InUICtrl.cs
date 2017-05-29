@@ -471,6 +471,11 @@ public class InUICtrl : MonoBehaviour {
             yield return new WaitForSeconds(0.2f);
         }
 
+        if(InGameCtrl.Instance.BoostFirework) {
+            arrEquipItem[3].SetActiveEquipItem();
+            yield return new WaitForSeconds(0.2f);
+        }
+
 
         InGameCtrl.Instance.IsShowingSkillAndIcon = false;
 

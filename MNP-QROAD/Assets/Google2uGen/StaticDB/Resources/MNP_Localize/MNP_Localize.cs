@@ -1097,7 +1097,7 @@ namespace Google2u
 			Rows.Add( new MNP_LocalizeRow("L3551", "3551", "", "", "", "", ""));
 			Rows.Add( new MNP_LocalizeRow("L3552", "3552", "", "", "", "", ""));
 			Rows.Add( new MNP_LocalizeRow("L3553", "3553", "", "", "", "", ""));
-			Rows.Add( new MNP_LocalizeRow("L3554", "3554", "트위터 앱이 설치되어 있지 않습니다.", "트위터 앱이 설치되어 있지 않습니다.", "트위터 앱이 설치되어 있지 않습니다.", "트위터 앱이 설치되어 있지 않습니다.", "트위터 공유 실패 메세지(안드로이드)"));
+			Rows.Add( new MNP_LocalizeRow("L3554", "3554", "플레이어 정보가 변경되었습니다. \n타이틀 화면으로 돌아갑니다.", "플레이어 정보가 변경되었습니다. \n타이틀 화면으로 돌아갑니다.", "플레이어 정보가 변경되었습니다. \n타이틀 화면으로 돌아갑니다.", "플레이어 정보가 변경되었습니다. \n타이틀 화면으로 돌아갑니다.", "게임내에서 구글플레이 로그아웃 혹은 타 아이디로 접속"));
 			Rows.Add( new MNP_LocalizeRow("L3555", "3555", "", "", "", "", ""));
 			Rows.Add( new MNP_LocalizeRow("L3600", "3600", "게임 팁", "Game Tips", "Kiat Game", "เคล็ดลับเกม", ""));
 			Rows.Add( new MNP_LocalizeRow("L3601", "3601", "인계코드\n발행", "Issue\nTransfer Code", "Keluarkan\nKode Transfer", "ทำการออก\nรหัสถ่ายโอน", "옵션창의 코드 발급"));

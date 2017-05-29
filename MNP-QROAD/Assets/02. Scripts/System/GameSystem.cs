@@ -33,7 +33,7 @@ public partial class GameSystem : MonoBehaviour {
     // 안드로이드 구글 현재 유저.
     GooglePlayerTemplate _currentPlayer = null;
 
-    GPConnectionState _preGPConnectionState;
+    
 
 
     // 데이터 이전 
@@ -1927,7 +1927,7 @@ public partial class GameSystem : MonoBehaviour {
 		if (pauseStatus) {  // Pause 
 
 
-            PreGPConnectionState = GooglePlayConnection.State;
+            
 
             // 비활성화된 시간을 체크 
             LastActiveHour = DateTime.Now.Hour;
@@ -1971,9 +1971,10 @@ public partial class GameSystem : MonoBehaviour {
             }
 
 
-
+            /*
             if (GoogleAdmobMgr.Instance.IsBannerRequested)
                 GoogleAdmobMgr.Instance.BottomBannerView.Show();
+            */
 
 
 
@@ -3883,36 +3884,6 @@ public partial class GameSystem : MonoBehaviour {
 
     #endregion
 
-    public void GooglePlayConnection_ActionConnectionStateChanged(GPConnectionState obj) {
-
-        if (LobbyCtrl.Instance == null)
-            return;
-
-
-        if (obj == PreGPConnectionState)
-            return;
-
-        Debug.Log(">>>> GooglePlayConnection_ActionConnectionStateChanged In");
-
-        // 접속이 끊어진 상태의 경우. 
-        if(obj == GPConnectionState.STATE_DISCONNECTED) {
-            // 기존에 로그인 된 상태였던 경우. 
-            if(CurrentPlayer != null) {
-                LobbyCtrl.Instance.OpenInfoPopUp(PopMessageType.PlayerInfoModified);
-                GooglePlayConnection.ActionConnectionStateChanged -= GooglePlayConnection_ActionConnectionStateChanged;
-            }
-        }
-        else if(obj == GPConnectionState.STATE_CONNECTED) {
-
-            if (GameSystem.Instance.CurrentPlayer != GooglePlayManager.Instance.player) {
-                LobbyCtrl.Instance.OpenInfoPopUp(PopMessageType.PlayerInfoModified);
-                GooglePlayConnection.ActionConnectionStateChanged -= GooglePlayConnection_ActionConnectionStateChanged;
-            }
-
-        }
-
-
-    }
 
     #region Properties 
 
@@ -5784,16 +5755,6 @@ public partial class GameSystem : MonoBehaviour {
 
         set {
             _urlFAQ = value;
-        }
-    }
-
-    public GPConnectionState PreGPConnectionState {
-        get {
-            return _preGPConnectionState;
-        }
-
-        set {
-            _preGPConnectionState = value;
         }
     }
 

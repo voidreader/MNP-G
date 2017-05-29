@@ -33,10 +33,10 @@ public class OptionCtrl : MonoBehaviour {
     [SerializeField]
     GameObject _btnRecord;
 
-	
 
 
-	
+    GPConnectionState _preGPConnectionState;
+
 
     readonly string _playstoreOff = "google-play-off";
     readonly string _gamecenterOff = "ios-game-center-off";
@@ -51,13 +51,23 @@ public class OptionCtrl : MonoBehaviour {
     readonly string _fbOn = "option_btn_facebook";
     readonly string _fbOff = "facebook-g";
 
+    public GPConnectionState PreGPConnectionState {
+        get {
+            return _preGPConnectionState;
+        }
+
+        set {
+            _preGPConnectionState = value;
+        }
+    }
+
     // Sprite
 
 
 
 
 
-	void OnEnable() {
+    void OnEnable() {
 		RefreshFBGoogleState ();
         SetUserInfo();
 
@@ -69,10 +79,65 @@ public class OptionCtrl : MonoBehaviour {
     /// <param name="pause"></param>
     private void OnApplicationPause(bool pause) {
         if (pause) {
-            // GooglePlayConnection.ActionConnectionStateChanged += GooglePlayConnection_ActionConnectionStateChanged;
+
+#if UNITY_ANDROID 
+
+            GooglePlayConnection.ActionConnectionStateChanged += GooglePlayConnection_ActionConnectionStateChanged;
+            PreGPConnectionState = GooglePlayConnection.State; // 현재 상태를 저장 
+
+            if (PreGPConnectionState == GPConnectionState.STATE_DISCONNECTED)
+                GameSystem.Instance.CurrentPlayer = null;
         }
+
+#endif
             
     }
+
+
+    public void GooglePlayConnection_ActionConnectionStateChanged(GPConnectionState obj) {
+
+        Debug.Log(">>>> GooglePlayConnection_ActionConnectionStateChanged In");
+        GooglePlayConnection.ActionConnectionStateChanged -= GooglePlayConnection_ActionConnectionStateChanged;
+
+
+        StartCoroutine(DelayedGPConnectionCheck(obj));
+
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="obj"></param>
+    IEnumerator DelayedGPConnectionCheck(GPConnectionState obj) {
+
+        yield return new WaitForSeconds(0.2f);
+
+        // 이전상태와 다르게 접속이 끊어진 경우
+        // 끊어진 상태에서 끊어진 상태는 체크하지 않음.
+        if (PreGPConnectionState != GPConnectionState.STATE_DISCONNECTED && obj == GPConnectionState.STATE_DISCONNECTED) {
+            Debug.Log(">>>> Disconnected!!");
+            LobbyCtrl.Instance.OpenInfoPopUp(PopMessageType.PlayerInfoModified);
+            yield break;
+        }
+
+        // 연결상태이고 이전에도 연결상태일때. 
+        if (obj == GPConnectionState.STATE_CONNECTED && PreGPConnectionState == GPConnectionState.STATE_CONNECTED) {
+
+            // 현재 설정된 유저와 신규 유저의 ID 체크 
+            Debug.Log(" Current GP ID :: " + GameSystem.Instance.CurrentPlayer.playerId);
+
+            // New ID 
+            Debug.Log(" New GP ID :: " + GooglePlayManager.Instance.player.playerId);
+
+            if (GameSystem.Instance.CurrentPlayer.playerId != GooglePlayManager.Instance.player.playerId) {
+                Debug.Log(">>>> Different ID !!");
+                LobbyCtrl.Instance.OpenInfoPopUp(PopMessageType.PlayerInfoModified);
+                yield break;
+            }
+        }
+    }
+
+
 
 
 
@@ -397,7 +462,7 @@ public class OptionCtrl : MonoBehaviour {
         _couponInput.OpenCouponInput();
     }
 
-    #region 팁 화면 관련 제어
+#region 팁 화면 관련 제어
 
 
     public void OpenTipList() {
@@ -440,5 +505,5 @@ public class OptionCtrl : MonoBehaviour {
         _attendance.OpenAttendanceCheck();
     }
 
-    #endregion
+#endregion
 }

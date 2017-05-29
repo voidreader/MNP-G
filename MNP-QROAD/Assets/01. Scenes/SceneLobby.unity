@@ -28868,7 +28868,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &485935251
 Transform:
   m_ObjectHideFlags: 0
@@ -60141,16 +60141,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11487110, guid: b12f20e279e658741be5d2e8d2502efc, type: 2}
-      propertyPath: mTrueTypeFont
-      value: 
-      objectReference: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc,
-        type: 3}
-    - target: {fileID: 11414140, guid: b12f20e279e658741be5d2e8d2502efc, type: 2}
-      propertyPath: mTrueTypeFont
-      value: 
-      objectReference: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc,
-        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b12f20e279e658741be5d2e8d2502efc, type: 2}
   m_IsPrefabParent: 0
@@ -65794,7 +65784,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1075845533}
   - component: {fileID: 1075845534}
-  - component: {fileID: 1075845535}
   m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
@@ -65856,7 +65845,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
-  mText: "\u6700\u5927\u30678\u6587\u5B57\u307E\u3067"
+  mText: 
   mFontSize: 28
   mFontStyle: 0
   mAlignment: 0
@@ -65883,20 +65872,6 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
---- !u!114 &1075845535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1075845532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00f2bda95370967428150305be6c9f42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _textID: 4205
-  _targetLabel: {fileID: 0}
-  _text: 
 --- !u!1 &1076362433
 GameObject:
   m_ObjectHideFlags: 0
@@ -113061,7 +113036,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10

@@ -214,7 +214,7 @@ public class GameResultManager : MonoBehaviour {
         
         if(StageMasterCtrl.Instance.GetLastStageUpdated()) {
             StageMasterCtrl.OnCompleteStageClearDirect += LobbyCtrl.Instance.OpenReady;
-
+            StageMasterCtrl.Instance.IsLockedByLoadReplayOrNextStage = true;
         }
         else {
             LobbyCtrl.Instance.OpenReady(GameSystem.Instance.PlayStage);
@@ -243,6 +243,7 @@ public class GameResultManager : MonoBehaviour {
             // 플레이 스테이지를 1 증가 시킨다.
             GameSystem.Instance.PlayStage++;
             StageMasterCtrl.OnCompleteStageClearDirect += LobbyCtrl.Instance.OpenReady;
+            StageMasterCtrl.Instance.IsLockedByLoadReplayOrNextStage = true;
         }
         else {
 
