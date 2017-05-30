@@ -1036,7 +1036,7 @@ namespace Google2u
 			Rows.Add( new MNP_LocalizeRow("L3452", "3452", "동영상 광고 시청 보상", "Video Ads Reward", "Imbalan Iklan Video", "รางวัลการรับชมวิดีโอโฆษณา", ""));
 			Rows.Add( new MNP_LocalizeRow("L3453", "3453", "신규 고양이 승리 보상", "New Cat Victory Reward", "Imbalan Kemenangan Kucing Baru", "รางวัลชัยชนะเหมียวใหม่", ""));
 			Rows.Add( new MNP_LocalizeRow("L3454", "3454", "크레인 환불", "Crane Refund", "Pengembalian Dana Derek", "รีฟันเครน", "스페셜 크레인에서 동일한 고양이를 뽑은 경우 보석을 환불해 줄때 제목으로 사용"));
-			Rows.Add( new MNP_LocalizeRow("L3455", "3455", "시리얼 코드 보수", "Serial Code Reward", "Imbalan Kode Seri", "รางวัลรหัสซีเรียล", ""));
+			Rows.Add( new MNP_LocalizeRow("L3455", "3455", "쿠폰 선물", "Promotion code", "Promotion code", "Promotion code", "프로모션 (쿠폰) 입력 메일 제목"));
 			Rows.Add( new MNP_LocalizeRow("L3456", "3456", "친구 보너스", "Friends Bonus", "Bonus Teman", "โบนัสเพื่อน", ""));
 			Rows.Add( new MNP_LocalizeRow("L3457", "3457", "선물 보너스", "Gift Bonus", "Bonus Hadiah", "โบนัสของขวัญ", ""));
 			Rows.Add( new MNP_LocalizeRow("L3458", "3458", "로그인 보너스", "Login Bonus", "Bonus Login", "โบนัสการล็อกอิน", ""));

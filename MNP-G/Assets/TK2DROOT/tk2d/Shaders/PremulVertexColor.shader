@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 // unlit, vertex colour, premultiplied alpha blend
 
 Shader "tk2d/PremulVertexColor" 
@@ -44,7 +46,7 @@ Shader "tk2d/PremulVertexColor"
 #if UNITY_VERSION > 550
 				o.vertex = UnityObjectToClipPos(v.vertex);
 #else
-				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.vertex = UnityObjectToClipPos(v.vertex);
 #endif
 				o.color = v.color;
 				o.texcoord = v.texcoord;

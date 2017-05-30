@@ -898,7 +898,7 @@ public class IOSNativeSettingsEditor : Editor {
 				*/
 
 
-				PlayerSettings.bundleIdentifier = "com.stansassets.iosnative.dev";
+				PlayerSettings.applicationIdentifier = "com.stansassets.iosnative.dev";
 				IOSNativeSettings.Instance.InAppProducts.Clear();
 				
 				IOSProductTemplate SmallPack =  new IOSProductTemplate();

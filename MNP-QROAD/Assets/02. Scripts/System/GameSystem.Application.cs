@@ -15,8 +15,8 @@ public partial class GameSystem : MonoBehaviour {
 
 	private string debugMsg = string.Empty;
 	private AndroidMessage systemMsg = null;
-    private string googleMarketDeepLink = "market://details?id=com.twowegames.MitchirinekoPop";
-    private string googleMarketURL = "https://play.google.com/store/apps/details?id=com.twowegames.MitchirinekoPop";
+    
+    private string googleMarketURL = "market://details?id=";
     
 
 
@@ -302,6 +302,8 @@ public partial class GameSystem : MonoBehaviour {
         //AndroidAppInfoLoader.Instance.PacakgeInfo.
 
         Debug.Log("OnPackageInfoLoaded :: " + debugMsg);
+
+        googleMarketURL = googleMarketURL + AndroidAppInfoLoader.Instance.PacakgeInfo.packageName;
     }
 
     private void OnAndroidIDLoaded(string id) {
@@ -699,7 +701,7 @@ public partial class GameSystem : MonoBehaviour {
         string rateText = GameSystem.Instance.GetLocalizeText("3486");
 
         // yes later no 
-        //AndroidRateUsPopUp rate = AndroidRateUsPopUp.Create(GameSystem.Instance.GetLocalizeText("3284"), rateText, googleMarketDeepLink);
+        
         AndroidRateUsPopUp rate = AndroidRateUsPopUp.Create(GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3490)
             , rateText, googleMarketURL
             , GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3491)

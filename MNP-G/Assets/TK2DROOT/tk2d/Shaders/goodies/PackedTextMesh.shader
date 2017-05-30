@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 // packed text mesh
 // doesn't support fixed function
 // cull off
@@ -48,7 +50,7 @@ Shader "tk2d/Goodies/PackedTextMesh"
 #if UNITY_VERSION > 550
 				o.vertex = UnityObjectToClipPos(v.vertex);
 #else
-				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.vertex = UnityObjectToClipPos(v.vertex);
 #endif
 				o.color = v.color;
 				o.texcoord = v.texcoord;

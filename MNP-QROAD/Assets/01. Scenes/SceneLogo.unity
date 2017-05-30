@@ -262,7 +262,6 @@ MonoBehaviour:
     fakeValue: 0
     inited: 1
   _root: 0
-  _coupon: 
   _deviceuniqueID: 
   _currentSKU: 
   _packageSKU: 
@@ -318,8 +317,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4aa74496b8e9e942a3e81947f157035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iosGameId: 1394442
-  androidGameId: 1394443
   enableTestMode: 0
   CurrentAdsType: 0
 --- !u!4 &600331646
@@ -1352,7 +1349,7 @@ Prefab:
         type: 2}
     - target: {fileID: 11450228, guid: 490f5485c99aa8d4490048f0cdcff8a6, type: 2}
       propertyPath: _version
-      value: 1.0.3.4
+      value: 1.0.3.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 490f5485c99aa8d4490048f0cdcff8a6, type: 2}

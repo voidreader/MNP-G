@@ -10,10 +10,18 @@ public class CouponInputCtrl : MonoBehaviour {
 
 
     public void OpenCouponInput() {
+
+        inputCoupon.value = string.Empty;
+        
         this.gameObject.SetActive(true);
     }
 
     public void SendCoupon() {
+
+        Debug.Log(">>> SendCoupon ipt value :: " + inputCoupon.value);
+
+        _couponInfo = string.Empty;
+
 
         if (string.IsNullOrEmpty(inputCoupon.value)) {
             LobbyCtrl.Instance.OpenInfoPopUp(PopMessageType.CouponInput);

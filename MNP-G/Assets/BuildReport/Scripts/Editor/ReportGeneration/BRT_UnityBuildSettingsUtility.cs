@@ -460,7 +460,7 @@ public static class UnityBuildSettingsUtility
 		// Mobile build settings
 		// ---------------------------------------------------------------
 
-		settings.MobileBundleIdentifier = PlayerSettings.bundleIdentifier; // ("Bundle Identifier" in iOS, "Package Identifier" in Android)
+		settings.MobileBundleIdentifier = PlayerSettings.applicationIdentifier; // ("Bundle Identifier" in iOS, "Package Identifier" in Android)
 		settings.MobileBundleVersion = PlayerSettings.bundleVersion; // ("Bundle Version" in iOS, "Version Name" in Android)
 		settings.MobileHideStatusBar = PlayerSettings.statusBarHidden;
 
