@@ -262,7 +262,7 @@ public class FishColumnCtrl : MonoBehaviour {
 
 
         // 튜토리얼 처리 
-        if(GameSystem.Instance.LocalTutorialStep == 5) {
+        if(GameSystem.Instance.LocalTutorialStep == 5 && GameSystem.Instance.TutorialComplete < 2) {
             // 하나를 받았으면, 컬럼을 Lock 처리 한다.
             _base.SetTutorialLock();
         }

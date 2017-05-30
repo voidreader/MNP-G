@@ -70,7 +70,7 @@ public class NekoFeedCtrl : MonoBehaviour {
 
 
         // 튜토리얼 처리 
-        if(GameSystem.Instance.LocalTutorialStep == 5) {
+        if(GameSystem.Instance.LocalTutorialStep == 5 && GameSystem.Instance.TutorialComplete < 2) {
             // 참치 컬럼만 활성화 처리 
             LobbyCtrl.Instance.DisableAllButton();
             ArrGiveFishColumn[1].GetComponentInChildren<UIButton>().enabled = true;

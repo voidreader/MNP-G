@@ -9,9 +9,12 @@ public class WWWHelper : MonoBehaviour {
     static WWWHelper _instance = null;
 
     JSONNode _dataForm;
-    public string _requestURL = "http://ec2-13-124-50-170.ap-northeast-2.compute.amazonaws.com:7120/op";
+    public string _requestURL = string.Empty;
     //ec2-13-124-50-170.ap-northeast-2.compute.amazonaws.com
     string _data = string.Empty;
+
+    string _id = string.Empty;
+    string _pwd = string.Empty;
 
 
     public static WWWHelper Instance {
@@ -33,6 +36,16 @@ public class WWWHelper : MonoBehaviour {
         DontDestroyOnLoad(this.gameObject);
     }
 
+    /// <summary>
+    /// URL 세팅 
+    /// </summary>
+    /// <param name="url"></param>
+    public void SetURL(string url, string id, string pwd) {
+        _requestURL = url;
+        _id = id;
+        _pwd = pwd;
+    }
+
 
     /// <summary>
     /// 
@@ -45,9 +58,15 @@ public class WWWHelper : MonoBehaviour {
 
         
         _dataForm["cmd"] = requestID;
-        _dataForm["data"]["ip"] = Network.player.ipAddress;
+        _dataForm["data"]["id"] = _id;
+        
 
         switch (requestID) {
+
+            case "request_login":
+                _dataForm["data"]["pwd"] = _pwd;
+                break;
+
 
             case "request_findid":
                 _dataForm["data"]["userdbkey"] = pNode["id"];
