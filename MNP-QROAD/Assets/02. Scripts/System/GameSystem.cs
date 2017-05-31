@@ -85,6 +85,10 @@ public partial class GameSystem : MonoBehaviour {
     string _urlTerm;
     string _urlFAQ;
 
+    string _urlFanpage = string.Empty;
+    string _urlHP = string.Empty;
+    string _urlOnelink = string.Empty;
+
 
     // 시간값 (유니티 애즈)
     AdsType CurrentAdsType;
@@ -1468,6 +1472,9 @@ public partial class GameSystem : MonoBehaviour {
     private void SetURLInfo(JSONNode pNode) {
         UrlFAQ = pNode["urlfaq"];
         UrlTerm = pNode["urlterm"];
+        UrlHP = pNode["urlhp"];
+        UrlOnelink = pNode["urlonelink"];
+        UrlFanpage = pNode["urlfanpage"];
 
 
         Debug.Log(">>>>>>>>>>>>>>>>>>>>>> URL FAQ :: " + UrlFAQ);
@@ -5755,6 +5762,36 @@ public partial class GameSystem : MonoBehaviour {
 
         set {
             _urlFAQ = value;
+        }
+    }
+
+    public string UrlFanpage {
+        get {
+            return _urlFanpage;
+        }
+
+        set {
+            _urlFanpage = value;
+        }
+    }
+
+    public string UrlHP {
+        get {
+            return _urlHP;
+        }
+
+        set {
+            _urlHP = value;
+        }
+    }
+
+    public string UrlOnelink {
+        get {
+            return _urlOnelink;
+        }
+
+        set {
+            _urlOnelink = value;
         }
     }
 

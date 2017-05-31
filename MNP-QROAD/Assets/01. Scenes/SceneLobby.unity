@@ -2006,14 +2006,14 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 676
+  mWidth: 620
   mHeight: 166
   mDepth: 12
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 4.072289
+  aspectRatio: 3.7349398
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
@@ -12502,7 +12502,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 215787737}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 414, z: 0}
+  m_LocalPosition: {x: 0, y: 420, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2140978153}
@@ -12548,7 +12548,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 20.333334
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 9c04bcf3c2951624ba083e4d3e4fc7a2, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
   mText: "[FFF55A]\u203B\u5F15\u304D\u7D99\u304E\u65B9\u6CD5\u306B\u3064\u3044\u3066[-]"
   mFontSize: 30
@@ -21174,14 +21174,14 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 640
+  mWidth: 620
   mHeight: 114
   mDepth: 12
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 5.614035
+  aspectRatio: 5.4385967
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
@@ -24172,14 +24172,14 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 676
+  mWidth: 620
   mHeight: 76
   mDepth: 12
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 8.894737
+  aspectRatio: 8.157895
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
@@ -43865,7 +43865,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 737958563}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -40, z: 0}
+  m_LocalPosition: {x: 0, y: -25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 909981383}
@@ -43902,15 +43902,15 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 1
   mWidth: 610
-  mHeight: 400
+  mHeight: 320
   mDepth: 10
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.525
+  aspectRatio: 1.90625
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 9c04bcf3c2951624ba083e4d3e4fc7a2, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
   mText: "\u30FB\u5F15\u304D\u7D99\u304E\u30B3\u30FC\u30C9\u306F\u5927\u5207\u306B\u7BA1\u7406\u3057\u3066\u304F\u3060\u3055\u3044\u3002\r\n\u30FBAndroid\u304B\u3089iOS\u306B\u5909\u66F4\u3057\u305F\u5834\u5408\u3001\u307E\u305F\u306F\u305D\u306E\u9006\u306E\u5834\u5408\u3001\u5B9F\u7E3E\u53CA\u3073\u30EA\u30FC\u30C0\u30FC\u30DC\u30FC\u30C9\u306E\u60C5\u5831\u306F\u5F15\u7D99\u304C\u308C\u307E\u305B\u3093\u3002\r\n\u30FB\u307F\u3063\u3057\u3087\u3093\u306E\u9032\u884C\u72B6\u6CC1\u306F\u5F15\u304D\u7D99\u304C\u308C\u307E\u305B\u3093\u3002\u30C7\u30FC\u30BF\u5F15\u7D99\u304E\u5F8C\u306F\u3001\u521D\u3081\u304B\u3089\u3068\u306A\u308A\u307E\u3059\u306E\u3067\u3054\u6CE8\u610F\u304F\u3060\u3055\u3044\u3002\r\n\u30FB\u5F15\u7D99\u304E\u524D\u306E\u30C7\u30FC\u30BF\u3067\u307F\u3063\u3057\u3087\u3093\u306E\u5831\u916C\u3092\u7372\u5F97\u3057\u3066\u3044\u308B\u5834\u5408\u3001\u5F15\u7D99\u304E\u5F8C\u306E\u30C7\u30FC\u30BF\u306B\u3066\u540C\u69D8\u306E\u307F\u3063\u3057\u3087\u3093\u306E\u5831\u916C\u3092\u53D7\u3051\u53D6\u308B\u3053\u3068\u306F\u3067\u304D\u307E\u305B\u3093\u306E\u3067\u3054\u6CE8\u610F\u304F\u3060\u3055\u3044\u3002\r\n\u30FB\u5F15\u7D99\u304E\u30B3\u30FC\u30C9\u306E\u6709\u52B9\u671F\u9650\u304C\u904E\u304E\u305F\u3082\u306E\u306B\u95A2\u3057\u307E\u3057\u3066\u306F\u3001
     \u4F7F\u7528\u3067\u304D\u306A\u304F\u306A\u308A\u307E\u3059\u306E\u3067\u3054\u6CE8\u610F\u304F\u3060\u3055\u3044\u3002"
@@ -55168,7 +55168,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 909981382}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -15, z: 0}
+  m_LocalPosition: {x: 0, y: -20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 737958564}
@@ -55214,7 +55214,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 20.333334
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 9c04bcf3c2951624ba083e4d3e4fc7a2, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
   mText: "[FFF55A]\u203B\u6CE8\u610F\u4E8B\u9805[-]"
   mFontSize: 30
@@ -91431,14 +91431,14 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 676
+  mWidth: 620
   mHeight: 132
   mDepth: 12
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 5.121212
+  aspectRatio: 4.6969695
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
@@ -131621,7 +131621,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2140978152}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -40, z: 0}
+  m_LocalPosition: {x: 0, y: -25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 215787738}
@@ -131658,15 +131658,15 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 1
   mWidth: 610
-  mHeight: 400
+  mHeight: 380
   mDepth: 10
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.525
+  aspectRatio: 1.6052631
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 9c04bcf3c2951624ba083e4d3e4fc7a2, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
   mText: "[46F0FF]\u5F15\u304D\u7D99\u304E\u30B3\u30FC\u30C9\u767A\u884C[-]\n\n\u30FB\u4E0B\u90E8\u306E\u300C\u30B3\u30FC\u30C9\u767A\u884C\u300D\u30DC\u30BF\u30F3\u3088\u308A\u5F15\u304D\u7D99\u304E\u30B3\u30FC\u30C9\u3092\u767A\u884C\u3057\u3066\u304F\u3060\u3055\u3044\u3002\r\n\u30FB\u30B3\u30FC\u30C9\u306E\u6709\u52B9\u671F\u9650\u306F\u3001\u767A\u884C\u304B\u308913\u65E5\u9593\u3067\u3059\u3002\r\n\u30FB\u65B0\u3057\u3044\u5F15\u304D\u7D99\u304E\u30B3\u30FC\u30C9\u304C\u767A\u884C\u3055\u308C\u308B\u3068\u3001\u4EE5\u524D\u767A\u884C\u3055\u308C\u305F\u5F15\u304D\u7D99\u304E\u30B3\u30FC\u30C9\u306F\u3001\u6709\u52B9\u671F\u9650\u5185\u3067\u3042\u3063\u3066\u3082\u7121\u52B9\u306B\u306A\u308A\u307E\u3059\u3002\r\n\n[46F0FF]\r\u5F15\u304D\u7D99\u304E\u30B3\u30FC\u30C9\u5165\u529B[-]\n\n\u30FB\u5F15\u7D99\u304E\u5148\u306E\u7AEF\u672B\u306B\u3066\u300C\u307F\u3063\u3061\u308A\u306D\u3053POP\u300D\u8D77\u52D5\u5F8C\u3001\u300C\u304A\u3077\u3057\u3087\u3093\u300D\u2192\u300C\u5F15\u304D\u7D99\u304E\u30B3\u30FC\u30C9\u306E\u5165\u529B\u300D\u753B\u9762\u3067\u3001\u767A\u884C\u3057\u305F\u5F15\u304D\u7D99\u304E\u30B3\u30FC\u30C9\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044\u3002"
   mFontSize: 25

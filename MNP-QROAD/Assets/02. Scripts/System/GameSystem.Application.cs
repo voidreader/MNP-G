@@ -17,7 +17,7 @@ public partial class GameSystem : MonoBehaviour {
 	private AndroidMessage systemMsg = null;
     
     private string googleMarketURL = "market://details?id=";
-    
+    private string iOSMarketURL = string.Empty;
 
 
 
@@ -947,7 +947,17 @@ public partial class GameSystem : MonoBehaviour {
     #endregion
 
 
+    public string MarketURL {
+        get {
 
+#if UNITY_IOS
+            return iOSMarketURL;
+#else
+            return googleMarketURL;
+#endif
+
+        }
+    }
 
     public string GameVersion {
 		get {

@@ -6,14 +6,12 @@ using SWorker;
 public class HeartRequestPopup : MonoBehaviour {
 
 
-    string _lineMessage = "『みっちりねこ』がパズルゲ?ムになったにゃ（=´ω｀=）下のURLからダウンロ?ドして一?に遊ぶにゃ～。https://mnpjp.onelink.me/1734766571?pid=LINE_invite　公式HPはこっち⇒https://mnpop.x-legend.co.jp/";
-    string _twitterMessage = "『みっちりねこ』がパズルゲ?ムになったにゃ(=´ω｀=)下のURLからダウンロ?ドして一?に遊ぶにゃ～。https://mnpjp.onelink.me/1734766571?pid=Twitter_invite　公式HPはこちら⇒https://mnpop.x-legend.co.jp/";
-    string _mailMessage = "『みっちりねこ』がパズルゲ?ムになったにゃ(=´ω｀=)下のURLからダウンロ?ドして一?に遊ぶにゃ～。https://mnpjp.onelink.me/1734766571?pid=mail_invite　公式HPはこちら⇒https://mnpop.x-legend.co.jp/";
+    
 
     [SerializeField]
-    GameObject _innerBanners; 
+    GameObject _innerBanners;
 
-
+    string _message = string.Empty;
 
     [SerializeField]
     bool _isHeartTab = true;
@@ -91,6 +89,12 @@ public class HeartRequestPopup : MonoBehaviour {
         _innerBanners.SetActive(false);
     }
 
+
+    void Start() {
+        _message = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4262) + GameSystem.Instance.UrlOnelink;
+            
+    }
+
     public void OnClickHeartTab() {
 
         if (LobbyCtrl.Instance.GetWaingRequestEnable())
@@ -149,14 +153,15 @@ public class HeartRequestPopup : MonoBehaviour {
 
 
     public void OpenTwitterInvite() {
-        SocialWorker.PostTwitter(_twitterMessage, null, null, onTwitterResult);
+        SocialWorker.PostTwitter(_message, null, null, onTwitterResult);
+        // SocialWorker.PostTwitter()
 
     }
 
     public void OpenLineInvite() {
 
 #if UNITY_ANDROID 
-        SocialWorker.PostLine(_lineMessage, null, onResult);
+        SocialWorker.PostLine(_message, null, onResult);
 
 #elif UNITY_IOS
 
@@ -188,7 +193,7 @@ public class HeartRequestPopup : MonoBehaviour {
             Debug.Log("Post Fail");
 
 
-            string url = "https://twitter.com/intent/tweet?text=" + WWW.EscapeURL(_twitterMessage, System.Text.Encoding.UTF8);
+            string url = "https://twitter.com/intent/tweet?text=" + WWW.EscapeURL(_message, System.Text.Encoding.UTF8);
             Application.OpenURL(url);
         }
     }

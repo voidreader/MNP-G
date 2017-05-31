@@ -10,7 +10,8 @@ public class InviteWindowCtrl : MonoBehaviour {
     string _message = string.Empty;
         
     void Start() {
-        _message = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4250);
+        //_message = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4250);
+        _message = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4262) + GameSystem.Instance.UrlOnelink;
     }
 
 
