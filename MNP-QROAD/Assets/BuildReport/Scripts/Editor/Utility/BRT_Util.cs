@@ -796,6 +796,12 @@ public static class Util
 		int idxOfColon = assetPath.IndexOf(":", StringComparison.Ordinal);
 		if (idxOfColon > -1)
 		{
+			if (idxOfColon >= assetPath.Length - 2)
+			{
+				// there's nothing else after the colon
+				// filename is empty
+				return string.Empty;
+			}
 			return assetPath.Substring(idxOfColon + 2, assetPath.Length - idxOfColon - 2); // -2 to get rid of ": "
 		}
 

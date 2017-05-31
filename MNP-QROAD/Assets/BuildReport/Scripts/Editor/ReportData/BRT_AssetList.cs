@@ -420,13 +420,26 @@ public class AssetList
 	}
 
 
-	public void RecalculatePercentages(double newTotalSize)
+	public void RecalculatePercentages(double totalSize)
 	{
+		if (_all != null)
+		{
+			// if the all list is available,
+			// prefer using that to get the total size
+
+			totalSize = 0;
+			
+			for (int n = 0, len = _all.Length; n < len; ++n)
+			{
+				totalSize += _all[n].DerivedSize;
+			}
+		}
+
 		if (_all != null)
 		{
 			for (int n = 0, len = _all.Length; n < len; ++n)
 			{
-				_all[n].Percentage = Math.Round((_all[n].UsableSize/newTotalSize) * 100, 2, MidpointRounding.AwayFromZero);
+				_all[n].Percentage = Math.Round((_all[n].UsableSize/totalSize) * 100, 2, MidpointRounding.AwayFromZero);
 			}
 		}
 
@@ -436,7 +449,7 @@ public class AssetList
 			{
 				for (int n = 0, len = _perCategory[catIdx].Length; n < len; ++n)
 				{
-					_perCategory[catIdx][n].Percentage = Math.Round((_perCategory[catIdx][n].UsableSize/newTotalSize) * 100, 2, MidpointRounding.AwayFromZero);
+					_perCategory[catIdx][n].Percentage = Math.Round((_perCategory[catIdx][n].UsableSize/totalSize) * 100, 2, MidpointRounding.AwayFromZero);
 				}
 			}
 		}

@@ -1,4 +1,9 @@
-﻿Version 3.2.3
+﻿Version 3.2.4
+- FIX: Fixed error when filename is empty for Built-in Texture2D assets.
+- FIX: Fixed error with some percentage values being over 100%
+
+
+Version 3.2.3
 - FIX: Fixed compatibility with Unity 5.6.0p3
 
 

@@ -20154,6 +20154,11 @@ Prefab:
       propertyPath: mText
       value: "\uD30C\uC6CC \uC5C5!"
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013604196666, guid: 78505c3547ac539449a1d644390cfc16,
+        type: 2}
+      propertyPath: mDepth
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78505c3547ac539449a1d644390cfc16, type: 2}
   m_IsPrefabParent: 0
@@ -78662,7 +78667,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 10.714286
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 9c04bcf3c2951624ba083e4d3e4fc7a2, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
   mText: "\uB354\uC774\uC0C1 \uC5C5\uADF8\uB808\uC774\uB4DC \uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4."
   mFontSize: 28
@@ -117161,7 +117166,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 7.5
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 9c04bcf3c2951624ba083e4d3e4fc7a2, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
   mText: "\uCD5C\uB300 \uB808\uBCA8 \uC785\uB2C8\uB2E4."
   mFontSize: 24

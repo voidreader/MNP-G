@@ -22,7 +22,7 @@ public class GSceneTipCtrl : MonoBehaviour {
     }
 
     public void CloseSceneTip() {
-        Fader.Instance.FadeOut(0.5f);
+        // Fader.Instance.FadeOut(0.5f);
         this.gameObject.SetActive(false);
 
     }

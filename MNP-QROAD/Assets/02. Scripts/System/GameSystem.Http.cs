@@ -185,7 +185,7 @@ public partial class GameSystem : MonoBehaviour {
         Debug.Log("CheckRequestState :: " + request.State.ToString());
         
         if (request.State == HTTPRequestStates.ConnectionTimedOut || request.State == HTTPRequestStates.TimedOut
-            || request.State == HTTPRequestStates.Error) {
+            || request.State == HTTPRequestStates.Error || request.State == HTTPRequestStates.Aborted) {
                
 
             if(!string.IsNullOrEmpty(request.Exception.Message)) {
@@ -2011,8 +2011,8 @@ public partial class GameSystem : MonoBehaviour {
 			}
 
 
-            //HeartShopCtrl heartShop = FindObjectOfType(typeof(HeartShopCtrl)) as HeartShopCtrl;
-            //heartShop.UpdateHearts();
+            HeartShopCtrl heartShop = FindObjectOfType(typeof(HeartShopCtrl)) as HeartShopCtrl;
+            heartShop.UpdateHearts();
 
 
             // 빙고 젬 사용 퀘스트 
@@ -2575,14 +2575,11 @@ public partial class GameSystem : MonoBehaviour {
 
     private void OnFinishedAdsRemainSimple(HTTPRequest request, HTTPResponse response) {
 
-        if (request.State == HTTPRequestStates.ConnectionTimedOut || request.State == HTTPRequestStates.TimedOut
-                || request.State == HTTPRequestStates.Error) {
-            return;
-        }
-
-        /*
         if (!CheckRequestState(request))
             return;
+
+        /*
+
 
         OnOffWaitingRequestInLobby(false);
         */
@@ -2766,6 +2763,10 @@ public partial class GameSystem : MonoBehaviour {
     }
 
     private void OnFinishedClearBingo(HTTPRequest request, HTTPResponse response) {
+
+        if (!CheckRequestState(request))
+            return;
+
     }
 
     public void Post2SelectBingo(int pBingoID, Action<JSONNode> pAction) {

@@ -133,65 +133,63 @@ public class BuildInfo
 		// this bug has already been fixed since Unity 5.2.1
 		// so we only execute this for Unity 5.2.0 and below
 
-		if (DldUtil.UnityVersion.IsUnityVersionAtLeast(5, 2, 1))
+		if (!DldUtil.UnityVersion.IsUnityVersionAtLeast(5, 2, 1))
 		{
-			return;
-		}
-		
-		// --------------------------------------------------------------------------------
-		// fix imported sizes of Resources files
+			// --------------------------------------------------------------------------------
+			// fix imported sizes of Resources files
 
-		for (int n = 0; n < UsedAssets.All.Length; ++n)
-		{
-			if (BuildReportTool.Util.IsFileInAPath(UsedAssets.All[n].Name, "/Resources/"))
+			for (int n = 0; n < UsedAssets.All.Length; ++n)
 			{
-				UsedAssets.All[n].ImportedSizeBytes = BRT_LibCacheUtil.GetImportedFileSize(UsedAssets.All[n].Name);
-				UsedAssets.All[n].ImportedSize = BuildReportTool.Util.GetBytesReadable(UsedAssets.All[n].ImportedSizeBytes);
+				if (BuildReportTool.Util.IsFileInAPath(UsedAssets.All[n].Name, "/Resources/"))
+				{
+					UsedAssets.All[n].ImportedSizeBytes = BRT_LibCacheUtil.GetImportedFileSize(UsedAssets.All[n].Name);
+					UsedAssets.All[n].ImportedSize = BuildReportTool.Util.GetBytesReadable(UsedAssets.All[n].ImportedSizeBytes);
 
-				UsedAssets.All[n].RawSizeBytes = UsedAssets.All[n].ImportedSizeBytes;
-				UsedAssets.All[n].RawSize = UsedAssets.All[n].ImportedSize;
+					UsedAssets.All[n].RawSizeBytes = UsedAssets.All[n].ImportedSizeBytes;
+					UsedAssets.All[n].RawSize = UsedAssets.All[n].ImportedSize;
 				
-				UsedAssets.All[n].DerivedSize = 0;
-				UsedAssets.All[n].Percentage = -1;
+					UsedAssets.All[n].DerivedSize = 0;
+					UsedAssets.All[n].Percentage = -1;
+				}
 			}
+
+			UsedAssets.ResortDefault();
+
+			// --------------------------------------------------------------------------------
+			// recalculate percentages
+		
+			var totalSizePart = BuildSizes.FirstOrDefault(part => part.IsTotal);
+			if (totalSizePart != null && totalSizePart.DerivedSize == 0)
+			{
+				var totalSize = GetTotalSize();
+				ChangeTotalSize(totalSize);
+			}
+
+			// add textures, meshes, sounds, and animations that are in resources folder to the build size
+			// since they are not included anymore in Unity 5
+		
+			var resourcesTextureSizeSum = GetSizeSumForUsedAssets("/Resources/", BuildReportTool.Util.IsFileAUnityTexture);
+			AddToSize("Textures", resourcesTextureSizeSum);
+
+			var resourcesMeshSizeSum = GetSizeSumForUsedAssets("/Resources/", BuildReportTool.Util.IsFileAUnityMesh);
+			AddToSize("Meshes", resourcesMeshSizeSum);
+		
+			var resourcesSoundsSizeSum = GetSizeSumForUsedAssets("/Resources/", BuildReportTool.Util.IsFileAUnitySound);
+			AddToSize("Sounds", resourcesSoundsSizeSum);
+
+			var resourcesAnimationsSizeSum = GetSizeSumForUsedAssets("/Resources/", BuildReportTool.Util.IsFileAUnityAnimation);
+			AddToSize("Animations", resourcesAnimationsSizeSum);
+		
+			AddToTotalSize(resourcesTextureSizeSum);
+			AddToTotalSize(resourcesMeshSizeSum);
+			AddToTotalSize(resourcesSoundsSizeSum);
+			AddToTotalSize(resourcesAnimationsSizeSum);
+		
+			RecalculatePercentages();
+
+			// sort sizes again since we modified them
+			SortSizes();
 		}
-
-		UsedAssets.ResortDefault();
-
-		// --------------------------------------------------------------------------------
-		// recalculate percentages
-		
-		var totalSizePart = BuildSizes.FirstOrDefault(part => part.IsTotal);
-		if (totalSizePart != null && totalSizePart.DerivedSize == 0)
-		{
-			var totalSize = GetTotalSize();
-			ChangeTotalSize(totalSize);
-		}
-
-		// add textures, meshes, sounds, and animations that are in resources folder to the build size
-		// since they are not included anymore in Unity 5
-		
-		var resourcesTextureSizeSum = GetSizeSumForUsedAssets("/Resources/", BuildReportTool.Util.IsFileAUnityTexture);
-		AddToSize("Textures", resourcesTextureSizeSum);
-
-		var resourcesMeshSizeSum = GetSizeSumForUsedAssets("/Resources/", BuildReportTool.Util.IsFileAUnityMesh);
-		AddToSize("Meshes", resourcesMeshSizeSum);
-		
-		var resourcesSoundsSizeSum = GetSizeSumForUsedAssets("/Resources/", BuildReportTool.Util.IsFileAUnitySound);
-		AddToSize("Sounds", resourcesSoundsSizeSum);
-
-		var resourcesAnimationsSizeSum = GetSizeSumForUsedAssets("/Resources/", BuildReportTool.Util.IsFileAUnityAnimation);
-		AddToSize("Animations", resourcesAnimationsSizeSum);
-		
-		AddToTotalSize(resourcesTextureSizeSum);
-		AddToTotalSize(resourcesMeshSizeSum);
-		AddToTotalSize(resourcesSoundsSizeSum);
-		AddToTotalSize(resourcesAnimationsSizeSum);
-		
-		RecalculatePercentages();
-
-		// sort sizes again since we modified them
-		SortSizes();
 #else
 		
 		var totalSizePart = BuildSizes.FirstOrDefault(part => part.IsTotal);
@@ -247,22 +245,20 @@ public class BuildInfo
 	void RecalculatePercentages()
 	{
 		double totalSize = GetTotalSize();
-		
+
 		if (totalSize > 0)
 		{
 			for (int n = 0, len = BuildSizes.Length; n < len; ++n)
 			{
-				BuildSizes[n].Percentage = Math.Round((BuildSizes[n].UsableSize/totalSize) * 100, 2, MidpointRounding.AwayFromZero);
+				BuildSizes[n].Percentage = Math.Round((BuildSizes[n].UsableSize/totalSize)*100, 2, MidpointRounding.AwayFromZero);
 			}
-
-			if (UsedAssets != null)
-			{
-				UsedAssets.RecalculatePercentages(totalSize);
-			}
-			if (UnusedAssets != null)
-			{
-				UnusedAssets.RecalculatePercentages(totalSize);
-			}
+		}
+		
+		// note: only Used Assets are shown the percentages so we
+		// don't bother recaulculating percentage for Unused Assets
+		if (UsedAssets != null)
+		{
+			UsedAssets.RecalculatePercentages(totalSize);
 		}
 	}
 

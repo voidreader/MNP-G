@@ -136,12 +136,14 @@ public class FB_UserInfo {
             }
         }
 
+        /*
         if (JSON.Contains("age_range")) {
             IDictionary age = JSON["age_range"] as IDictionary;
             _ageRange = (age.Contains("min")) ? age["min"].ToString() : "0";
             _ageRange += "-";
             _ageRange += (age.Contains("max")) ? age["max"].ToString() : "1000";
         }
+        */
 
 
         if (JSON.Contains("picture")) {

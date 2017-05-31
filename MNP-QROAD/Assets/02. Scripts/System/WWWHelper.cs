@@ -41,7 +41,7 @@ public class WWWHelper : MonoBehaviour {
     [SerializeField] int _preItemAdsID = -1;
     [SerializeField] int _itemAdsID = 0;
 
-    HTTPRequest _previousRequest;
+    HTTPRequest _previousRequest = null;
 
     string _pushDeviceToken = "";
 
@@ -67,7 +67,7 @@ public class WWWHelper : MonoBehaviour {
     readonly string _parsingText = "{}";
 
 	public float timer = 0;
-	public float timeout = 10;
+	// public float timeout = 10;
 	public bool failed = false;
 
 	// 이벤트 델리게이터 
@@ -543,8 +543,8 @@ public class WWWHelper : MonoBehaviour {
         request.SetHeader("Content-Type", "application/json; charset=UTF-8");
         request.RawData = Encoding.UTF8.GetBytes(_data);
 
-        request.ConnectTimeout = System.TimeSpan.FromSeconds(15);
-        request.Timeout = System.TimeSpan.FromSeconds(30);
+        request.ConnectTimeout = System.TimeSpan.FromSeconds(5);
+        request.Timeout = System.TimeSpan.FromSeconds(20);
 
         _previousRequest = request;
 
@@ -602,8 +602,8 @@ public class WWWHelper : MonoBehaviour {
         request.RawData = Encoding.UTF8.GetBytes(_data);
         request.Tag = pNode;
 
-        request.ConnectTimeout = System.TimeSpan.FromSeconds(15);
-        request.Timeout = System.TimeSpan.FromSeconds(30);
+        request.ConnectTimeout = System.TimeSpan.FromSeconds(5);
+        request.Timeout = System.TimeSpan.FromSeconds(20);
 
         _previousRequest = request;
 
@@ -684,8 +684,8 @@ public class WWWHelper : MonoBehaviour {
 		request.RawData = Encoding.UTF8.GetBytes(_data);
         request.Tag = pParam;
 
-        request.ConnectTimeout = System.TimeSpan.FromSeconds(15);
-        request.Timeout = System.TimeSpan.FromSeconds(30);
+        request.ConnectTimeout = System.TimeSpan.FromSeconds(5);
+        request.Timeout = System.TimeSpan.FromSeconds(20);
 
         _previousRequest = request;
 
