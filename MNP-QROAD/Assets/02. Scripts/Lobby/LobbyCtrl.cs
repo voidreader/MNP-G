@@ -269,7 +269,6 @@ public partial class LobbyCtrl : MonoBehaviour {
         // BGM 플레이 
         bgmSrc.Play();
 
-
         // PoolManager 관련 
         SetSpawningObject();
 
@@ -298,6 +297,10 @@ public partial class LobbyCtrl : MonoBehaviour {
 
         //CheckBingoFocusMark(); // 빙고 강조 표시체크
         //CheckNewClearBingo(); // New Bingo Check
+
+        if (GoogleAdmobMgr.Instance.IsBannerRequested)
+            GoogleAdmobMgr.Instance.BottomBannerView.Show();
+
 
 
         // 후반부는 패스 한다. true 일경우.
@@ -1824,6 +1827,11 @@ public partial class LobbyCtrl : MonoBehaviour {
     /// </summary>
     public void GetNekoGift() {
 
+        // 튜토리얼이 완료되지 않으면 동작하지 않음 
+        if (GameSystem.Instance.TutorialComplete < 2)
+            return;
+
+
         // 프리미엄 네코 서비스 100% 확률로 실행
         GameSystem.Instance.Post2RequestAdsRemainNekoGift(GetPremiumNekoGift);
 
@@ -2589,6 +2597,10 @@ public partial class LobbyCtrl : MonoBehaviour {
 	#region Option
 
 	public void OpenOption() {
+
+        if (bigPopup.gameObject.activeSelf)
+            return;
+
         bigPopup.gameObject.SetActive(true);
         bigPopup.SetOption();
     }
@@ -2841,13 +2853,15 @@ public partial class LobbyCtrl : MonoBehaviour {
     /// </summary>
     /// <param name="pStage"></param>
     public void OpenReady(int pStage) {
-        
+
+        if (objReadyGroup.gameObject.activeSelf)
+            return;
 
         objReadyGroup.gameObject.SetActive(true);
         objReadyGroup.SetStageGame(pStage);
 
         // 잠금해제
-        StageMasterCtrl.Instance.IsLockedByLoadReplayOrNextStage = false;
+        // StageMasterCtrl.Instance.IsLockedByLoadReplayOrNextStage = false;
 
     }
 

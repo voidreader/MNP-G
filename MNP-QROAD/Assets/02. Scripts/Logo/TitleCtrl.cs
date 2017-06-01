@@ -95,6 +95,10 @@ public class TitleCtrl : MonoBehaviour {
             return;
         }
 
+        if (GoogleAdmobMgr.Instance.IsBannerRequested)
+            GoogleAdmobMgr.Instance.BottomBannerView.Hide();
+
+
 
 #if UNITY_ANDROID
         CheckAndroidRuntimePermission();

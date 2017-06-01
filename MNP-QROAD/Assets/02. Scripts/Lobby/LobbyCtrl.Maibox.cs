@@ -19,6 +19,10 @@ public partial class LobbyCtrl : MonoBehaviour {
 
 
     public void OpenMailBox() {
+
+        if (bigPopup.gameObject.activeSelf)
+            return;
+
         // 오브젝트 활성화
         //_objMailBox.SetActive (true);
         bigPopup.gameObject.SetActive(true);

@@ -90,6 +90,10 @@ public partial class LobbyCtrl : MonoBehaviour {
     }
 
     private void OpenMissionWindow() {
+
+        if (bigPopup.gameObject.activeSelf)
+            return;
+
         bigPopup.gameObject.SetActive(true);
         bigPopup.SetMission();
     }

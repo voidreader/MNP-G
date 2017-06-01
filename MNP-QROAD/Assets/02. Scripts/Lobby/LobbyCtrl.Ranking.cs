@@ -15,6 +15,9 @@ public partial class LobbyCtrl : MonoBehaviour {
 
         Debug.Log(">>> OpenRanking");
 
+        if (bigPopup.gameObject.activeSelf)
+            return;
+
         bigPopup.gameObject.SetActive(true);
         bigPopup.SetRanking();
 

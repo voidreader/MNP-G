@@ -17,6 +17,7 @@ public class LogoCtrl : MonoBehaviour {
     [SerializeField]
     GameObject _warning;
 
+    [SerializeField]
     float _screenRatio;
 
     bool _waiting = false;

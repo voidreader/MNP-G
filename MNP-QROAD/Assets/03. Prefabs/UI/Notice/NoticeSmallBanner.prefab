@@ -5,10 +5,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 434534}
-  - 114: {fileID: 11488736}
+  - component: {fileID: 434534}
+  - component: {fileID: 11488736}
   m_Layer: 5
   m_Name: New
   m_TagString: Untagged
@@ -21,10 +21,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 451930}
-  - 114: {fileID: 11446686}
+  - component: {fileID: 451930}
+  - component: {fileID: 11446686}
   m_Layer: 5
   m_Name: Banner
   m_TagString: Untagged
@@ -37,16 +37,16 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 479972}
-  - 114: {fileID: 11422318}
-  - 114: {fileID: 11477254}
-  - 65: {fileID: 6599080}
-  - 114: {fileID: 11410408}
-  - 114: {fileID: 11454128}
-  - 114: {fileID: 11435428}
-  - 114: {fileID: 11428596}
+  - component: {fileID: 479972}
+  - component: {fileID: 11422318}
+  - component: {fileID: 11477254}
+  - component: {fileID: 6599080}
+  - component: {fileID: 11410408}
+  - component: {fileID: 11454128}
+  - component: {fileID: 11435428}
+  - component: {fileID: 11428596}
   m_Layer: 5
   m_Name: NoticeSmallBanner
   m_TagString: Untagged
@@ -59,10 +59,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 445208}
-  - 114: {fileID: 11404466}
+  - component: {fileID: 445208}
+  - component: {fileID: 11404466}
   m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
@@ -75,10 +75,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 452086}
-  - 114: {fileID: 11445206}
+  - component: {fileID: 452086}
+  - component: {fileID: 11445206}
   m_Layer: 5
   m_Name: Line
   m_TagString: Untagged
@@ -95,10 +95,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -236, y: 148, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 479972}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &445208
 Transform:
   m_ObjectHideFlags: 1
@@ -108,10 +108,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -60, y: 150, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 479972}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &451930
 Transform:
   m_ObjectHideFlags: 1
@@ -121,10 +121,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 479972}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &452086
 Transform:
   m_ObjectHideFlags: 1
@@ -134,10 +134,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -140, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 479972}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &479972
 Transform:
   m_ObjectHideFlags: 1
@@ -147,7 +147,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 451930}
   - {fileID: 452086}
@@ -155,6 +154,7 @@ Transform:
   - {fileID: 434534}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6599080
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -206,9 +206,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 9
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 9c04bcf3c2951624ba083e4d3e4fc7a2, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
-  mText: "8\u67083\u65E5\u66F4\u65B0!"
+  mText: Loading..
   mFontSize: 30
   mFontStyle: 0
   mAlignment: 1

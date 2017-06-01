@@ -7,6 +7,7 @@ public class ScissorCtrl : MonoBehaviour {
 
     public GameObject m_objBackScissor;
 
+    [SerializeField]
     bool _needChange = true;
 
     public float _wantedAspectRatio = 0.5625f;
@@ -38,14 +39,24 @@ public class ScissorCtrl : MonoBehaviour {
 
         float currentAspectRatio = (float)Screen.width / (float)Screen.height;
 
-        //Debug.Log("★★★ ScissorCtrl currentAspectRatio :: " + currentAspectRatio);
+        Debug.Log("★★★ ScissorCtrl currentAspectRatio :: " + currentAspectRatio);
 
         // 근사치 내에서는 동작하지 않도록 처리 
+        // LG G6는 9:18 비율로 -0.0625 
+        
         if (currentAspectRatio - _wantedAspectRatio <= 0.01f && currentAspectRatio - _wantedAspectRatio >= -0.01f) {
             _needChange = false; 
         }
 
-        if(currentAspectRatio > 0.7f) {
+        /*
+        if (currentAspectRatio - _wantedAspectRatio <= 0.07f && currentAspectRatio - _wantedAspectRatio >= -0.07f) {
+            _needChange = false;
+        }
+        */
+
+
+
+        if (currentAspectRatio > 0.7f) {
             _needChange = true;
         }
 

@@ -342,6 +342,10 @@ public class ReadyGroupCtrl : MonoBehaviour {
         if(_currentStage["questid1"].AsInt == 10 || _currentStage["questid1"].AsInt == 11) {
             _arrEquipItem[3].SetFireworkItem();
         }
+
+
+        // 잠금해제
+        StageMasterCtrl.Instance.IsLockedByLoadReplayOrNextStage = false;
     }
 
     void OnEnable() {

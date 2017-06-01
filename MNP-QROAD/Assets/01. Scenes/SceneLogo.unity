@@ -275,7 +275,6 @@ MonoBehaviour:
   _baseURL: 
   _testURL: 
   timer: 0
-  timeout: 10
   failed: 0
 --- !u!4 &393232249
 Transform:
@@ -1132,6 +1131,17 @@ MonoBehaviour:
   googleAdMobIOS: ca-app-pub-7276185723803254/7528476528
   unityAdsAOS: 1394443
   unityAdsIOS: 1394442
+  GP_LEADERBOARD_ID: 
+  GP_ACHIEVEMENT_ID1: 
+  GP_ACHIEVEMENT_ID2: 
+  GP_ACHIEVEMENT_ID3: 
+  GP_ACHIEVEMENT_ID4: 
+  GP_ACHIEVEMENT_ID5: 
+  IOS_ACHIEVEMENT_ID1: mnp.collection.10
+  IOS_ACHIEVEMENT_ID2: mnp.collection.30
+  IOS_ACHIEVEMENT_ID3: mnp.collection.50
+  IOS_ACHIEVEMENT_ID4: mnp.collection.70
+  IOS_ACHIEVEMENT_ID5: mnp.collection.100
 --- !u!1001 &1579925865
 Prefab:
   m_ObjectHideFlags: 0
@@ -1263,6 +1273,7 @@ MonoBehaviour:
   _logo: {fileID: 1034503438}
   _logo2: {fileID: 1134992194}
   _warning: {fileID: 1388787983}
+  _screenRatio: 0
 --- !u!1 &1741484069
 GameObject:
   m_ObjectHideFlags: 0
