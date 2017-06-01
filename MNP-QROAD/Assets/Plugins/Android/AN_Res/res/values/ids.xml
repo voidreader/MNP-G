@@ -4,13 +4,18 @@ Google Play game services IDs.
 Save this file as res/values/games-ids.xml in your project.
 -->
 <resources>
-  <string name="app_id">77620733441</string>
-  <string name="package_name">com.qroad.google.mitchirinekopop</string>
-  <string name="achievement_mitchirineko_starter_collector">CgkIgcy5lKECEAIQAQ</string>
-  <string name="achievement_mitchirineko_fancier">CgkIgcy5lKECEAIQAg</string>
-  <string name="achievement_mitchirineko_expert">CgkIgcy5lKECEAIQAw</string>
-  <string name="achievement_mitchirineko_professor">CgkIgcy5lKECEAIQBA</string>
-  <string name="achievement_mitchirineko_master">CgkIgcy5lKECEAIQBQ</string>
-  <string name="leaderboard_mitchirineko_collection">CgkIgcy5lKECEAIQAA</string>
+  <string name="app_id">227779868008</string>
+  <string name="package_name">com.twowegames.MitchirinekoPop</string>
+  <string name="achievement__1___">CgkI6OrzxdAGEAIQAQ</string>
+  <string name="achievement__1___">CgkI6OrzxdAGEAIQAg</string>
+  <string name="achievement__1___">CgkI6OrzxdAGEAIQAw</string>
+  <string name="achievement__1___">CgkI6OrzxdAGEAIQBA</string>
+  <string name="achievement__1__neko_theater">CgkI6OrzxdAGEAIQBQ</string>
+  <string name="achievement_season_2_mitchirineko_beginning_collectors">CgkI6OrzxdAGEAIQBw</string>
+  <string name="achievement_season_2_mitchirineko_devotee">CgkI6OrzxdAGEAIQCA</string>
+  <string name="achievement_season_2_mitchirineko_expert">CgkI6OrzxdAGEAIQCQ</string>
+  <string name="achievement_season_2_prof._michirineko">CgkI6OrzxdAGEAIQCg</string>
+  <string name="achievement_season_2_mitchirineko_master">CgkI6OrzxdAGEAIQCw</string>
+  <string name="leaderboard_1__">CgkI6OrzxdAGEAIQBg</string>
+  <string name="leaderboard_season_2_mitchirineko_collection">CgkI6OrzxdAGEAIQDA</string>
 </resources>
-

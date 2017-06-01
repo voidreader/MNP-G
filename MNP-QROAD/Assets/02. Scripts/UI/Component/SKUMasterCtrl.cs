@@ -20,22 +20,22 @@ public class SKUMasterCtrl : MonoBehaviour {
 
         foreach (GoogleProductTemplate p in AndroidInAppPurchaseManager.Client.Inventory.Products) {
             
-            if(p.SKU.Contains("mn_cash_01")) {
+            if(p.SKU.Contains("t0")) {
                 _arrSKUCtrl[0].SetSKUInfo(p.SKU, p.LocalizedPrice);
             }
-            else if(p.SKU.Contains("mn_cash_02")) {
+            else if(p.SKU.Contains("g1")) {
                 _arrSKUCtrl[1].SetSKUInfo(p.SKU, p.LocalizedPrice);
             }
-            else if (p.SKU.Contains("mn_cash_03")) {
+            else if (p.SKU.Contains("g2")) {
                 _arrSKUCtrl[2].SetSKUInfo(p.SKU, p.LocalizedPrice);
             }
-            else if (p.SKU.Contains("mn_cash_04")) {
+            else if (p.SKU.Contains("g3")) {
                 _arrSKUCtrl[3].SetSKUInfo(p.SKU, p.LocalizedPrice);
             }
-            else if (p.SKU.Contains("mn_cash_05")) { 
+            else if (p.SKU.Contains("g4")) { 
                 _arrSKUCtrl[4].SetSKUInfo(p.SKU, p.LocalizedPrice);
             }
-            else if (p.SKU.Contains("mn_cash_06")) {
+            else if (p.SKU.Contains("g5")) {
                 _arrSKUCtrl[5].SetSKUInfo(p.SKU, p.LocalizedPrice);
             }
 
@@ -44,20 +44,23 @@ public class SKUMasterCtrl : MonoBehaviour {
 		Debug.Log("SetSKUs in IOS");
 
         foreach (IOSProductTemplate tpl in IOSInAppPurchaseManager.Instance.Products) {
-            if (tpl.Id.Contains("g1")) {
+            if (tpl.Id.Contains("t0")) {
                 _arrSKUCtrl[0].SetSKUInfo(tpl.Id, tpl.LocalizedPrice);
             }
-            else if (tpl.Id.Contains("g2")) {
+            else if (tpl.Id.Contains("g1")) {
                 _arrSKUCtrl[1].SetSKUInfo(tpl.Id, tpl.LocalizedPrice);
             }
-            else if (tpl.Id.Contains("g3")) {
+            else if (tpl.Id.Contains("g2")) {
                 _arrSKUCtrl[2].SetSKUInfo(tpl.Id, tpl.LocalizedPrice);
             }
-            else if (tpl.Id.Contains("g4")) {
+            else if (tpl.Id.Contains("g3")) {
                 _arrSKUCtrl[3].SetSKUInfo(tpl.Id, tpl.LocalizedPrice);
             }
-            else if (tpl.Id.Contains("g5")) {
+            else if (tpl.Id.Contains("g4")) {
                 _arrSKUCtrl[4].SetSKUInfo(tpl.Id, tpl.LocalizedPrice);
+            }
+        else if (tpl.Id.Contains("g5")) {
+                _arrSKUCtrl[5].SetSKUInfo(tpl.Id, tpl.LocalizedPrice);
             }
         }
 #endif

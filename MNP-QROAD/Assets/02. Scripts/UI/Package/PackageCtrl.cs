@@ -101,8 +101,8 @@ public class PackageCtrl : MonoBehaviour {
             packID2 = GameSystem.Instance._600Pack9_ios;
         }
         else if (_packageName == PuzzleConstBox.packageSpecial) { // 
-            packID1 = "mn_pkg_02";
-            packID2 = "mn_pkg_02";
+            packID1 = "special_g";
+            packID2 = "special_g";
         }
 
         else {

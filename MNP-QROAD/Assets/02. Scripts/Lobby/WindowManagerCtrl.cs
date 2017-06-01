@@ -404,7 +404,7 @@ public class WindowManagerCtrl : MonoBehaviour {
         }
 #endif
 
-        _specialPackage.SetPackageDetail("mn_pkg_02", "USD 0.99$");
+        _specialPackage.SetPackageDetail("special_g", "USD 0.99$");
     }
 
 

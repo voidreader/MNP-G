@@ -119,7 +119,7 @@ PlayerSettings:
     16:10: 0
     16:9: 1
     Others: 0
-  bundleVersion: 1.0.3.5
+  bundleVersion: 2.1.1.1
   preloadedAssets: []
   metroInputSource: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -137,14 +137,14 @@ PlayerSettings:
   protectGraphicsMemory: 0
   useHDRDisplay: 0
   applicationIdentifier:
-    Android: com.qroad.google.mitchirinekopop
+    Android: com.twowegames.MitchirinekoPop
     Standalone: unity.2weGames.MitchirinekoG
     Tizen: com.qroad.google.mitchirinekopop
     iOS: com.qroad.google.mitchirinekopop
     tvOS: com.qroad.google.mitchirinekopop
   buildNumber:
     iOS: 0
-  AndroidBundleVersionCode: 3
+  AndroidBundleVersionCode: 107
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 0
@@ -218,8 +218,8 @@ PlayerSettings:
   AndroidTargetDevice: 3
   AndroidSplashScreenScale: 1
   androidSplashScreen: {fileID: 2800000, guid: b909205373f086f4dbe5a5d8302928a3, type: 3}
-  AndroidKeystoreName: C:/Git/MNP-G/MNP-QROAD/qroad_mitchirinekopop.keystore
-  AndroidKeyaliasName: qroad_mitchirinekopop
+  AndroidKeystoreName: C:/Git/MNP-G/MNP-QROAD/user.keystore
+  AndroidKeyaliasName: pop
   AndroidTVCompatibility: 0
   AndroidIsGame: 0
   androidEnableBanner: 0

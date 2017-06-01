@@ -392,7 +392,7 @@ public static class PuzzleConstBox {
 
     public static readonly string packageSanta600 = "santa_600";
     public static readonly string packageFish600 = "fish_600";
-    public static readonly string packageSpecial = "mn_pkg_02";
+    public static readonly string packageSpecial = "special_g";
 
 
     public static List<int> listNekoSpawnOrder = new List<int> (); // 네코 Spawn Order 

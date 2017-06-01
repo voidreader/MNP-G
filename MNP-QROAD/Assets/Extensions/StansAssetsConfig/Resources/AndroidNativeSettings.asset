@@ -89,13 +89,13 @@ MonoBehaviour:
   GalleryAPI: 0
   CameraAPI: 0
   KeepManifestClean: 0
-  GooglePlayServiceAppID: 77620733441
-  ToolbarSelectedIndex: 1
-  base64EncodedPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjFg2eer9JhGItWdeyZ4logq7RE7hAMuCIz1AUH2Mw/hQrIP9JEpZ+5a0b7UQA5fCCU/KtdeJZ0dGt6ro+khj0Vkwc3Gfq1naVn4eXCth3HIPfE/M183RfkCk7vqJjshaBWlnZcH3H/pEZB2+rd5CC3mee6p+eZHsXiKzRLV572DWV8/VMBc2oMdwPa6HumqLbjOMZ0CP/xGojPfde6EIqCCEXDjKlOc8l3ZILJl6zP8GEDiEl5+da98wSUxl1s7bBe9uoeC5Jb6k+DabkFroFB0dPv+KbnTraNIVcjnObth+TD5Zge+8iIx7PuUbD9okzDjcHkHtxRiRo8uVzZ7iXQIDAQAB
+  GooglePlayServiceAppID: 227779868008
+  ToolbarSelectedIndex: 0
+  base64EncodedPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp4QsL+GU063PISRe/GrgMFwQcYrRySBTsWV7fX3G9Orr1CclwNWtRNVBeu4LnzeiXvU9Ikm6tZFHma/kjyGtKIW7y6+fOzbbpGWDPetfb9Fr0gXX6ncoQ6cwfBOIKZe/re4SL7w04TTJDhBJPyB3Dw0eNcccN1R2Y0xG1Jk8aW/0O/A9kvbSP50fnrsAnt1UY6g/uZkQQInOr6FLQ2lOpUUxuSgiy0IykH1jDU1nJYagJ61FVRkuWp70SA4J454+Wy75zuG9IJoayhqL5NatvUA+50EQiJryeO+cZrY1lRDp8VLywBStH+3FhvI6VfY7p4oKji9fsLfiwDWqJayYPQIDAQAB
   ShowStoreProducts: 1
   InAppProducts:
   - IsOpen: 1
-    SKU: mn_pkg_01
+    SKU: g0
     _LocalizedPrice: 0.99 $
     _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD
@@ -104,7 +104,7 @@ MonoBehaviour:
     _Texture: {fileID: 0}
     _ProductType: 0
   - IsOpen: 1
-    SKU: mn_cash_01
+    SKU: g1
     _LocalizedPrice: 0.99 $
     _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD
@@ -113,7 +113,7 @@ MonoBehaviour:
     _Texture: {fileID: 0}
     _ProductType: 0
   - IsOpen: 1
-    SKU: mn_cash_02
+    SKU: g2
     _LocalizedPrice: 0.99 $
     _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD
@@ -122,7 +122,7 @@ MonoBehaviour:
     _Texture: {fileID: 0}
     _ProductType: 0
   - IsOpen: 1
-    SKU: mn_cash_03
+    SKU: g3
     _LocalizedPrice: 0.99 $
     _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD
@@ -131,7 +131,7 @@ MonoBehaviour:
     _Texture: {fileID: 0}
     _ProductType: 0
   - IsOpen: 1
-    SKU: mn_cash_04
+    SKU: g4
     _LocalizedPrice: 0.99 $
     _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD
@@ -140,7 +140,7 @@ MonoBehaviour:
     _Texture: {fileID: 0}
     _ProductType: 0
   - IsOpen: 1
-    SKU: mn_cash_05
+    SKU: g5
     _LocalizedPrice: 0.99 $
     _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD
@@ -149,7 +149,7 @@ MonoBehaviour:
     _Texture: {fileID: 0}
     _ProductType: 0
   - IsOpen: 1
-    SKU: mn_cash_06
+    SKU: special_g
     _LocalizedPrice: 0.99 $
     _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD
@@ -158,7 +158,7 @@ MonoBehaviour:
     _Texture: {fileID: 0}
     _ProductType: 0
   - IsOpen: 1
-    SKU: mn_pkg_02
+    SKU: t0
     _LocalizedPrice: 0.99 $
     _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD

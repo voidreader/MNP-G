@@ -11,33 +11,32 @@ public partial class GameSystem : MonoBehaviour {
     private bool _isBillInit = false;
     private string _payload = null;
     private bool isPassedPayload = false;
-    private string _billKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjFg2eer9JhGItWdeyZ4logq7RE7hAMuCIz1AUH2Mw/hQrIP9JEpZ+5a0b7UQA5fCCU/KtdeJZ0dGt6ro+khj0Vkwc3Gfq1naVn4eXCth3HIPfE/M183RfkCk7vqJjshaBWlnZcH3H/pEZB2+rd5CC3mee6p+eZHsXiKzRLV572DWV8/VMBc2oMdwPa6HumqLbjOMZ0CP/xGojPfde6EIqCCEXDjKlOc8l3ZILJl6zP8GEDiEl5+da98wSUxl1s7bBe9uoeC5Jb6k+DabkFroFB0dPv+KbnTraNIVcjnObth+TD5Zge+8iIx7PuUbD9okzDjcHkHtxRiRo8uVzZ7iXQIDAQAB";
 
 	private string _recieptIOS;
 
 
     // 600엔 패키지
-    public readonly string _startPackProductID_ios = "mn_pkg_01";
-    public readonly string _600Pack2_ios = "mn_pkg_01_2";
-    public readonly string _600Pack3_ios = "mn_pkg_01_3";
-    public readonly string _600Pack4_ios = "mn_pkg_01_4";
-    public readonly string _600Pack5_ios = "mn_pkg_01_5";
-    public readonly string _600Pack6_ios = "mn_pkg_01_6";
-    public readonly string _600Pack7_ios = "mn_pkg_01_7";
-    public readonly string _600Pack8_ios = "mn_pkg_01_8";
-    public readonly string _600Pack9_ios = "mn_pkg_01_9";
+    public readonly string _startPackProductID_ios = "g0";
+    public readonly string _600Pack2_ios = "g0_2";
+    public readonly string _600Pack3_ios = "g0_3";
+    public readonly string _600Pack4_ios = "g0_4";
+    public readonly string _600Pack5_ios = "g0_5";
+    public readonly string _600Pack6_ios = "g0_6";
+    public readonly string _600Pack7_ios = "g0_7";
+    public readonly string _600Pack8_ios = "g0_8";
+    public readonly string _600Pack9_ios = "g0_9";
 
-    public readonly string _startPackProductID_android = "mn_pkg_01";
-    public readonly string _600Pack2_android = "mn_pkg_01_2";
-    public readonly string _600Pack3_android = "mn_pkg_01_3";
-    public readonly string _600Pack4_android = "mn_pkg_01_4";
-    public readonly string _600Pack5_android = "mn_pkg_01_5";
-    public readonly string _600Pack6_android = "mn_pkg_01_6";
-    public readonly string _600Pack7_android = "mn_pkg_01_7";
-    public readonly string _600Pack8_android = "mn_pkg_01_8";
-    public readonly string _600Pack9_android = "mn_pkg_01_9";
+    public readonly string _startPackProductID_android = "g0";
+    public readonly string _600Pack2_android = "g0_2";
+    public readonly string _600Pack3_android = "g0_3";
+    public readonly string _600Pack4_android = "g0_4";
+    public readonly string _600Pack5_android = "g0_5";
+    public readonly string _600Pack6_android = "g0_6";
+    public readonly string _600Pack7_android = "g0_7";
+    public readonly string _600Pack8_android = "g0_8";
+    public readonly string _600Pack9_android = "g0_9";
 
-    public readonly string _special_package = "mn_pkg_02";
+    public readonly string _special_package = "special_g";
 
 
     /// <summary>
@@ -123,36 +122,35 @@ public partial class GameSystem : MonoBehaviour {
 
         // 내부 사용용도의 패키지 명 변경처리.
         if (pPackageName.Equals(PuzzleConstBox.packageHoney600)) {
-            WWWHelper.Instance.PackageSKU = "mn_pkg_01";
+            WWWHelper.Instance.PackageSKU = "g0";
         }
         else if (pPackageName.Equals(PuzzleConstBox.packageSummer600)) {
-            WWWHelper.Instance.PackageSKU = "mn_pkg_01_2";
+            WWWHelper.Instance.PackageSKU = "g0_2";
         }
         else if (pPackageName.Equals(PuzzleConstBox.packageMoon600)) {
-            WWWHelper.Instance.PackageSKU = "mn_pkg_01_3";
+            WWWHelper.Instance.PackageSKU = "g0_3";
         }
         else if (pPackageName.Equals(PuzzleConstBox.packageMusic600)) {
-            WWWHelper.Instance.PackageSKU = "mn_pkg_01_4";
+            WWWHelper.Instance.PackageSKU = "g0_4";
         }
         else if (pPackageName.Equals(PuzzleConstBox.packageBoots600)) {
-            WWWHelper.Instance.PackageSKU = "mn_pkg_01_5";
+            WWWHelper.Instance.PackageSKU = "g0_5";
         }
         else if (pPackageName.Equals(PuzzleConstBox.packageMaple600)) {
-            WWWHelper.Instance.PackageSKU = "mn_pkg_01_6";
+            WWWHelper.Instance.PackageSKU = "g0_6";
         }
         else if (pPackageName.Equals(PuzzleConstBox.packageSecret600)) {
-            WWWHelper.Instance.PackageSKU = "mn_pkg_01_7";
+            WWWHelper.Instance.PackageSKU = "g0_7";
         }
         else if (pPackageName.Equals(PuzzleConstBox.packageSanta600)) {
-            WWWHelper.Instance.PackageSKU = "mn_pkg_01_8";
+            WWWHelper.Instance.PackageSKU = "g0_8";
         }
         else if (pPackageName.Equals(PuzzleConstBox.packageFish600)) {
-            WWWHelper.Instance.PackageSKU = "mn_pkg_01_9";
+            WWWHelper.Instance.PackageSKU = "g0_9";
         }
         else if (pPackageName.Equals(PuzzleConstBox.packageSpecial)) {
-            WWWHelper.Instance.PackageSKU = "mn_pkg_02";
+            WWWHelper.Instance.PackageSKU = "special_g";
         }
-
         _currentSKU = WWWHelper.Instance.CurrentSKU; // currentSKU는 실제 스토어 등록ID를 사용
 
         GameSystem.Instance.Post2ReqPayload();
@@ -170,35 +168,37 @@ public partial class GameSystem : MonoBehaviour {
 
         // 내부 사용용도의 패키지 명 변경처리.
         if (pPackageName.Equals(PuzzleConstBox.packageHoney600)) {
-            WWWHelper.Instance.PackageSKU = "mn_pkg_01";
+            WWWHelper.Instance.PackageSKU = "g0";
         }
-        else if(pPackageName.Equals(PuzzleConstBox.packageSummer600)) {
-            WWWHelper.Instance.PackageSKU = "mn_pkg_01_2";
+        else if (pPackageName.Equals(PuzzleConstBox.packageSummer600)) {
+            WWWHelper.Instance.PackageSKU = "g0_2";
         }
         else if (pPackageName.Equals(PuzzleConstBox.packageMoon600)) {
-            WWWHelper.Instance.PackageSKU = "mn_pkg_01_3";
+            WWWHelper.Instance.PackageSKU = "g0_3";
         }
         else if (pPackageName.Equals(PuzzleConstBox.packageMusic600)) {
-            WWWHelper.Instance.PackageSKU = "mn_pkg_01_4";
+            WWWHelper.Instance.PackageSKU = "g0_4";
         }
         else if (pPackageName.Equals(PuzzleConstBox.packageBoots600)) {
-            WWWHelper.Instance.PackageSKU = "mn_pkg_01_5";
+            WWWHelper.Instance.PackageSKU = "g0_5";
         }
         else if (pPackageName.Equals(PuzzleConstBox.packageMaple600)) {
-            WWWHelper.Instance.PackageSKU = "mn_pkg_01_6";
+            WWWHelper.Instance.PackageSKU = "g0_6";
         }
         else if (pPackageName.Equals(PuzzleConstBox.packageSecret600)) {
-            WWWHelper.Instance.PackageSKU = "mn_pkg_01_7";
+            WWWHelper.Instance.PackageSKU = "g0_7";
         }
         else if (pPackageName.Equals(PuzzleConstBox.packageSanta600)) {
-            WWWHelper.Instance.PackageSKU = "mn_pkg_01_8";
+            WWWHelper.Instance.PackageSKU = "g0_8";
         }
         else if (pPackageName.Equals(PuzzleConstBox.packageFish600)) {
-            WWWHelper.Instance.PackageSKU = "mn_pkg_01_9";
+            WWWHelper.Instance.PackageSKU = "g0_9";
         }
         else if (pPackageName.Equals(PuzzleConstBox.packageSpecial)) {
-            WWWHelper.Instance.PackageSKU = "mn_pkg_02";
+            WWWHelper.Instance.PackageSKU = "special_g";
         }
+
+
 
 
         Debug.Log("★★★★ BuyPackageAndroid PackageSKU :: " + WWWHelper.Instance.PackageSKU);

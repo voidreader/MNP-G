@@ -41,23 +41,30 @@ public class EnvManagerCtrl : MonoBehaviour {
 
     #region MNP-G
 
-    // live URL : http://ec2-13-124-50-170.ap-northeast-2.compute.amazonaws.com:8124/
+    // live URL : http://www.pier-mnpg.xyz:8124/
     // TEST URL : http://ec2-54-193-101-29.us-west-1.compute.amazonaws.com:8124/
 
     // admob google ca-app-pub-6442004984942241/9558349615
     // admob ios ca-app-pub-6442004984942241/4988549215
 
-    // unity ads google 1394443
-    // unity ads iOS 1394442
+    // unity ads google 1015438
+    // unity ads iOS 1032821
 
-    //public string GP_LEADERBOARD_ID = "CgkIgcy5lKECEAIQAA";
+    /*
+    public readonly string LEADERBOARD_ID = "CgkI6OrzxdAGEAIQDA";
 
-    //public string ACHIEVEMENT_ID1 = "CgkIgcy5lKECEAIQAQ"; // 고양이 10마리 
-    //public string ACHIEVEMENT_ID2 = "CgkIgcy5lKECEAIQAg"; // 30마리
-    //public string ACHIEVEMENT_ID3 = "CgkIgcy5lKECEAIQAw"; // 50마리
-    //public string ACHIEVEMENT_ID4 = "CgkIgcy5lKECEAIQBA"; // 70마리
-    //public string ACHIEVEMENT_ID5 = "CgkIgcy5lKECEAIQBQ"; // 100마리
+    public readonly string ACHIEVEMENT_ID1 = "CgkI6OrzxdAGEAIQBw"; // 고양이 10마리 
+    public readonly string ACHIEVEMENT_ID2 = "CgkI6OrzxdAGEAIQCA"; // 30마리
+    public readonly string ACHIEVEMENT_ID3 = "CgkI6OrzxdAGEAIQCQ"; // 50마리
+    public readonly string ACHIEVEMENT_ID4 = "CgkI6OrzxdAGEAIQCg"; // 70마리
+    public readonly string ACHIEVEMENT_ID5 = "CgkI6OrzxdAGEAIQCw"; // 100마리
 
+    public readonly string IOS_ACHIEVEMENT_ID1 = "mnp.collection.10"; // 고양이 10마리 
+    public readonly string IOS_ACHIEVEMENT_ID2 = "mnp.collection.30"; // 30마리
+    public readonly string IOS_ACHIEVEMENT_ID3 = "mnp.collection.50"; // 50마리
+    public readonly string IOS_ACHIEVEMENT_ID4 = "mnp.collection.70"; // 70마리
+    public readonly string IOS_ACHIEVEMENT_ID5 = "mnp.collection.100"; // 100마리
+    */
     #endregion
 
     #region MNP-Q
