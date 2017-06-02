@@ -119,7 +119,7 @@ PlayerSettings:
     16:10: 0
     16:9: 1
     Others: 0
-  bundleVersion: 3.0.2
+  bundleVersion: 3.0.3
   preloadedAssets: []
   metroInputSource: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -144,7 +144,7 @@ PlayerSettings:
     tvOS: com.qroad.google.mitchirinekopop
   buildNumber:
     iOS: 107
-  AndroidBundleVersionCode: 108
+  AndroidBundleVersionCode: 109
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 0
