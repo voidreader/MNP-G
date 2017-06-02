@@ -29,4 +29,4 @@ MonoBehaviour:
   NativeSharingAPI: 1
   InstagramAPI: 0
   EnableImageSharing: 0
-  KeepManifestClean: 0
+  KeepManifestClean: 1

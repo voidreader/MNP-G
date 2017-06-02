@@ -120,7 +120,11 @@ public class GoogleAdmobMgr : MonoBehaviour {
     }
 
     private void BottomBannerView_OnAdFailedToLoad(object sender, AdFailedToLoadEventArgs e) {
-        Debug.Log("★ Admob banner load fail");
+
+        
+        Debug.Log("======= Admob banner load fail :: " + e.Message);
+
+
         IsBannerRequested = false;
 
         BottomBannerView.OnAdFailedToLoad -= BottomBannerView_OnAdFailedToLoad;
@@ -128,7 +132,7 @@ public class GoogleAdmobMgr : MonoBehaviour {
 
     private void BottomBannerView_OnAdLoaded(object sender, System.EventArgs e) {
 
-        Debug.Log("★ Admob banner loaded");
+        Debug.Log("======= Admob banner loaded :: ");
         IsBannerRequested = true;
         BottomBannerView.OnAdLoaded -= BottomBannerView_OnAdLoaded;
     }

@@ -5,9 +5,9 @@
   <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="25" />
   <permission android:name="com.twowegames.MitchirinekoPop.permission.C2D_MESSAGE" android:protectionLevel="signature" />
   <application android:icon="@drawable/app_icon" android:label="@string/app_name" android:debuggable="true" android:largeHeap="true" android:theme="@style/UnityThemeSelector" android:name="io.fabric.unity.android.FabricApplication">
-    <meta-data android:name="com.google.android.gms.version" android:value="10.2.1" />
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
     <meta-data android:name="com.google.android.gms.games.APP_ID" android:value="\ 227779868008" />
-    <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="fb528119690677472" />
+    <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="\ 528119690677472" />
     <meta-data android:name="igaworks_app_key" android:value="165799809" />
     <meta-data android:name="igaworks_hash_key" android:value="e7bd112cd94046c3" />
     <meta-data android:name="unityplayer.SkipPermissionsDialog" android:value="true" />
@@ -39,6 +39,7 @@
     <service android:enabled="true" android:name="com.igaworks.liveops.pushservice.GCMIntentService" />
     <service android:name="com.androidnative.gcm.GcmIntentService" />
     <service android:name="com.androidnative.features.notifications.LocalNotificationService" />
+    <provider android:name="com.facebook.FacebookContentProvider" android:authorities="com.facebook.app.FacebookContentProvider528119690677472" android:exported="true" />
     <activity android:name="com.unity3d.player.UnityPlayerActivity" android:label="@string/app_name" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:launchMode="singleTask" android:screenOrientation="landscape">
       <meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="false" />
       <intent-filter>
@@ -67,8 +68,8 @@
     <activity android:name="com.facebook.unity.FBUnityCreateGameGroupActivity" />
     <activity android:name="com.facebook.unity.FBUnityJoinGameGroupActivity" />
     <activity android:name="com.facebook.unity.AppInviteDialogActivity" />
-    <activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:theme="@android:style/Theme.Translucent" />
-    <provider android:name="com.facebook.FacebookContentProvider" android:authorities="com.facebook.app.FacebookContentProvider528119690677472" android:exported="true" />
+    <activity android:name="com.facebook.FacebookActivity" android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    <activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:theme="@android:style/Theme.Translucent" />    
   </application>
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="com.android.vending.BILLING" />
