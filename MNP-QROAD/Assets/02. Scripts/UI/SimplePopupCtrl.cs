@@ -312,7 +312,7 @@ public class SimplePopupCtrl : MonoBehaviour {
             _message = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4147);
         }
         else if (_messageType == PopMessageType.PostCompleted) {
-            _message = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4262);
+            _message = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3057);
         }
 
         else if(_messageType == PopMessageType.PlayerInfoModified) {
@@ -737,11 +737,13 @@ public class SimplePopupCtrl : MonoBehaviour {
             return;
         }
 
+        this.SendMessage("CloseSelf");
+
         OnCompleteClose();
         OnCompleteClose = delegate { };
 
 
-        this.SendMessage("CloseSelf");
+        // this.SendMessage("CloseSelf");
 
 	}
 
