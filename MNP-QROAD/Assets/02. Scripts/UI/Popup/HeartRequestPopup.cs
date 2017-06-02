@@ -165,7 +165,7 @@ public class HeartRequestPopup : MonoBehaviour {
 
 #elif UNITY_IOS
 
-        string url = "http://line.me/R/msg/text/?" + WWW.EscapeURL(_lineMessage, System.Text.Encoding.UTF8);
+        string url = "http://line.me/R/msg/text/?" + WWW.EscapeURL(_message, System.Text.Encoding.UTF8);
         Application.OpenURL(url);
 
 #endif

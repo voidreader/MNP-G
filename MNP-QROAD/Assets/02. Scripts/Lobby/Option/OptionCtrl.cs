@@ -73,69 +73,6 @@ public class OptionCtrl : MonoBehaviour {
 
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="pause"></param>
-    private void OnApplicationPause(bool pause) {
-        if (pause) {
-
-#if UNITY_ANDROID 
-
-            GooglePlayConnection.ActionConnectionStateChanged += GooglePlayConnection_ActionConnectionStateChanged;
-            PreGPConnectionState = GooglePlayConnection.State; // 현재 상태를 저장 
-
-            if (PreGPConnectionState == GPConnectionState.STATE_DISCONNECTED)
-                GameSystem.Instance.CurrentPlayer = null;
-        }
-
-#endif
-            
-    }
-
-
-    public void GooglePlayConnection_ActionConnectionStateChanged(GPConnectionState obj) {
-
-        Debug.Log(">>>> GooglePlayConnection_ActionConnectionStateChanged In");
-        GooglePlayConnection.ActionConnectionStateChanged -= GooglePlayConnection_ActionConnectionStateChanged;
-
-
-        StartCoroutine(DelayedGPConnectionCheck(obj));
-
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="obj"></param>
-    IEnumerator DelayedGPConnectionCheck(GPConnectionState obj) {
-
-        yield return new WaitForSeconds(0.2f);
-
-        // 이전상태와 다르게 접속이 끊어진 경우
-        // 끊어진 상태에서 끊어진 상태는 체크하지 않음.
-        if (PreGPConnectionState != GPConnectionState.STATE_DISCONNECTED && obj == GPConnectionState.STATE_DISCONNECTED) {
-            Debug.Log(">>>> Disconnected!!");
-            LobbyCtrl.Instance.OpenInfoPopUp(PopMessageType.PlayerInfoModified);
-            yield break;
-        }
-
-        // 연결상태이고 이전에도 연결상태일때. 
-        if (obj == GPConnectionState.STATE_CONNECTED && PreGPConnectionState == GPConnectionState.STATE_CONNECTED) {
-
-            // 현재 설정된 유저와 신규 유저의 ID 체크 
-            Debug.Log(" Current GP ID :: " + GameSystem.Instance.CurrentPlayer.playerId);
-
-            // New ID 
-            Debug.Log(" New GP ID :: " + GooglePlayManager.Instance.player.playerId);
-
-            if (GameSystem.Instance.CurrentPlayer.playerId != GooglePlayManager.Instance.player.playerId) {
-                Debug.Log(">>>> Different ID !!");
-                LobbyCtrl.Instance.OpenInfoPopUp(PopMessageType.PlayerInfoModified);
-                yield break;
-            }
-        }
-    }
 
 
 
@@ -506,4 +443,78 @@ public class OptionCtrl : MonoBehaviour {
     }
 
 #endregion
+
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="pause"></param>
+    private void OnApplicationPause(bool pause) {
+#if UNITY_ANDROID 
+        if (pause) {
+
+
+
+            GooglePlayConnection.ActionConnectionStateChanged += GooglePlayConnection_ActionConnectionStateChanged;
+            PreGPConnectionState = GooglePlayConnection.State; // 현재 상태를 저장 
+
+            if (PreGPConnectionState == GPConnectionState.STATE_DISCONNECTED)
+                GameSystem.Instance.CurrentPlayer = null;
+        }
+
+#endif
+            
+    }
+
+    #if UNITY_ANDROID
+    public void GooglePlayConnection_ActionConnectionStateChanged(GPConnectionState obj) {
+
+        Debug.Log(">>>> GooglePlayConnection_ActionConnectionStateChanged In");
+        GooglePlayConnection.ActionConnectionStateChanged -= GooglePlayConnection_ActionConnectionStateChanged;
+
+
+        StartCoroutine(DelayedGPConnectionCheck(obj));
+
+    }
+    #endif
+
+
+    #if UNITY_ANDROID    
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="obj"></param>
+    IEnumerator DelayedGPConnectionCheck(GPConnectionState obj) {
+
+        yield return new WaitForSeconds(0.2f);
+
+
+        // 이전상태와 다르게 접속이 끊어진 경우
+        // 끊어진 상태에서 끊어진 상태는 체크하지 않음.
+        if (PreGPConnectionState != GPConnectionState.STATE_DISCONNECTED && obj == GPConnectionState.STATE_DISCONNECTED) {
+            Debug.Log(">>>> Disconnected!!");
+            LobbyCtrl.Instance.OpenInfoPopUp(PopMessageType.PlayerInfoModified);
+            yield break;
+        }
+
+        // 연결상태이고 이전에도 연결상태일때. 
+        if (obj == GPConnectionState.STATE_CONNECTED && PreGPConnectionState == GPConnectionState.STATE_CONNECTED) {
+
+            // 현재 설정된 유저와 신규 유저의 ID 체크 
+            Debug.Log(" Current GP ID :: " + GameSystem.Instance.CurrentPlayer.playerId);
+
+            // New ID 
+            Debug.Log(" New GP ID :: " + GooglePlayManager.Instance.player.playerId);
+
+            if (GameSystem.Instance.CurrentPlayer.playerId != GooglePlayManager.Instance.player.playerId) {
+                Debug.Log(">>>> Different ID !!");
+                LobbyCtrl.Instance.OpenInfoPopUp(PopMessageType.PlayerInfoModified);
+                yield break;
+            }
+        }
+
+    }
+    #endif
+    
 }
