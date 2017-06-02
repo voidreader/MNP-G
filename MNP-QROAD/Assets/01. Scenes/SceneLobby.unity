@@ -1607,7 +1607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: 1
-  dragEffect: 2
+  dragEffect: 0
   restrictWithinPanel: 1
   constrainOnDrag: 0
   disableDragIfFits: 0
@@ -52382,7 +52382,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 426110, guid: 6af1fc3ea73ed644999eb240ebf22681, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 11426122, guid: 6af1fc3ea73ed644999eb240ebf22681, type: 2}
       propertyPath: mAlignment
@@ -52390,11 +52390,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11426122, guid: 6af1fc3ea73ed644999eb240ebf22681, type: 2}
       propertyPath: mWidth
-      value: 150
+      value: 140
       objectReference: {fileID: 0}
     - target: {fileID: 11426122, guid: 6af1fc3ea73ed644999eb240ebf22681, type: 2}
       propertyPath: aspectRatio
-      value: 4.6875
+      value: 4.375
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6af1fc3ea73ed644999eb240ebf22681, type: 2}
@@ -67001,7 +67001,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1090065008}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -65, y: 0, z: 0}
+  m_LocalPosition: {x: -70, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 869417797}
@@ -69951,7 +69951,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1146564119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -10, z: 0}
+  m_LocalPosition: {x: 0, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 884331887}
@@ -69987,14 +69987,14 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 0.99607843, g: 0.99607843, b: 0.9137255, a: 1}
   mPivot: 4
-  mWidth: 122
-  mHeight: 40
+  mWidth: 130
+  mHeight: 50
   mDepth: 51
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 3.05
+  aspectRatio: 2.6
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
@@ -71635,7 +71635,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1165538670}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -10, z: 0}
+  m_LocalPosition: {x: 0, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1939948588}
@@ -71671,14 +71671,14 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 0.99607843, g: 0.99607843, b: 0.9137255, a: 1}
   mPivot: 4
-  mWidth: 155
-  mHeight: 36
+  mWidth: 130
+  mHeight: 50
   mDepth: 51
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 4.3055553
+  aspectRatio: 2.6
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}

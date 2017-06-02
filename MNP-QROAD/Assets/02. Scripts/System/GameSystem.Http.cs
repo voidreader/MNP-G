@@ -593,7 +593,12 @@ public partial class GameSystem : MonoBehaviour {
 
             }
             else {
-                simpleNick.SendMessage("OnCompleteFalse");
+
+                if(result["error"].Value.Contains("Exists Nickname")) {
+                    simpleNick.SendMessage("OnCompleteFalseExistsNickname");
+                }
+                else 
+                    simpleNick.SendMessage("OnCompleteFalse");
             }
             
         }
@@ -615,8 +620,13 @@ public partial class GameSystem : MonoBehaviour {
 
             }
             else {
-                Debug.Log("#2");
-                firstNickCtrl.SendMessage("OnCompleteFalse");
+
+                if (result["error"].Value.Contains("Exists Nickname")) {
+                    firstNickCtrl.SendMessage("OnCompleteFalseExistsNickname");
+                }
+                else
+                    firstNickCtrl.SendMessage("OnCompleteFalse");
+
             }
         }
 

@@ -67,4 +67,12 @@ public class SimpleNickCtrl : MonoBehaviour {
         _lblError.text = GameSystem.Instance.GetLocalizeText("4206");
     }
 
+
+    private void OnCompleteFalseExistsNickname() {
+
+        _lblError.gameObject.SetActive(true);
+        _lblError.text = GameSystem.Instance.GetLocalizeText("4264");
+    }
+
+    
 }

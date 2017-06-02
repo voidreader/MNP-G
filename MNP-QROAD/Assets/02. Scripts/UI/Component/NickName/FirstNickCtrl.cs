@@ -94,6 +94,14 @@ public class FirstNickCtrl : MonoBehaviour {
     }
 
 
+    private void OnCompleteFalseExistsNickname() {
+        _isSending = false;
+
+        _lblError.gameObject.SetActive(true);
+        _lblError.text = GameSystem.Instance.GetLocalizeText("4264");
+    }
+
+
     /// <summary>
     /// 체크 클릭 
     /// </summary>

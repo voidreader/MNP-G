@@ -256,11 +256,12 @@ public partial class GameSystem : MonoBehaviour {
 
 		if(!_isBillInit) {
 
-			//You do not have to add products by code if you already did it in seetings guid
-			//Windows -> IOS Native -> Edit Settings
-			//Billing tab.
-            
-			IOSInAppPurchaseManager.Instance.AddProductId("g1");
+            //You do not have to add products by code if you already did it in seetings guid
+            //Windows -> IOS Native -> Edit Settings
+            //Billing tab.
+
+            IOSInAppPurchaseManager.Instance.AddProductId("t0");
+            IOSInAppPurchaseManager.Instance.AddProductId("g1");
 			IOSInAppPurchaseManager.Instance.AddProductId("g2");
 			IOSInAppPurchaseManager.Instance.AddProductId("g3");
 			IOSInAppPurchaseManager.Instance.AddProductId("g4");

@@ -419,4 +419,8 @@ public class WindowManagerCtrl : MonoBehaviour {
     public void OpenMainShare() {
         _shareBottle.OpenMainShare(false);
     }
+
+    public void CloseMainShare() {
+        _shareBottle.gameObject.GetComponent<LobbyCommonUICtrl>().CloseSelf();
+    }
 }

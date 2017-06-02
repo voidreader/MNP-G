@@ -218,6 +218,8 @@ public partial class LobbyCtrl : MonoBehaviour {
         }
         MNPFacebookCtrl.OnPostingCompleteAction += OnCompleteMainFBFeed;
         MNPFacebookCtrl.Instance.PostFeed(GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4261));
+
+        WindowManagerCtrl.Instance.CloseMainShare();
     }
 
     void OnCompleteMainFBFeed() {
