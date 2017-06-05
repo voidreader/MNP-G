@@ -1739,6 +1739,10 @@ public partial class LobbyCtrl : MonoBehaviour {
             return;
         }
 
+        // 게임 팁이 오픈되어있는 중에는 동작하지 않음
+        if (_sceneTip.gameObject.activeSelf)
+            return;
+
         // 빙고 화면이 떠있는중에 동작하지 않음
         if (BingoMasterCtrl.Instance.BingoMasterUI.activeSelf)
             return;

@@ -12,6 +12,9 @@ public class AdbrixManager : MonoBehaviour {
 	public readonly string GAME_END = "GameEnd"; // 인게임 클리어 
 	public readonly string GAME_START = "GameStart"; // 일반 게임 시작   
 
+    public readonly string FACEBOOK_LOGIN = "FacebookLogin";
+
+
 
 	// 구매 활동 
 	public readonly string BUY_IAP = "BuyIAP"; // 인앱결제 
@@ -45,6 +48,11 @@ public class AdbrixManager : MonoBehaviour {
     public readonly string NEKO_BONUS_NOADS = "MitchiriBonusNoAds";
 
     #region New User Funnel
+
+    public readonly string APP_EXCUTE = "AppExcuted";
+    public readonly string LOGIN_GP = "GoogleLogin";
+    public readonly string TAB_START = "TabStart";
+
     public readonly string INPUT_FIRSTNAME = "InputFirstName";
 
 	public readonly string TUTORIAL_STEP1 = "TutorialStep1";
@@ -110,13 +118,17 @@ public class AdbrixManager : MonoBehaviour {
     /// </summary>
     /// <param name="pSKU">P SK.</param>
     public void SendAdbrixInAppPurchasing(GooglePurchaseTemplate pPurchase) {
-        // Debug.Log(">>> SendAdbrixInAppPurchasing :: " + pSKU);
+        Debug.Log(">>> SendAdbrixInAppPurchasing :: " + pPurchase.SKU);
 
-        if (GameSystem.Instance.IsAdminUser)
-            return;
+        //if (GameSystem.Instance.IsAdminUser)
+        //return;
 
 
         //IgaworksUnityPluginAOS.Adbrix.purchase()
+
+
+        if (WWWHelper.Instance.Url == EnvManagerCtrl.Instance.testServerURL)
+            return;
 
 
 #if UNITY_ANDROID
@@ -126,6 +138,8 @@ public class AdbrixManager : MonoBehaviour {
 
         foreach (GoogleProductTemplate tpl in AndroidInAppPurchaseManager.Client.Inventory.Products) {
             if(tpl.SKU == pPurchase.SKU) {
+
+                Debug.Log(">>> Send Adbrix Purchase API");
                 IgaworksUnityPluginAOS.Adbrix.purchase(pPurchase.OrderId, pPurchase.SKU, pPurchase.PackageName, tpl.Price, 1, tpl.PriceCurrencyCode, "IAP");
                 break;
             }

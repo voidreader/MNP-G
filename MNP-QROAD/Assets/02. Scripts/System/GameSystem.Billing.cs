@@ -892,11 +892,8 @@ public partial class GameSystem : MonoBehaviour {
         }
 
 
-        // Adbrix 테스트 사용자는 제외
-        if (!WWWHelper.Instance.IsTestMode) {
-            AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.BUY_IAP);
-            AdbrixManager.Instance.SendAdbrixInAppPurchasing(purchase);
-        }
+        AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.BUY_IAP);
+        AdbrixManager.Instance.SendAdbrixInAppPurchasing(purchase);
 
 
         // 구글 소비 처리 (실제 sku만 사용한다.)

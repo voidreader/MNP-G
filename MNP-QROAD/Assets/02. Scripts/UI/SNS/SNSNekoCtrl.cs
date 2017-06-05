@@ -52,8 +52,11 @@ public class SNSNekoCtrl : MonoBehaviour {
         _lblNekoNameGreen.text = "";
         _lblNekoNameBlue.text = "";
 
-        _adoptText = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4234);
-        _wantedText = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4235);
+        //_adoptText = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4234);
+        //_wantedText = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4235);
+        _adoptText = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4234) + " " + GameSystem.Instance.UrlOnelink + " " + GameSystem.Instance.UrlHP;
+        _wantedText = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4235) + " " + GameSystem.Instance.UrlOnelink + " " + GameSystem.Instance.UrlHP;
+
 
         _btnGroup.SetActive(false);
 

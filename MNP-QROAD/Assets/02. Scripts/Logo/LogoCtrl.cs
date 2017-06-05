@@ -85,6 +85,8 @@ public class LogoCtrl : MonoBehaviour {
 		//LoadLobby ();
 		StartCoroutine (Waiting ());
 
+        AdbrixManager.Instance.SendAdbrixNewUserFunnel(AdbrixManager.Instance.APP_EXCUTE);
+
 	}
 
 

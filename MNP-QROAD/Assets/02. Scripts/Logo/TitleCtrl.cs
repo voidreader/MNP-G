@@ -231,6 +231,8 @@ public class TitleCtrl : MonoBehaviour {
     public void StartGame() {
         _isStartBtnClicked = true;
 
+        AdbrixManager.Instance.SendAdbrixNewUserFunnel(AdbrixManager.Instance.TAB_START);
+
         if (string.IsNullOrEmpty(GameSystem.Instance.UserName)) {
 
             Debug.Log("Nick Open");
@@ -260,6 +262,8 @@ public class TitleCtrl : MonoBehaviour {
 
         GameSystem.Instance.CheckWeekFirstConnect();
         GameSystem.Instance.LoadLobbyScene(); // 로비 진입 
+
+        
     }
 
 
@@ -480,7 +484,11 @@ public class TitleCtrl : MonoBehaviour {
 
         if (result.IsSuccess) {
 			Debug.Log("Connected!");
-			GameSystem.Instance.CurrentPlayer = GooglePlayManager.Instance.player;
+
+
+            AdbrixManager.Instance.SendAdbrixNewUserFunnel(AdbrixManager.Instance.LOGIN_GP);
+
+            GameSystem.Instance.CurrentPlayer = GooglePlayManager.Instance.player;
             GameSystem.Instance.UserID = GameSystem.Instance.CurrentPlayer.playerId;
 
 			// 리더보드 로드 

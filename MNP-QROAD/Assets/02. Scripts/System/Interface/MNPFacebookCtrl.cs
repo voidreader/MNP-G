@@ -193,6 +193,8 @@ public class MNPFacebookCtrl : MonoBehaviour {
     /// </summary>
     public void LoginFB() {
 
+        AdbrixManager.Instance.SendAdbrixInAppActivity(AdbrixManager.Instance.FACEBOOK_LOGIN);
+
         FB.LogInWithReadPermissions(fb_scopes_list.ToArray(), AuthCallback);
     }
 
@@ -232,6 +234,8 @@ public class MNPFacebookCtrl : MonoBehaviour {
     private void AuthCallback(ILoginResult result) {
 
         Debug.Log("◆◆◆ MNP Facebook AuthCallback :: " + result.RawResult.ToString());
+
+
 
         if (FB.IsLoggedIn) {
             // AccessToken class will have session details

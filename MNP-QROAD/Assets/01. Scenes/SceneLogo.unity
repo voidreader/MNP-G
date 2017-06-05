@@ -1181,8 +1181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878e53e12b3bf204dbbc0632014a05aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  liveServerURL: http://ec2-13-124-50-170.ap-northeast-2.compute.amazonaws.com:8124/
-  testServerURL: http://ec2-54-193-101-29.us-west-1.compute.amazonaws.com:8124/
+  liveServerURL: http://MITCHIRI-GAME-ELB-512434472.ap-southeast-1.elb.amazonaws.com:8124/
+  testServerURL: http://ec2-13-124-50-170.ap-northeast-2.compute.amazonaws.com:8124/
   googleAdMobAOS: ca-app-pub-7276185723803254/9144810526
   googleAdMobIOS: ca-app-pub-7276185723803254/7528476528
   unityAdsAOS: 1394443
@@ -1416,7 +1416,7 @@ Prefab:
         type: 2}
     - target: {fileID: 11450228, guid: 490f5485c99aa8d4490048f0cdcff8a6, type: 2}
       propertyPath: _version
-      value: 1.0.3.6
+      value: 1.0.3.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 490f5485c99aa8d4490048f0cdcff8a6, type: 2}

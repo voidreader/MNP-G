@@ -237,7 +237,7 @@ public partial class GameSystem : MonoBehaviour {
 
     private void OnFinishedGameDataVersion(HTTPRequest request, HTTPResponse response) {
 
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
 
@@ -276,7 +276,7 @@ public partial class GameSystem : MonoBehaviour {
     }
 
     private void OnFinishedGameData(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
 
@@ -431,7 +431,7 @@ public partial class GameSystem : MonoBehaviour {
     }
 
     void OnFinishedRequestFindAccount(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         Debug.Log(">>> OnFinishedRequestFindAccount :: " + response.DataAsText);
@@ -478,7 +478,7 @@ public partial class GameSystem : MonoBehaviour {
     }
 
     private void OnFinishedRequestLogin(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         Debug.Log(">>> OnFinishedRequestLogin :: " + response.DataAsText);
@@ -526,7 +526,7 @@ public partial class GameSystem : MonoBehaviour {
     /// <param name="response"></param>
     private void OnFinishedUserDataInGame(HTTPRequest request, HTTPResponse response) {
 
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         Debug.Log(">>> OnFinishedUserDataInGame :: " + response.DataAsText);
@@ -548,7 +548,7 @@ public partial class GameSystem : MonoBehaviour {
     /// <param name="response"></param>
     private void OnFinishedUserData(HTTPRequest request, HTTPResponse response) {
 
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         Debug.Log(">>> OnFinishedUserData :: " + response.DataAsText);
@@ -592,7 +592,7 @@ public partial class GameSystem : MonoBehaviour {
     /// <param name="request"></param>
     /// <param name="response"></param>
     private void OnFinishedNickNameOnly(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         Debug.Log("OnFinishedNickNameOnly :: " + response.DataAsText);
@@ -663,7 +663,7 @@ public partial class GameSystem : MonoBehaviour {
     /// <param name="request"></param>
     /// <param name="response"></param>
     private void OnFinishedNickName(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         GameSystem.Instance.UserDataJSON["data"]["nickname"] = GameSystem.Instance.UserName;
@@ -678,7 +678,7 @@ public partial class GameSystem : MonoBehaviour {
     /// <param name="request"></param>
     /// <param name="response"></param>
     private void OnFinishedBankData(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         Debug.Log("OnFinishedBankData :: " + response.DataAsText);
@@ -696,7 +696,7 @@ public partial class GameSystem : MonoBehaviour {
     /// <param name="request"></param>
     /// <param name="response"></param>
     private void OnFinishedNekoData(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
 
@@ -712,7 +712,7 @@ public partial class GameSystem : MonoBehaviour {
 
 
     private void OnFinishedSyncTime(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         Debug.Log("OnFinishedSyncTime :: " + response.DataAsText);
@@ -743,7 +743,7 @@ public partial class GameSystem : MonoBehaviour {
 
     private void OnFinishedLoginAttend(HTTPRequest request, HTTPResponse response) {
 
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         Debug.Log("OnFinishedLoginAttend :: " + response.DataAsText);
@@ -783,7 +783,7 @@ public partial class GameSystem : MonoBehaviour {
     private void OnFinishedUpdateMissionProgress(HTTPRequest request, HTTPResponse response) {
 
 
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         JSONNode result = JSON.Parse(response.DataAsText);
@@ -816,7 +816,7 @@ public partial class GameSystem : MonoBehaviour {
     }
 
     private void OnFinishedUserMission(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby(false);
@@ -908,7 +908,7 @@ public partial class GameSystem : MonoBehaviour {
         //OnOffWaitingRequestInLobby(false);
 
 
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         JSONNode result = JSON.Parse(response.DataAsText);
@@ -948,7 +948,7 @@ public partial class GameSystem : MonoBehaviour {
         OnOffWaitingRequestInLobby(false);
 
 
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         JSONNode result = JSON.Parse(response.DataAsText);
@@ -984,7 +984,7 @@ public partial class GameSystem : MonoBehaviour {
         OnOffWaitingRequestInLobby(false);
 
 
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         JSONNode result = JSON.Parse(response.DataAsText);
@@ -1018,7 +1018,7 @@ public partial class GameSystem : MonoBehaviour {
 
     private void OnFinishedUpdateUnlock(HTTPRequest request, HTTPResponse response) {
 
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         JSONNode result = JSON.Parse(response.DataAsText);
@@ -1089,7 +1089,7 @@ public partial class GameSystem : MonoBehaviour {
 
     private void OnFinishedSingleSyncTime(HTTPRequest request, HTTPResponse response) {
 
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         GameSystem.Instance.SyncTimeData = JSON.Parse(response.DataAsText);
@@ -1125,7 +1125,7 @@ public partial class GameSystem : MonoBehaviour {
 
 
     private void OnFinishedNekoTicketList(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby(false);
@@ -1167,7 +1167,7 @@ public partial class GameSystem : MonoBehaviour {
 
 
     private void OnFinishedMissionReward(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby(false);
@@ -1242,7 +1242,7 @@ public partial class GameSystem : MonoBehaviour {
 	}
 	
 	private void OnFinishedConsume(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby (false);
@@ -1281,7 +1281,7 @@ public partial class GameSystem : MonoBehaviour {
 	}
 	
 	private void OnFinishedVerifyPayload(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
 
@@ -1311,7 +1311,7 @@ public partial class GameSystem : MonoBehaviour {
 	}
 	
 	private void OnFinishedReqPayload(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby (false);
@@ -1353,7 +1353,7 @@ public partial class GameSystem : MonoBehaviour {
 	}
 	
 	private void OnFinishedViewAds(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby (false);
@@ -1380,7 +1380,7 @@ public partial class GameSystem : MonoBehaviour {
 	}
 	
 	private void OnFinishedExchangeGold(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby (false);
@@ -1439,7 +1439,7 @@ public partial class GameSystem : MonoBehaviour {
     }
 
     private void OnFinishedInvite(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
 
@@ -1466,7 +1466,7 @@ public partial class GameSystem : MonoBehaviour {
 	}
 	
 	private void OnFinishedSendHeart(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby (false);
@@ -1528,7 +1528,7 @@ public partial class GameSystem : MonoBehaviour {
 
 
     private void OnFinishedPassiveUpgrade(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby (false);
@@ -1600,7 +1600,7 @@ public partial class GameSystem : MonoBehaviour {
     }
 
     private void OnFinishedAllMailRead(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby(false);
@@ -1647,7 +1647,7 @@ public partial class GameSystem : MonoBehaviour {
 	}
 	
 	private void OnFinishedMailRead(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request)) {
+        if (!CheckRequestState(request, response)) {
             OnOffWaitingRequestInLobby(false);
             return;
         }
@@ -1867,7 +1867,7 @@ public partial class GameSystem : MonoBehaviour {
     }
 
     private void OnFinishedWakeUp(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
 
@@ -1918,7 +1918,7 @@ public partial class GameSystem : MonoBehaviour {
 	}
 	
 	private void OnFinishedRescueRewardUpdate(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
 
@@ -1949,7 +1949,7 @@ public partial class GameSystem : MonoBehaviour {
 	}
 	
 	private void OnFinishedNekoReward(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby (false);
@@ -2005,7 +2005,7 @@ public partial class GameSystem : MonoBehaviour {
 	}
 	
 	private void OnFinishedHeartCharge(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby (false);
@@ -2067,7 +2067,7 @@ public partial class GameSystem : MonoBehaviour {
 	}
 	
 	private void OnFinishedFBLink(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby (false);
@@ -2097,7 +2097,7 @@ public partial class GameSystem : MonoBehaviour {
 	}
 	
 	private void OnFinishedUseCoupon(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby (false);
@@ -2149,7 +2149,7 @@ public partial class GameSystem : MonoBehaviour {
 	}
 	
 	private void OnFinishedHeartAds(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby (false);
@@ -2187,7 +2187,7 @@ public partial class GameSystem : MonoBehaviour {
     }
 
     private void OnFinishedRescueReward(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby(false);
@@ -2225,7 +2225,7 @@ public partial class GameSystem : MonoBehaviour {
 	}
 	
 	private void OnFinishedRescueHistory(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby (false);
@@ -2254,7 +2254,7 @@ public partial class GameSystem : MonoBehaviour {
 
 	private void OnFinishedAttend(HTTPRequest request, HTTPResponse response) {
 
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby (false);
@@ -2289,7 +2289,7 @@ public partial class GameSystem : MonoBehaviour {
 	}
 	
 	private void OnFinishedScoreRankReward(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby (false);
@@ -2328,7 +2328,7 @@ public partial class GameSystem : MonoBehaviour {
 	}
 	
 	private void OnFinishedFacebookShare(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
         OnOffWaitingRequestInLobby (false);
 		Debug.Log (" >>> OnFinishedFacebookShare :: " + response.DataAsText);
@@ -2351,7 +2351,7 @@ public partial class GameSystem : MonoBehaviour {
 	}
 	
 	private void OnFinishedRating(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
 
@@ -2372,7 +2372,7 @@ public partial class GameSystem : MonoBehaviour {
 	}
 	
 	private void OnFinishedGatchaAds(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby (false);
@@ -2400,7 +2400,7 @@ public partial class GameSystem : MonoBehaviour {
 
     private void OnFinishedCodeInput(HTTPRequest request, HTTPResponse response) {
 
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby(false);
@@ -2446,7 +2446,7 @@ public partial class GameSystem : MonoBehaviour {
     private void OnFinishedCodeIssue(HTTPRequest request, HTTPResponse response) {
         //Post2CodeIssue
 
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby(false);
@@ -2489,7 +2489,7 @@ public partial class GameSystem : MonoBehaviour {
     }
 
     private void OnFinishedUserRecord(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby(false);
@@ -2523,7 +2523,7 @@ public partial class GameSystem : MonoBehaviour {
 	}
 	
 	private void OnFinishedFishGatcha(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby (false);
@@ -2581,7 +2581,7 @@ public partial class GameSystem : MonoBehaviour {
 
 
     private void OnFinishedAdsRemainAll(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby(false);
@@ -2609,7 +2609,7 @@ public partial class GameSystem : MonoBehaviour {
 
     private void OnFinishedAdsRemainSimple(HTTPRequest request, HTTPResponse response) {
 
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         /*
@@ -2655,7 +2655,7 @@ public partial class GameSystem : MonoBehaviour {
 
 
     private void OnFinishedAdsRemainNekoGift(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby(false);
@@ -2691,7 +2691,7 @@ public partial class GameSystem : MonoBehaviour {
 
 
     private void OnFinishedAdsRemainFreeGatcha(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby(false);
@@ -2722,7 +2722,7 @@ public partial class GameSystem : MonoBehaviour {
 
 
     private void OnFinishedAdsRemainFillHeart(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
 
@@ -2798,7 +2798,7 @@ public partial class GameSystem : MonoBehaviour {
 
     private void OnFinishedClearBingo(HTTPRequest request, HTTPResponse response) {
 
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
     }
@@ -2813,7 +2813,7 @@ public partial class GameSystem : MonoBehaviour {
 
     private void OnFinishedSelectBingo(HTTPRequest request, HTTPResponse response) {
 
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
 
@@ -2855,7 +2855,7 @@ public partial class GameSystem : MonoBehaviour {
     }
 
     private void OnFinishedGetShareBonus(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
 
@@ -2900,7 +2900,7 @@ public partial class GameSystem : MonoBehaviour {
     }
 
     private void OnFinishedCheckShareBonus(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby(false);
@@ -2935,7 +2935,7 @@ public partial class GameSystem : MonoBehaviour {
     }
 
     private void OnFinishedNekoGift(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
 
@@ -3018,7 +3018,7 @@ public partial class GameSystem : MonoBehaviour {
 
     private void OnFinishedUserGemInfo(HTTPRequest request, HTTPResponse response) {
 
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
 
@@ -3061,7 +3061,7 @@ public partial class GameSystem : MonoBehaviour {
 
     private void OnFinishedMainNeko(HTTPRequest request, HTTPResponse response) {
 
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
 
@@ -3117,7 +3117,7 @@ public partial class GameSystem : MonoBehaviour {
         // 랭크업 (진화) 관련 변수 
         int nekoID, previousGrade, currentGrade;
 
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
 
@@ -3231,7 +3231,7 @@ public partial class GameSystem : MonoBehaviour {
 
         int upLevel = 0;
 
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby (false);
@@ -3719,7 +3719,7 @@ public partial class GameSystem : MonoBehaviour {
     }
 
     private void OnFinishedLineInviteReward(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         Debug.Log(" >>> OnFinishedLineInviteReward :: " + response.DataAsText);
@@ -3753,7 +3753,7 @@ public partial class GameSystem : MonoBehaviour {
 	private void OnFinishedCheckNewMail(HTTPRequest request, HTTPResponse response) {
 
 
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby (false);
@@ -3787,7 +3787,7 @@ public partial class GameSystem : MonoBehaviour {
 	}
 	
 	private void OnFinishedMailList(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby (false);
@@ -3818,7 +3818,7 @@ public partial class GameSystem : MonoBehaviour {
     }
 
     private void OnFinishedAroundRankList(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         //OnOffWaitingRequestInLobby (false);
@@ -3845,7 +3845,7 @@ public partial class GameSystem : MonoBehaviour {
 
 
     private void OnFinishedRankList(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         //OnOffWaitingRequestInLobby (false);
@@ -3879,7 +3879,7 @@ public partial class GameSystem : MonoBehaviour {
 	
 	
 	private void OnFinishedTutorialGatcha(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby (false);
@@ -3900,7 +3900,7 @@ public partial class GameSystem : MonoBehaviour {
 	
 	
 	private void OnFinishedTutorialComplete(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby (false);
@@ -3960,7 +3960,7 @@ public partial class GameSystem : MonoBehaviour {
 	
 	
 	private void OnFinishedGatcha(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInLobby (false);
@@ -4109,7 +4109,7 @@ public partial class GameSystem : MonoBehaviour {
 	}
 
 	private void OnFinishedTakeHeart(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         _takeHeartJSON = JSON.Parse (response.DataAsText);
@@ -4129,7 +4129,7 @@ public partial class GameSystem : MonoBehaviour {
 
 
     private void OnFinishedRequestThemeClearPay(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         
@@ -4182,7 +4182,7 @@ public partial class GameSystem : MonoBehaviour {
 
 	private void OnFinishedGameStart(HTTPRequest request, HTTPResponse response) {
 
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         _resultForm = JSON.Parse (response.DataAsText);
@@ -4198,11 +4198,16 @@ public partial class GameSystem : MonoBehaviour {
         OnCompleteGameStart (_resultForm);
 
         // 게임 시작 횟수 증가 처리 
-        SaveESvalueInt(PuzzleConstBox.ES_GameStartCount, LoadESvalueInt(PuzzleConstBox.ES_GameStartCount) + 1);
+        try {
+            SaveESvalueInt(PuzzleConstBox.ES_GameStartCount, LoadESvalueInt(PuzzleConstBox.ES_GameStartCount) + 1);
 
-		// Time check
-		LastActiveHour = DateTime.Now.Hour;
-		LastActiveDay = DateTime.Now.DayOfYear;
+            // Time check
+            LastActiveHour = DateTime.Now.Hour;
+            LastActiveDay = DateTime.Now.DayOfYear;
+        } catch(Exception e) {
+            Debug.Log("★ e.stackTrace ::" + e.StackTrace);
+        }
+            
 
 	}
 
@@ -4352,7 +4357,7 @@ public partial class GameSystem : MonoBehaviour {
 
 
     private void OnFinishedMorePlay(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         OnOffWaitingRequestInGame(false);
@@ -4497,7 +4502,7 @@ public partial class GameSystem : MonoBehaviour {
     /// <param name="response">Response.</param>
     private void OnFinishedGameResult(HTTPRequest request, HTTPResponse response) {
 
-        if (!CheckRequestState(request))
+        if (!CheckRequestState(request, response))
             return;
 
         Debug.Log (">>> OnFinishedGameResult :: " + response.DataAsText);

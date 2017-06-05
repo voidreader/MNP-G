@@ -216,8 +216,11 @@ public partial class LobbyCtrl : MonoBehaviour {
             MNPFacebookCtrl.Instance.LoginPublishActions();
             return;
         }
+
+        string msg = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4261) + " " + GameSystem.Instance.UrlOnelink + " " + GameSystem.Instance.UrlHP;
+
         MNPFacebookCtrl.OnPostingCompleteAction += OnCompleteMainFBFeed;
-        MNPFacebookCtrl.Instance.PostFeed(GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4261));
+        MNPFacebookCtrl.Instance.PostFeed(msg);
 
         WindowManagerCtrl.Instance.CloseMainShare();
     }

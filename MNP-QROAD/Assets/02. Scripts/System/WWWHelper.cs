@@ -545,7 +545,7 @@ public class WWWHelper : MonoBehaviour {
         
         request.ConnectTimeout = System.TimeSpan.FromSeconds(5);
         request.Timeout = System.TimeSpan.FromSeconds(20);
-
+        
         _previousRequest = request;
 
         request.Send();
@@ -873,6 +873,16 @@ public class WWWHelper : MonoBehaviour {
 
         set {
             _root = value;
+        }
+    }
+
+    public string Url {
+        get {
+            return _url;
+        }
+
+        set {
+            _url = value;
         }
     }
 

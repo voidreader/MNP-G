@@ -1894,14 +1894,16 @@ public partial class GameSystem : MonoBehaviour {
 
     
     private void EndIgaWorkSession() {
-
+#if UNITY_ANDROID
+        IgaworksUnityPluginAOS.Common.endSession();
+#endif
     }
 
     private void ResumeIgaWorkSession() {
 #if UNITY_ANDROID
+        IgaworksUnityPluginAOS.Common.startSession();
 
-
-        if(IsLiveOpsInit)
+        if (IsLiveOpsInit)
             IgaworksUnityPluginAOS.LiveOps.resume();
 
 #endif
