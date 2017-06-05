@@ -173,17 +173,41 @@ public partial class GameSystem : MonoBehaviour {
     public static event Action<JSONNode> OnCompleteReadNekoTicketList = delegate { };
     public static event Action OnCompleteUserMission = delegate { };
     public static event Action OnCompleteRewardRescue = delegate { };
-    
+
 
     #endregion
 
     #region Post2 Set BestHTTP
+
+    private bool CheckRequestState(HTTPRequest request, HTTPResponse response) {
+
+        Debug.Log("CheckRequestState :: " + request.State.ToString());
+
+
+        if ( (request.State == HTTPRequestStates.ConnectionTimedOut || request.State == HTTPRequestStates.TimedOut
+                || request.State == HTTPRequestStates.Error || request.State == HTTPRequestStates.Aborted ) 
+            || !response.IsSuccess) {
+
+
+            if (!string.IsNullOrEmpty(request.Exception.Message)) {
+                Debug.Log("Request Exception :: " + request.Exception.Message);
+            }
+
+            OnOffWaitingRequestInLobby(false);
+            SetSystemMessage("timeout-connect");
+            return false;
+        }
+
+        return true;
+
+    }
 
 
     private bool CheckRequestState(HTTPRequest request) {
 
         Debug.Log("CheckRequestState :: " + request.State.ToString());
         
+
         if (request.State == HTTPRequestStates.ConnectionTimedOut || request.State == HTTPRequestStates.TimedOut
             || request.State == HTTPRequestStates.Error || request.State == HTTPRequestStates.Aborted) {
                
@@ -4139,9 +4163,15 @@ public partial class GameSystem : MonoBehaviour {
         }
 
 
-        OnOffWaitingRequestInLobby (true);
-		WWWHelper.Instance.Post2 ("request_synctime", OnFinishedGameStartSyncTime);
+        OnOffWaitingRequestInLobby(true);
 
+
+        // 게임 시작 
+        WWWHelper.Instance.Post2("request_gamestart", OnFinishedGameStart);
+
+
+        // 통신을 시작하고 바로 게임팁을 오픈한다. 
+        // 통신이 완료될때까지 게임팁을 띄운다. 
         Fader.Instance.FadeIn(0.5f);
         LobbyCtrl.Instance.OpenDelayedSceneTip();
         GSceneTipCtrl.OnCompletePostStart += DoGameStart;
@@ -4149,28 +4179,9 @@ public partial class GameSystem : MonoBehaviour {
 
     }
 
-	private void OnFinishedGameStartSyncTime(HTTPRequest request, HTTPResponse response) {
-        if (!CheckRequestState(request))
-            return;
-
-        _resultForm = JSON.Parse (response.DataAsText);
-        
-
-        // re-login 체크 
-        if (CheckCommonServerError(_resultForm)) {
-            return;
-        }
-
-        GameSystem.Instance.SyncTimeData = _resultForm;
-
-        // 게임 시작 
-        WWWHelper.Instance.Post2("request_gamestart", OnFinishedGameStart);
-
-    }
-
-
 
 	private void OnFinishedGameStart(HTTPRequest request, HTTPResponse response) {
+
         if (!CheckRequestState(request))
             return;
 

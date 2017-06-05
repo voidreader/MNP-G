@@ -27,7 +27,7 @@ public class LogoCtrl : MonoBehaviour {
         /* 운영체제별 해상도 처리 */
         _screenRatio = (float)Screen.width / (float)Screen.height;
         //Debug.Log("▶▶▶▶ Resolution Width / Heigh , Ratio :: " + Screen.width + " / " + Screen.height + ", " + _screenRatio);
-        
+
 
 #if UNITY_IOS
 
@@ -52,7 +52,16 @@ public class LogoCtrl : MonoBehaviour {
 
             //Debug.Log("▶▶▶ Android SetResolution ");
 
-            Screen.SetResolution(Screen.height / 16 * 9, Screen.height, true);
+            if (Screen.height / Screen.width == 2) {
+                Screen.SetResolution(Screen.width, Screen.width / 9 * 16, true);
+            }
+            else {
+                Screen.SetResolution(Screen.height / 16 * 9, Screen.height, true);
+            }
+
+            
+            // Screen.SetResolution(Screen.width, Screen.width / 9 * 16, true);
+            
         }
 
 #endif

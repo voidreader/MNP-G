@@ -30,9 +30,20 @@ public class HeartShopCtrl : MonoBehaviour {
         _lblHeartCount.text = string.Empty;
         _heartCount = GameSystem.Instance.HeartCount;
 
-        
 
-        if(GameSystem.Instance.Remainheartcharge <= 0) {
+        // 하트가 5개가 넘은 경우
+        if (GameSystem.Instance.HeartCount >= 5) {
+            _lblGem.text = "0";
+            _btnFree.normalSprite = "gray-bodan";
+        }
+        else {
+            getHeart = 5 - GameSystem.Instance.HeartCount;
+            _lblGem.text = (getHeart * 10).ToString();
+            _btnFree.normalSprite = "pop-reds";
+        }
+
+
+        if (GameSystem.Instance.Remainheartcharge <= 0) {
             _btnFree.normalSprite = "gray-bodan";
             _lblFreeChargeButton.text = "Free";
         }
@@ -77,16 +88,7 @@ public class HeartShopCtrl : MonoBehaviour {
 
         this.gameObject.SetActive(true);
 
-        // 하트가 5개가 넘은 경우
-        if (GameSystem.Instance.HeartCount >= 5) {
-            _lblGem.text = "0";
-            _btnFree.normalSprite = "gray-bodan";
-        }
-        else {
-            getHeart = 5 - GameSystem.Instance.HeartCount;
-            _lblGem.text = (getHeart * 10).ToString();
-            _btnFree.normalSprite = "pop-reds";
-        }
+
 
         UpdateHearts();
     }

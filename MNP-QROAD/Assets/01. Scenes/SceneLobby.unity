@@ -1236,7 +1236,7 @@ MonoBehaviour:
   meshCollider: {fileID: 0}
   meshColliderPositions: []
   meshColliderMesh: {fileID: 0}
-  renderLayer: 0
+  renderLayer: 1
 --- !u!33 &20785654
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1275,7 +1275,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -757512719
   m_SortingLayer: -3
-  m_SortingOrder: 0
+  m_SortingOrder: 1
 --- !u!1 &21447002
 GameObject:
   m_ObjectHideFlags: 0
@@ -33799,7 +33799,7 @@ MonoBehaviour:
   meshCollider: {fileID: 0}
   meshColliderPositions: []
   meshColliderMesh: {fileID: 0}
-  renderLayer: 1
+  renderLayer: 2
 --- !u!33 &556184928
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -33838,7 +33838,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -757512719
   m_SortingLayer: -3
-  m_SortingOrder: 1
+  m_SortingOrder: 2
 --- !u!1 &559952121
 GameObject:
   m_ObjectHideFlags: 0
@@ -52382,7 +52382,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 426110, guid: 6af1fc3ea73ed644999eb240ebf22681, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 25
+      value: -46
       objectReference: {fileID: 0}
     - target: {fileID: 11426122, guid: 6af1fc3ea73ed644999eb240ebf22681, type: 2}
       propertyPath: mAlignment
@@ -52390,11 +52390,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11426122, guid: 6af1fc3ea73ed644999eb240ebf22681, type: 2}
       propertyPath: mWidth
-      value: 140
+      value: 135
       objectReference: {fileID: 0}
     - target: {fileID: 11426122, guid: 6af1fc3ea73ed644999eb240ebf22681, type: 2}
       propertyPath: aspectRatio
-      value: 4.375
+      value: 4.21875
+      objectReference: {fileID: 0}
+    - target: {fileID: 11426122, guid: 6af1fc3ea73ed644999eb240ebf22681, type: 2}
+      propertyPath: mText
+      value: "\uCE5C\uAD6C \uCD08\uB300"
+      objectReference: {fileID: 0}
+    - target: {fileID: 11426122, guid: 6af1fc3ea73ed644999eb240ebf22681, type: 2}
+      propertyPath: mPivot
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6af1fc3ea73ed644999eb240ebf22681, type: 2}
@@ -79691,7 +79699,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1305488339}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -570, z: 0}
+  m_LocalPosition: {x: 0, y: -572, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 285424137}
@@ -83066,6 +83074,58 @@ MonoBehaviour:
   mAtlas: {fileID: 114000010296473906, guid: cbb4e5cdc0a9d974188e0a7074c01928, type: 2}
   mSpriteName: neko134-1
   mFillCenter: 1
+--- !u!1001 &1376446397
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4454808195539616, guid: c580d702706f00842815354f6b7c220f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454808195539616, guid: c580d702706f00842815354f6b7c220f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454808195539616, guid: c580d702706f00842815354f6b7c220f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454808195539616, guid: c580d702706f00842815354f6b7c220f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454808195539616, guid: c580d702706f00842815354f6b7c220f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454808195539616, guid: c580d702706f00842815354f6b7c220f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454808195539616, guid: c580d702706f00842815354f6b7c220f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454808195539616, guid: c580d702706f00842815354f6b7c220f, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 33346669905882894, guid: c580d702706f00842815354f6b7c220f,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 33734029507804162, guid: c580d702706f00842815354f6b7c220f,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c580d702706f00842815354f6b7c220f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1378259067
 GameObject:
   m_ObjectHideFlags: 0
@@ -107259,7 +107319,7 @@ MonoBehaviour:
   smoothDragStart: 0
   iOSDragEmulation: 1
   scrollWheelFactor: 0.25
-  momentumAmount: 120
+  momentumAmount: 200
   dampenStrength: 9
   horizontalScrollBar: {fileID: 0}
   verticalScrollBar: {fileID: 0}
