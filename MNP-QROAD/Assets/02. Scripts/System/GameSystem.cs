@@ -441,6 +441,9 @@ public partial class GameSystem : MonoBehaviour {
 
         Initialize(); // 게임 시스템 초기화 
 
+
+        LoadOptionSetting(); // 사운드 옵션 정보 조회 
+
 #if UNITY_ANDROID
 
         //IGAW 공통 모듈 연동 초기화
@@ -471,7 +474,7 @@ public partial class GameSystem : MonoBehaviour {
         LoadSoundResources();
 
         LoadLocalTutorialStep(); // 디바이스 튜토리얼 스텝 조회 
-        LoadOptionSetting(); // 사운드 옵션 정보 조회 
+        
         LoadPuzzleTipOption();
         LoadPushOption(); // 푸시 옵션 정보 조회 
 

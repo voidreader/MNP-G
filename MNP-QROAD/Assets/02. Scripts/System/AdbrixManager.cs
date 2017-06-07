@@ -140,7 +140,7 @@ public class AdbrixManager : MonoBehaviour {
             if(tpl.SKU == pPurchase.SKU) {
 
                 Debug.Log(">>> Send Adbrix Purchase API");
-                IgaworksUnityPluginAOS.Adbrix.purchase(pPurchase.OrderId, pPurchase.SKU, pPurchase.PackageName, tpl.Price, 1, tpl.PriceCurrencyCode, "IAP");
+                IgaworksUnityPluginAOS.Adbrix.purchase(pPurchase.OrderId, pPurchase.SKU, pPurchase.SKU, tpl.Price, 1, tpl.PriceCurrencyCode, "IAP");
                 break;
             }
         }
