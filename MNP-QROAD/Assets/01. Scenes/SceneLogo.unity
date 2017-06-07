@@ -1416,7 +1416,7 @@ Prefab:
         type: 2}
     - target: {fileID: 11450228, guid: 490f5485c99aa8d4490048f0cdcff8a6, type: 2}
       propertyPath: _version
-      value: 1.0.3.7
+      value: 1.0.3.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 490f5485c99aa8d4490048f0cdcff8a6, type: 2}
