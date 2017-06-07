@@ -32,7 +32,9 @@ public class CollectionMasterCtrl : MonoBehaviour {
     }
 
     void Update() {
-        if (_centerOnChild.centeredObject == _centerObject)
+
+
+        if ((_centerOnChild.centeredObject == _centerObject) && _centerObject != null)
             return;
 
         // 센터 오브젝트가 변경되었을때만, 
@@ -85,6 +87,8 @@ public class CollectionMasterCtrl : MonoBehaviour {
         _selectedNeko.gameObject.SetActive(false);
         _lblNekoName.gameObject.SetActive(false);
         _lblNekoInfo.gameObject.SetActive(false);
+        _centerObject = null;
+
 
         PoolManager.Pools[PuzzleConstBox.poolCollection].DespawnAll();
         _listCollections.Clear();

@@ -113,7 +113,7 @@ public class LogoCtrl : MonoBehaviour {
 
 
         //Debug.Log(">>> Waiting Start #1");
-
+        /*
         _logo2.SetActive(true);
         
 
@@ -121,6 +121,7 @@ public class LogoCtrl : MonoBehaviour {
 
 
         _logo2.SetActive(false);
+        */
         _logo.SetActive(true);
 
         yield return new WaitForSeconds(1.8f);
