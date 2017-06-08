@@ -666,6 +666,11 @@ public partial class GameSystem : MonoBehaviour {
         if (!CheckRequestState(request, response))
             return;
 
+        JSONNode result = JSON.Parse(response.DataAsText);
+
+        if (CheckCommonServerError(result))
+            return;
+
         GameSystem.Instance.UserDataJSON["data"]["nickname"] = GameSystem.Instance.UserName;
 
         TitleCtrl.Instance.SetLoadingMessage("3400");
@@ -682,6 +687,11 @@ public partial class GameSystem : MonoBehaviour {
             return;
 
         Debug.Log("OnFinishedBankData :: " + response.DataAsText);
+
+        JSONNode result = JSON.Parse(response.DataAsText);
+
+        if (CheckCommonServerError(result))
+            return;
 
         GameSystem.Instance.BankData = JSON.Parse(response.DataAsText);
         TitleCtrl.Instance.SetLoadingMessage("3400");
@@ -702,7 +712,12 @@ public partial class GameSystem : MonoBehaviour {
 
         Debug.Log("OnFinishedNekoData :: " + response.DataAsText);
 
+
         JSONNode resultNode = JSON.Parse(response.DataAsText);
+
+        if (CheckCommonServerError(resultNode))
+            return;
+
         GameSystem.Instance.UserNeko = resultNode[_jData]["nekodatas"];
 
         TitleCtrl.Instance.SetLoadingMessage("3400");
@@ -718,6 +733,10 @@ public partial class GameSystem : MonoBehaviour {
         Debug.Log("OnFinishedSyncTime :: " + response.DataAsText);
 
         GameSystem.Instance.SyncTimeData = JSON.Parse(response.DataAsText);
+
+        if (CheckCommonServerError(SyncTimeData))
+            return;
+
 
         // 출첵 호출 
         // 최초 사용자 로그인시는 출첵을 하지 않음
@@ -747,10 +766,13 @@ public partial class GameSystem : MonoBehaviour {
             return;
 
         Debug.Log("OnFinishedLoginAttend :: " + response.DataAsText);
-             
-        GameSystem.Instance.AttendanceJSON = JSON.Parse(response.DataAsText);
 
-		if (TitleCtrl.Instance != null) {
+        AttendanceJSON = JSON.Parse(response.DataAsText);
+
+        if (CheckCommonServerError(AttendanceJSON))
+            return;
+
+        if (TitleCtrl.Instance != null) {
 			Debug.Log ("OnFinishedLoginAttend OnCompleteGameConnect");
 			TitleCtrl.Instance.OnCompleteGameConnect ();
 		}
@@ -1290,7 +1312,11 @@ public partial class GameSystem : MonoBehaviour {
 		
 		JSONNode result = JSON.Parse (response.DataAsText);
 
-		if (result ["result"].AsInt != 0) {
+        if (CheckCommonServerError(result))
+            return;
+
+
+        if (result ["result"].AsInt != 0) {
 			SetSystemMessage("결제 검증 과정에서 오류가 발생했습니다. 고객센터로 문의해주세요.");
 			return;
 		}
@@ -1536,7 +1562,8 @@ public partial class GameSystem : MonoBehaviour {
 		
 		JSONNode result = JSON.Parse (response.DataAsText);
 
-        
+        if (CheckCommonServerError(result))
+            return;
 
 
 
@@ -2330,11 +2357,19 @@ public partial class GameSystem : MonoBehaviour {
 	private void OnFinishedFacebookShare(HTTPRequest request, HTTPResponse response) {
         if (!CheckRequestState(request, response))
             return;
+
+
+
         OnOffWaitingRequestInLobby (false);
 		Debug.Log (" >>> OnFinishedFacebookShare :: " + response.DataAsText);
-		
-		// 메일 체크 
-		Post2CheckNewMail ();
+
+        JSONNode result = JSON.Parse(response.DataAsText);
+
+        if (CheckCommonServerError(result))
+            return;
+
+        // 메일 체크 
+        Post2CheckNewMail ();
 		
 		
 		
@@ -2621,6 +2656,9 @@ public partial class GameSystem : MonoBehaviour {
         Debug.Log(">>>> OnFinishedAdsRemainSimple :: " + response.DataAsText);
 
         JSONNode result = JSON.Parse(response.DataAsText);
+
+        if (CheckCommonServerError(result))
+            return;
 
         if (result["result"].AsInt != 0)
             return;
@@ -3887,8 +3925,13 @@ public partial class GameSystem : MonoBehaviour {
 		Debug.Log (" >>> OnFinishedTutorialGatcha :: " + response.DataAsText);
 		
 		_gatchaData = JSON.Parse (response.DataAsText);
-		
-		OnCompletePostGatcha (_gatchaData);
+
+        JSONNode result = JSON.Parse(response.DataAsText);
+
+        if (CheckCommonServerError(result))
+            return;
+
+        OnCompletePostGatcha (_gatchaData);
 
 		Post2TutorialComplete ();
 	}
@@ -4113,7 +4156,11 @@ public partial class GameSystem : MonoBehaviour {
             return;
 
         _takeHeartJSON = JSON.Parse (response.DataAsText);
-		OnCompleteRequestTakeHeart (_takeHeartJSON);
+
+        if (CheckCommonServerError(_takeHeartJSON))
+            return;
+
+        OnCompleteRequestTakeHeart (_takeHeartJSON);
 		OnOffWaitingRequestInLobby (false);
 
 	}

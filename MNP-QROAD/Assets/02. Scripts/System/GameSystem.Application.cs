@@ -486,6 +486,9 @@ public partial class GameSystem : MonoBehaviour {
     /// <param name="pMsg"></param>
     /// <param name="pType"></param>
     private void SetAndroidSystemMessage(string pTitle, string pMsg, string pType) {
+
+        Debug.Log(" ========== SetAndroidSystemMessage :: " + pMsg);
+
         AndroidMessage msg = AndroidMessage.Create(pTitle, pMsg);
         if (pType == "quit") {
             msg.ActionComplete += OnSystemUnderInspection;
@@ -498,7 +501,7 @@ public partial class GameSystem : MonoBehaviour {
     /// <param name="pMsg"></param>
     private void SetAndroidSystemMessage(string pMsg) {
 
-        Debug.Log(">>> SetAndroidSystemMessage");
+        Debug.Log("========= SetAndroidSystemMessage :: " + pMsg);
 
         // message에 따라서 갈린다
         if (pMsg.IndexOf("invalid version") >= 0) { // 버전맞지 않음 
@@ -534,7 +537,12 @@ public partial class GameSystem : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public void SetBlockMessage() {
+
+        Debug.Log(" ========= Blocked User ===========");
 
 #if UNITY_ANDROID || UNITY_EDITOR
 

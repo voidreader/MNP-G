@@ -122280,6 +122280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _input: {fileID: 444194858}
+  _lblInput: {fileID: 924846264}
 --- !u!1 &1975262183
 GameObject:
   m_ObjectHideFlags: 0

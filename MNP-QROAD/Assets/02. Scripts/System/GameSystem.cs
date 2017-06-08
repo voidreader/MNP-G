@@ -443,6 +443,7 @@ public partial class GameSystem : MonoBehaviour {
 
 
         LoadOptionSetting(); // 사운드 옵션 정보 조회 
+        LoadEquipNekoInfo(); // 사용자 장착 고양이 정보 조회
 
 #if UNITY_ANDROID
 
@@ -494,8 +495,7 @@ public partial class GameSystem : MonoBehaviour {
 
 
 
-        // 사용자 장착 고양이 정보 조회
-        LoadEquipNekoInfo();
+        
 
         SetSoundVolumn();
     }
@@ -2292,6 +2292,9 @@ public partial class GameSystem : MonoBehaviour {
 
 #region Equip Neko 
 
+    /// <summary>
+    /// 배치된 고양이 정보가 있었는지 체크 
+    /// </summary>
     public void CheckEquipNekoInfo() {
         if(_listEquipNekoID.Count < 3) {
             ClearEquipNekoInfo();
@@ -2307,6 +2310,11 @@ public partial class GameSystem : MonoBehaviour {
         ES2.Save(_listEquipNekoID, "EquipNekoPos");
     }
 
+    /// <summary>
+    /// 배치된 고양이 정보 저장 
+    /// </summary>
+    /// <param name="pIndex"></param>
+    /// <param name="pID"></param>
 	public void SaveEquipNekoInfo(int pIndex, int pID) {
 
 		_listEquipNekoID [pIndex] = pID;
@@ -2315,6 +2323,10 @@ public partial class GameSystem : MonoBehaviour {
 		ES2.Save (_listEquipNekoID, "EquipNekoPos");
 	}
 
+
+    /// <summary>
+    /// 배치한 고양이 정보 불러오기 (Local)
+    /// </summary>
     private void LoadEquipNekoInfo() {
 
 
@@ -2332,7 +2344,9 @@ public partial class GameSystem : MonoBehaviour {
         
 
 		if (_listEquipNekoID.Count < 2) {
+
 			_listEquipNekoID.Clear();
+
 			for( int i=0; i<3; i++) {
 				_listEquipNekoID.Add(-1);
 			}

@@ -62,8 +62,8 @@ public class MyNekoCtrl : MonoBehaviour {
 
             Debug.Log("Can't Find nekoDataIndex");
 
-            GameSystem.Instance.SetSystemMessage("エラー", "予期せぬエラーが発生しました。\n以下のコードをお問い合わせフォームよりお伝えください。\nERROR: 000000", "quit");
-
+            //GameSystem.Instance.SetSystemMessage("エラー", "予期せぬエラーが発生しました。\n以下のコードをお問い合わせフォームよりお伝えください。\nERROR: 000000", "quit");
+            return; 
         }
 
         // 레벨을 찾아서 hitPower 세팅 

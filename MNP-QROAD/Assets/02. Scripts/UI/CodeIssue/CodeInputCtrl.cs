@@ -6,6 +6,7 @@ public class CodeInputCtrl : MonoBehaviour {
 
 
     [SerializeField] UIInput _input;
+    [SerializeField] UILabel _lblInput;
 
 	// Use this for initialization
 	void Start () {
@@ -13,6 +14,7 @@ public class CodeInputCtrl : MonoBehaviour {
 	}
 
     void OnEnable() {
+        _lblInput.text = GameSystem.Instance.GetLocalizeText(3099);
         _input.value = GameSystem.Instance.GetLocalizeText(3099);
     }
 	
