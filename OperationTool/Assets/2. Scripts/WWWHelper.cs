@@ -106,10 +106,23 @@ public class WWWHelper : MonoBehaviour {
                 _dataForm["data"]["pricetype"] = pNode["pricetype"].Value;
 
                 break;
+
+            case "request_setmaintenancesimple":
+
+                if(pNode["checked"].AsBool)
+                    _dataForm["data"]["checked"].AsInt = 0;
+                else
+                    _dataForm["data"]["checked"].AsInt = 1;
+
+                _dataForm["data"]["message"] = pNode["message"];
+
+                break;
         }
 
 
         _data = _dataForm.ToString();
+
+        Debug.Log(">>> Post URL :: " + _requestURL);
         Debug.Log(">>> Post _data :: " + _data);
 
         HTTPRequest request = new HTTPRequest(new System.Uri(_requestURL), HTTPMethods.Post, pCallback);

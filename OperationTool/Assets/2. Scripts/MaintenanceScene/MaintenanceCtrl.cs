@@ -43,7 +43,28 @@ public class MaintenanceCtrl : MonoBehaviour {
     void SendMaintenanceInfo() {
         Debug.Log("Sending Maintenance Info");
 
+        JSONNode node = JSON.Parse("{}");
+        node["checked"].AsBool = _maintenanceChecker.value;
+        node["message"] = _inputMaintenanceMessage.value;
+
+        WWWHelper.Instance.Post2WithJSON("request_setmaintenancesimple", OnFinishedSetMaintenanceSimple, node);
+            
+
         
+    }
+
+
+    private void OnFinishedSetMaintenanceSimple(HTTPRequest request, HTTPResponse response) {
+
+        JSONNode result = JSON.Parse(response.DataAsText);
+
+        Debug.Log("★★ OnFinishedSetMaintenanceSimple :: " + result.ToString());
+
+
+        result = result["data"];
+
+        
+
     }
 
 

@@ -12,7 +12,9 @@ public class MainSceneCtrl : MonoBehaviour {
     public UIInput _iptURL;
     public UIInput _iptAccount;
     public UIInput _iptPWD;
-
+    public GameObject _groupButtons;
+    public GameObject _btnConnect;
+        
 
     [SerializeField] string _id;
     [SerializeField] string _url;
@@ -107,7 +109,22 @@ public class MainSceneCtrl : MonoBehaviour {
 
         Debug.Log("★★ OnFinishedLogin :: " + result.ToString());
 
+        if(result["result"].AsInt != 0) {
+            _lblResult.gameObject.SetActive(true);
+            _lblResult.text = "올바르지 않은 URL 혹은 사용자 정보입니다.";
+            return;
+        }
+
+
+
         result = result["data"];
+
+
+
+        _groupButtons.SetActive(true);
+        _btnConnect.SetActive(false);
+
+
 
     }
 
