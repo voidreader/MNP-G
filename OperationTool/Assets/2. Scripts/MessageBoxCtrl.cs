@@ -5,6 +5,7 @@ using System;
 public class MessageBoxCtrl : MonoBehaviour {
 
     Action OnConfirm;
+    Action OnCancel;
 
     string _msg = String.Empty;
 
@@ -18,6 +19,7 @@ public class MessageBoxCtrl : MonoBehaviour {
     void InitMessageBox() {
         this.gameObject.SetActive(true);
         OnConfirm = delegate { };
+        OnCancel = delegate { };
     }
 
 	public void OpenMessageBox(Action pConfirm, string pMessage) {
@@ -29,9 +31,24 @@ public class MessageBoxCtrl : MonoBehaviour {
         _lblMessage.text = _msg;
     }
 
+    public void OpenMessageBox(Action pConfirm, Action pCancel, string pMessage) {
+        InitMessageBox();
+
+        OnConfirm += pConfirm;
+        OnCancel += pCancel;
+
+        _msg = pMessage;
+        _lblMessage.text = _msg;
+    }
+
 
     public void Confirm() {
         OnConfirm();
+        Close();
+    }
+
+    public void Cancel() {
+        OnCancel();
         Close();
     }
         

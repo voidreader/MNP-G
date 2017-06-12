@@ -188,10 +188,11 @@ public partial class GameSystem : MonoBehaviour {
                 || request.State == HTTPRequestStates.Error || request.State == HTTPRequestStates.Aborted ) 
             || !response.IsSuccess) {
 
-
+            /*
             if (!string.IsNullOrEmpty(request.Exception.Message)) {
                 Debug.Log("Request Exception :: " + request.Exception.Message);
             }
+            */
 
             OnOffWaitingRequestInLobby(false);
             SetSystemMessage("timeout-connect");

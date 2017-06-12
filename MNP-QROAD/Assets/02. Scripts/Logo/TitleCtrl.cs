@@ -479,14 +479,12 @@ public class TitleCtrl : MonoBehaviour {
 		Debug.Log ("!! ActionConnectionResultReceived ");
         GooglePlayConnection.ActionConnectionResultReceived -= ActionConnectionResultReceived; // 이벤트에서 제거 한다. 
 
-        
 
+        AdbrixManager.Instance.SendAdbrixNewUserFunnel(AdbrixManager.Instance.LOGIN_GP);
 
         if (result.IsSuccess) {
 			Debug.Log("Connected!");
-
-
-            AdbrixManager.Instance.SendAdbrixNewUserFunnel(AdbrixManager.Instance.LOGIN_GP);
+           
 
             GameSystem.Instance.CurrentPlayer = GooglePlayManager.Instance.player;
             GameSystem.Instance.UserID = GameSystem.Instance.CurrentPlayer.playerId;

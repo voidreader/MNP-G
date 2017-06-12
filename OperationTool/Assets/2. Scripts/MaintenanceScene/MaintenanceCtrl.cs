@@ -36,7 +36,7 @@ public class MaintenanceCtrl : MonoBehaviour {
 
 
 
-        _messageBox.OpenMessageBox(SendMaintenanceInfo, msg);
+        _messageBox.OpenMessageBox(SendMaintenanceInfo, CancelSend, msg);
 
     }
 
@@ -48,9 +48,10 @@ public class MaintenanceCtrl : MonoBehaviour {
         node["message"] = _inputMaintenanceMessage.value;
 
         WWWHelper.Instance.Post2WithJSON("request_setmaintenancesimple", OnFinishedSetMaintenanceSimple, node);
-            
+    }
 
-        
+    void CancelSend() {
+        WWWHelper.Instance.Post2WithJSON("request_checkundermaintenance", OnFinishedCheckMaintenance, null);
     }
 
 

@@ -15,7 +15,8 @@ public class CodeInputCtrl : MonoBehaviour {
 
     void OnEnable() {
         _lblInput.text = GameSystem.Instance.GetLocalizeText(3099);
-        _input.value = GameSystem.Instance.GetLocalizeText(3099);
+        //_input.value = GameSystem.Instance.GetLocalizeText(3099);
+        
     }
 	
 	public void SendCode() {
@@ -27,6 +28,9 @@ public class CodeInputCtrl : MonoBehaviour {
     public void OnClickInput() {
 
         Debug.Log("OnClickInput");
+
+        if (string.IsNullOrEmpty(_input.value))
+            return;
 
         if (_input.value == GameSystem.Instance.GetLocalizeText(3099)) {
             _input.value = "";

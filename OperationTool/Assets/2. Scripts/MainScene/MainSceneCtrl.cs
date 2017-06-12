@@ -63,6 +63,16 @@ public class MainSceneCtrl : MonoBehaviour {
     // Use this for initialization
     void Start () {
         DontDestroyOnLoad(this.gameObject);
+
+        if(WWWHelper.Instance.IsConnected) {
+            _groupButtons.SetActive(true);
+
+            _iptAccount.value = WWWHelper.Instance.Id;
+            _iptPWD.value = WWWHelper.Instance.Pwd;
+            _iptURL.value = WWWHelper.Instance.RequestURL;
+
+            _btnConnect.gameObject.SetActive(false);
+        }
 	}
 	
 	public void GoMailScene() {
@@ -124,7 +134,7 @@ public class MainSceneCtrl : MonoBehaviour {
         _groupButtons.SetActive(true);
         _btnConnect.SetActive(false);
 
-
+        WWWHelper.Instance.IsConnected = true;
 
     }
 

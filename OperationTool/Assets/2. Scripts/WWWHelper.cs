@@ -9,12 +9,14 @@ public class WWWHelper : MonoBehaviour {
     static WWWHelper _instance = null;
 
     JSONNode _dataForm;
-    public string _requestURL = string.Empty;
+    private string requestURL = string.Empty;
     //ec2-13-124-50-170.ap-northeast-2.compute.amazonaws.com
     string _data = string.Empty;
 
     string _id = string.Empty;
     string _pwd = string.Empty;
+
+    bool _isConnected = false;
 
 
     public static WWWHelper Instance {
@@ -32,6 +34,46 @@ public class WWWHelper : MonoBehaviour {
         }
     }
 
+    public string Id {
+        get {
+            return _id;
+        }
+
+        set {
+            _id = value;
+        }
+    }
+
+    public string Pwd {
+        get {
+            return _pwd;
+        }
+
+        set {
+            _pwd = value;
+        }
+    }
+
+    public string RequestURL {
+        get {
+            return requestURL;
+        }
+
+        set {
+            requestURL = value;
+        }
+    }
+
+    public bool IsConnected {
+        get {
+            return _isConnected;
+        }
+
+        set {
+            _isConnected = value;
+        }
+    }
+
     void Start() {
         DontDestroyOnLoad(this.gameObject);
     }
@@ -41,9 +83,11 @@ public class WWWHelper : MonoBehaviour {
     /// </summary>
     /// <param name="url"></param>
     public void SetURL(string url, string id, string pwd) {
-        _requestURL = url;
-        _id = id;
-        _pwd = pwd;
+        RequestURL = url;
+        Id = id;
+        Pwd = pwd;
+
+        
     }
 
 
@@ -58,13 +102,13 @@ public class WWWHelper : MonoBehaviour {
 
         
         _dataForm["cmd"] = requestID;
-        _dataForm["data"]["id"] = _id;
+        _dataForm["data"]["id"] = Id;
         
 
         switch (requestID) {
 
             case "request_login":
-                _dataForm["data"]["pwd"] = _pwd;
+                _dataForm["data"]["pwd"] = Pwd;
                 break;
 
 
@@ -110,11 +154,20 @@ public class WWWHelper : MonoBehaviour {
             case "request_setmaintenancesimple":
 
                 if(pNode["checked"].AsBool)
-                    _dataForm["data"]["checked"].AsInt = 0;
-                else
                     _dataForm["data"]["checked"].AsInt = 1;
+                else
+                    _dataForm["data"]["checked"].AsInt = 0;
 
                 _dataForm["data"]["message"] = pNode["message"];
+
+                break;
+
+            case "request_sendmailtoeveryone":
+                _dataForm["data"]["mailtype"].AsInt = pNode["mailtype"].AsInt;
+                _dataForm["data"]["gifttype"].AsInt = pNode["gifttype"].AsInt;
+                _dataForm["data"]["when"].AsInt = pNode["when"].AsInt;
+                _dataForm["data"]["expire"].AsInt = pNode["expire"].AsInt;
+                _dataForm["data"]["quantity"].AsInt = pNode["quantity"].AsInt;
 
                 break;
         }
@@ -122,10 +175,10 @@ public class WWWHelper : MonoBehaviour {
 
         _data = _dataForm.ToString();
 
-        Debug.Log(">>> Post URL :: " + _requestURL);
+        Debug.Log(">>> Post URL :: " + RequestURL);
         Debug.Log(">>> Post _data :: " + _data);
 
-        HTTPRequest request = new HTTPRequest(new System.Uri(_requestURL), HTTPMethods.Post, pCallback);
+        HTTPRequest request = new HTTPRequest(new System.Uri(RequestURL), HTTPMethods.Post, pCallback);
         request.SetHeader("Content-Type", "application/json; charset=UTF-8");
         request.RawData = Encoding.UTF8.GetBytes(_data);
         request.Tag = pNode;
