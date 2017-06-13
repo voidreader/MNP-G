@@ -4317,10 +4317,12 @@ public partial class GameSystem : MonoBehaviour {
         if(pNode[_jData]["gold"].AsInt < UserGold) {
             CheckLobbyBingoQuest(50, UserGold - pNode[_jData]["gold"].AsInt, false);
         }
-		
-		
-		// Adbrix
-		for (int i=0; i<pNode[_jData]["useitem"].Count; i++) {
+
+
+        UserGold = pNode[_jData]["gold"].AsInt;
+
+        // Adbrix
+        for (int i=0; i<pNode[_jData]["useitem"].Count; i++) {
 			
 			if(i >= 4) 
 				break;
