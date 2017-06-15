@@ -64,7 +64,10 @@ public class MainSceneCtrl : MonoBehaviour {
     void Start () {
         DontDestroyOnLoad(this.gameObject);
 
-        if(WWWHelper.Instance.IsConnected) {
+        _groupButtons.SetActive(false);
+
+
+        if (WWWHelper.Instance.IsConnected) {
             _groupButtons.SetActive(true);
 
             _iptAccount.value = WWWHelper.Instance.Id;
