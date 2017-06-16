@@ -173,7 +173,7 @@ public partial class GameSystem : MonoBehaviour {
     public static event Action<JSONNode> OnCompleteReadNekoTicketList = delegate { };
     public static event Action OnCompleteUserMission = delegate { };
     public static event Action OnCompleteRewardRescue = delegate { };
-
+    public static event Action OnCompleteUnlockPost = delegate { };
 
     #endregion
 
@@ -1038,6 +1038,14 @@ public partial class GameSystem : MonoBehaviour {
          WWWHelper.Instance.Post2WithString("request_updateunlock", OnFinishedUpdateUnlock, pColumn);
     }
 
+    public void Post2Unlock(string pColumn, Action pCallback) {
+        
+        WWWHelper.Instance.Post2WithString("request_updateunlock", OnFinishedUpdateUnlock, pColumn);
+
+        OnCompleteUnlockPost = delegate { };
+        OnCompleteUnlockPost = pCallback;
+    }
+
 
     private void OnFinishedUpdateUnlock(HTTPRequest request, HTTPResponse response) {
 
@@ -1061,6 +1069,7 @@ public partial class GameSystem : MonoBehaviour {
         }
 
         // 성공적으로 Update 한 경우 
+        // 이때 왜 굳이 로컬로 저장했는지 모르겠네..?;; 
         Debug.Log(" ▶ OnFinishedUpdateUnlock Tag :: " + request.Tag.ToString());
 
         if(request.Tag.ToString() == "mission_unlock") {
@@ -1093,6 +1102,14 @@ public partial class GameSystem : MonoBehaviour {
         }
         else if (request.Tag.ToString() == "bingo_mission_tip") {
             UserJSON["bingo_mission_tip"].AsInt = 0;
+        }
+        else if (request.Tag.ToString() == "inactive_power_tip") { // 수동 파워 업그레이드 팁 
+            UserJSON["inactive_power_tip"].AsInt = 0;
+
+            UserGem = result[_jData]["resultgem"].AsInt;
+            UpdateTopInfomation();
+
+            OnCompleteUnlockPost();
         }
         else {
             UserJSON[request.Tag.ToString()].AsInt = 0;

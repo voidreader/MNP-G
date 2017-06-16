@@ -5,10 +5,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 466266}
-  - 114: {fileID: 11489864}
+  - component: {fileID: 466266}
+  - component: {fileID: 11489864}
   m_Layer: 0
   m_Name: JPMissionAtlas
   m_TagString: Untagged
@@ -25,10 +25,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &11489864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -43,8 +43,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 13c79a6b96b976040988509802b8f7c2, type: 2}
   mSprites:
   - name: base-lines
-    x: 301
-    y: 1198
+    x: 338
+    y: 437
     width: 620
     height: 143
     borderLeft: 0
@@ -56,8 +56,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: base-lines-full
-    x: 301
-    y: 1342
+    x: 338
+    y: 581
     width: 630
     height: 141
     borderLeft: 0
@@ -69,8 +69,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: by-bodan
-    x: 563
-    y: 1492
+    x: 338
+    y: 111
     width: 162
     height: 98
     borderLeft: 30
@@ -82,8 +82,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: clear-bar
-    x: 0
-    y: 1038
+    x: 338
+    y: 293
     width: 620
     height: 143
     borderLeft: 0
@@ -95,8 +95,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: eve-base
-    x: 563
-    y: 1591
+    x: 0
+    y: 228
     width: 207
     height: 457
     borderLeft: 0
@@ -108,8 +108,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: eve-light
-    x: 771
-    y: 1803
+    x: 639
+    y: 779
     width: 243
     height: 245
     borderLeft: 0
@@ -121,8 +121,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: fx-center
-    x: 771
-    y: 1608
+    x: 0
+    y: 33
     width: 194
     height: 194
     borderLeft: 0
@@ -134,8 +134,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: gauge-eve
-    x: 885
-    y: 1155
+    x: 208
+    y: 304
     width: 114
     height: 26
     borderLeft: 0
@@ -147,8 +147,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 5
   - name: gauge-eve-base
-    x: 734
-    y: 1060
+    x: 208
+    y: 331
     width: 128
     height: 36
     borderLeft: 0
@@ -160,8 +160,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: GInYellowFont_0
-    x: 771
-    y: 1525
+    x: 338
+    y: 210
     width: 245
     height: 82
     borderLeft: 0
@@ -173,8 +173,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 174
   - name: lv-fx-m
-    x: 0
-    y: 1182
+    x: 338
+    y: 723
     width: 300
     height: 301
     borderLeft: 0
@@ -186,8 +186,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: m-gauge
-    x: 771
-    y: 1489
+    x: 584
+    y: 257
     width: 162
     height: 35
     borderLeft: 0
@@ -199,8 +199,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 5
   - name: m-gauge-base
-    x: 178
-    y: 992
+    x: 639
+    y: 733
     width: 172
     height: 45
     borderLeft: 0
@@ -212,8 +212,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: mission-ico
-    x: 621
-    y: 1067
+    x: 208
+    y: 571
     width: 112
     height: 114
     borderLeft: 0
@@ -225,8 +225,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: mission-number-base
-    x: 922
-    y: 1250
+    x: 208
+    y: 368
     width: 90
     height: 91
     borderLeft: 0
@@ -239,9 +239,9 @@ MonoBehaviour:
     paddingBottom: 0
   - name: ref
     x: 0
-    y: 1484
-    width: 562
-    height: 564
+    y: 686
+    width: 337
+    height: 338
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -251,8 +251,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: rt-bodan
-    x: 734
-    y: 1097
+    x: 338
+    y: 26
     width: 150
     height: 84
     borderLeft: 0
@@ -264,23 +264,10 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 1
   - name: stamp
-    x: 932
-    y: 1373
+    x: 208
+    y: 460
     width: 90
     height: 110
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: title_event
-    x: 0
-    y: 971
-    width: 177
-    height: 66
     borderLeft: 0
     borderRight: 0
     borderTop: 0

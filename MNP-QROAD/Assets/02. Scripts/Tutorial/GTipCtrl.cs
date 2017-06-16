@@ -72,6 +72,9 @@ public class GTipCtrl : MonoBehaviour {
         else if(_tipType == TipType.MoveMissionTip) {
             _totalPage = 2;
         }
+        else if (_tipType == TipType.PassivePower) {
+            _totalPage = 2;
+        }
 
         SetPage(_currentPage);
 
@@ -195,6 +198,23 @@ public class GTipCtrl : MonoBehaviour {
                     CheckCloseButton(true);
                     break;
             }
+        }
+        else if (_tipType == TipType.PassivePower) {
+
+
+            switch (pPage) {
+                case 0:
+                    _spTip.spriteName = "tu-in-17";
+                    _lblTip.text = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L2725);
+                    CheckCloseButton(false);
+                    break;
+                case 1:
+                    _spTip.spriteName = "tu-in-16";
+                    _lblTip.text = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L2726);
+                    CheckCloseButton(true);
+                    break;
+            }
+
         }
     }
 

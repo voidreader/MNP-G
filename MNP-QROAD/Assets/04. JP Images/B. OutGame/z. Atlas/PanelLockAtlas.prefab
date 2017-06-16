@@ -43,10 +43,10 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: c4ac77d0a6bb5fa4e81e766b4b448695, type: 2}
   mSprites:
   - name: 066-game-result-base
-    x: 0
-    y: 384
-    width: 360
-    height: 640
+    x: 145
+    y: 128
+    width: 72
+    height: 128
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -56,8 +56,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: access
-    x: 0
-    y: 44
+    x: 364
+    y: 174
     width: 82
     height: 82
     borderLeft: 0
@@ -70,7 +70,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: alpha-ui
     x: 0
-    y: 127
+    y: 0
     width: 144
     height: 256
     borderLeft: 0
@@ -82,8 +82,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui-alpha
-    x: 145
-    y: 255
+    x: 218
+    y: 128
     width: 72
     height: 128
     borderLeft: 0
@@ -95,8 +95,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: waitingLock
-    x: 218
-    y: 255
+    x: 291
+    y: 128
     width: 72
     height: 128
     borderLeft: 0

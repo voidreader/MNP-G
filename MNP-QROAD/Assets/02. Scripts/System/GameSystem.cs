@@ -394,7 +394,7 @@ public partial class GameSystem : MonoBehaviour {
 
     
     public ParticleSystem particleCartoonFight;
-    public ParticleSystem particleDeathGhost;
+    
 
     readonly string _endBBCode = "[-]";
     readonly string _yellowBBCode = "[FFF55A]";

@@ -29,8 +29,9 @@ public class ReadyGroupCtrl : MonoBehaviour {
     [SerializeField] UILabel _lblMissionTitle;
     [SerializeField] StageMissionColCtrl[] _arrStageMissionCols = new StageMissionColCtrl[4];
 
-    
 
+
+    [SerializeField] AnimationButtonCtrl _btnPowerUpTip;
     
     [SerializeField] UILabel lblEquipItem;
     [SerializeField] UIButton _startBtn;
@@ -376,6 +377,12 @@ public class ReadyGroupCtrl : MonoBehaviour {
         RefreshPower();
         RefreshEquipBonus();
         CheckReadyUnlock();
+
+        // 수동적인 팁 버튼 체크
+        if (GameSystem.Instance.UserJSON["inactive_power_tip"].AsInt == 1)
+            _btnPowerUpTip.SetDiamondButton("inactive_power_tip");
+        else
+            _btnPowerUpTip.SetGeneralQButton("inactive_power_tip");
     }
 
 

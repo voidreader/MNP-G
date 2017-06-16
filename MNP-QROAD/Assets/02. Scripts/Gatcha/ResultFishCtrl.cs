@@ -17,11 +17,11 @@ public class ResultFishCtrl : MonoBehaviour {
         GameSystem.Instance.SetFishSprite(_fish, pType);
 
         if(pType == FishType.Chub) {
-            _text.text = GameSystem.Instance.GetLocalizeText(4320).Replace("[n]", pCount.ToString());
+            _text.text = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4320).Replace("[n]", pCount.ToString());
         } else if (pType == FishType.Tuna) {
-            _text.text = GameSystem.Instance.GetLocalizeText(4320).Replace("[n]", pCount.ToString());
+            _text.text = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4320).Replace("[n]", pCount.ToString());
         } else if (pType == FishType.Salmon) {
-            _text.text = GameSystem.Instance.GetLocalizeText(4320).Replace("[n]", pCount.ToString());
+            _text.text = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L4320).Replace("[n]", pCount.ToString());
         }
     }
 

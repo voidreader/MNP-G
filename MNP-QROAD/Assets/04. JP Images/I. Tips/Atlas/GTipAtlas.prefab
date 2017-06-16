@@ -80,71 +80,6 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: tu-in-1
-    x: 325
-    y: 597
-    width: 294
-    height: 213
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 16
-    paddingRight: 14
-    paddingTop: 15
-    paddingBottom: 102
-  - name: tu-in-10
-    x: 325
-    y: 383
-    width: 294
-    height: 213
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 16
-    paddingRight: 14
-    paddingTop: 15
-    paddingBottom: 102
-  - name: tu-in-11
-    x: 1505
-    y: 811
-    width: 292
-    height: 213
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 16
-    paddingRight: 16
-    paddingTop: 15
-    paddingBottom: 102
-  - name: tu-in-12
-    x: 1210
-    y: 597
-    width: 292
-    height: 213
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 16
-    paddingRight: 16
-    paddingTop: 15
-    paddingBottom: 102
-  - name: tu-in-13
-    x: 0
-    y: 480
-    width: 294
-    height: 213
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 16
-    paddingRight: 14
-    paddingTop: 15
-    paddingBottom: 102
-  - name: tu-in-14
     x: 0
     y: 266
     width: 294
@@ -157,20 +92,7 @@ MonoBehaviour:
     paddingRight: 14
     paddingTop: 15
     paddingBottom: 102
-  - name: tu-in-15
-    x: 325
-    y: 811
-    width: 294
-    height: 213
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 16
-    paddingRight: 14
-    paddingTop: 15
-    paddingBottom: 102
-  - name: tu-in-16
+  - name: tu-in-10
     x: 0
     y: 52
     width: 294
@@ -183,7 +105,72 @@ MonoBehaviour:
     paddingRight: 14
     paddingTop: 15
     paddingBottom: 102
-  - name: tu-in-2
+  - name: tu-in-11
+    x: 1210
+    y: 597
+    width: 292
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 16
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-in-12
+    x: 1503
+    y: 597
+    width: 292
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 16
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-in-13
+    x: 325
+    y: 811
+    width: 294
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 14
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-in-14
+    x: 325
+    y: 597
+    width: 294
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 14
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-in-15
+    x: 325
+    y: 383
+    width: 294
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 14
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-in-16
     x: 325
     y: 169
     width: 294
@@ -196,9 +183,35 @@ MonoBehaviour:
     paddingRight: 14
     paddingTop: 15
     paddingBottom: 102
-  - name: tu-in-3
+  - name: tu-in-17
+    x: 0
+    y: 480
+    width: 294
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 14
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-in-2
     x: 620
     y: 811
+    width: 294
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 14
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-in-3
+    x: 620
+    y: 597
     width: 294
     height: 213
     borderLeft: 0
@@ -211,7 +224,7 @@ MonoBehaviour:
     paddingBottom: 102
   - name: tu-in-4
     x: 620
-    y: 597
+    y: 383
     width: 294
     height: 213
     borderLeft: 0
@@ -224,19 +237,6 @@ MonoBehaviour:
     paddingBottom: 102
   - name: tu-in-5
     x: 620
-    y: 383
-    width: 294
-    height: 213
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 16
-    paddingRight: 14
-    paddingTop: 15
-    paddingBottom: 102
-  - name: tu-in-6
-    x: 620
     y: 169
     width: 294
     height: 213
@@ -248,7 +248,7 @@ MonoBehaviour:
     paddingRight: 14
     paddingTop: 15
     paddingBottom: 102
-  - name: tu-in-7
+  - name: tu-in-6
     x: 915
     y: 811
     width: 294
@@ -261,7 +261,7 @@ MonoBehaviour:
     paddingRight: 14
     paddingTop: 15
     paddingBottom: 102
-  - name: tu-in-8
+  - name: tu-in-7
     x: 915
     y: 597
     width: 294
@@ -274,9 +274,22 @@ MonoBehaviour:
     paddingRight: 14
     paddingTop: 15
     paddingBottom: 102
-  - name: tu-in-9-1
+  - name: tu-in-8
     x: 915
     y: 383
+    width: 294
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 14
+    paddingTop: 15
+    paddingBottom: 102
+  - name: tu-in-9-1
+    x: 915
+    y: 169
     width: 294
     height: 213
     borderLeft: 0
@@ -314,19 +327,6 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: tu-ui-bingo1
-    x: 915
-    y: 169
-    width: 294
-    height: 213
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 16
-    paddingRight: 14
-    paddingTop: 15
-    paddingBottom: 102
-  - name: tu-ui-bingo2
     x: 1210
     y: 811
     width: 294
@@ -339,9 +339,22 @@ MonoBehaviour:
     paddingRight: 14
     paddingTop: 15
     paddingBottom: 102
+  - name: tu-ui-bingo2
+    x: 1505
+    y: 811
+    width: 294
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 14
+    paddingTop: 15
+    paddingBottom: 102
   - name: tu-ui-collection
-    x: 1503
-    y: 597
+    x: 1210
+    y: 383
     width: 292
     height: 213
     borderLeft: 0
@@ -354,7 +367,7 @@ MonoBehaviour:
     paddingBottom: 102
   - name: tu-ui-present
     x: 1210
-    y: 384
+    y: 170
     width: 287
     height: 212
     borderLeft: 0
