@@ -16,10 +16,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000010898256784}
-  - 114: {fileID: 114000011384347002}
+  - component: {fileID: 4000010898256784}
+  - component: {fileID: 114000011384347002}
   m_Layer: 0
   m_Name: GStageBase2Atlas
   m_TagString: Untagged
@@ -36,10 +36,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114000011384347002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55,7 +55,7 @@ MonoBehaviour:
   mSprites:
   - name: page-10
     x: 0
-    y: 1280
+    y: 511
     width: 432
     height: 768
     borderLeft: 0
@@ -66,8 +66,8 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: page-6-r
-    x: 1589
+  - name: page-10-r
+    x: 1732
     y: 1280
     width: 144
     height: 768
@@ -79,7 +79,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: page-7
+  - name: page-11
     x: 433
     y: 1280
     width: 432
@@ -92,8 +92,8 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: page-7-r
-    x: 1734
+  - name: page-11-r
+    x: 1877
     y: 1280
     width: 144
     height: 768
@@ -105,7 +105,33 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: page-8
+  - name: page-12
+    x: 0
+    y: 1280
+    width: 432
+    height: 768
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: page-6-r
+    x: 866
+    y: 511
+    width: 144
+    height: 768
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: page-7
     x: 866
     y: 1280
     width: 432
@@ -118,9 +144,35 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: page-8-r
-    x: 1444
+  - name: page-7-r
+    x: 1011
+    y: 511
+    width: 144
+    height: 768
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: page-8
+    x: 1299
     y: 1280
+    width: 432
+    height: 768
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: page-8-r
+    x: 1156
+    y: 511
     width: 144
     height: 768
     borderLeft: 0
@@ -132,7 +184,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: page-9
-    x: 0
+    x: 433
     y: 511
     width: 432
     height: 768
@@ -145,8 +197,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: page-9-r
-    x: 1299
-    y: 1280
+    x: 1301
+    y: 511
     width: 144
     height: 768
     borderLeft: 0

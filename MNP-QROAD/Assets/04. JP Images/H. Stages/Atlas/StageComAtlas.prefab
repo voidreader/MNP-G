@@ -16,10 +16,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000012952752722}
-  - 114: {fileID: 114000010192577440}
+  - component: {fileID: 4000012952752722}
+  - component: {fileID: 114000010192577440}
   m_Layer: 0
   m_Name: StageComAtlas
   m_TagString: Untagged
@@ -36,10 +36,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114000010192577440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -80,6 +80,32 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 79
   - name: page-10-boss-ico
+    x: 153
+    y: 250
+    width: 100
+    height: 105
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: page-11-boss-ico
+    x: 153
+    y: 144
+    width: 100
+    height: 105
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: page-12-boss-ico
     x: 918
     y: 830
     width: 100
@@ -94,7 +120,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: page-1-boss-ico
     x: 153
-    y: 250
+    y: 38
     width: 100
     height: 105
     borderLeft: 0
@@ -107,19 +133,6 @@ MonoBehaviour:
     paddingBottom: 0
   - name: page-2-boss-ico
     x: 153
-    y: 144
-    width: 100
-    height: 105
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: page-3-boss-ico
-    x: 153
     y: 356
     width: 100
     height: 105
@@ -131,20 +144,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: page-4-boss-ico
-    x: 153
-    y: 38
-    width: 100
-    height: 105
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: page-5-boss-ico
+  - name: page-3-boss-ico
     x: 306
     y: 699
     width: 100
@@ -157,7 +157,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: page-6-boss-ico
+  - name: page-4-boss-ico
     x: 407
     y: 699
     width: 100
@@ -170,8 +170,34 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: page-7-boss-ico
+  - name: page-5-boss-ico
     x: 508
+    y: 699
+    width: 100
+    height: 105
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: page-6-boss-ico
+    x: 609
+    y: 699
+    width: 100
+    height: 105
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: page-7-boss-ico
+    x: 710
     y: 699
     width: 100
     height: 105
@@ -237,7 +263,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: stage-clear-wing
     x: 0
-    y: 674
+    y: 543
     width: 152
     height: 130
     borderLeft: 0
@@ -250,7 +276,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: stage-clear-wing-bronz
     x: 0
-    y: 543
+    y: 412
     width: 152
     height: 130
     borderLeft: 0
@@ -263,7 +289,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: stage-clear-wing-dia
     x: 0
-    y: 412
+    y: 281
     width: 152
     height: 130
     borderLeft: 0
@@ -276,19 +302,6 @@ MonoBehaviour:
     paddingBottom: 0
   - name: stage-clear-wing-dia-fx1
     x: 0
-    y: 281
-    width: 152
-    height: 130
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: stage-clear-wing-dia-fx2
-    x: 0
     y: 150
     width: 152
     height: 130
@@ -300,7 +313,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: stage-clear-wing-dia-fx3
+  - name: stage-clear-wing-dia-fx2
     x: 153
     y: 805
     width: 152
@@ -313,7 +326,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: stage-clear-wing-dia-fx4
+  - name: stage-clear-wing-dia-fx3
     x: 306
     y: 805
     width: 152
@@ -326,7 +339,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: stage-clear-wing-dia-fx5
+  - name: stage-clear-wing-dia-fx4
     x: 459
     y: 805
     width: 152
@@ -339,7 +352,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: stage-clear-wing-dia-fx6
+  - name: stage-clear-wing-dia-fx5
     x: 612
     y: 805
     width: 152
@@ -352,7 +365,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: stage-clear-wing-dia-fx7
+  - name: stage-clear-wing-dia-fx6
     x: 765
     y: 805
     width: 152
@@ -365,9 +378,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: stage-clear-wing-dia-fx8
+  - name: stage-clear-wing-dia-fx7
     x: 153
     y: 674
+    width: 152
+    height: 130
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: stage-clear-wing-dia-fx8
+    x: 0
+    y: 805
     width: 152
     height: 130
     borderLeft: 0
@@ -393,7 +419,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: stage-clear-wing-silver
     x: 0
-    y: 805
+    y: 674
     width: 152
     height: 130
     borderLeft: 0
@@ -418,58 +444,6 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 168
   - name: stage-navi-10
-    x: 609
-    y: 702
-    width: 100
-    height: 102
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: stage-navi-2
-    x: 710
-    y: 702
-    width: 100
-    height: 102
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: stage-navi-3
-    x: 306
-    y: 82
-    width: 100
-    height: 101
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 1
-  - name: stage-navi-4
-    x: 811
-    y: 702
-    width: 100
-    height: 102
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: stage-navi-5
     x: 912
     y: 702
     width: 100
@@ -482,7 +456,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: stage-navi-6
+  - name: stage-navi-11
     x: 306
     y: 596
     width: 100
@@ -495,7 +469,20 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: stage-navi-7
+  - name: stage-navi-12
+    x: 811
+    y: 702
+    width: 100
+    height: 102
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: stage-navi-2
     x: 306
     y: 493
     width: 100
@@ -508,7 +495,20 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: stage-navi-8
+  - name: stage-navi-3
+    x: 710
+    y: 597
+    width: 100
+    height: 101
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 1
+  - name: stage-navi-4
     x: 306
     y: 390
     width: 100
@@ -521,7 +521,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: stage-navi-9
+  - name: stage-navi-5
     x: 306
     y: 287
     width: 100
@@ -534,9 +534,61 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: stage-nevi
+  - name: stage-navi-6
     x: 306
     y: 184
+    width: 100
+    height: 102
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: stage-navi-7
+    x: 306
+    y: 81
+    width: 100
+    height: 102
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: stage-navi-8
+    x: 407
+    y: 596
+    width: 100
+    height: 102
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: stage-navi-9
+    x: 508
+    y: 596
+    width: 100
+    height: 102
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: stage-nevi
+    x: 609
+    y: 596
     width: 100
     height: 102
     borderLeft: 0
@@ -652,7 +704,7 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 0
   - name: ui-neko-47
-    x: 407
+    x: 811
     y: 654
     width: 52
     height: 44
@@ -666,7 +718,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: ui-neko-48
     x: 306
-    y: 36
+    y: 35
     width: 52
     height: 45
     borderLeft: 0

@@ -174,6 +174,45 @@ public class StageBaseCtrl : MonoBehaviour {
 
     #endregion
 
+    #region  Theme 11
+
+    [SerializeField] GameObject _theme11;
+    [SerializeField] UISprite[] _arrTheme11Neko;
+
+    Transform _theme11Light1;
+    Transform _theme11Light2;
+    Transform _theme11Light3;
+    Transform _theme11Light4;
+
+    Transform _theme11Stem1;
+    Transform _theme11Stem2;
+    Transform _theme11Stem3;
+    Transform _theme11Stem4;
+
+    Transform _theme11Flower1;
+    Transform _theme11Flower2;
+    Transform _theme11Flower3;
+    Transform _theme11Flower4;
+
+    Transform _theme11Dot1;
+    Transform _theme11Dot2;
+    Transform _theme11Dot3;
+    Transform _theme11Dot4;
+
+    Vector3 _theme11DotPos = new Vector3(0, 135, 0);
+
+    Vector3[] _theme11NekoPos = new Vector3[4];
+
+    #endregion 
+
+    #region Theme 12
+
+    [SerializeField] GameObject _theme12;
+    [SerializeField] UISprite[] _arrTheme12Neko;
+
+    #endregion
+
+
 
 
     [SerializeField] int[] _arrStageMiniNekoIds = new int[4]; // 구출 대상 네코 ID 모음 
@@ -403,7 +442,7 @@ public class StageBaseCtrl : MonoBehaviour {
 
         switch (ThemeID) {
             case 1:
-                Debug.Log("★★ Theme 1 ClearCount :: " + clearCount);
+                // Debug.Log("★★ Theme 1 ClearCount :: " + clearCount);
                 Set1stThemeProgress(clearCount);
                 break;
 
@@ -444,6 +483,13 @@ public class StageBaseCtrl : MonoBehaviour {
                 Set10thThemeProgress(clearCount);
                 break;
 
+            case 11:
+                Set11thThemeProgress(clearCount);
+                break;
+
+            case 12:
+                Set12thThemeProgress(clearCount);
+                break;
 
         }
     }
@@ -461,6 +507,9 @@ public class StageBaseCtrl : MonoBehaviour {
         _theme8.gameObject.SetActive(false);
         _theme9.gameObject.SetActive(false);
         _theme10.gameObject.SetActive(false);
+
+        _theme11.gameObject.SetActive(false);
+        _theme12.gameObject.SetActive(false);
 
 
     }
@@ -1013,6 +1062,16 @@ public class StageBaseCtrl : MonoBehaviour {
 
                 _theme10Handle.DORotate(new Vector3(0, 0, -70), 3, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.Linear);
 
+                break;
+
+            case 11:
+
+                _theme11Light3.gameObject.SetActive(true);
+                _theme11Light4.gameObject.SetActive(true);
+
+                break;
+
+            case 12:
                 break;
         }
     }
@@ -1984,5 +2043,260 @@ public class StageBaseCtrl : MonoBehaviour {
 
     #endregion 
 
+
+    #region Theme 11
+
+    void Set11thThemeProgress(int pClearCount) {
+        _theme11.SetActive(true);
+
+        _arrCurrentThemeNeko = _arrTheme11Neko;
+        _arrCurrentThemeSeat = new Transform[_arrTheme11Neko.Length];
+
+        for (int i = 0; i < _arrCurrentThemeSeat.Length; i++) {
+            _arrCurrentThemeSeat[i] = _arrTheme11Neko[i].transform;
+        }
+
+
+        for (int i = 0; i < _arrTheme11Neko.Length; i++) {
+            _arrTheme11Neko[i].gameObject.SetActive(true);
+        }
+
+        OnSparkCallBack = OnCompleteCurrentThemeSparkCallBack;
+
+
+        // Theme 11 오브젝트 Find 
+        _theme11Light1 = GameObject.Find("Theme11Light1").transform;
+        _theme11Light2 = GameObject.Find("Theme11Light2").transform;
+        _theme11Light3 = GameObject.Find("Theme11Light3").transform;
+        _theme11Light4 = GameObject.Find("Theme11Light4").transform;
+
+        _theme11Flower1 = GameObject.Find("Theme11Flower1").transform;
+        _theme11Flower2 = GameObject.Find("Theme11Flower2").transform;
+        _theme11Flower3 = GameObject.Find("Theme11Flower3").transform;;
+        _theme11Flower4 = GameObject.Find("Theme11Flower4").transform;
+
+        _theme11Stem1 = GameObject.Find("Theme11Stem1").transform;
+        _theme11Stem2 = GameObject.Find("Theme11Stem2").transform;
+        _theme11Stem3 = GameObject.Find("Theme11Stem3").transform;
+        _theme11Stem4 = GameObject.Find("Theme11Stem4").transform;
+
+        _theme11Dot1 = GameObject.Find("Theme11Dot1").transform;
+        _theme11Dot2 = GameObject.Find("Theme11Dot2").transform;
+        _theme11Dot3 = GameObject.Find("Theme11Dot3").transform;
+        _theme11Dot4 = GameObject.Find("Theme11Dot4").transform;
+
+
+        _theme11Light1.gameObject.SetActive(false);
+        _theme11Light2.gameObject.SetActive(false);
+        _theme11Light3.gameObject.SetActive(false);
+        _theme11Light4.gameObject.SetActive(false);
+
+        _theme11Dot1.gameObject.SetActive(false);
+        _theme11Dot2.gameObject.SetActive(false);
+        _theme11Dot3.gameObject.SetActive(false);
+        _theme11Dot4.gameObject.SetActive(false);
+
+        _theme11Flower1.gameObject.SetActive(false);
+        _theme11Flower2.gameObject.SetActive(false);
+        _theme11Flower3.gameObject.SetActive(false);
+        _theme11Flower4.gameObject.SetActive(false);
+
+        _theme11Stem1.gameObject.SetActive(false);
+        _theme11Stem2.gameObject.SetActive(false);
+        _theme11Stem3.gameObject.SetActive(false);
+        _theme11Stem4.gameObject.SetActive(false);
+
+
+        SetClearMarks(pClearCount);
+        Set11ThemeProgressDetail(pClearCount);
+
+    }
+
+
+    void Set11ThemeProgressDetail(int pClearCount) {
+
+        if (pClearCount >= 3) {
+            _arrStageMiniHeads[0].gameObject.SetActive(false);
+
+
+            _arrCurrentThemeNeko[0].spriteName = "neko97-1";
+            _arrCurrentThemeNeko[0].MakePixelPerfect();
+            _arrCurrentThemeNeko[0].transform.localPosition = new Vector3(_arrCurrentThemeNeko[0].transform.localPosition.x, 200, 0);
+
+            _theme11NekoPos[0] = _arrCurrentThemeNeko[0].transform.localPosition;
+
+            _theme11Flower1.gameObject.SetActive(true);
+            _theme11Stem1.gameObject.SetActive(true);
+
+            JumpTheme11NekoObject(_arrCurrentThemeNeko[0].transform, _theme11Flower1, _theme11Dot1, UnityEngine.Random.Range(0.8f, 1.4f));
+        }
+
+        if (pClearCount >= 6) {
+            _arrStageMiniHeads[1].gameObject.SetActive(false);
+
+
+            _arrCurrentThemeNeko[1].spriteName = "neko98-1";
+            _arrCurrentThemeNeko[1].MakePixelPerfect();
+            _arrCurrentThemeNeko[1].transform.localPosition = new Vector3(_arrCurrentThemeNeko[1].transform.localPosition.x, 200, 0);
+            _theme11NekoPos[1] = _arrCurrentThemeNeko[1].transform.localPosition;
+
+            _theme11Flower2.gameObject.SetActive(true);
+            _theme11Stem2.gameObject.SetActive(true);
+
+            JumpTheme11NekoObject(_arrCurrentThemeNeko[1].transform, _theme11Flower2, _theme11Dot2, UnityEngine.Random.Range(0.8f, 1.4f));
+
+            _theme11Light1.gameObject.SetActive(true);
+            _theme11Light2.gameObject.SetActive(true);
+        }
+
+        if (pClearCount >= 9) {
+            _arrStageMiniHeads[2].gameObject.SetActive(false);
+
+            _arrCurrentThemeNeko[2].spriteName = "neko102-1";
+            _arrCurrentThemeNeko[2].MakePixelPerfect();
+            _arrCurrentThemeNeko[2].transform.localPosition = new Vector3(_arrCurrentThemeNeko[2].transform.localPosition.x, 200, 0);
+            _theme11NekoPos[2] = _arrCurrentThemeNeko[2].transform.localPosition;
+
+            _theme11Flower3.gameObject.SetActive(true);
+            _theme11Stem3.gameObject.SetActive(true);
+
+            JumpTheme11NekoObject(_arrCurrentThemeNeko[2].transform, _theme11Flower3, _theme11Dot3, UnityEngine.Random.Range(0.8f, 1.4f));
+        }
+
+        if (pClearCount >= 12) {
+            _arrStageMiniHeads[3].gameObject.SetActive(false);
+
+
+            _arrCurrentThemeNeko[3].spriteName = "neko107-1";
+            _arrCurrentThemeNeko[3].MakePixelPerfect();
+            _arrCurrentThemeNeko[3].transform.localPosition = new Vector3(_arrCurrentThemeNeko[3].transform.localPosition.x, 200, 0);
+            _theme11NekoPos[3] = _arrCurrentThemeNeko[3].transform.localPosition;
+
+            _theme11Flower4.gameObject.SetActive(true);
+            _theme11Stem4.gameObject.SetActive(true);
+
+            JumpTheme11NekoObject(_arrCurrentThemeNeko[3].transform, _theme11Flower4, _theme11Dot4, UnityEngine.Random.Range(0.8f, 1.4f));
+
+            PlayingTheme(ThemeID);
+        }
+    }
+
+
+    /// <summary>
+    /// 11에피소드 고양이 점핑 
+    /// </summary>
+    /// <param name="pTR"></param>
+    /// <param name="pFlower"></param>
+    /// <param name="pDot"></param>
+    /// <param name="pTime"></param>
+    void JumpTheme11NekoObject(Transform pTR, Transform pFlower, Transform pDot, float pTime) {
+
+        pTR.DOKill();
+        pFlower.DOKill();
+
+
+        pTR.DOLocalJump(pTR.localPosition, 150, 1, pTime).OnComplete(() => JumpTheme11NekoObject(pTR, pFlower, pDot, pTime));
+        pFlower.DOLocalJump(pFlower.localPosition, -20, 1, pTime-0.1f);
+
+        pDot.gameObject.SetActive(true);
+        pDot.transform.DOLocalMoveY(155, 0.5f).OnComplete(() => OnCompleteTheme11Dot(pDot));
+
+    }
+
+    void OnCompleteTheme11Dot(Transform pDot) {
+        pDot.gameObject.SetActive(false);
+        pDot.localPosition = _theme11DotPos;
+    }
+
+    #endregion
+
+    #region Theme12
+
+    void Set12thThemeProgress(int pClearCount) {
+        _theme12.SetActive(true);
+
+        _arrCurrentThemeNeko = _arrTheme12Neko;
+        _arrCurrentThemeSeat = new Transform[_arrTheme12Neko.Length];
+
+        for (int i = 0; i < _arrCurrentThemeSeat.Length; i++) {
+            _arrCurrentThemeSeat[i] = _arrTheme12Neko[i].transform;
+        }
+
+
+        for (int i = 0; i < _arrTheme12Neko.Length; i++) {
+            _arrTheme12Neko[i].gameObject.SetActive(true);
+        }
+
+        OnSparkCallBack = OnCompleteCurrentThemeSparkCallBack;
+
+
+        SetClearMarks(pClearCount);
+        Set12ThemeProgressDetail(pClearCount);
+
+    }
+
+
+    void Set12ThemeProgressDetail(int pClearCount) {
+
+        float time;
+        float height;
+
+        if (pClearCount >= 3) {
+            _arrStageMiniHeads[0].gameObject.SetActive(false);
+
+            _arrCurrentThemeNeko[0].spriteName = "neko89-3";
+            _arrCurrentThemeNeko[0].MakePixelPerfect();
+
+            time = UnityEngine.Random.Range(1f, 1.8f);
+            height = UnityEngine.Random.Range(180, 300);
+
+            _arrCurrentThemeNeko[0].transform.DOLocalJump(_arrCurrentThemeNeko[0].transform.localPosition, height, 1, time).SetLoops(-1, LoopType.Restart);
+            _arrCurrentThemeNeko[0].transform.DOLocalRotate(new Vector3(0, 0, 720), time, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Restart);
+        }
+
+        if (pClearCount >= 6) {
+            _arrStageMiniHeads[1].gameObject.SetActive(false);
+            
+            _arrCurrentThemeNeko[1].spriteName = "neko90-3";
+            _arrCurrentThemeNeko[1].MakePixelPerfect();
+
+            time = UnityEngine.Random.Range(1f, 1.8f);
+            height = UnityEngine.Random.Range(180, 300);
+
+            _arrCurrentThemeNeko[1].transform.DOLocalJump(_arrCurrentThemeNeko[1].transform.localPosition, height, 1, time).SetLoops(-1, LoopType.Restart);
+            _arrCurrentThemeNeko[1].transform.DOLocalRotate(new Vector3(0, 0, 720), time, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Restart);
+
+        }
+
+        if (pClearCount >= 9) {
+            _arrStageMiniHeads[2].gameObject.SetActive(false);
+
+            _arrCurrentThemeNeko[2].spriteName = "neko91-3";
+            _arrCurrentThemeNeko[2].MakePixelPerfect();
+
+            time = UnityEngine.Random.Range(1f, 1.8f);
+            height = UnityEngine.Random.Range(180, 300);
+            _arrCurrentThemeNeko[2].transform.DOLocalJump(_arrCurrentThemeNeko[2].transform.localPosition, height, 1, time).SetLoops(-1, LoopType.Restart);
+            _arrCurrentThemeNeko[2].transform.DOLocalRotate(new Vector3(0, 0, 720), time, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Restart);
+        }
+
+        if (pClearCount >= 12) {
+            _arrStageMiniHeads[3].gameObject.SetActive(false);
+
+            _arrCurrentThemeNeko[3].spriteName = "neko92-3";
+            _arrCurrentThemeNeko[3].MakePixelPerfect();
+
+            time = UnityEngine.Random.Range(1f, 1.8f);
+            height = UnityEngine.Random.Range(180, 300);
+            _arrCurrentThemeNeko[3].transform.DOLocalJump(_arrCurrentThemeNeko[3].transform.localPosition, height, 1, time).SetLoops(-1, LoopType.Restart);
+            _arrCurrentThemeNeko[3].transform.DOLocalRotate(new Vector3(0, 0, 720), time, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Restart);
+
+            PlayingTheme(ThemeID);
+        }
+    }
+
+    #endregion
+
     #endregion
 }
+

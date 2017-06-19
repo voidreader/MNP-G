@@ -16,10 +16,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000013082518716}
-  - 114: {fileID: 114000011297645338}
+  - component: {fileID: 4000013082518716}
+  - component: {fileID: 114000011297645338}
   m_Layer: 0
   m_Name: GStageObject2Atlas
   m_TagString: Untagged
@@ -36,10 +36,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114000011297645338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,8 +54,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 1f5bacd694abe3041b36d0a75ebd5150, type: 2}
   mSprites:
   - name: crane-fx1
-    x: 777
-    y: 399
+    x: 442
+    y: 809
     width: 42
     height: 43
     borderLeft: 0
@@ -67,8 +67,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: crane-fx2
-    x: 124
-    y: 25
+    x: 217
+    y: 809
     width: 67
     height: 43
     borderLeft: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: crane-fx3
     x: 192
-    y: 43
+    y: 536
     width: 24
     height: 25
     borderLeft: 0
@@ -93,8 +93,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 16
   - name: crane-fx4
-    x: 161
-    y: 138
+    x: 485
+    y: 827
     width: 50
     height: 25
     borderLeft: 0
@@ -106,8 +106,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 16
   - name: crane-fx5
-    x: 264
-    y: 2
+    x: 192
+    y: 562
     width: 25
     height: 25
     borderLeft: 0
@@ -119,8 +119,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 16
   - name: dr-1
-    x: 867
-    y: 415
+    x: 113
+    y: 14
     width: 46
     height: 27
     borderLeft: 0
@@ -132,8 +132,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: dr-2
-    x: 820
-    y: 415
+    x: 972
+    y: 876
     width: 46
     height: 27
     borderLeft: 0
@@ -145,8 +145,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: dr-3
-    x: 301
-    y: 5
+    x: 972
+    y: 904
     width: 46
     height: 27
     borderLeft: 0
@@ -158,8 +158,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: eg-1-base
-    x: 650
-    y: 464
+    x: 217
+    y: 853
     width: 356
     height: 48
     borderLeft: 0
@@ -171,8 +171,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 3
   - name: eg-1-real
-    x: 176
-    y: 102
+    x: 616
+    y: 922
     width: 32
     height: 32
     borderLeft: 0
@@ -184,8 +184,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: eg-1-top
-    x: 378
-    y: 390
+    x: 217
+    y: 902
     width: 398
     height: 52
     borderLeft: 0
@@ -197,8 +197,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: eg-2-3-base
-    x: 217
-    y: 58
+    x: 113
+    y: 42
     width: 83
     height: 116
     borderLeft: 0
@@ -210,8 +210,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: eg-2-3-top
-    x: 161
-    y: 164
+    x: 339
+    y: 814
     width: 55
     height: 38
     borderLeft: 0
@@ -223,8 +223,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: eg-4-base
-    x: 0
-    y: 69
+    x: 348
+    y: 680
     width: 175
     height: 65
     borderLeft: 0
@@ -236,8 +236,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: eg-4-pin
-    x: 202
-    y: 263
+    x: 1013
+    y: 992
     width: 8
     height: 32
     borderLeft: 0
@@ -248,9 +248,35 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: flowers-base
+    x: 0
+    y: 8
+    width: 96
+    height: 78
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: flowers-top
+    x: 348
+    y: 603
+    width: 142
+    height: 76
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: guard-10
-    x: 378
-    y: 333
+    x: 524
+    y: 721
     width: 431
     height: 24
     borderLeft: 0
@@ -261,9 +287,35 @@ MonoBehaviour:
     paddingRight: 1
     paddingTop: 7
     paddingBottom: 0
+  - name: guard-11
+    x: 524
+    y: 698
+    width: 416
+    height: 22
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 8
+    paddingRight: 8
+    paddingTop: 9
+    paddingBottom: 0
+  - name: guard-12
+    x: 348
+    y: 746
+    width: 432
+    height: 29
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 2
+    paddingBottom: 0
   - name: guard-7
-    x: 378
-    y: 358
+    x: 227
+    y: 776
     width: 432
     height: 31
     borderLeft: 0
@@ -275,8 +327,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: guard-8
-    x: 473
-    y: 290
+    x: 491
+    y: 637
     width: 432
     height: 20
     borderLeft: 0
@@ -288,8 +340,8 @@ MonoBehaviour:
     paddingTop: 11
     paddingBottom: 0
   - name: guard-9
-    x: 378
-    y: 311
+    x: 491
+    y: 658
     width: 432
     height: 21
     borderLeft: 0
@@ -301,8 +353,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 0
   - name: handle
-    x: 568
-    y: 110
+    x: 348
+    y: 422
     width: 89
     height: 89
     borderLeft: 0
@@ -314,8 +366,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: handle-top
-    x: 67
-    y: 11
+    x: 151
+    y: 374
     width: 56
     height: 57
     borderLeft: 0
@@ -326,9 +378,204 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: light-fx11
+    x: 113
+    y: 373
+    width: 37
+    height: 313
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: mus-1
+    x: 811
+    y: 813
+    width: 57
+    height: 50
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: mus-2
+    x: 771
+    y: 810
+    width: 37
+    height: 53
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: mus-3
+    x: 956
+    y: 684
+    width: 56
+    height: 61
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: mus-4
+    x: 717
+    y: 808
+    width: 53
+    height: 55
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: neko102-1
+    x: 0
+    y: 685
+    width: 112
+    height: 122
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 8
+    paddingTop: 7
+    paddingBottom: 3
+  - name: neko107-1
+    x: 0
+    y: 202
+    width: 98
+    height: 124
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 26
+    paddingRight: 8
+    paddingTop: 4
+    paddingBottom: 4
+  - name: neko89-3
+    x: 0
+    y: 87
+    width: 104
+    height: 114
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 8
+    paddingRight: 20
+    paddingTop: 11
+    paddingBottom: 7
+  - name: neko90-3
+    x: 0
+    y: 561
+    width: 104
+    height: 123
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 6
+    paddingRight: 22
+    paddingTop: 4
+    paddingBottom: 5
+  - name: neko91-3
+    x: 227
+    y: 667
+    width: 120
+    height: 108
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 11
+    paddingTop: 16
+    paddingBottom: 8
+  - name: neko92-3
+    x: 113
+    y: 159
+    width: 98
+    height: 106
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 19
+    paddingRight: 15
+    paddingTop: 17
+    paddingBottom: 9
+  - name: neko97-1
+    x: 0
+    y: 437
+    width: 103
+    height: 123
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 17
+    paddingRight: 12
+    paddingTop: 4
+    paddingBottom: 5
+  - name: neko98-1
+    x: 113
+    y: 687
+    width: 113
+    height: 120
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 6
+    paddingRight: 13
+    paddingTop: 2
+    paddingBottom: 10
+  - name: page11-key-base
+    x: 0
+    y: 327
+    width: 112
+    height: 109
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: page-12-key-base
+    x: 227
+    y: 553
+    width: 114
+    height: 113
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: page-7-key-base
-    x: 217
-    y: 175
+    x: 113
+    y: 266
     width: 106
     height: 106
     borderLeft: 0
@@ -340,8 +587,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: page-8-key-base
-    x: 301
-    y: 102
+    x: 574
+    y: 829
     width: 72
     height: 72
     borderLeft: 0
@@ -353,8 +600,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: rocket-fx1
-    x: 161
-    y: 203
+    x: 348
+    y: 153
     width: 40
     height: 92
     borderLeft: 0
@@ -366,8 +613,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: rocket-fx2
-    x: 699
-    y: 111
+    x: 151
+    y: 432
     width: 40
     height: 92
     borderLeft: 0
@@ -379,8 +626,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: rocket-fx3
-    x: 658
-    y: 111
+    x: 151
+    y: 525
     width: 40
     height: 92
     borderLeft: 0
@@ -392,8 +639,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: rocket-fx4
-    x: 324
-    y: 189
+    x: 972
+    y: 932
     width: 40
     height: 92
     borderLeft: 0
@@ -405,8 +652,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: rocket-mini
-    x: 658
-    y: 28
+    x: 389
+    y: 163
     width: 38
     height: 82
     borderLeft: 0
@@ -418,8 +665,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: rocket-mini-fx
-    x: 0
-    y: 19
+    x: 650
+    y: 814
     width: 66
     height: 49
     borderLeft: 0
@@ -431,8 +678,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: rounge-base
-    x: 217
-    y: 14
+    x: 395
+    y: 809
     width: 46
     height: 43
     borderLeft: 0
@@ -444,8 +691,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: rounge-base-bar
-    x: 743
-    y: 166
+    x: 105
+    y: 561
     width: 5
     height: 123
     borderLeft: 0
@@ -457,8 +704,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: spc-base-1
-    x: 217
-    y: 282
+    x: 811
+    y: 864
     width: 160
     height: 160
     borderLeft: 0
@@ -470,8 +717,8 @@ MonoBehaviour:
     paddingTop: 28
     paddingBottom: 28
   - name: spc-base-2
-    x: 0
-    y: 135
+    x: 650
+    y: 864
     width: 160
     height: 160
     borderLeft: 0
@@ -484,7 +731,7 @@ MonoBehaviour:
     paddingBottom: 28
   - name: spc-base-3
     x: 0
-    y: 296
+    y: 808
     width: 216
     height: 216
     borderLeft: 0
@@ -496,8 +743,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: spc-base-top
-    x: 301
-    y: 33
+    x: 151
+    y: 618
     width: 68
     height: 68
     borderLeft: 0
@@ -509,8 +756,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: spc-base-top-fx1
-    x: 202
-    y: 244
+    x: 616
+    y: 903
     width: 14
     height: 18
     borderLeft: 0
@@ -522,8 +769,8 @@ MonoBehaviour:
     paddingTop: 11
     paddingBottom: 39
   - name: spc-base-top-fx2
-    x: 176
-    y: 71
+    x: 990
+    y: 833
     width: 29
     height: 30
     borderLeft: 0
@@ -535,8 +782,8 @@ MonoBehaviour:
     paddingTop: 11
     paddingBottom: 27
   - name: spc-base-top-fx3
-    x: 348
-    y: 3
+    x: 192
+    y: 588
     width: 29
     height: 29
     borderLeft: 0
@@ -548,8 +795,8 @@ MonoBehaviour:
     paddingTop: 28
     paddingBottom: 11
   - name: spc-base-top-fx4
-    x: 264
-    y: 28
+    x: 536
+    y: 823
     width: 30
     height: 29
     borderLeft: 0
@@ -561,8 +808,8 @@ MonoBehaviour:
     paddingTop: 28
     paddingBottom: 11
   - name: spc-base-top-fx5
-    x: 0
-    y: 5
+    x: 631
+    y: 908
     width: 18
     height: 13
     borderLeft: 0
@@ -574,8 +821,8 @@ MonoBehaviour:
     paddingTop: 28
     paddingBottom: 27
   - name: spc-base-top-fx6
-    x: 19
-    y: 5
+    x: 485
+    y: 813
     width: 18
     height: 13
     borderLeft: 0
@@ -587,8 +834,8 @@ MonoBehaviour:
     paddingTop: 28
     paddingBottom: 27
   - name: spc-coq-ani-1
-    x: 473
-    y: 18
+    x: 348
+    y: 512
     width: 89
     height: 90
     borderLeft: 0
@@ -600,8 +847,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 4
   - name: spc-coq-ani-2
-    x: 473
-    y: 199
+    x: 227
+    y: 177
     width: 94
     height: 90
     borderLeft: 0
@@ -613,8 +860,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 4
   - name: spc-coq-ani-3
-    x: 378
-    y: 26
+    x: 227
+    y: 363
     width: 94
     height: 94
     borderLeft: 0
@@ -626,8 +873,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: spc-coq-ani-4
-    x: 378
-    y: 121
+    x: 227
+    y: 268
     width: 94
     height: 94
     borderLeft: 0
@@ -639,8 +886,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: spc-coq-ani-5
-    x: 378
-    y: 216
+    x: 227
+    y: 458
     width: 94
     height: 94
     borderLeft: 0
@@ -652,8 +899,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: spc-coq-ani-6
-    x: 473
-    y: 109
+    x: 227
+    y: 87
     width: 94
     height: 89
     borderLeft: 0
@@ -665,8 +912,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 0
   - name: spc-coq-ani-7
-    x: 568
-    y: 200
+    x: 348
+    y: 332
     width: 89
     height: 89
     borderLeft: 0
@@ -678,8 +925,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 0
   - name: spc-coq-ani-8
-    x: 568
-    y: 24
+    x: 227
+    y: 1
     width: 84
     height: 85
     borderLeft: 0
@@ -691,8 +938,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 4
   - name: spc-coq-standard
-    x: 658
-    y: 204
+    x: 348
+    y: 246
     width: 84
     height: 85
     borderLeft: 0
@@ -705,7 +952,7 @@ MonoBehaviour:
     paddingBottom: 4
   - name: thunder
     x: 217
-    y: 443
+    y: 955
     width: 432
     height: 69
     borderLeft: 0
@@ -716,6 +963,58 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: ui-neko-102
+    x: 869
+    y: 816
+    width: 60
+    height: 47
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 1
+  - name: ui-neko-107
+    x: 924
+    y: 632
+    width: 53
+    height: 47
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 3
+    paddingTop: 0
+    paddingBottom: 1
+  - name: ui-neko-97
+    x: 930
+    y: 818
+    width: 59
+    height: 45
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 3
+  - name: ui-neko-98
+    x: 285
+    y: 808
+    width: 53
+    height: 44
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 7
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 4
   mPixelSize: 1
   mReplacement: {fileID: 0}
   mCoordinates: 0

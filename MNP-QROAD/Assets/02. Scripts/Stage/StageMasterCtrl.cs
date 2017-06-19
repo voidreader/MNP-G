@@ -177,7 +177,7 @@ public class StageMasterCtrl : MonoBehaviour {
 
         if(movepos < 0) {
             Debug.Log("★ SetCameraPos Out of Theme Index");
-            movepos = 9;
+            movepos = 11;
         }
 
         // _stageCenterOnChild.CenterOn(ListThemes[GetThemeIndex(pStage)].transform);
@@ -364,7 +364,13 @@ public class StageMasterCtrl : MonoBehaviour {
         if (pStage > 117 && pStage <= 130)
             return 9;
 
-        
+        if (pStage > 130 && pStage <= 143)
+            return 10;
+
+        if (pStage > 143 && pStage <= 156)
+            return 11;
+
+
 
 
         return -1;
@@ -392,6 +398,8 @@ public class StageMasterCtrl : MonoBehaviour {
             case 8:
             case 9:
             case 10:
+            case 11:
+            case 12:
                 return _stageAtlasBG2;
         }
 
@@ -413,6 +421,8 @@ public class StageMasterCtrl : MonoBehaviour {
             case 8:
             case 9:
             case 10:
+            case 11:
+            case 12:
                 return _stageAtlasObject2;
         }
 
@@ -536,7 +546,7 @@ public class StageMasterCtrl : MonoBehaviour {
         int maxStageIndx = _listThemes[themeIndex].LastStage - 1;
 
 
-        Debug.Log("★ GetThemeStars Theme/minStageIndex/maxStageIndex :: " + pTheme + "/" + minStageIndx + "/" + maxStageIndx);
+        //Debug.Log("★ GetThemeStars Theme/minStageIndex/maxStageIndex :: " + pTheme + "/" + minStageIndx + "/" + maxStageIndx);
 
         int themeStars = 0;
 
