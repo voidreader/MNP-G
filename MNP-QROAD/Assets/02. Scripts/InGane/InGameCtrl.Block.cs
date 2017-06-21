@@ -231,8 +231,6 @@ public partial class InGameCtrl : MonoBehaviour {
         CheckMoveRoadBlocks();
 
 
-        // 특수 미션 UI값 처리 
-        GetSpecialMissionBlockCountUI(out _tmpCookieRemainCount, out _tmpStoneRemainCount);
     }
 
 
@@ -286,10 +284,14 @@ public partial class InGameCtrl : MonoBehaviour {
                 GameSystem.Instance.MatchedYellowBlock++;
             }
             else if (pList[i].blockID == 2) {
-                
                 GameSystem.Instance.MatchedRedBlock++;
-
             }
+            else if(pList[i].blockID == 3) {
+                GameSystem.Instance.MatchedGreenBlock++;
+            }
+
+            // UI 처리 
+            InUICtrl.Instance.SetMinusMissionCount(SpecialMissionType.block);
         }
     }
 
@@ -344,9 +346,6 @@ public partial class InGameCtrl : MonoBehaviour {
 
             CheckMoveRoadBlocks();
 
-
-            // 특수 미션 UI값 처리 
-            GetSpecialMissionBlockCountUI(out _tmpCookieRemainCount, out _tmpStoneRemainCount);
 
 
         } else { // Miss
@@ -504,6 +503,8 @@ public partial class InGameCtrl : MonoBehaviour {
         // 감소 
         MoveMissionCount--;
 
+        // 미션 아이콘 UI 세팅 
+        InUICtrl.Instance.SetMinusMissionCount(SpecialMissionType.move);
 
 
         // 첫 점프
@@ -531,8 +532,6 @@ public partial class InGameCtrl : MonoBehaviour {
         SpawnMovingBlocks();
 
 
-        // UI 처리
-        InUICtrl.Instance.SetMoveMissionValue(MoveMissionCount);
 
 
         IsProcessingMove = false;
@@ -632,9 +631,11 @@ public partial class InGameCtrl : MonoBehaviour {
         // 빙고 3개 한번에 처리시 횟수 증가 
         if (pMatchCount == 3) {
             GameSystem.Instance.IngameMatchThreeCount++;
+            InUICtrl.Instance.SetMinusMissionCount(SpecialMissionType.match3);
         }
         else if (pMatchCount == 4) {
             GameSystem.Instance.IngameMatchFourCount++;
+            InUICtrl.Instance.SetMinusMissionCount(SpecialMissionType.match4);
         }
 
 
@@ -1190,7 +1191,7 @@ public partial class InGameCtrl : MonoBehaviour {
 		
 
 		// 5. 방향 체크 후, 동일 ID의 블록 확인 
-		for (int i = 0; i < GameSystem.Instance.BlockTypeCount; i++) { // 방해블록 때문에 + 1 해준다. 
+		for (int i = 0; i < ColorCount; i++) { 
 			
 			loopMatchCount = 0;
 
@@ -1260,42 +1261,6 @@ public partial class InGameCtrl : MonoBehaviour {
 
 
 
-    /// <summary>
-    /// UI에 할당할 스페셜 미션 블록 개수를 구한다.
-    /// </summary>
-    /// <param name="oCookie"></param>
-    /// <param name="oStone"></param>
-    void GetSpecialMissionBlockCountUI(out int oCookie, out int oStone) {
-
-        oCookie = 0;
-        oStone = 0;
-
-
-        // 특수 미션이 아니면, 종료 
-        if (!IsCookieMission && !IsStoneMission && !IsFishMission)
-            return;
-
-
-        for (int i = 0; i < GameSystem.Instance.Height; i++) {
-
-            for (int j = 0; j < GameSystem.Instance.Width; j++) {
-
-                if (fieldBlocks[i, j].IsCookie)
-                    oCookie++;
-
-                if (fieldBlocks[i, j].IsStone)
-                    oStone++;
-            }
-        }
-
-        if(IsCookieMission)
-            InUICtrl.Instance.SetCookieMissionValue(oCookie);
-
-        if(IsStoneMission)
-            InUICtrl.Instance.SetStoneMissionValue(oStone);
-            
-
-    }
 
     /// <summary>
     /// 필드에 남은 바위 블록 체크 
@@ -1444,7 +1409,7 @@ public partial class InGameCtrl : MonoBehaviour {
 
 
         // 5. 방향 체크 후, 동일 ID의 블록 확인 
-        for (int i = 0; i < GameSystem.Instance.BlockTypeCount; i++) { 
+        for (int i = 0; i < ColorCount; i++) { 
 
             naviLoopCount = 0;
 

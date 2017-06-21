@@ -22,6 +22,7 @@ public class BlockColorScoreCtrl : MonoBehaviour {
     [SerializeField] UIFont _blueFont;
     [SerializeField] UIFont _redFont;
     [SerializeField] UIFont _yellowFont;
+    [SerializeField] UIFont _greenFont;
 
     [SerializeField] UISprite _spX;
 
@@ -67,8 +68,10 @@ public class BlockColorScoreCtrl : MonoBehaviour {
             lblHitText.bitmapFont = _blueFont;
         else if (pBlockID == 1)
             lblHitText.bitmapFont = _yellowFont;
-        else
+        else if (pBlockID == 2)
             lblHitText.bitmapFont = _redFont;
+        else
+            lblHitText.bitmapFont = _greenFont;
 
 
 

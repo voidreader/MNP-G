@@ -20,6 +20,6 @@ public class GrillStickCtrl : MonoBehaviour {
 
     void OnCompleteMove() {
         PoolManager.Pools[PuzzleConstBox.objectPool].Despawn(this.transform);
-        InUICtrl.Instance.SetFishMissionValue(InGameCtrl.Instance.TotalFishGrillCount);
+        
     }
 }

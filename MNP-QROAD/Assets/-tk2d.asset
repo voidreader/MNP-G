@@ -267,7 +267,7 @@ MonoBehaviour:
     spriteCollectionGUID: 3bf3aaba989210646b22b729b99c15f2
     spriteCollectionDataGUID: e84b6a11cbdceac42a57adf3f742fa21
     spriteNames:
-    - 001-top-bg-5
+    - 001-top-bg-1
     - 001-board-main
     - time-denger-3
     - time-denger-5
@@ -279,11 +279,11 @@ MonoBehaviour:
     - time-denger-1
     - time-denger-10
     - time-denger-6
-    - 001-top-bg-2
+    - 001-top-bg-7
     - 001-top-bg-4
+    - 001-top-bg-12
+    - 001-top-bg-2
     - 001-top-bg-3
-    - 001-top-bg-1
-    - 001-top-bg-6
     - swing-rope
     - boss-fire4
     - boss-fire8
@@ -295,11 +295,13 @@ MonoBehaviour:
     - boss-fire7
     - 001-top-bg-boss1
     - 001-top-bg-8
-    - 001-top-bg-7
     - 001-top-bg-9
     - 001-top-bg-10
+    - 001-top-bg-11
+    - 001-top-bg-5
+    - 001-top-bg-6
     spriteTextureGUIDs:
-    - 9c9361b00ba92e94799b2962caf7e347
+    - e810fd58a803d5841874bc2587a81d48
     - 63b773ba0a5d181489c8dd41f72f541a
     - a241b470778eb3e4cbc0e7f98f819ce3
     - 5fb719c1141083c49977d89f8a022f71
@@ -311,11 +313,11 @@ MonoBehaviour:
     - ec5df9b9c52a0ad458171597c5b9ea79
     - 076a9c4cdead35b499511aa5f8dbc5e1
     - 4097fbadedb82364d933b52739472acc
-    - a449a727831ae5b40b2c6c8c6aab7574
-    - a0f4203e712bca348bd3399dc01490aa
-    - a12223eea2796ae44bb4218cef6848e4
-    - 0014f09fbfe4a3648a1984085598b724
-    - 33e15cdc61fe3784c8d52d139941d482
+    - 9d7a4d78239ad014cb5e6b1f889ec2d3
+    - bd178bc6e8b9fc34c919699c2bc17b43
+    - a11e73d16489d8a45b5cfb29addcca24
+    - 8267bc9d62a9ebd45ad685ca4ff8f0a4
+    - 6fd4e016c70f51c4dac790c53fc8b9f5
     - f5ab46a0695be554987e825f3c98716a
     - 9c909b6188af578488f9358f2a651330
     - a1042b8130d38bf49bc122f789b7ead2
@@ -326,12 +328,14 @@ MonoBehaviour:
     - 4986ab3d30f35304ca580d7fc2bf52be
     - aca9014f22ee3e7438e68bb154fa68a3
     - 59bcb0a52c9d7fd45b6d9665d619dabd
-    - 2b0585c65c7764945a59c619404d41c6
-    - ff15b34c0a6a1a24c8d54d7f7762c869
-    - e63cb65087c087443aa0158ed17b2ed6
-    - 4f45e589da63eed4ba3ac4b95b98a5de
+    - d0a4a4ae036cc15468fc8a7030fd91de
+    - 33ab24ecb5d4ddb42a6d1872bd8b16c5
+    - c99a7cdae5ab74b4c9f4ca13b8f03fe9
+    - 520c69b60ef6f39468548b4d67227088
+    - 56838428e8e1def4da15a215f7e03ca4
+    - 15d436a77cc71d34ab397640c98112ea
     spriteTextureTimeStamps:
-    - 1493288442.5524
+    - 1497970822.99456
     - 1493288442.52437
     - 1493288442.60326
     - 1493288442.60827
@@ -343,11 +347,11 @@ MonoBehaviour:
     - 1493288442.59726
     - 1493288442.59926
     - 1493288442.61127
-    - 1493288442.53938
-    - 1493288442.54739
-    - 1493288442.54439
-    - 1493288442.52738
-    - 1493288442.5564
+    - 1497970823.01808
+    - 1497970822.98105
+    - 1497970822.96554
+    - 1497970823.0551
+    - 1497970823.10514
     - 1493288442.61928
     - 1493288442.58442
     - 1493288442.59426
@@ -358,10 +362,12 @@ MonoBehaviour:
     - 1493288442.58725
     - 1493288442.59126
     - 1493288442.57041
-    - 1493288442.5624
-    - 1493288442.5594
-    - 1493288442.5664
-    - 1493288442.53538
+    - 1497970823.06661
+    - 1497970823.12765
+    - 1497970823.11565
+    - 1497970823.03959
+    - 1497970823.08112
+    - 1497970823.1397
     managedSpriteCollection: 0
     loadable: 0
     assetName: 
@@ -584,6 +590,11 @@ MonoBehaviour:
     - firework-top
     - road-block
     - road-block-fx
+    - bl-green-1
+    - bl-green-5
+    - bl-green-2
+    - bl-green-3
+    - bl-green-4
     spriteTextureGUIDs:
     - 2e8811e02e3b1c945b6ab4088bbaef39
     - bd98b9545d9cc084ca7d49e542afe12b
@@ -799,6 +810,11 @@ MonoBehaviour:
     - cbc20eeb81a229e4aa449d095a58d0c0
     - 549705fd644840947bad39a75e5eadcc
     - ad857fd2c51de5d4f8a5c9987635dcfc
+    - b670c49ca044e7b48af2bfc78a976efd
+    - bf1094ef6b6cd9f48b720eb26b1bd953
+    - 208bca53b9542d848b8f1be3d6b2e6e2
+    - 400d778027ec33046953fa24ed45d095
+    - 51e6ee60e1d60d042b053e6fb648b190
     spriteTextureTimeStamps:
     - 1493288443.05229
     - 1493288443.06331
@@ -1014,6 +1030,11 @@ MonoBehaviour:
     - 1493288443.14078
     - 1496352565.68245
     - 1496352565.68095
+    - 1494541033.54972
+    - 1494541033.63178
+    - 1494541033.56573
+    - 1494541033.60076
+    - 1494541033.61577
     managedSpriteCollection: 0
     loadable: 0
     assetName: 
@@ -1352,6 +1373,7 @@ MonoBehaviour:
     - stone-fx7
     - stone-fx9
     - stone-fx19
+    - bl-green-3
     spriteTextureGUIDs:
     - b23d35717ea1ffc4fb1c92d0606e5eaf
     - ac2c7fb2130cc134e9377da0fffd51f5
@@ -1457,6 +1479,7 @@ MonoBehaviour:
     - bea6076ebc1116c45897d9b6cb3a4013
     - 7b7bfa8efd9632a459ddac64478316bc
     - 3a2b87ff3825e2c4ea7f6faeb14266d7
+    - 400d778027ec33046953fa24ed45d095
     spriteTextureTimeStamps:
     - 1493288443.81541
     - 1493288443.83343
@@ -1562,6 +1585,7 @@ MonoBehaviour:
     - 1493288443.69468
     - 1493288443.70069
     - 1493288443.67966
+    - 1494541033.60076
     managedSpriteCollection: 0
     loadable: 0
     assetName: 

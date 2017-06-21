@@ -226,6 +226,7 @@ public class SkillBarCtrl : MonoBehaviour {
         _autoText.gameObject.SetActive(true);
         _autoText.DOLocalMoveY(80, 0.5f).OnComplete(OnCompleteAutoText);
 
+        InUICtrl.Instance.SetMinusMissionCount(SpecialMissionType.specialAttack);
 
     }
     

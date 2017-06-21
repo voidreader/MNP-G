@@ -44,6 +44,9 @@ public class InSoundManager : MonoBehaviour {
     [SerializeField] AudioClip _clipShootFirework;
     [SerializeField] AudioClip _clipFireworkTail;
 
+    [SerializeField] AudioClip _clipInGameStageClear;
+
+
     [SerializeField]
     AudioClip _clipStageFail;
 
@@ -354,6 +357,11 @@ public class InSoundManager : MonoBehaviour {
     public void PlayHitFirework() {
         srcEffectClips.PlayOneShot(_clipHitFirework);
     }
+
+    public void PlayInGameStageClear() {
+        srcEffectClips.PlayOneShot(_clipInGameStageClear);
+    }
+
 
     #region 스테이지 미션 
 

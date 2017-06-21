@@ -54,10 +54,10 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 8c6817e73d793f8489e8dbf5ac686d8e, type: 2}
   mSprites:
   - name: ep-1
-    x: 0
-    y: 219
-    width: 159
-    height: 164
+    x: 173
+    y: 365
+    width: 127
+    height: 131
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -67,10 +67,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ep-10
-    x: 0
-    y: 54
-    width: 159
-    height: 164
+    x: 173
+    y: 497
+    width: 127
+    height: 131
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -81,9 +81,61 @@ MonoBehaviour:
     paddingBottom: 0
   - name: ep-10g
     x: 173
-    y: 860
-    width: 159
-    height: 164
+    y: 893
+    width: 127
+    height: 131
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ep-11
+    x: 301
+    y: 893
+    width: 127
+    height: 131
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ep-11g
+    x: 173
+    y: 101
+    width: 127
+    height: 131
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ep-12
+    x: 301
+    y: 629
+    width: 127
+    height: 131
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ep-12g
+    x: 429
+    y: 893
+    width: 127
+    height: 131
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -93,10 +145,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ep-2
-    x: 333
-    y: 860
-    width: 159
-    height: 164
+    x: 0
+    y: 120
+    width: 127
+    height: 131
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -106,10 +158,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ep-2g
-    x: 493
-    y: 860
-    width: 159
-    height: 164
+    x: 557
+    y: 893
+    width: 127
+    height: 131
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -119,10 +171,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ep-3
-    x: 653
-    y: 860
-    width: 159
-    height: 164
+    x: 173
+    y: 233
+    width: 127
+    height: 131
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -132,10 +184,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ep-3g
-    x: 813
-    y: 860
-    width: 159
-    height: 164
+    x: 173
+    y: 761
+    width: 127
+    height: 131
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -145,10 +197,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ep-4
-    x: 173
-    y: 695
-    width: 159
-    height: 164
+    x: 685
+    y: 629
+    width: 127
+    height: 131
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -158,10 +210,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ep-4g
-    x: 333
-    y: 695
-    width: 159
-    height: 164
+    x: 685
+    y: 761
+    width: 127
+    height: 131
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -171,10 +223,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ep-5
-    x: 493
-    y: 695
-    width: 159
-    height: 164
+    x: 301
+    y: 761
+    width: 127
+    height: 131
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -184,10 +236,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ep-5g
-    x: 653
-    y: 695
-    width: 159
-    height: 164
+    x: 557
+    y: 761
+    width: 127
+    height: 131
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -197,10 +249,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ep-6
-    x: 813
-    y: 695
-    width: 159
-    height: 164
+    x: 685
+    y: 893
+    width: 127
+    height: 131
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -210,10 +262,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ep-6g
-    x: 173
-    y: 530
-    width: 159
-    height: 164
+    x: 813
+    y: 761
+    width: 127
+    height: 131
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -224,9 +276,9 @@ MonoBehaviour:
     paddingBottom: 0
   - name: ep-7
     x: 173
-    y: 365
-    width: 159
-    height: 164
+    y: 629
+    width: 127
+    height: 131
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -236,10 +288,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ep-7g
-    x: 173
-    y: 200
-    width: 159
-    height: 164
+    x: 557
+    y: 629
+    width: 127
+    height: 131
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -249,10 +301,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ep-8
-    x: 173
-    y: 35
-    width: 159
-    height: 164
+    x: 813
+    y: 893
+    width: 127
+    height: 131
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -262,10 +314,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ep-8g
-    x: 333
-    y: 530
-    width: 159
-    height: 164
+    x: 429
+    y: 629
+    width: 127
+    height: 131
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -275,10 +327,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ep-9
-    x: 333
-    y: 365
-    width: 159
-    height: 164
+    x: 0
+    y: 252
+    width: 127
+    height: 131
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -288,10 +340,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ep-9g
-    x: 333
-    y: 200
-    width: 159
-    height: 164
+    x: 429
+    y: 761
+    width: 127
+    height: 131
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -301,8 +353,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: star-base
-    x: 0
-    y: 9
+    x: 813
+    y: 716
     width: 147
     height: 44
     borderLeft: 0
@@ -314,8 +366,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: stars
-    x: 973
-    y: 987
+    x: 128
+    y: 346
     width: 36
     height: 37
     borderLeft: 0
@@ -340,8 +392,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: world-clear
-    x: 173
-    y: 18
+    x: 0
+    y: 3
     width: 64
     height: 16
     borderLeft: 0
@@ -353,8 +405,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: world-x
-    x: 333
-    y: 100
+    x: 0
+    y: 20
     width: 74
     height: 99
     borderLeft: 0

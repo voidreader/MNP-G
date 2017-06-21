@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using PathologicalGames;
 using DG.Tweening;
 using CodeStage.AntiCheat.ObscuredTypes;
+using SimpleJSON;
 
 public class InUICtrl : MonoBehaviour {
 
@@ -86,6 +87,8 @@ public class InUICtrl : MonoBehaviour {
     int _blueBlockCount = 0;
     int _yellowBlockCount = 0;
     int _redBlockCount = 0;
+    int _greenBlockCount = 0;
+
 
     #endregion
 
@@ -97,36 +100,36 @@ public class InUICtrl : MonoBehaviour {
     [SerializeField] UIProgressBar itemBar = null;
     [SerializeField] UISprite spItemHead = null; // 아이템 헤더 
 
-    [SerializeField] UIProgressBar _smallItemBar;
     [SerializeField] UIProgressBar _bigItemBar;
 
     [SerializeField] UISprite _bigItemHead;
-    [SerializeField] UISprite _smallItemHead;
 
     private Vector3 originHeadPos = Vector3.zero;
     private BlockCtrl pickItemBlock = null;
     private Vector3 pickItemBlockPos = Vector3.zero;
 
     #region 미션 타일 관련 변수 
+    JSONNode _stageNode;
+    [SerializeField] List<InGameMissionIconCtrl> _listInGameMissions = new List<InGameMissionIconCtrl>();
 
-    // 미션 타일 
-    [SerializeField] UISprite _missionTileSprite1;
-    [SerializeField] UILabel _missionTileValue1;
 
-    [SerializeField] UISprite _missionTileSprite2;
-    [SerializeField] UILabel _missionTileValue2;
+    bool _hasCookieMission = false;
+    bool _hasStoneMission = false;
+    bool _hasGrillMission = false;
+    bool _hasBlockMission = false;
+    bool _hasSpecialAttackMission = false;
+    bool _hasMoveMission = false;
+    bool _hasScoreMission = false;
+    bool _hasComboMission = false;
+    bool _hasBombMission = false;
+    bool _hasCoinMission = false;
 
-    [SerializeField] UILabel _cookieMissionValue;
-    [SerializeField] UILabel _stoneMissionValue;
-    [SerializeField] UILabel _fishMissionValue;
-    [SerializeField] UILabel _moveMissionValue;
+    bool _hasPerfectMission = false;
+    bool _hasGreatMission = false;
+    bool _hasMatch3Mission = false;
+    bool _hasMatch4Mission = false;
+    bool _hasBasicMission = false;
 
-    readonly string COOKIE_TILE = "003-ck-tile-standard";
-    readonly string STONE_TILE = "004-stone-block-1";
-    readonly string FISH_TILE = "fish-c-clear";
-    readonly string MOVE_TILE = "colorfull-top";
-
-    int _missionTileIndex = 0;
 
     #endregion
 
@@ -202,110 +205,133 @@ public class InUICtrl : MonoBehaviour {
     #region 스테이지별 UI 세팅 
 
     public void InitStageUI() {
-        SetItemBarUIType();
+        SetMissionUI();
     }
 
 
     /// <summary>
     /// 스테이지 종류에 따른 아이템 게이지 타입 세팅 
     /// </summary>
-    private void SetItemBarUIType() {
-        if (InGameCtrl.Instance.IsCookieMission || InGameCtrl.Instance.IsStoneMission || InGameCtrl.Instance.IsFishMission || InGameCtrl.Instance.IsMoveMission) {
+    private void SetMissionUI() {
 
-            itemBar = _smallItemBar;
-            spItemHead = _smallItemHead;
+        
+        _stageNode = GameSystem.Instance.StageDetailJSON[GameSystem.Instance.PlayStage - 1];
+        SpecialMissionType missionType;
+        int questvalue; 
 
-            // 반대쪽 오브젝트는 감춘다.
-            _bigItemHead.gameObject.SetActive(false);
-            _bigItemBar.gameObject.SetActive(false);
+        
 
-            // 특수 미션에 따라서, UI 처리 
-            if(InGameCtrl.Instance.IsCookieMission) { // 쿠키 미션 
+        // quest1~3까지 세팅
+        for (int i=1; i<=3; i++) {
 
-                if(_missionTileIndex == 0) {
-                    _missionTileSprite1.spriteName = COOKIE_TILE;
-                    _cookieMissionValue = _missionTileValue1;
-                }
-                else {
-                    _missionTileSprite2.spriteName = COOKIE_TILE;
-                    _cookieMissionValue = _missionTileValue2;
-                }
+            #region switch
+            questvalue = _stageNode["questvalue" + i.ToString()].AsInt;
 
-                _cookieMissionValue.text = InGameCtrl.Instance.GetRemainCookieBlocks().ToString();
-                _missionTileIndex++;
+            switch (_stageNode["questid" + i.ToString()].AsInt) {
+                case 1:
+                    missionType = SpecialMissionType.basic;
+                    _hasBasicMission = true;
+                    break;
+                case 2:
+                    missionType = SpecialMissionType.score;
+                    _hasScoreMission = true;
+                    break;
+                case 3:
+                    missionType = SpecialMissionType.combo;
+                    _hasComboMission = true;
+                    break;
+                case 4:
+                    missionType = SpecialMissionType.block;
+                    _hasBlockMission = true;
+                    break;
+                case 5:
+                    missionType = SpecialMissionType.specialAttack;
+                    _hasSpecialAttackMission = true;
+                    break;
+                case 7:
+                    missionType = SpecialMissionType.bomb;
+                    _hasBombMission = true;
+                    break;
+                case 8:
+                    missionType = SpecialMissionType.coin;
+                    _hasCoinMission = true;
+                    break;
+
+                case 12:
+                    missionType = SpecialMissionType.cookie;
+                    _hasCookieMission = true;
+                    break;
+                case 14:
+                    missionType = SpecialMissionType.perfect;
+                    _hasPerfectMission = true;
+                    break;
+                case 15:
+                    missionType = SpecialMissionType.stone;
+                    _hasStoneMission = true;
+                    break;
+                case 16:
+                    missionType = SpecialMissionType.match3;
+                    _hasMatch3Mission = true;
+                    break;
+                case 17:
+                    missionType = SpecialMissionType.match4;
+                    _hasMatch4Mission = true;
+                    break;
+                case 19:
+                    missionType = SpecialMissionType.great;
+                    _hasGreatMission = true;
+                    break;
+                case 22:
+                    missionType = SpecialMissionType.grill;
+                    _hasGrillMission = true;
+                    break;
+                case 23:
+                    missionType = SpecialMissionType.move;
+                    _hasMoveMission = true;
+                    break;
+
+                default:
+                    missionType = SpecialMissionType.basic;
+                    // _iconBasicMission = _listInGameMissions[i - 1];
+                    break;
+
             }
+            #endregion
 
-            if(InGameCtrl.Instance.IsStoneMission) { // 바위 미션 
-                if (_missionTileIndex == 0) {
-                    _missionTileSprite1.spriteName = STONE_TILE; ;
-                    _stoneMissionValue = _missionTileValue1;
-                }
-                else {
-                    _missionTileSprite2.spriteName = STONE_TILE;
-                    _stoneMissionValue = _missionTileValue2;
-                }
-
-                _stoneMissionValue.text = InGameCtrl.Instance.InitStoneBlockCount.ToString();
-                _missionTileIndex++;
-            }
-
-            if (InGameCtrl.Instance.IsFishMission) { // 생선굽기 미션 
-                if (_missionTileIndex == 0) {
-                    _missionTileSprite1.spriteName = FISH_TILE; ;
-                    _fishMissionValue = _missionTileValue1;
-                }
-                else {
-                    _missionTileSprite2.spriteName = FISH_TILE;
-                    _fishMissionValue = _missionTileValue2;
-                }
-
-                _fishMissionValue.text = InGameCtrl.Instance.InitFishGrillCount.ToString();
-                _missionTileIndex++;
-            }
-
-            if (InGameCtrl.Instance.IsMoveMission) { // 이동 미션 
-                if (_missionTileIndex == 0) {
-                    _missionTileSprite1.spriteName = MOVE_TILE; ;
-                    _moveMissionValue = _missionTileValue1;
-                }
-                else {
-                    _missionTileSprite2.spriteName = MOVE_TILE;
-                    _moveMissionValue = _missionTileValue2;
-                }
-
-                _moveMissionValue.text = InGameCtrl.Instance.MoveMissionCount.ToString();
-                _missionTileIndex++;
-            }
-
-
-
-            // 특수미션이 한개면 2번째 UI는 감춘다. 
-            if (_missionTileIndex == 1) {
-                _missionTileSprite2.gameObject.SetActive(false);
-                _missionTileValue2.gameObject.SetActive(false);
-            }
-                
-
-        }
-        else { // 일반 스테이지 
-
-            itemBar = _bigItemBar;
-            spItemHead = _bigItemHead;
-
-            // 반대쪽 오브젝트는 감춘다.
-            _smallItemHead.gameObject.SetActive(false);
-            _smallItemBar.gameObject.SetActive(false);
-
-            _missionTileSprite1.gameObject.SetActive(false);
-            _missionTileSprite2.gameObject.SetActive(false);
-
+            _listInGameMissions[i - 1].SetInGameMissionIcon(missionType, questvalue, i-1);
         }
 
+
+        // 아이템 게이지 세팅 
+        itemBar = _bigItemBar;
+        spItemHead = _bigItemHead;
         itemBar.gameObject.SetActive(true);
         spItemHead.gameObject.SetActive(true);
 
         originHeadPos = spItemHead.transform.localPosition;
     }
+
+
+    /// <summary>
+    /// 미션 아이콘들의 클리어 처리 
+    /// </summary>
+    public void ClearMissionIcon(int pListIndex) {
+        int count = 0;
+
+        for(int i=0; i<_listInGameMissions.Count;i++) {
+            if (_listInGameMissions[i].IsClear)
+                count++;
+        }
+
+        if (count == 1)
+            _listInGameMissions[pListIndex].ClearMission(StageClearType.bronze);
+        else if(count == 2)
+            _listInGameMissions[pListIndex].ClearMission(StageClearType.silver);
+        else
+            _listInGameMissions[pListIndex].ClearMission(StageClearType.gold);
+    }
+
+    #region 에피소드 (테마) 상단 배경 설정 
 
     /// <summary>
     /// 테마에 맞는 배경 상단 스프라이트 처리 
@@ -364,6 +390,14 @@ public class InUICtrl : MonoBehaviour {
                 _bgTop.SetSprite("001-top-bg-10");
                 break;
 
+            case 11:
+                _bgTop.SetSprite("001-top-bg-11");
+                break;
+
+            case 12:
+                _bgTop.SetSprite("001-top-bg-12");
+                break;
+
             default:
                 _bgTop.SetSprite("001-top-bg-1");
                 break;
@@ -371,33 +405,29 @@ public class InUICtrl : MonoBehaviour {
         }
     }
 
+    #endregion
+
 
     /// <summary>
-    /// 바위 미션 값 세팅
+    /// 미션 UI에 대한 표기를 한다. 
     /// </summary>
-    /// <param name="pValue"></param>
-    public void SetStoneMissionValue(int pValue) {
-       _stoneMissionValue.text = pValue.ToString();
-    }
+    public void SetMinusMissionCount(SpecialMissionType pType, int pCount = 0) {
 
-    /// <summary>
-    /// 쿠키 미션 값 세팅 
-    /// </summary>
-    /// <param name="pValue"></param>
-    public void SetCookieMissionValue(int pValue) {
-        _cookieMissionValue.text = pValue.ToString();
-    }
+        // Combo, Score 는 예외다. 
 
-    /// <summary>
-    /// 생선굽기 값 세팅 
-    /// </summary>
-    /// <param name="pValue"></param>
-    public void SetFishMissionValue(int pValue) {
-        _fishMissionValue.text = pValue.ToString();
-    }
+        for(int i=0; i<_listInGameMissions.Count;i++) {
+            if(_listInGameMissions[i].MissionType == pType) {
 
-    public void SetMoveMissionValue(int pValue) {
-        _moveMissionValue.text = pValue.ToString();
+                if (pType == SpecialMissionType.score || pType == SpecialMissionType.coin)
+                    _listInGameMissions[i].MinusCount(pCount);
+
+                if (pType == SpecialMissionType.combo)
+                    _listInGameMissions[i].CompareGoalCount(pCount);
+                else
+                    _listInGameMissions[i].MinusCount();
+            }
+        }
+        
     }
 
     #endregion
@@ -544,6 +574,8 @@ public class InUICtrl : MonoBehaviour {
 		
 		// 사운드 처리
 		InSoundManager.Instance.PlayGo ();
+
+        SetMinusMissionCount(SpecialMissionType.basic);
 	}
 	
 	private void EndReadyGo() {
@@ -734,6 +766,11 @@ public class InUICtrl : MonoBehaviour {
                 _yellowBlockCount++;
             else if (pMatchList[i].blockID == 2)
                 _redBlockCount++;
+            else if (pMatchList[i].blockID == 3)
+                _greenBlockCount++;
+
+            // UI 처리 
+            SetMinusMissionCount(SpecialMissionType.block);
         }
 
         GameSystem.Instance.IngameBlockCount += _matchCount;
@@ -741,8 +778,9 @@ public class InUICtrl : MonoBehaviour {
         GameSystem.Instance.MatchedBlueBlock += _blueBlockCount;
         GameSystem.Instance.MatchedYellowBlock += _yellowBlockCount;
         GameSystem.Instance.MatchedRedBlock += _redBlockCount;
+        GameSystem.Instance.MatchedGreenBlock += _greenBlockCount;
 
-        if(_matchCount <= 2)
+        if (_matchCount <= 2)
             calcScore = 100;
         else if(_matchCount == 3)
             calcScore = 200;
@@ -792,7 +830,7 @@ public class InUICtrl : MonoBehaviour {
 
 
         calcScore = Mathf.RoundToInt( (pCount * 100) + (pCount * 100 * GetComboBonus()));
-
+        SetMinusMissionCount(SpecialMissionType.score, calcScore);
 
         gameScore += calcScore;
 
@@ -812,6 +850,9 @@ public class InUICtrl : MonoBehaviour {
     /// </summary>
     /// <param name="pScore"></param>
     public void AddScore(int pScore) {
+
+        SetMinusMissionCount(SpecialMissionType.score, pScore);
+
 		gameScore += pScore;
 		lblScore.text = string.Format("{0:n0}", gameScore);
 
@@ -861,6 +902,7 @@ public class InUICtrl : MonoBehaviour {
             InGameCtrl.Instance.MinusComboTime();
 
 
+        SetMinusMissionCount(SpecialMissionType.combo,comboCnt);
 
 
 
@@ -939,6 +981,11 @@ public class InUICtrl : MonoBehaviour {
 		PlayCoinFx (1);
 	}
 
+
+    /// <summary>
+    /// 코인 증가
+    /// </summary>
+    /// <param name="pValue"></param>
 	public void PlayCoinFx(int pValue) {
 
         if (!coinSprite.isPlaying) {
@@ -949,10 +996,15 @@ public class InUICtrl : MonoBehaviour {
 		// Coin Add
 		// 핫타임 체크(50% 증가)
 		if (GameSystem.Instance.IsHotTime) {
-            inGameGotCoin += pValue * 2;
+            inGameGotCoin += pValue * 3;
+
+            SetMinusMissionCount(SpecialMissionType.coin, pValue * 3);
+
 		} else {
-			inGameGotCoin += pValue;
-		}
+			inGameGotCoin += pValue * 2;
+
+            SetMinusMissionCount(SpecialMissionType.coin, pValue * 2);
+        }
 
 
 		lblCoin.text = inGameGotCoin.ToString ();
@@ -1009,14 +1061,22 @@ public class InUICtrl : MonoBehaviour {
     /// </summary>
     public void FillSkillBar(int pBlockID) {
 
-        // blue, yellow, red의 순서 
+        // blue, yellow, red, green의 순서 
 
-        if (GameSystem.Instance.ListEquipNekoID[pBlockID] < 0)
+
+        
+        // 고양이 스킬게이지는 녹색이 포함되지 않느낟. 
+        if (pBlockID <=2 &&  GameSystem.Instance.ListEquipNekoID[pBlockID] < 0)
             return;
 
-
-
-        _arrSkillBars[pBlockID].AddValue(1);
+        // 4번째 블록은 랜덤한 게이지 상승
+        if(pBlockID > 2) {
+            _arrSkillBars[UnityEngine.Random.Range(0,3)].AddValue(1);
+        }
+        else {
+            _arrSkillBars[pBlockID].AddValue(1);
+        }
+        
     }
 
 
@@ -1456,6 +1516,9 @@ public class InUICtrl : MonoBehaviour {
         _textGreatClear.gameObject.SetActive(true);
         _textGreatClear.DOLocalMoveX(0, 0.2f).OnComplete(OnCompleteShowGreatMoveCenter);
         InSoundManager.Instance.PlayVoiceGreat();
+
+
+        SetMinusMissionCount(SpecialMissionType.great);
     }
 
     void OnCompleteShowGreatMoveCenter() {
@@ -1476,6 +1539,8 @@ public class InUICtrl : MonoBehaviour {
         _textPerfectClear.gameObject.SetActive(true);
         _textPerfectClear.DOLocalMoveX(0, 0.2f).OnComplete(OnCompleteShowPefectMoveCenter);
         InSoundManager.Instance.PlayVoiceGreat();
+
+        SetMinusMissionCount(SpecialMissionType.perfect);
     }
 
     void OnCompleteShowPefectMoveCenter() {

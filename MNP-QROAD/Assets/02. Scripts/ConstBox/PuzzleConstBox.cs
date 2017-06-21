@@ -6,6 +6,32 @@ using SimpleJSON;
 
 #region enums
 
+
+public enum StageClearType {
+    bronze,
+    silver,
+    gold
+}
+
+
+public enum SpecialMissionType {
+    cookie, // 쿠키
+    stone, // 바위
+    grill, // 생선
+    block, // 블록
+    specialAttack, // 스페셜 어택
+    move, // 집으로 보내기 
+    score, // 스코어 
+    combo, // 콤보
+    bomb, // 폭탄
+    coin, // 코인
+    perfect, // 퍼펙트
+    great, // 그레이트
+    match3, // 블록 3개
+    match4, // 블록 4개
+    basic
+}
+
 public enum NekoAppearSize {
     Mini,
     Small,
@@ -414,7 +440,7 @@ public static class PuzzleConstBox {
     public static List<Vector3> listCurrentStagePos = new List<Vector3>();
 
     public static List<Vector3> listTheme8RocketStartPos = new List<Vector3>(); // 테마 8, 로켓 발사위치 
-    
+     
 
     public static string spriteClearStage = "stage-clear-wing";
 
@@ -863,31 +889,39 @@ public static class PuzzleConstBox {
         listBlockSprite.Add("bl-blue-2");
         listBlockSprite.Add ("bl-yellow-2");
         listBlockSprite.Add ("bl-red-2");
+        listBlockSprite.Add("bl-green-2");
 
         listShockBlockSprite.Add("bl-blue-3");
         listShockBlockSprite.Add("bl-yellow-3");
         listShockBlockSprite.Add("bl-red-3");
+        listShockBlockSprite.Add("bl-green-3");
 
 
         listMissBlockSprite.Add("bl-blue-4");
         listMissBlockSprite.Add("bl-yellow-4");
         listMissBlockSprite.Add("bl-red-4");
+        listMissBlockSprite.Add("bl-green-4");
 
         #region Block Destroy 
 
         listDestroyBlockClip.Add("ClipBlockDestroyB");
         listDestroyBlockClip.Add("ClipBlockDestroyY");
         listDestroyBlockClip.Add("ClipBlockDestroyR");
+        listDestroyBlockClip.Add("ClipBlockDestroyG");
+
         listDestroyBlockClip2.Add("ClipBlockDestroyB2");
         listDestroyBlockClip2.Add("ClipBlockDestroyY2");
         listDestroyBlockClip2.Add("ClipBlockDestroyR2");
+        listDestroyBlockClip2.Add("ClipBlockDestroyG2");
+
         listDestroyBlockClip3.Add("ClipBlockDestroyB3");
         listDestroyBlockClip3.Add("ClipBlockDestroyY3");
         listDestroyBlockClip3.Add("ClipBlockDestroyR3");
+        listDestroyBlockClip3.Add("ClipBlockDestroyG3");
 
         #endregion
 
-		listItemBlockSprite.Add ("021-boom-black");
+        listItemBlockSprite.Add ("021-boom-black");
         listItemBlockSprite.Add("021-boom-blue");
         listItemBlockSprite.Add ("021-boom-yellow");
 		listItemBlockSprite.Add ("021-boom-red");

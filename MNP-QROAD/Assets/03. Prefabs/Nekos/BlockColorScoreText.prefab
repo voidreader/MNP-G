@@ -16,11 +16,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000013205486764}
-  - 114: {fileID: 114000012783533856}
-  - 114: {fileID: 114000011703117244}
+  - component: {fileID: 4000013205486764}
+  - component: {fileID: 114000012783533856}
+  - component: {fileID: 114000011703117244}
   m_Layer: 5
   m_Name: BlockColorScoreText
   m_TagString: Untagged
@@ -33,10 +33,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000011578203148}
-  - 114: {fileID: 114000013151368306}
+  - component: {fileID: 4000011578203148}
+  - component: {fileID: 114000013151368306}
   m_Layer: 5
   m_Name: xSprite
   m_TagString: Untagged
@@ -53,10 +53,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -50, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000013205486764}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4000013205486764
 Transform:
   m_ObjectHideFlags: 1
@@ -66,11 +66,11 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 23, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000011578203148}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114000011703117244
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -89,6 +89,8 @@ MonoBehaviour:
     type: 2}
   _redFont: {fileID: 114000013130560608, guid: d4283c600dab5cf4784f15c917c9fb9a, type: 2}
   _yellowFont: {fileID: 114000010991588524, guid: 7dac1325e86fac34fb028a088b24a760,
+    type: 2}
+  _greenFont: {fileID: 114246229836984148, guid: f67088e89436f2b4eab101e57a93109a,
     type: 2}
   _spX: {fileID: 114000013151368306}
 --- !u!114 &114000012783533856

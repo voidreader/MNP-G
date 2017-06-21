@@ -76,15 +76,15 @@ MonoBehaviour:
   atlasWidth: 1024
   atlasHeight: 1024
   forceSquareAtlas: 0
-  atlasWastage: 19.463062
+  atlasWastage: 34.19504
   allowMultipleAtlases: 0
   removeDuplicates: 1
   textureParams:
-  - name: 001-top-bg-5
+  - name: 001-top-bg-1
     disableTrimming: 0
     additive: 0
-    scale: {x: 2, y: 2, z: 1}
-    texture: {fileID: 2800000, guid: 9c9361b00ba92e94799b2962caf7e347, type: 3}
+    scale: {x: 2.5, y: 2.5, z: 1}
+    texture: {fileID: 2800000, guid: e810fd58a803d5841874bc2587a81d48, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -93,7 +93,7 @@ MonoBehaviour:
     doubleSidedSprite: 0
     customSpriteGeometry: 0
     geometryIslands: []
-    dice: 1
+    dice: 0
     diceUnitX: 64
     diceUnitY: 64
     diceFilter: 0
@@ -572,11 +572,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: 001-top-bg-2
+  - name: 001-top-bg-7
     disableTrimming: 0
     additive: 0
-    scale: {x: 2, y: 2, z: 1}
-    texture: {fileID: 2800000, guid: a449a727831ae5b40b2c6c8c6aab7574, type: 3}
+    scale: {x: 2.5, y: 2.5, z: 1}
+    texture: {fileID: 2800000, guid: 9d7a4d78239ad014cb5e6b1f889ec2d3, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -585,7 +585,7 @@ MonoBehaviour:
     doubleSidedSprite: 0
     customSpriteGeometry: 0
     geometryIslands: []
-    dice: 1
+    dice: 0
     diceUnitX: 64
     diceUnitY: 64
     diceFilter: 0
@@ -616,8 +616,8 @@ MonoBehaviour:
   - name: 001-top-bg-4
     disableTrimming: 0
     additive: 0
-    scale: {x: 2, y: 2, z: 1}
-    texture: {fileID: 2800000, guid: a0f4203e712bca348bd3399dc01490aa, type: 3}
+    scale: {x: 2.5, y: 2.5, z: 1}
+    texture: {fileID: 2800000, guid: bd178bc6e8b9fc34c919699c2bc17b43, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -626,7 +626,89 @@ MonoBehaviour:
     doubleSidedSprite: 0
     customSpriteGeometry: 0
     geometryIslands: []
-    dice: 1
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 001-top-bg-12
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 2.5, y: 2.5, z: 1}
+    texture: {fileID: 2800000, guid: a11e73d16489d8a45b5cfb29addcca24, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 001-top-bg-2
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 2.5, y: 2.5, z: 1}
+    texture: {fileID: 2800000, guid: 8267bc9d62a9ebd45ad685ca4ff8f0a4, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
     diceUnitX: 64
     diceUnitY: 64
     diceFilter: 0
@@ -657,8 +739,8 @@ MonoBehaviour:
   - name: 001-top-bg-3
     disableTrimming: 0
     additive: 0
-    scale: {x: 2, y: 2, z: 1}
-    texture: {fileID: 2800000, guid: a12223eea2796ae44bb4218cef6848e4, type: 3}
+    scale: {x: 2.5, y: 2.5, z: 1}
+    texture: {fileID: 2800000, guid: 6fd4e016c70f51c4dac790c53fc8b9f5, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -667,89 +749,7 @@ MonoBehaviour:
     doubleSidedSprite: 0
     customSpriteGeometry: 0
     geometryIslands: []
-    dice: 1
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 0
-    extraPadding: 0
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
-    spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
-    regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: 001-top-bg-1
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 2, y: 2, z: 1}
-    texture: {fileID: 2800000, guid: 0014f09fbfe4a3648a1984085598b724, type: 3}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 1
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 0
-    extraPadding: 0
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
-    spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
-    regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: 001-top-bg-6
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 2, y: 2, z: 1}
-    texture: {fileID: 2800000, guid: 33e15cdc61fe3784c8d52d139941d482, type: 3}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 1
+    dice: 0
     diceUnitX: 64
     diceUnitY: 64
     diceFilter: 0
@@ -1190,49 +1190,8 @@ MonoBehaviour:
   - name: 001-top-bg-8
     disableTrimming: 0
     additive: 0
-    scale: {x: 2, y: 2, z: 1}
-    texture: {fileID: 2800000, guid: 2b0585c65c7764945a59c619404d41c6, type: 3}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 1
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 0
-    extraPadding: 0
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
-    spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
-    regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: 001-top-bg-7
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 2, y: 2, z: 1}
-    texture: {fileID: 2800000, guid: ff15b34c0a6a1a24c8d54d7f7762c869, type: 3}
+    scale: {x: 2.5, y: 2.5, z: 1}
+    texture: {fileID: 2800000, guid: d0a4a4ae036cc15468fc8a7030fd91de, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -1272,8 +1231,8 @@ MonoBehaviour:
   - name: 001-top-bg-9
     disableTrimming: 0
     additive: 0
-    scale: {x: 2, y: 2, z: 1}
-    texture: {fileID: 2800000, guid: e63cb65087c087443aa0158ed17b2ed6, type: 3}
+    scale: {x: 2.5, y: 2.5, z: 1}
+    texture: {fileID: 2800000, guid: 33ab24ecb5d4ddb42a6d1872bd8b16c5, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -1313,8 +1272,131 @@ MonoBehaviour:
   - name: 001-top-bg-10
     disableTrimming: 0
     additive: 0
-    scale: {x: 2, y: 2, z: 1}
-    texture: {fileID: 2800000, guid: 4f45e589da63eed4ba3ac4b95b98a5de, type: 3}
+    scale: {x: 2.5, y: 2.5, z: 1}
+    texture: {fileID: 2800000, guid: c99a7cdae5ab74b4c9f4ca13b8f03fe9, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 001-top-bg-11
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 2.5, y: 2.5, z: 1}
+    texture: {fileID: 2800000, guid: 520c69b60ef6f39468548b4d67227088, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 001-top-bg-5
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 2.5, y: 2.5, z: 1}
+    texture: {fileID: 2800000, guid: 56838428e8e1def4da15a215f7e03ca4, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 001-top-bg-6
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 2.5, y: 2.5, z: 1}
+    texture: {fileID: 2800000, guid: 15d436a77cc71d34ab397640c98112ea, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0

@@ -120,7 +120,6 @@ public partial class GameSystem : MonoBehaviour {
     // Block Generate Setting
     private int _height, _width;
     private float _blockStartX, _blockStartY; // 0,0 위치  블록의 최초 생성 위치 
-    private int _blockTypeCount; // 일반 블록의 종류 
     
     
     private float _blockScaleValue; // 생성 블록의 크기 값 
@@ -214,11 +213,13 @@ public partial class GameSystem : MonoBehaviour {
 
     float _userNekoBadgeBonus = 0;
 
-    [SerializeField] int _resultValidBlockSpaceCount = 0;
+    int _resultValidBlockSpaceCount = 0;
+    int _matchedRedBlock = 0; // 매치한 각 블록의 수 
+    int _matchedBlueBlock = 0;
+    int _matchedYellowBlock = 0;
+    int _matchedGreenBlock = 0;
 
-    [SerializeField] int _matchedRedBlock = 0; // 매치한 각 블록의 수 
-    [SerializeField] int _matchedBlueBlock = 0;
-    [SerializeField] int _matchedYellowBlock = 0;
+
     [SerializeField] int _ingameSpecialAttackCount = 0; // 인게임 스페셜 어택 사용 횟수
     [SerializeField] int _ingameBombCount = 0; // 인게임 폭탄 사용 횟수 
     [SerializeField] int _ingameBlueBombCount = 0;
@@ -590,6 +591,8 @@ public partial class GameSystem : MonoBehaviour {
         _matchedBlueBlock = 0;
         _matchedRedBlock = 0;
         _matchedYellowBlock = 0;
+        MatchedGreenBlock = 0;
+
         _ingameBombCount = 0;
         _ingameSpecialAttackCount = 0;
         _ingameBombCount = 0;
@@ -2386,7 +2389,6 @@ public partial class GameSystem : MonoBehaviour {
 		_width = 9; // 가로 컬럼 
 
 		
-		_blockTypeCount = 3;
 
 		_blockStartX = -3.1f;
 		_blockStartY = 1.47f;
@@ -3952,11 +3954,6 @@ public partial class GameSystem : MonoBehaviour {
 
 	
 
-	public int BlockTypeCount {
-		get {
-			return this._blockTypeCount;
-		}
-	}
 
 	public Vector3 BaseScale {
 		get {
@@ -5811,6 +5808,16 @@ public partial class GameSystem : MonoBehaviour {
 
         set {
             _urlOnelink = value;
+        }
+    }
+
+    public int MatchedGreenBlock {
+        get {
+            return _matchedGreenBlock;
+        }
+
+        set {
+            _matchedGreenBlock = value;
         }
     }
 

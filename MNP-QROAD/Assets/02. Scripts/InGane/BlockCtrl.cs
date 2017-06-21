@@ -156,9 +156,8 @@ public class BlockCtrl : MonoBehaviour {
     /// </summary>
     /// <returns></returns>
     private int GetRandomBlockID() {
-        return Random.Range(0, 3);
-
-    }
+        return Random.Range(0, InGameCtrl.Instance.ColorCount);
+   }
 
     /// <summary>
     /// 초기화 로직 SetState에서 사용
@@ -516,7 +515,11 @@ public class BlockCtrl : MonoBehaviour {
             // 젓가락 등장!?
             PoolManager.Pools[PuzzleConstBox.objectPool].Spawn("GrillStick", Vector3.zero, Quaternion.identity).GetComponent<GrillStickCtrl>().SetGrillStick(this.transform.localPosition);
 
+
             InSoundManager.Instance.PlayFishStick();
+
+            // UI 설정
+            InUICtrl.Instance.SetMinusMissionCount(SpecialMissionType.grill);
             
             // invoke 시킨다. 
             Invoke("InvokedExitGrill", 0.5f);
@@ -549,6 +552,8 @@ public class BlockCtrl : MonoBehaviour {
         else if(currentState == BlockState.Stone) {
             SetState(BlockState.None);
 
+            // UI 설정 
+            InUICtrl.Instance.SetMinusMissionCount(SpecialMissionType.stone);
         }
 
         InSoundManager.Instance.PlayIceBlockBreak();
@@ -709,6 +714,8 @@ public class BlockCtrl : MonoBehaviour {
 
         // 빙고 폭탄 블록 사용 횟수
         GameSystem.Instance.IngameBombCount++;
+
+        InUICtrl.Instance.SetMinusMissionCount(SpecialMissionType.bomb);
         
         switch(itemID) {
 
@@ -1071,6 +1078,9 @@ public class BlockCtrl : MonoBehaviour {
             return;
 
         IsCookie = false;
+
+        // UI 설정 
+        InUICtrl.Instance.SetMinusMissionCount(SpecialMissionType.cookie);
 
         _spUpperTile.Play(PuzzleConstBox.clipCookieBreak);
 

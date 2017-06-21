@@ -177,6 +177,9 @@ public partial class InGameCtrl : MonoBehaviour {
         // 맵 형태 체크 
         _stageMapType = GameSystem.Instance.StageDetailJSON[GameSystem.Instance.PlayStage - 1]["map"];
 
+        // 블록종류 Count
+        ColorCount = GameSystem.Instance.StageDetailJSON[GameSystem.Instance.PlayStage - 1]["colorcount"].AsInt;
+
 
     }
 
@@ -587,7 +590,7 @@ public partial class InGameCtrl : MonoBehaviour {
             // listEmptyBlock에서 임의의 공간을 골라서 Idle 상태로 변경(listEmptyBlock은 Block Ctrl에서 제거
             emptyIndx = Random.Range(0, listEmptyBlock.Count);
 
-            listEmptyBlock[emptyIndx].SetBlockType(Random.Range(0, GameSystem.Instance.BlockTypeCount)); // 랜덤 배치 
+            listEmptyBlock[emptyIndx].SetBlockType(Random.Range(0, ColorCount)); // 랜덤 배치 
             //listEmptyBlock[emptyIndx].JumpBlock();
             listEmptyBlock[emptyIndx].SetState(BlockState.Idle);
 
@@ -1612,7 +1615,7 @@ public partial class InGameCtrl : MonoBehaviour {
             // listEmptyBlock에서 임의의 공간을 골라서 Idle 상태로 변경(listEmptyBlock은 Block Ctrl에서 제거
             emptyIndx = Random.Range(0, listEmptyBlock.Count);
 
-            listEmptyBlock[emptyIndx].SetBlockType(Random.Range(0, GameSystem.Instance.BlockTypeCount)); // 랜덤 배치 
+            listEmptyBlock[emptyIndx].SetBlockType(Random.Range(0, ColorCount)); // 랜덤 배치 
             listEmptyBlock[emptyIndx].SetState(BlockState.Idle);
         }
 
@@ -1663,7 +1666,7 @@ public partial class InGameCtrl : MonoBehaviour {
             // listEmptyBlock에서 임의의 공간을 골라서 Idle 상태로 변경(listEmptyBlock은 Block Ctrl에서 제거
             emptyIndx = Random.Range(0, listEmptyBlock.Count);
 
-            listEmptyBlock[emptyIndx].SetBlockType(Random.Range(0, GameSystem.Instance.BlockTypeCount)); // 랜덤 배치 
+            listEmptyBlock[emptyIndx].SetBlockType(Random.Range(0, ColorCount)); // 랜덤 배치 
             listEmptyBlock[emptyIndx].SetState(BlockState.Idle);
         }
 
@@ -2805,6 +2808,16 @@ public partial class InGameCtrl : MonoBehaviour {
 
         set {
             _boostFirework = value;
+        }
+    }
+
+    public int ColorCount {
+        get {
+            return _colorCount;
+        }
+
+        set {
+            _colorCount = value;
         }
     }
 
