@@ -45,6 +45,7 @@ public class InUICtrl : MonoBehaviour {
 
 
     // PlayerNeko (MyNeko) 게이지 
+    [SerializeField] GameObject _objSkillBars;
     [SerializeField] SkillBarCtrl[] _arrSkillBars; // Editor에서 세팅 
 
 
@@ -1016,6 +1017,12 @@ public class InUICtrl : MonoBehaviour {
     #endregion
 
     #region 플레이어 장착 네코 게이지(Bar) 
+
+
+    public void SetInactiveSkillBars() {
+        _objSkillBars.SetActive(false);
+    }
+
     /// <summary>
     ///  플레이어 캐릭터 스킬 게이지 초기화 
     /// </summary>
@@ -1025,6 +1032,8 @@ public class InUICtrl : MonoBehaviour {
         int nekograde;
         int nekoID;
         float nekoPower;
+
+        _objSkillBars.SetActive(true);
 
         GameSystem.Instance.ListNekoDamageInfo = new List<NekoDamageInfo>();
         NekoDamageInfo nekoDamage;
@@ -1062,7 +1071,8 @@ public class InUICtrl : MonoBehaviour {
     public void FillSkillBar(int pBlockID) {
 
         // blue, yellow, red, green의 순서 
-
+        if (!_objSkillBars.activeSelf)
+            return;
 
         
         // 고양이 스킬게이지는 녹색이 포함되지 않느낟. 

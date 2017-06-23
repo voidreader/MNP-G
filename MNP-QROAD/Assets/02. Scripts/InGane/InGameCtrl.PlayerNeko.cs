@@ -17,17 +17,30 @@ public partial class InGameCtrl : MonoBehaviour {
 	private int[] tripleNekoID = new int[3];
 	private MyNekoCtrl spawnedMyNeko = null;
 
+    bool _isActiveSkillBars = false;
 
+    public bool IsActiveSkillBars {
+        get {
+            return _isActiveSkillBars;
+        }
+
+        set {
+            _isActiveSkillBars = value;
+        }
+    }
 
     /// <summary>
     /// 플레이어 네코 스킬 게이지 초기화
     /// </summary>
-	private void InitPlayerNekoBars() {
-
+    private void InitPlayerNekoBars() {
+        IsActiveSkillBars = true;
         InUICtrl.Instance.InitSkillBars();
-
     }
 
+    void SetInactiveNekoBars() {
+        IsActiveSkillBars = false;
+        InUICtrl.Instance.SetInactiveSkillBars();
+    }
 
 
 

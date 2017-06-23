@@ -2089,13 +2089,18 @@ public partial class GameSystem : MonoBehaviour {
 				
 			}
 
+            // 빙고 젬 사용 퀘스트 
+            GameSystem.Instance.CheckLobbyBingoQuest(51);
 
             HeartShopCtrl heartShop = FindObjectOfType(typeof(HeartShopCtrl)) as HeartShopCtrl;
+
+            if (heartShop == null)
+                return; 
+
             heartShop.UpdateHearts();
 
 
-            // 빙고 젬 사용 퀘스트 
-            GameSystem.Instance.CheckLobbyBingoQuest(51);
+            
         }
 		
 	}

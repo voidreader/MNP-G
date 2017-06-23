@@ -94,6 +94,12 @@ public class EnemyNekoManager : MonoBehaviour {
     }
 	
 
+    public void SetInactiveManager() {
+        Rope.SetActive(false);
+        BossNeko.gameObject.SetActive(false);
+        bossHPBar.gameObject.SetActive(false);
+    }
+
     /// <summary>
     /// 스테이지 네코 설정 
     /// </summary>

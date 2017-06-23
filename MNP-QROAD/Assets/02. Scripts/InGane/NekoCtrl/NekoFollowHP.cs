@@ -17,6 +17,7 @@ public class NekoFollowHP : MonoBehaviour {
 	public UISlider nekoHPBar = null;
 
     bool _isBossNeko = false;
+    bool _isTopPlayerCat = false;
 
 	/// <summary>
 	/// Inits the neko follow H.
@@ -34,6 +35,23 @@ public class NekoFollowHP : MonoBehaviour {
 		isInit = true;
 	}
 
+    /// <summary>
+    /// 고양이를 따라다니는 상단 바 (스킬바)
+    /// </summary>
+    /// <param name="neko"></param>
+    public void InitTopPlayerCatFollowBar(GameObject neko) {
+        nekoTarget = neko;
+        worldCam = NGUITools.FindCameraForLayer(nekoTarget.layer);
+        guiCam = NGUITools.FindCameraForLayer(gameObject.layer);
+
+        
+
+        gameObject.SetActive(true);
+
+        isInit = true;
+        _isTopPlayerCat = true;
+    }
+
 	/// <summary>
 	/// Neko HP 값 조정 
 	/// </summary>
@@ -45,10 +63,37 @@ public class NekoFollowHP : MonoBehaviour {
 		nekoHPBar.value = currentHP / maxHP;
 	}
 
+    public void SetNekoSkillBar(float pMax, float pCurrent) {
+        maxHP = pMax;
+        currentHP = pCurrent;
+        nekoHPBar.value = currentHP / maxHP;
+    }
+
+
+    void FollowTopPlayerCat() {
+        targetPos = nekoTarget.transform.position;
+
+        targetPos.x = targetPos.x - 0.5f;
+        targetPos.y = targetPos.y + 1f;
+
+        //타겟의 포지션을 월드좌표에서 ViewPort좌표로 변환하고 다시 ViewPort좌표를 NGUI월드좌표로 변환합니다.
+        //pos = guiCam.ViewportToWorldPoint (worldCam.WorldToViewportPoint (nekoTarget.transform.position));
+        pos = guiCam.ViewportToWorldPoint(worldCam.WorldToViewportPoint(targetPos));
+        pos.z = 0;
+
+        transform.position = pos;
+    }
+
 	// Update is called once per frame
 	void Update () {
 		if (!isInit)
 			return;
+
+        if(_isTopPlayerCat ) {
+
+            FollowTopPlayerCat();
+            return;
+        }
 		
 		targetPos = nekoTarget.transform.position;
 

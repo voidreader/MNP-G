@@ -46,6 +46,8 @@ public class InSoundManager : MonoBehaviour {
 
     [SerializeField] AudioClip _clipInGameStageClear;
 
+    [SerializeField] AudioClip _clipAbsorbFruit;
+
 
     [SerializeField]
     AudioClip _clipStageFail;
@@ -360,6 +362,11 @@ public class InSoundManager : MonoBehaviour {
 
     public void PlayInGameStageClear() {
         srcEffectClips.PlayOneShot(_clipInGameStageClear);
+    }
+
+    public void PlayAbsorbFruit() {
+        srcNekoSmall.PlayOneShot(_clipAbsorbFruit);
+        
     }
 
 

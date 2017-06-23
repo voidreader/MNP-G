@@ -76,10 +76,12 @@ public partial class InGameCtrl : MonoBehaviour {
     [SerializeField] int _nekoTotalPower = 0; // 네코 파워 합계 
     [SerializeField] int _bombAppearBlockCount = 80;
     [SerializeField] int _skillInvokeBlockCount = 60;
+    [SerializeField] float _skillInvokeValue = 1;
 
 
     #region 맵 Type 세팅 
 
+    JSONNode _stageNode;
     [SerializeField] string _stageMapType = "standard";
     [SerializeField] int _colorCount = 3;
 
@@ -186,28 +188,24 @@ public partial class InGameCtrl : MonoBehaviour {
     // Use this for initialization
     void Start() {
 
-
+        // 필드 설정 
         InitField();
 
-        // 미션 정보 
+        // 미션 정보 저장 및 팝업 
         CheckStageMission();
 
         // 장착 부스트 체크 
         CheckEquipItem();
 
-        // 네코 패시브 
+        // 네코 패시브 체크 
         CheckNekoPassivePlus();
-
-        // Equip Neko 처리 
-        InitPlayerNekoBars();
-
 
         // 블록 파워 설정
         InitBlockPower();
 
+        //
+        InitTopCatObject();
 
-        // Enemy Neko 소환 
-        EnemyNekoManager.Instance.InitStageRescueNeko();
 
         // 아이템 블록 준비 
         InUICtrl.Instance.SetItemHead();
@@ -229,6 +227,34 @@ public partial class InGameCtrl : MonoBehaviour {
 
 
     }
+
+    /// <summary>
+    ///  상단의 고양이 개체들에 대한 초기화 
+    /// </summary>
+    void InitTopCatObject() {
+
+        // 보스 및 구출 스테이지 
+        if(IsBossStage || IsRescueStage) {
+            // Equip Neko 처리 
+            InitPlayerNekoBars();
+
+            // Enemy Neko 소환 
+            EnemyNekoManager.Instance.InitStageRescueNeko();
+
+            // PlayerCatManagerCtrl 은 사용하지 않음 
+            PlayerCatManagerCtrl.Instance.SetInactiveManager();
+        }
+        else {
+            SetInactiveNekoBars();
+
+            PlayerCatManagerCtrl.Instance.InitPlayerCats();
+
+            EnemyNekoManager.Instance.SetInactiveManager();
+        }
+
+
+    }
+
 
 
     void OnEnable() {
@@ -2104,6 +2130,52 @@ public partial class InGameCtrl : MonoBehaviour {
     /// 스테이지 미션 체크
     /// </summary>
     private void CheckStageMission() {
+
+        // JSON NODE 가져오기
+        for (int i = 0; i < GameSystem.Instance.StageDetailJSON.Count; i++) {
+
+            if (GameSystem.Instance.StageDetailJSON[i]["stageid"].AsInt == GameSystem.Instance.PlayStage) {
+                _stageNode = GameSystem.Instance.StageDetailJSON[i];
+                break;
+            }
+        }
+
+
+        #region 특수 미션 체크 
+        // 쿠키
+        if (_stageNode["questid1"].AsInt == 12 || _stageNode["questid2"].AsInt == 12 || _stageNode["questid3"].AsInt == 12 || _stageNode["questid4"].AsInt == 12) {
+            IsCookieMission = true;
+        }
+
+        // 바위
+        if (_stageNode["questid1"].AsInt == 15 || _stageNode["questid2"].AsInt == 15 || _stageNode["questid3"].AsInt == 15 || _stageNode["questid4"].AsInt == 15) {
+            IsStoneMission = true;
+        }
+
+        // 보스
+        if (_stageNode["questid1"].AsInt == 11 || _stageNode["questid2"].AsInt == 11 || _stageNode["questid3"].AsInt == 11 || _stageNode["questid4"].AsInt == 11) {
+            IsBossStage = true;
+        }
+
+        // 구출
+        if (_stageNode["questid1"].AsInt == 10 || _stageNode["questid2"].AsInt == 10 || _stageNode["questid3"].AsInt == 10 || _stageNode["questid4"].AsInt == 10) {
+            IsRescueStage = true;
+        }
+
+        // 생선튀김
+        if (_stageNode["questid1"].AsInt == 22 || _stageNode["questid2"].AsInt == 22 || _stageNode["questid3"].AsInt == 22 || _stageNode["questid4"].AsInt == 22) {
+            IsFishMission = true;
+        }
+
+        // 이동미션
+        if (_stageNode["questid1"].AsInt == 23 || _stageNode["questid2"].AsInt == 23 || _stageNode["questid3"].AsInt == 23 || _stageNode["questid4"].AsInt == 23) {
+            Instance.IsMoveMission = true;
+        }
+
+        #endregion
+
+
+        // UI 팝업창 오픈 
         InUICtrl.Instance.ShowStageMission();
     }
 
@@ -2818,6 +2890,16 @@ public partial class InGameCtrl : MonoBehaviour {
 
         set {
             _colorCount = value;
+        }
+    }
+
+    public float SkillInvokeValue {
+        get {
+            return _skillInvokeValue;
+        }
+
+        set {
+            _skillInvokeValue = value;
         }
     }
 

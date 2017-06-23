@@ -546,6 +546,8 @@ public static class PuzzleConstBox {
     public static readonly string tagFireworkBolt = "FireworkBolt";
     public static readonly string tagEnemyNeko = "EnemyNeko";
     public static readonly string tagCloneEnemyNeko = "CloneEnemyNeko";
+    public static readonly string tagInGamePlayerTopCat = "TopPlayerCat";
+
 
 
     // Neko Skill
