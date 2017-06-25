@@ -15,6 +15,9 @@ public class MiniFootCtrl : MonoBehaviour {
     bool _isBig = false;
     readonly Vector3 BIG_SCALE = new Vector3(2, 2, 2);
 
+    bool _isAbsorbFruit = false;
+    int _blockID = -1;
+
     public bool IsBig {
         get {
             return _isBig;
@@ -29,7 +32,13 @@ public class MiniFootCtrl : MonoBehaviour {
         if (!isTargetSet)
             return;
 
-        targetPos = EnemyNekoManager.Instance.GetCurrentNekoPosition();
+
+        if (_isAbsorbFruit) {
+            targetPos = PlayerCatManagerCtrl.Instance.GetTargetCatPos(_blockID);
+        }
+        else {
+            targetPos = EnemyNekoManager.Instance.GetCurrentNekoPosition();
+        }
 
         disVec = (targetPos - transform.position).normalized;
         //transform.position += disVec * Time.deltaTime * Random.Range (PuzzleConstBox.minFootSpeed, PuzzleConstBox.maxFootSpeed);
@@ -70,6 +79,29 @@ public class MiniFootCtrl : MonoBehaviour {
         this.transform.DOLocalRotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Restart);
     }
 
+
+
+    /// <summary>
+    /// 흡수용 과일 파편 
+    /// </summary>
+    /// <param name="pBlockID"></param>
+    public void SetTargetPos(int pBlockID) {
+        IsBig = true;
+
+        _isAbsorbFruit = true;
+        _blockID = pBlockID;
+
+        spFootFrag.SetSprite(PuzzleConstBox.listFruitClip[GameSystem.Instance.UserPowerLevel - 1]);
+        spFootFrag.scale = GameSystem.Instance.BaseScale;
+        isTargetSet = true;
+
+        // 빙글빙글 
+        this.transform.DOKill();
+        this.transform.DOLocalRotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Restart);
+    }
+
+
+
     private void OnCompleteMove() {
         //PoolManager.Pools [PuzzleConstBox.objectPool].Despawn (this.transform);
     }
@@ -83,8 +115,29 @@ public class MiniFootCtrl : MonoBehaviour {
     void OnTriggerEnter(Collider pCol) {
 
 
-        if (pCol.tag != PuzzleConstBox.tagEnemyNeko && pCol.tag != PuzzleConstBox.tagCloneEnemyNeko)
+        if (!pCol.CompareTag(PuzzleConstBox.tagEnemyNeko) && !pCol.CompareTag(PuzzleConstBox.tagCloneEnemyNeko)
+            && !pCol.CompareTag(PuzzleConstBox.tagInGamePlayerTopCat))
             return;
+
+
+        // 상단 플레이어 고양이와 충돌한 경우 
+        if (pCol.CompareTag(PuzzleConstBox.tagInGamePlayerTopCat)) {
+
+            if (PoolManager.Pools[PuzzleConstBox.objectPool].IsSpawned(this.transform)) {
+
+                PoolManager.Pools[PuzzleConstBox.objectPool].Despawn(this.transform);
+
+                InSoundManager.Instance.PlayAbsorbFruit(); // 사운드 플레이 
+
+                // 효과
+                PoolManager.Pools[PuzzleConstBox.objectPool].Spawn(PuzzleConstBox.prefabDust, this.transform.position, Quaternion.identity).GetComponent<DustCtrl>().PlayDustWhite();
+
+                //SpawnFragmentHit();
+            }
+
+            return;
+        }
+
 
         // 클리어 이후에 발생하는 과일 제거 용도 
         if (pCol.tag == PuzzleConstBox.tagCloneEnemyNeko) {
@@ -118,6 +171,8 @@ public class MiniFootCtrl : MonoBehaviour {
 
     void OnDespawned() {
         isTargetSet = false;
+
+        this.transform.DOKill();
     }
 
 }

@@ -16,7 +16,10 @@ public class PopUpgradeCtrl : MonoBehaviour {
     [SerializeField] UISprite _spriteLv1NextFruit;
     [SerializeField] UILabel _lblLv1Level;
     [SerializeField] UILabel _lblLv1Power;
+    [SerializeField] UILabel _lblLv1Absorb;
     [SerializeField] UILabel _lblLv1PriceCoin;
+
+    
 
     
 
@@ -31,6 +34,8 @@ public class PopUpgradeCtrl : MonoBehaviour {
     [SerializeField] UISprite _spriteLv5Next5Fruit;
     [SerializeField] UILabel _lblLv5Level;
     [SerializeField] UILabel _lblLv5Power;
+    [SerializeField] UILabel _lblLv5Absorb;
+
     [SerializeField] UILabel _lblLv5PriceCoin;
     [SerializeField] UILabel _lblLv5PriceGem;
 
@@ -53,6 +58,9 @@ public class PopUpgradeCtrl : MonoBehaviour {
     int _upgradePrice = 0;
     string _upgradePriceType = string.Empty;
 
+
+    int _skillPowerValue;
+    int _skillAbsorbValue;
 
     #region Properties 
     public int UpgradePrice {
@@ -85,7 +93,8 @@ public class PopUpgradeCtrl : MonoBehaviour {
             _spriteLv1NextFruit.spriteName = PuzzleConstBox.listFruitClip[_currentPowerLevel]; // 다음 레벨 Sprite 
             _lblLv1PriceCoin.text = string.Format("{0:n0}", GetUpgradeCost(_currentPowerLevel, false));
             _lblLv1Level.text = "[ffdd00]Lv.[-]" + (_currentPowerLevel + 1).ToString();
-            _lblLv1Power.text = "[ffdd00]Power.[-]" + ((_currentPowerLevel + 1) * 5).ToString();
+            _lblLv1Power.text = "[ffdd00]Power: [-]" + ((_currentPowerLevel + 1) * 3).ToString();
+            _lblLv1Absorb.text = "[ffdd00]" + GameSystem.Instance.GetLocalizeText(MNP_Localize.rowIds.L3121) + ": [-]+" + ((_currentPowerLevel + 1) * 2).ToString() + "%";
         }
 
         if (_currentPowerLevel + 5 <= MAX_LEVEL) {
@@ -101,7 +110,8 @@ public class PopUpgradeCtrl : MonoBehaviour {
             _lblLv5PriceCoin.text = string.Format("{0:n0}", GetUpgradeCost(_currentPowerLevel, true));
             _lblLv5PriceGem.text = string.Format("{0:n0}", GetUpgradeGemCost(_currentPowerLevel));
             _lblLv5Level.text = "[ffdd00]Lv.[-]" + (_currentPowerLevel + 5).ToString();
-            _lblLv5Power.text = "[ffdd00]Power.[-]" + ((_currentPowerLevel + 5) * 5).ToString();
+            _lblLv5Power.text = "[ffdd00]Power: [-]" + ((_currentPowerLevel + 5) * 3).ToString();
+            _lblLv5Absorb.text = "[ffdd00]" + GameSystem.Instance.GetLocalizeText(MNP_Localize.rowIds.L3121) + ": [-]+" + ((_currentPowerLevel + 5) * 2).ToString() + "%";
         }
 
 
@@ -112,7 +122,8 @@ public class PopUpgradeCtrl : MonoBehaviour {
             _lv5Group.SetActive(false);
 
             _lblLv5Level.text = "[ffdd00]Lv.[-]" + (_currentPowerLevel).ToString();
-            _lblLv5Power.text = "[ffdd00]Power.[-]" + ((_currentPowerLevel) * 5).ToString();
+            _lblLv5Power.text = "[ffdd00]Power: [-]" + ((_currentPowerLevel) * 3).ToString();
+            _lblLv5Absorb.text = "[ffdd00]" + GameSystem.Instance.GetLocalizeText(MNP_Localize.rowIds.L3121) + ": [-]+" + ((_currentPowerLevel) * 2).ToString() + "%";
             _lblLv10MaxComment.gameObject.SetActive(true);
 
 
@@ -121,7 +132,8 @@ public class PopUpgradeCtrl : MonoBehaviour {
         if(_currentPowerLevel + 1 > MAX_LEVEL) {
             _lv1Group.SetActive(false);
             _lblLv1Level.text = "[ffdd00]Lv.[-]" + (_currentPowerLevel).ToString();
-            _lblLv1Power.text = "[ffdd00]Power.[-]" + ((_currentPowerLevel) * 5).ToString();
+            _lblLv1Power.text = "[ffdd00]Power: [-]" + ((_currentPowerLevel) * 3).ToString();
+            _lblLv1Absorb.text = "[ffdd00]" + GameSystem.Instance.GetLocalizeText(MNP_Localize.rowIds.L3121) + ": [-]+" + ((_currentPowerLevel) * 2).ToString() + "%";
 
             _lblLv1MaxComment.gameObject.SetActive(true);
         }

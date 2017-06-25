@@ -65,7 +65,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1159463277499380}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20, y: -15, z: 0}
+  m_LocalPosition: {x: 20, y: -22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4358697544396440}
@@ -156,6 +156,7 @@ MonoBehaviour:
   _redFont: {fileID: 114000010493707234, guid: 4a6e136d350620d48aed41ae57075678, type: 2}
   _greenFont: {fileID: 114246229836984148, guid: f67088e89436f2b4eab101e57a93109a,
     type: 2}
+  _clearEffect: {fileID: 0}
   _missionType: 0
 --- !u!114 &114682031803492364
 MonoBehaviour:
@@ -209,5 +210,5 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 114000013673586914, guid: a71b97087aa1e534bb8fcf22adefafa9, type: 2}
-  mSpriteName: fish-c-clear
+  mSpriteName: ico-block
   mFillCenter: 1

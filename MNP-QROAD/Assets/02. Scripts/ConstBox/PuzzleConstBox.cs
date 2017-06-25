@@ -7,6 +7,11 @@ using SimpleJSON;
 #region enums
 
 
+public enum NGUIEffectType {
+    InGameWhiteLight,
+    InGameColorfulLight
+}
+
 public enum StageClearType {
     bronze,
     silver,
