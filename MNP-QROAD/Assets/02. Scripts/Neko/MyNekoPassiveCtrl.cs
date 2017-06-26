@@ -33,6 +33,12 @@ public class MyNekoPassiveCtrl : MonoBehaviour {
     private bool _isRedBombDrop = false;
     private bool _isBlackBombDrop = false;
 
+    // 추가 액티브 2017.06
+    bool _isRemoveSpecialBlock = false; // 스페셜 블록 제거 
+    bool _isAccelBombCreate = false; // 폭탄 생성 가속화 
+    bool _isChangeBoardBlockColor = false; // 블록 색상 동일하게 변경 
+    bool _isRemoveSomeLine = false; // 라인 제거 
+
 
 
     // 실제 증가 수치 
@@ -52,7 +58,12 @@ public class MyNekoPassiveCtrl : MonoBehaviour {
     [SerializeField] private int _redBombDropCount = 0;
     [SerializeField] private int _blackBombDropCount = 0;
 
-    
+    [SerializeField] int _removeSpecialBlockCount = 0;
+    [SerializeField] int _accelBombCreate = 0;
+    [SerializeField] int _removeSomeLine = 0;
+
+
+
     private void InitPassiveData() {
         IsScorePlus = false;
         IsCoinPlus = false;
@@ -68,6 +79,11 @@ public class MyNekoPassiveCtrl : MonoBehaviour {
         IsRedBombDrop = false;
         IsBlackBombDrop = false;
 
+        IsRemoveSomeLine = false;
+        IsChangeBoardBlockColor = false;
+        IsAccelBombCreate = false;
+        IsRemoveSpecialBlock = false;
+
         ScorePlus = 0;
         CoinPlus = 0;
         GameTimePlus = 0;
@@ -81,6 +97,10 @@ public class MyNekoPassiveCtrl : MonoBehaviour {
         BlueBombDropCount = 0;
         RedBombDropCount = 0;
         BlackBombDropCount = 0;
+
+        RemoveSpecialBlockCount = 0;
+        AccelBombCreate = 0;
+        RemoveSomeLine = 0;
     }
 
     public void SetNekoPassive(int pNekoID) {
@@ -181,6 +201,26 @@ public class MyNekoPassiveCtrl : MonoBehaviour {
             case 12: // 시간 추가 액티브 
                 IsTimePlusActive = true;
                 TimeActivePlus = pValue;
+                break;
+
+            case 13: // 특수 블록을 n개 제거
+                IsRemoveSpecialBlock = true;
+                RemoveSpecialBlockCount = (int)pValue;
+                break;
+
+            case 14: // 폭탄 생성을 가속화 
+                IsAccelBombCreate = true;
+                AccelBombCreate = (int)pValue;
+                break;
+
+            case 15: // 블록의 색상을 동일하게 변경 
+                IsChangeBoardBlockColor = true;
+
+                break;
+
+            case 16: // 임의의 n개의 라인을 제거
+                IsRemoveSomeLine = true;
+                RemoveSomeLine = (int)pValue;
                 break;
                 
 
@@ -433,6 +473,76 @@ public class MyNekoPassiveCtrl : MonoBehaviour {
 
         set {
             _startBombCount = value;
+        }
+    }
+
+    public bool IsRemoveSpecialBlock {
+        get {
+            return _isRemoveSpecialBlock;
+        }
+
+        set {
+            _isRemoveSpecialBlock = value;
+        }
+    }
+
+    public bool IsAccelBombCreate {
+        get {
+            return _isAccelBombCreate;
+        }
+
+        set {
+            _isAccelBombCreate = value;
+        }
+    }
+
+    public bool IsChangeBoardBlockColor {
+        get {
+            return _isChangeBoardBlockColor;
+        }
+
+        set {
+            _isChangeBoardBlockColor = value;
+        }
+    }
+
+    public bool IsRemoveSomeLine {
+        get {
+            return _isRemoveSomeLine;
+        }
+
+        set {
+            _isRemoveSomeLine = value;
+        }
+    }
+
+    public int RemoveSpecialBlockCount {
+        get {
+            return _removeSpecialBlockCount;
+        }
+
+        set {
+            _removeSpecialBlockCount = value;
+        }
+    }
+
+    public int AccelBombCreate {
+        get {
+            return _accelBombCreate;
+        }
+
+        set {
+            _accelBombCreate = value;
+        }
+    }
+
+    public int RemoveSomeLine {
+        get {
+            return _removeSomeLine;
+        }
+
+        set {
+            _removeSomeLine = value;
         }
     }
 

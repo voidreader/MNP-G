@@ -4311,7 +4311,9 @@ public partial class GameSystem : MonoBehaviour {
             ReadyGroupCtrl.Instance.OnStartingGame = true;
         }
 
-        BlockAttackPower = _userPowerLevel * 5; // 블록파워 
+        BlockAttackPower = _userPowerLevel * 3; // 블록파워 
+        FruitAbsorbValue = 1 + (_userPowerLevel - 1) * 0.03f;
+        FruitAbsorbPercent = (UserPowerLevel - 1) * 3;
         IngameDiamondPlay = pNode[_jData]["diamondplay"].AsBool; // 다이아 레벨 플레이 여부 
 	
 		

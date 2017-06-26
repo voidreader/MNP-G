@@ -47,7 +47,8 @@ public class InSoundManager : MonoBehaviour {
     [SerializeField] AudioClip _clipInGameStageClear;
 
     [SerializeField] AudioClip _clipAbsorbFruit;
-
+    [SerializeField] AudioClip _clipSpecialSkill;
+    [SerializeField] AudioClip _clipSpecialSkillJump;
 
     [SerializeField]
     AudioClip _clipStageFail;
@@ -411,6 +412,11 @@ public class InSoundManager : MonoBehaviour {
 
     }
 
+
+    public void PlaySpecialSkill() {
+        srcVoiceEffect.PlayOneShot(_clipSpecialSkill);
+        srcEffectClips.PlayOneShot(_clipSpecialSkillJump);
+    }
     #endregion
 
 }

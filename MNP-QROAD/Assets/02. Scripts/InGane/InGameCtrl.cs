@@ -76,7 +76,7 @@ public partial class InGameCtrl : MonoBehaviour {
     [SerializeField] int _nekoTotalPower = 0; // 네코 파워 합계 
     [SerializeField] int _bombAppearBlockCount = 80;
     [SerializeField] int _skillInvokeBlockCount = 60;
-    [SerializeField] float _skillInvokeValue = 1;
+
 
 
     #region 맵 Type 세팅 
@@ -200,9 +200,6 @@ public partial class InGameCtrl : MonoBehaviour {
         // 네코 패시브 체크 
         CheckNekoPassivePlus();
 
-        // 블록 파워 설정
-        InitBlockPower();
-
         //
         InitTopCatObject();
 
@@ -303,15 +300,20 @@ public partial class InGameCtrl : MonoBehaviour {
         } else if (Input.GetKeyDown(KeyCode.N)) {
 
         }
-        /*
+        
         else if(Input.GetKeyDown(KeyCode.Alpha1)) {
-			InUICtrl.Instance.FullMyNekoBar(0);
+
+            if(!IsBossStage && !IsRescueStage)
+                PlayerCatManagerCtrl.Instance.ListPhysicsPlayerCats[0].FillSkillBar(100);
+
 		} else if(Input.GetKeyDown(KeyCode.Alpha2)) {
-			InUICtrl.Instance.FullMyNekoBar(1);
-		} else if(Input.GetKeyDown(KeyCode.Alpha3)) {
-			InUICtrl.Instance.FullMyNekoBar(2);
-		}
-        */
+            if (!IsBossStage && !IsRescueStage)
+                PlayerCatManagerCtrl.Instance.ListPhysicsPlayerCats[1].FillSkillBar(100);
+        } else if(Input.GetKeyDown(KeyCode.Alpha3)) {
+            if (!IsBossStage && !IsRescueStage)
+                PlayerCatManagerCtrl.Instance.ListPhysicsPlayerCats[2].FillSkillBar(100);
+        }
+        
 
     }
 
@@ -338,15 +340,6 @@ public partial class InGameCtrl : MonoBehaviour {
         */
     }
 
-    /// <summary>
-    /// 블록파워 초기화
-    /// 기본 블록파워 10 + 패시브 레벨별 파워
-    /// </summary>
-    private void InitBlockPower() {
-
-        Debug.Log("★★★ InitBlockPower BlockAttackPower ::" + GameSystem.Instance.BlockAttackPower);
-        //Debug.Log("★★★ Init InGame Block Power :: " + GameSystem.Instance.BlockAttackPower);
-    }
 
 
     #region 보너스 타임 
@@ -2893,15 +2886,7 @@ public partial class InGameCtrl : MonoBehaviour {
         }
     }
 
-    public float SkillInvokeValue {
-        get {
-            return _skillInvokeValue;
-        }
 
-        set {
-            _skillInvokeValue = value;
-        }
-    }
 
 
 

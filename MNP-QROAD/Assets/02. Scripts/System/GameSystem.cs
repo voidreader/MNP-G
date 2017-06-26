@@ -128,6 +128,9 @@ public partial class GameSystem : MonoBehaviour {
 
     // Balancing Data
     private ObscuredFloat _blockAttackPower; // 블록 한개의 공격력 
+    [SerializeField] ObscuredFloat _fruitAbsorbValue; // 스킬 흡수율 
+    [SerializeField] int _fruitAbsorbPercent;
+
     private ObscuredFloat _ingamePlayTime; // 인게임 플레이 타임 
     private ObscuredInt _inGameComboIndex = 15; // 노멀에서 피버로 전환되는 콤보 카운트 
     private ObscuredFloat _comboKeepTime; // 콤보 유지 시간 
@@ -523,10 +526,6 @@ public partial class GameSystem : MonoBehaviour {
         // 인게임 획득정보 초기화 
         InitInGameAccquireInfo();
 
-
-
-        // 사용자 정보, 밸런싱 값 조합으로 실제 게임에 사용될 값 수정 
-        SetIngameValue();
     }
 
     /// <summary>
@@ -542,7 +541,7 @@ public partial class GameSystem : MonoBehaviour {
 
 
 
-        _blockAttackPower = 5;
+        _blockAttackPower = 3;
     }
 
 
@@ -657,15 +656,6 @@ public partial class GameSystem : MonoBehaviour {
 
     }
 
-    /// <summary>
-    /// 밸런싱 값 세팅 
-    /// </summary>
-    private void SetIngameValue() {
-
-        _blockAttackPower = _userPowerLevel * 5;
-        // Debug.Log("▶▶▶ SetInGameValue _blockAttackPower :: " + _blockAttackPower);
-
-    }
 
 
     /// <summary>
@@ -5615,7 +5605,9 @@ public partial class GameSystem : MonoBehaviour {
 
         set {
             _userPowerLevel = value;
-            BlockAttackPower = _userPowerLevel * 5;
+            BlockAttackPower = _userPowerLevel * 3;
+            FruitAbsorbPercent = (_userPowerLevel - 1) * 3;
+            FruitAbsorbValue = 1 + (_userPowerLevel - 1) * 0.03f;
         }
     }
 
@@ -5818,6 +5810,26 @@ public partial class GameSystem : MonoBehaviour {
 
         set {
             _matchedGreenBlock = value;
+        }
+    }
+
+    public ObscuredFloat FruitAbsorbValue {
+        get {
+            return _fruitAbsorbValue;
+        }
+
+        set {
+            _fruitAbsorbValue = value;
+        }
+    }
+
+    public int FruitAbsorbPercent {
+        get {
+            return _fruitAbsorbPercent;
+        }
+
+        set {
+            _fruitAbsorbPercent = value;
         }
     }
 

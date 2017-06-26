@@ -263,6 +263,14 @@ public partial class GameSystem : MonoBehaviour {
                 return GetLocalizeText(Google2u.MNP_Localize.rowIds.L3960).Replace("[n]", pSkillValue);
             case 12:
                 return GetLocalizeText(Google2u.MNP_Localize.rowIds.L3961).Replace("[n]", pSkillValue);
+            case 13:
+                return GetLocalizeText(Google2u.MNP_Localize.rowIds.L3962).Replace("[n]", pSkillValue);
+            case 14:
+                return GetLocalizeText(Google2u.MNP_Localize.rowIds.L3963).Replace("[n]", pSkillValue);
+            case 15:
+                return GetLocalizeText(Google2u.MNP_Localize.rowIds.L3964).Replace("[n]", pSkillValue);
+            case 16:
+                return GetLocalizeText(Google2u.MNP_Localize.rowIds.L3965).Replace("[n]", pSkillValue);
 
             default:
                 return string.Empty;

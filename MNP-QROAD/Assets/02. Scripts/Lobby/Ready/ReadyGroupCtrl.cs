@@ -43,6 +43,7 @@ public class ReadyGroupCtrl : MonoBehaviour {
     // Power Level
     [SerializeField] UILabel _lblPowerLevel;
     [SerializeField] UILabel _lblPowerValue;
+    [SerializeField] UILabel _lblSkillAbsorbValue;
     [SerializeField] UILabel _lblPowerUpgrade;
     [SerializeField] UISprite _spriteFruit;
 
@@ -630,6 +631,7 @@ public class ReadyGroupCtrl : MonoBehaviour {
     public void RefreshPower() {
         _lblPowerLevel.text = GameSystem.Instance.UserPowerLevel.ToString();
         _lblPowerValue.text = GameSystem.Instance.BlockAttackPower.ToString();
+        _lblSkillAbsorbValue.text = "+" + GameSystem.Instance.FruitAbsorbPercent.ToString() +"%";
 
         _lblPowerUpgrade.text = "(" + GameSystem.Instance.UserPowerLevel.ToString() + "/10)";
 

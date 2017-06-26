@@ -132,8 +132,8 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 11
   - name: 006-boom-fx-2
-    x: 1063
-    y: 176
+    x: 1114
+    y: 225
     width: 50
     height: 47
     borderLeft: 0
@@ -145,8 +145,8 @@ MonoBehaviour:
     paddingTop: 6
     paddingBottom: 8
   - name: 006-boom-fx-3
-    x: 1125
-    y: 599
+    x: 1009
+    y: 375
     width: 53
     height: 52
     borderLeft: 0
@@ -262,8 +262,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 3
   - name: 006-boom-fx-c
-    x: 1009
-    y: 375
+    x: 1125
+    y: 599
     width: 53
     height: 52
     borderLeft: 0
@@ -483,8 +483,8 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 13
   - name: 010-i-base-red-gauge
-    x: 837
-    y: 596
+    x: 816
+    y: 278
     width: 86
     height: 86
     borderLeft: 0
@@ -535,8 +535,8 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 13
   - name: 010-i-base-yellow-gauge
-    x: 816
-    y: 278
+    x: 837
+    y: 596
     width: 86
     height: 86
     borderLeft: 0
@@ -548,20 +548,7 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 14
   - name: 021-boom-black-mini
-    x: 1063
-    y: 482
-    width: 56
-    height: 56
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: 021-boom-blue-mini
-    x: 1063
+    x: 1120
     y: 539
     width: 56
     height: 56
@@ -573,8 +560,21 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: 021-boom-red-mini
+  - name: 021-boom-blue-mini
     x: 1120
+    y: 482
+    width: 56
+    height: 56
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: 021-boom-red-mini
+    x: 1063
     y: 539
     width: 56
     height: 56
@@ -587,7 +587,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: 021-boom-yellow-mini
-    x: 1120
+    x: 1063
     y: 482
     width: 56
     height: 56
@@ -640,7 +640,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: 024-ico_item_5sec
     x: 998
-    y: 123
+    y: 61
     width: 60
     height: 61
     borderLeft: 0
@@ -653,7 +653,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: 024-ico_item_5sec-mono
     x: 998
-    y: 247
+    y: 123
     width: 60
     height: 61
     borderLeft: 0
@@ -665,8 +665,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: 024-ico_item_firework-in
-    x: 998
-    y: 185
+    x: 937
+    y: 61
     width: 60
     height: 61
     borderLeft: 0
@@ -679,7 +679,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: 024-ico_item_firework-mono
     x: 937
-    y: 247
+    y: 123
     width: 60
     height: 61
     borderLeft: 0
@@ -704,8 +704,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: 024-ico_item_ico_item_bomb-mono
-    x: 937
-    y: 123
+    x: 998
+    y: 185
     width: 60
     height: 61
     borderLeft: 0
@@ -717,8 +717,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: 024-ico_item_neko-skill
-    x: 937
-    y: 61
+    x: 998
+    y: 247
     width: 60
     height: 61
     borderLeft: 0
@@ -730,6 +730,19 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: 024-ico_item_neko-skill-mono
+    x: 937
+    y: 247
+    width: 60
+    height: 61
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: 024-ico_item_start-in
     x: 1124
     y: 772
     width: 60
@@ -742,22 +755,9 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: 024-ico_item_start-in
+  - name: 024-ico_item_start-mono
     x: 1063
     y: 772
-    width: 60
-    height: 61
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: 024-ico_item_start-mono
-    x: 998
-    y: 61
     width: 60
     height: 61
     borderLeft: 0
@@ -799,6 +799,32 @@ MonoBehaviour:
     y: 119
     width: 104
     height: 58
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: blue-cat-g
+    x: 221
+    y: 377
+    width: 73
+    height: 8
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 3
+    paddingTop: 2
+    paddingBottom: 2
+  - name: blue-cat-g-base
+    x: 569
+    y: 352
+    width: 79
+    height: 12
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -873,8 +899,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: boss-gauge
-    x: 1782
-    y: 902
+    x: 1200
+    y: 873
     width: 178
     height: 10
     borderLeft: 0
@@ -886,8 +912,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: boss-gauge-base
-    x: 1782
-    y: 913
+    x: 1373
+    y: 884
     width: 186
     height: 17
     borderLeft: 0
@@ -1043,7 +1069,7 @@ MonoBehaviour:
     paddingBottom: 164
   - name: GInGreenFont_0
     x: 323
-    y: 102
+    y: 268
     width: 245
     height: 82
     borderLeft: 0
@@ -1056,7 +1082,7 @@ MonoBehaviour:
     paddingBottom: 174
   - name: GInRedFont_0
     x: 323
-    y: 185
+    y: 102
     width: 245
     height: 82
     borderLeft: 0
@@ -1069,7 +1095,7 @@ MonoBehaviour:
     paddingBottom: 174
   - name: GInYellowFont_0
     x: 323
-    y: 268
+    y: 185
     width: 245
     height: 82
     borderLeft: 0
@@ -1094,7 +1120,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 151
   - name: ico-block
-    x: 1114
+    x: 1063
     y: 129
     width: 50
     height: 46
@@ -1107,7 +1133,7 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 3
   - name: ico-block-3
-    x: 1969
+    x: 1970
     y: 884
     width: 52
     height: 46
@@ -1120,8 +1146,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 3
   - name: ico-block-4
-    x: 1114
-    y: 226
+    x: 1917
+    y: 884
     width: 52
     height: 46
     borderLeft: 0
@@ -1147,7 +1173,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: ico-block-perfect
     x: 1063
-    y: 128
+    y: 176
     width: 50
     height: 47
     borderLeft: 0
@@ -1159,8 +1185,8 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 0
   - name: ico-bomb-block
-    x: 1063
-    y: 81
+    x: 1114
+    y: 129
     width: 46
     height: 46
     borderLeft: 0
@@ -1328,8 +1354,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: mi-gauge
-    x: 323
-    y: 9
+    x: 1373
+    y: 902
     width: 240
     height: 22
     borderLeft: 0
@@ -1355,7 +1381,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: mission-bronz
     x: 937
-    y: 494
+    y: 638
     width: 76
     height: 71
     borderLeft: 0
@@ -1524,7 +1550,7 @@ MonoBehaviour:
     paddingBottom: 4
   - name: mission-gold
     x: 937
-    y: 566
+    y: 494
     width: 76
     height: 71
     borderLeft: 0
@@ -1550,7 +1576,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: mission-silver
     x: 937
-    y: 638
+    y: 566
     width: 76
     height: 71
     borderLeft: 0
@@ -1566,6 +1592,32 @@ MonoBehaviour:
     y: 832
     width: 230
     height: 107
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: red-cat-g
+    x: 837
+    y: 563
+    width: 73
+    height: 8
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 3
+    paddingTop: 2
+    paddingBottom: 2
+  - name: red-cat-g-base
+    x: 569
+    y: 269
+    width: 79
+    height: 12
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -1640,8 +1692,8 @@ MonoBehaviour:
     paddingTop: 6
     paddingBottom: 5
   - name: s-bomb-c-ax
-    x: 1373
-    y: 888
+    x: 1782
+    y: 894
     width: 134
     height: 36
     borderLeft: 0
@@ -1678,20 +1730,20 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: stage-clear-wing
-    x: 684
-    y: 683
-    width: 152
-    height: 130
+  - name: spskill
+    x: 323
+    y: 2
+    width: 212
+    height: 29
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
     paddingLeft: 0
-    paddingRight: 0
+    paddingRight: 1
     paddingTop: 0
     paddingBottom: 0
-  - name: stage-clear-wing-bronz
+  - name: stage-clear-wing
     x: 684
     y: 814
     width: 152
@@ -1704,9 +1756,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: stage-clear-wing-silver
+  - name: stage-clear-wing-bronz
     x: 684
     y: 552
+    width: 152
+    height: 130
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: stage-clear-wing-silver
+    x: 684
+    y: 683
     width: 152
     height: 130
     borderLeft: 0
@@ -1758,7 +1823,7 @@ MonoBehaviour:
     paddingBottom: 2
   - name: x2
     x: 569
-    y: 282
+    y: 365
     width: 91
     height: 68
     borderLeft: 0
@@ -1771,9 +1836,35 @@ MonoBehaviour:
     paddingBottom: 0
   - name: x3
     x: 569
-    y: 365
+    y: 282
     width: 91
     height: 68
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: yellow-cat-g
+    x: 545
+    y: 722
+    width: 73
+    height: 8
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 3
+    paddingTop: 2
+    paddingBottom: 2
+  - name: yellow-cat-g-base
+    x: 837
+    y: 572
+    width: 79
+    height: 12
     borderLeft: 0
     borderRight: 0
     borderTop: 0

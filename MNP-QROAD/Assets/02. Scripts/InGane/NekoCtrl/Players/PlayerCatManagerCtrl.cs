@@ -7,6 +7,8 @@ public class PlayerCatManagerCtrl : MonoBehaviour {
 
     [SerializeField] List<PhysicsPlayerCatCtrl> _listPhysicsPlayerCats;
 
+    Vector3[] _initPosCats = new Vector3[3];
+
     #region Properties 
 
     public static PlayerCatManagerCtrl Instance {
@@ -24,6 +26,26 @@ public class PlayerCatManagerCtrl : MonoBehaviour {
         }
     }
 
+    public Vector3[] InitPosCats {
+        get {
+            return _initPosCats;
+        }
+
+        set {
+            _initPosCats = value;
+        }
+    }
+
+    public List<PhysicsPlayerCatCtrl> ListPhysicsPlayerCats {
+        get {
+            return _listPhysicsPlayerCats;
+        }
+
+        set {
+            _listPhysicsPlayerCats = value;
+        }
+    }
+
     #endregion
 
 
@@ -38,10 +60,15 @@ public class PlayerCatManagerCtrl : MonoBehaviour {
         int id, grade;
         float skillmax;
 
-        for( int i =0; i<_listPhysicsPlayerCats.Count;i++) {
+        InitPosCats[0] = new Vector3(-2, 5, 0);
+        InitPosCats[1] = new Vector3(0, 5, 0);
+        InitPosCats[2] = new Vector3(2, 5, 0);
+
+
+        for ( int i =0; i<ListPhysicsPlayerCats.Count;i++) {
             
             if(GameSystem.Instance.ListEquipNekoID[i] < 0) { // 장착중이지 않은 경우는 보여주지 않음 
-                _listPhysicsPlayerCats[i].HideCat();
+                ListPhysicsPlayerCats[i].HideCat();
             }
             else {
                 id = GameSystem.Instance.ListEquipNekoID[i];
@@ -50,7 +77,7 @@ public class PlayerCatManagerCtrl : MonoBehaviour {
                 // 최종 skillmax 값.
                 skillmax = InGameCtrl.Instance.SkillInvokeBlockCount;
 
-                _listPhysicsPlayerCats[i].InitPlayerCat(id, grade, InGameCtrl.Instance.SkillInvokeValue, skillmax, i);
+                ListPhysicsPlayerCats[i].InitPlayerCat(id, grade, GameSystem.Instance.FruitAbsorbValue, skillmax, i);
             }
         }
     }
@@ -60,13 +87,13 @@ public class PlayerCatManagerCtrl : MonoBehaviour {
     /// 
     /// </summary>
     public void SetInactiveManager() {
-        for(int i=0; i<_listPhysicsPlayerCats.Count; i++) {
-            _listPhysicsPlayerCats[i].HideCat();
+        for(int i=0; i<ListPhysicsPlayerCats.Count; i++) {
+            ListPhysicsPlayerCats[i].HideCat();
         }
     }
 
     public Vector3 GetTargetCatPos(int pIndex) {
-        return _listPhysicsPlayerCats[pIndex].GetCurrentPosition();
+        return ListPhysicsPlayerCats[pIndex].GetCurrentPosition();
     }
 
 }

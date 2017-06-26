@@ -16,6 +16,9 @@ public class NekoFollowHP : MonoBehaviour {
 	public float currentHP; // 현 HP
 	public UISlider nekoHPBar = null;
 
+    [SerializeField] UISprite _spriteBase;
+    [SerializeField] UISprite _spriteFill;
+
     bool _isBossNeko = false;
     bool _isTopPlayerCat = false;
 
@@ -63,10 +66,55 @@ public class NekoFollowHP : MonoBehaviour {
 		nekoHPBar.value = currentHP / maxHP;
 	}
 
+
+    /// <summary>
+    /// 고양이 일자 스킬바 
+    /// </summary>
+    /// <param name="pMax"></param>
+    /// <param name="pCurrent"></param>
+    /// <param name="pIndex"></param>
     public void SetNekoSkillBar(float pMax, float pCurrent) {
         maxHP = pMax;
         currentHP = pCurrent;
         nekoHPBar.value = currentHP / maxHP;
+
+
+    }
+
+
+    /// <summary>
+    /// 고양이 일자 스킬바 
+    /// </summary>
+    /// <param name="pMax"></param>
+    /// <param name="pCurrent"></param>
+    /// <param name="pIndex"></param>
+    public void SetNekoSkillBar(float pMax, float pCurrent, int pIndex) {
+        maxHP = pMax;
+        currentHP = pCurrent;
+        nekoHPBar.value = currentHP / maxHP;
+
+
+        switch(pIndex) {
+            case 0:
+                _spriteBase.spriteName = "blue-cat-g-base";
+                _spriteFill.spriteName = "blue-cat-g";
+                break;
+            case 1:
+                _spriteBase.spriteName = "yellow-cat-g-base";
+                _spriteFill.spriteName = "yellow-cat-g";
+                break;
+            case 2:
+                _spriteBase.spriteName = "red-cat-g-base";
+                _spriteFill.spriteName = "red-cat-g";
+                break;
+
+        }
+
+        _spriteFill.width = 90;
+        _spriteFill.height = 12;
+
+        _spriteBase.width = 90;
+        _spriteBase.height = 12;
     }
 
 
@@ -74,7 +122,7 @@ public class NekoFollowHP : MonoBehaviour {
         targetPos = nekoTarget.transform.position;
 
         targetPos.x = targetPos.x - 0.5f;
-        targetPos.y = targetPos.y + 1f;
+        targetPos.y = targetPos.y + 0.8f;
 
         //타겟의 포지션을 월드좌표에서 ViewPort좌표로 변환하고 다시 ViewPort좌표를 NGUI월드좌표로 변환합니다.
         //pos = guiCam.ViewportToWorldPoint (worldCam.WorldToViewportPoint (nekoTarget.transform.position));

@@ -885,7 +885,7 @@ namespace Google2u
 			Rows.Add( new MNP_LocalizeRow("L3119", "3119", "한 캠페인에서 쿠폰은 한번만 사용할 수 있습니다.", "Coupons can only be used once in a campaign.", "Kupon hanya dapat digunakan satu kali dalam satu kampanye.", "สามารถใช้คูปองได้อีกครั้งในแคมเปญเท่านั้น", "쿠폰 입력창"));
 			Rows.Add( new MNP_LocalizeRow("L3120", "3120", "완료되었습니다.\n메일함으로 선물이 발송되었습니다.", "It's complete.\nThe gift is delivered to the mailbox.", "Sudah selesai.\nHadiah sudah dikirim ke kotak masuk.", "เสร็จเรียบร้อย\nของขวัญถูกส่งไปยังกล่องจดหมายแล้ว", "쿠폰 입력창"));
 			Rows.Add( new MNP_LocalizeRow("L3121", "3121", "스킬 발동 속도", "스킬 발동 속도", "스킬 발동 속도", "스킬 발동 속도", "과일 업그레이드 효과 설명"));
-			Rows.Add( new MNP_LocalizeRow("L3122", "3122", "", "", "", "", ""));
+			Rows.Add( new MNP_LocalizeRow("L3122", "3122", "스킬발동 :", "스킬발동 :", "스킬발동 :", "스킬발동 :", ""));
 			Rows.Add( new MNP_LocalizeRow("L3123", "3123", "", "", "", "", ""));
 			Rows.Add( new MNP_LocalizeRow("L3124", "3124", "", "", "", "", ""));
 			Rows.Add( new MNP_LocalizeRow("L3125", "3125", "", "", "", "", ""));
@@ -1119,7 +1119,7 @@ namespace Google2u
 			Rows.Add( new MNP_LocalizeRow("L3901", "3901", "더 이상 ★성장시킬 수 없습니다.", "This cat can not be leveled up ★ anymore.", "Kucing ini tidak dapat dinaikkan lagi ★ peringkatnya.", "เจ้าเหมียวตัวนี้ไม่สามารถเพิ่มเลเวล ★ ได้อีกแล้ว", "고양이 등급 튜토리얼"));
 			Rows.Add( new MNP_LocalizeRow("L3902", "3902", "고양이의 ★등급이 최대입니다. \n상한을 초과한 물고기는 반환되지 않습니다.", "This cat has already reached maximum rank ★ \nExcess fish will not be returned.", "Kucing ini sudah mencapai peringkat maksimum ★ \nIkan berlebih tidak akan dikembalikan.", "เจ้าเหมียวตัวนี้ได้มาถึงอัดับสูงสุดแล้ว ★ \nปลาที่เกินมาจะเอาคืนไม่ได้", "고양이 등급 튜토리얼"));
 			Rows.Add( new MNP_LocalizeRow("L3950", "3950", "스코어 [n]% 증가", "Scores [n]% increase", "Skor [n]% bertambah", "คะแนน [n]% เพิ่มขึ้น", "고양이 스킬 설명"));
-			Rows.Add( new MNP_LocalizeRow("L3951", "3951", "코인 [n]% 증가", "Coin [n]% increase", "Koin [n]% bertambah", "เหรียญ [n]% เพิ่มขึ้น", "고양이 스킬 설명"));
+			Rows.Add( new MNP_LocalizeRow("L3951", "3951", "획득 코인 [n]% 증가", "Coin [n]% increase", "Koin [n]% bertambah", "เหรียญ [n]% เพิ่มขึ้น", "고양이 스킬 설명"));
 			Rows.Add( new MNP_LocalizeRow("L3952", "3952", "고양이 파워 [n]% 증가", "Cat Power [n]% increase", "Kekuatan Kucing [n]% bertambah", "พลังเจ้าเหมียว [n]% เพิ่มขึ้น", "고양이 스킬 설명"));
 			Rows.Add( new MNP_LocalizeRow("L3953", "3953", "플레이 시간 [n]초 증가", "Play Time [n] increases in seconds", "Waktu Main [n] bertambah dalam detik", "เวลาเล่นเกม [n] เพิ่มขึ้นในวินาที", "고양이 스킬 설명"));
 			Rows.Add( new MNP_LocalizeRow("L3954", "3954", "시작할 때 폭탄을 최대 [n]개 생성", "Generate up to [n] bombs at start", "Hasilkan hingga [n] bom di awal", "การสร้างระเบิดเพิ่มขึ้นเป็น [n] ตอนเริ่มเกม", "고양이 스킬 설명"));
@@ -1130,10 +1130,10 @@ namespace Google2u
 			Rows.Add( new MNP_LocalizeRow("L3959", "3959", "스킬 발동시 파랑 폭탄이 최대 [n]개 생성", "Generate blue bomb(s) up to [n] when skill is activated", "Hasilkan bom biru hingga [n] saat skill diaktifkan", "สร้างระเบิดสีฟ้า(s) เพิ่มเป็น [n] เมื่อสกิลถูกใช้งาน", "고양이 스킬 설명"));
 			Rows.Add( new MNP_LocalizeRow("L3960", "3960", "스킬 발동시 노랑 폭탄이 최대 [n]개 생성", "Generate yellow bomb(s) up to [n] when skill is activated", "Hasilkan bom kuning hingga [n] saat skill diaktifkan", "สร้างระเบิดสีเหลือง(s) เพิ่มเป็น [n] เมื่อสกิลถูกใช้งาน", "고양이 스킬 설명"));
 			Rows.Add( new MNP_LocalizeRow("L3961", "3961", "스킬 발동시 플레이 시간 [n]초 증가", "Increase play time by [n] sec(s) when skill is activated", "Tambah waktu main sebanyak [n] dtk saat skill diaktifkan", "เพิ่มเวลาเล่นเกมขึ้น [n] วินาที(s) เมื่อสกิลถูกใช้งาน", "고양이 스킬 설명"));
-			Rows.Add( new MNP_LocalizeRow("L3962", "3962", "고양이 스킬 포인트 획득이 [n] 쉬워집니다.", "Cat Skill point acquisition becomes easier by [n].", "Akuisisi poin Skill Kucing menjadi lebih mudah sebanyak [n].", "การได้รับพ้อยท์สกิลเจ้าเหมียวจะง่ายขึ้นโดย [n].", "고양이 스킬 설명"));
-			Rows.Add( new MNP_LocalizeRow("L3963", "3963", "플레이어가 받는 경험치가 [n] 증가합니다.", "Exp earned by player increased by [n].", "Exp yang didapat pemain bertambah sebanyak [n].", "การได้รับประสปการณ์โดยผู้เล่นเพิ่มขึ้นโดย [n].", "고양이 스킬 설명"));
-			Rows.Add( new MNP_LocalizeRow("L3964", "3964", "스킬을 사용하면 폭탄을 생성합니다. (최대 [n]개)", "Generate a bomb when skill is activated. (Up to [n])", "Hasilkan bom saat skill diaktifkan. (Hingga [n])", "การสร้างระเบิดเมื่อสกิลถูกใช้งาน (เพิ่มขึ้นเป็น [n])", "고양이 스킬 설명"));
-			Rows.Add( new MNP_LocalizeRow("L3965", "3965", "스킬을 사용하면 [n] 초의 시간동안 콤보가 끊기지 않습니다.", "Combo will not break for [n] seconds when skill is activated.", "Kombo tidak akan berakhir selama [n] detik saat skill diaktifkan.", "คอมโบจะไม่แตกเป็นเวลา [n] วินาทีเมื่อสกิลถูกใช้งาน", "고양이 스킬 설명"));
+			Rows.Add( new MNP_LocalizeRow("L3962", "3962", "특수 블록이 [n]개 제거", "Cat Skill point acquisition becomes easier by [n].", "Akuisisi poin Skill Kucing menjadi lebih mudah sebanyak [n].", "การได้รับพ้อยท์สกิลเจ้าเหมียวจะง่ายขึ้นโดย [n].", "고양이 스킬 설명"));
+			Rows.Add( new MNP_LocalizeRow("L3963", "3963", "폭탄 생성을 [n]만큼 가속화", "Exp earned by player increased by [n].", "Exp yang didapat pemain bertambah sebanyak [n].", "การได้รับประสปการณ์โดยผู้เล่นเพิ่มขึ้นโดย [n].", "고양이 스킬 설명"));
+			Rows.Add( new MNP_LocalizeRow("L3964", "3964", "모든 블록의 색상을 동일하게 변경", "Generate a bomb when skill is activated. (Up to [n])", "Hasilkan bom saat skill diaktifkan. (Hingga [n])", "การสร้างระเบิดเมื่อสกิลถูกใช้งาน (เพิ่มขึ้นเป็น [n])", "고양이 스킬 설명"));
+			Rows.Add( new MNP_LocalizeRow("L3965", "3965", "임의의 [n]개의 라인을 제거", "Combo will not break for [n] seconds when skill is activated.", "Kombo tidak akan berakhir selama [n] detik saat skill diaktifkan.", "คอมโบจะไม่แตกเป็นเวลา [n] วินาทีเมื่อสกิลถูกใช้งาน", "고양이 스킬 설명"));
 			Rows.Add( new MNP_LocalizeRow("L3966", "3966", "스킬을 사용하면 피버 보인트가 [n] 늘어납니다.", "Fever point will be increased by [n] when skill is activated.", "Poin demam akan bertambah sebanyak [n] saat skill diaktifkan.", "พ้อยท์ฟีเว่อร์จะเพิ่มขึ้นโดย [n] เมื่อสกิลถูกใช้งาน", "고양이 스킬 설명"));
 			Rows.Add( new MNP_LocalizeRow("L3967", "3967", "스킬을 사용하면 플레이 타임이 [n] 추가됩니다.", "Play time will br increased by [n] when skill is activated.", "Waktu main akan bertambah sebanyak [n] saat skill diaktifkan.", "เวลาการเล่นเกมจะเพิ่มขึ้นโดย [n] เมื่อสกิลถูกใช้งาน", "고양이 스킬 설명"));
 			Rows.Add( new MNP_LocalizeRow("L3968", "3968", "스킬을 사용하면 노랑 폭탄을 생성합니다. (최대 [n]개)", "Generate a yellow bomb when skill is activated. (Up to [n])", "Hasilkan bom kuning saat skill diaktifkan. (Hingga [n])", "สร้างระเบิดสีเหลืองเมื่อสกิลถูกใช้งาน (เพิ่มขึ้นเป็น [n])", "고양이 스킬 설명"));

@@ -1377,6 +1377,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11450228, guid: 490f5485c99aa8d4490048f0cdcff8a6, type: 2}
+      propertyPath: _fruitAbsorbValue.hiddenValue.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 450228, guid: 490f5485c99aa8d4490048f0cdcff8a6, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1417,6 +1421,26 @@ Prefab:
     - target: {fileID: 11450228, guid: 490f5485c99aa8d4490048f0cdcff8a6, type: 2}
       propertyPath: _version
       value: 1.0.5.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450228, guid: 490f5485c99aa8d4490048f0cdcff8a6, type: 2}
+      propertyPath: _fruitAbsorbValue.currentCryptoKey
+      value: 230887
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450228, guid: 490f5485c99aa8d4490048f0cdcff8a6, type: 2}
+      propertyPath: _fruitAbsorbValue.hiddenValue.Array.data[0]
+      value: 231
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450228, guid: 490f5485c99aa8d4490048f0cdcff8a6, type: 2}
+      propertyPath: _fruitAbsorbValue.hiddenValue.Array.data[1]
+      value: 133
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450228, guid: 490f5485c99aa8d4490048f0cdcff8a6, type: 2}
+      propertyPath: _fruitAbsorbValue.hiddenValue.Array.data[2]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450228, guid: 490f5485c99aa8d4490048f0cdcff8a6, type: 2}
+      propertyPath: _fruitAbsorbValue.inited
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 490f5485c99aa8d4490048f0cdcff8a6, type: 2}

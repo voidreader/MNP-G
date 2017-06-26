@@ -14,6 +14,8 @@ public class DustCtrl : MonoBehaviour {
 
     private readonly string _clipWhite = "ClipDustWhite";
     private readonly string _clipBlack = "ClipDustBlack";
+    readonly string _clipAbsorb = "ClipWhiteLightAbsorb";
+    readonly string _clipColorfulLight = "ClipColofulLight";
 
     // Use this for initialization
     void Start() {
@@ -47,6 +49,23 @@ public class DustCtrl : MonoBehaviour {
     public void PlayDustWhite() {
         sprite.scale = baseScale;
         dustSprite.Play(_clipWhite);
+    }
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public void PlayWhiteLightAbsorb() {
+        sprite.scale = baseScale;
+        dustSprite.Play(_clipAbsorb);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public void PlayColorfulLight() {
+        sprite.scale = baseScale;
+        dustSprite.Play(_clipColorfulLight);
     }
 
 

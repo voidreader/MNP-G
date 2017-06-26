@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using PathologicalGames;
 
 public class PhysicsPlayerCatCtrl : MonoBehaviour {
 
@@ -10,10 +11,18 @@ public class PhysicsPlayerCatCtrl : MonoBehaviour {
 
     [SerializeField] int _nekoid;
     [SerializeField] int _grade;
+    [SerializeField] int _index;
+    [SerializeField] Vector3 _initPos;
     [SerializeField] float _skillValue; // 흡수되는 수치 
     [SerializeField] float _skillMax;
 
     [SerializeField] float _currentSkillValue = 0;
+
+    
+    [SerializeField] Transform _textSpecialSkill;
+    readonly Vector3 _posLeftSpecialSkillText = new Vector3(-500, 185, 0);
+    readonly Vector3 _posRightSpecialSkillText = new Vector3(500, 185, 0);
+
 
 
     public void HideCat() {
@@ -42,7 +51,7 @@ public class PhysicsPlayerCatCtrl : MonoBehaviour {
     /// 게이지 차오르기 
     /// </summary>
     /// <param name="pSkill"></param>
-    void FillSkillBar(float pSkillV) {
+    public void FillSkillBar(float pSkillV) {
 
 
         _currentSkillValue += pSkillV;
@@ -68,8 +77,14 @@ public class PhysicsPlayerCatCtrl : MonoBehaviour {
 
         this.gameObject.SetActive(true);
 
+
+
+        this.transform.localPosition = PlayerCatManagerCtrl.Instance.InitPosCats[pIndex];
+        _initPos = this.transform.localPosition;
+
         _nekoid = pNekoID;
         _grade = pGrade;
+        _index = pIndex;
         _skillMax = pSkillMax;
         _skillValue = pSkillValue;
 
@@ -79,7 +94,7 @@ public class PhysicsPlayerCatCtrl : MonoBehaviour {
 
 
         _skillBar.InitTopPlayerCatFollowBar(this.gameObject);
-        _skillBar.SetNekoSkillBar(_skillMax, 0);
+        _skillBar.SetNekoSkillBar(_skillMax, 0, pIndex);
 
         // 둥둥.
         FloatCat();
@@ -98,10 +113,44 @@ public class PhysicsPlayerCatCtrl : MonoBehaviour {
     /// 스킬 발동
     /// </summary>
     void DoSkill() {
+        this.transform.DOKill();
+
+        // 효과
+        PoolManager.Pools[PuzzleConstBox.objectPool].Spawn(PuzzleConstBox.prefabDust, this.transform.position, Quaternion.identity).GetComponent<DustCtrl>().PlayColorfulLight();
+
+        // 이얍! 소리 
+        InSoundManager.Instance.PlaySpecialSkill();
+
+        // 점프 
+        this.transform.DOLocalJump(_initPos, 1, 1, 0.5f).OnComplete(FloatCat);
+
+        // 게이지 초기화 
+        _currentSkillValue = 0;
+        _skillBar.SetNekoSkillBar(_skillMax, _currentSkillValue);
+
+
+        // 스킬 발동 
+        InGameCtrl.Instance.CheckActiveSkill(_nekoid, _index);
+
+        ShowSpecialSkillText();
+
+    }
+
+    void ShowSpecialSkillText() {
+        _textSpecialSkill.localPosition = _posLeftSpecialSkillText;
+        _textSpecialSkill.gameObject.SetActive(true);
+        _textSpecialSkill.DOLocalMoveX(0, 0.2f).OnComplete(OnCompleteTextMove);
 
     }
 
 
+    void OnCompleteTextMove() {
+        _textSpecialSkill.DOLocalMoveX(500, 0.2f).SetDelay(0.4f).OnComplete(OnCompleteShowSpecialSkillTextRight);
+    }
+
+    void OnCompleteShowSpecialSkillTextRight() {
+        _textSpecialSkill.gameObject.SetActive(false);
+    }
 
 
     public Vector3 GetCurrentPosition() {

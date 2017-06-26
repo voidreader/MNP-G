@@ -130,7 +130,7 @@ public class MiniFootCtrl : MonoBehaviour {
                 InSoundManager.Instance.PlayAbsorbFruit(); // 사운드 플레이 
 
                 // 효과
-                PoolManager.Pools[PuzzleConstBox.objectPool].Spawn(PuzzleConstBox.prefabDust, this.transform.position, Quaternion.identity).GetComponent<DustCtrl>().PlayDustWhite();
+                PoolManager.Pools[PuzzleConstBox.objectPool].Spawn(PuzzleConstBox.prefabDust, this.transform.position, Quaternion.identity).GetComponent<DustCtrl>().PlayWhiteLightAbsorb();
 
                 //SpawnFragmentHit();
             }
