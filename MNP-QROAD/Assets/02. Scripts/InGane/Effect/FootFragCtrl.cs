@@ -76,6 +76,11 @@ public class FootFragCtrl : MonoBehaviour {
         _isAbsorbFruit = true;
         _blockID = pBlockID;
 
+        // 블록아이디가 3 (초록색) 이면, 유효한 다른 ID로 변경한다.
+        if(_blockID > 2) {
+            _blockID = PlayerCatManagerCtrl.Instance.ListValidCats[Random.Range(0, PlayerCatManagerCtrl.Instance.ListValidCats.Count)];
+        }
+
         spFootFrag.SetSprite(PuzzleConstBox.listFruitClip[GameSystem.Instance.UserPowerLevel - 1]);
         spFootFrag.scale = GameSystem.Instance.BaseScale;
         isTargetSet = true;

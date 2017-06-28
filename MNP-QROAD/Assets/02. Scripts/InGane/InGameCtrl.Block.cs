@@ -245,8 +245,12 @@ public partial class InGameCtrl : MonoBehaviour {
 		InSoundManager.Instance.PlayBombAfter ();
 
 
-        PoolManager.Pools[PuzzleConstBox.objectPool].Spawn(
-            PuzzleConstBox.prefabMiniFoot, pRaisePos, Quaternion.identity).GetComponent<MiniFootCtrl>().SetBigFruit();
+        if(IsBossStage || IsRescueStage)
+            PoolManager.Pools[PuzzleConstBox.objectPool].Spawn(
+                PuzzleConstBox.prefabMiniFoot, pRaisePos, Quaternion.identity).GetComponent<MiniFootCtrl>().SetBigFruit();
+        else
+            PoolManager.Pools[PuzzleConstBox.objectPool].Spawn(
+                PuzzleConstBox.prefabMiniFoot, pRaisePos, Quaternion.identity).GetComponent<MiniFootCtrl>().SetTargetPos(Random.Range(0, 3));
 
 
     }

@@ -54,8 +54,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 6a00130e382d4824ab206e6693a8b869, type: 2}
   mSprites:
   - name: blue-base
-    x: 937
-    y: 614
+    x: 931
+    y: 875
     width: 64
     height: 68
     borderLeft: 0
@@ -67,8 +67,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: blue-m
-    x: 827
-    y: 686
+    x: 797
+    y: 799
     width: 48
     height: 44
     borderLeft: 0
@@ -79,9 +79,22 @@ MonoBehaviour:
     paddingRight: 8
     paddingTop: 12
     paddingBottom: 12
+  - name: boss-base-games-ui
+    x: 205
+    y: 595
+    width: 296
+    height: 64
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: CatDamageFont
-    x: 460
-    y: 726
+    x: 512
+    y: 700
     width: 251
     height: 95
     borderLeft: 0
@@ -93,8 +106,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 161
   - name: CommingSoon
-    x: 919
-    y: 862
+    x: 454
+    y: 806
     width: 93
     height: 53
     borderLeft: 0
@@ -107,7 +120,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: mission-ico
     x: 311
-    y: 316
+    y: 393
     width: 96
     height: 96
     borderLeft: 0
@@ -118,9 +131,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: neko-base-games-ui
+    x: 502
+    y: 595
+    width: 296
+    height: 64
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: qq1
-    x: 460
-    y: 710
+    x: 619
+    y: 844
     width: 237
     height: 15
     borderLeft: 0
@@ -132,8 +158,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: qq1_2
-    x: 460
-    y: 694
+    x: 619
+    y: 828
     width: 177
     height: 15
     borderLeft: 0
@@ -145,8 +171,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ready-5sec
-    x: 205
-    y: 304
+    x: 311
+    y: 490
     width: 100
     height: 104
     borderLeft: 0
@@ -159,7 +185,7 @@ MonoBehaviour:
     paddingBottom: 4
   - name: ready-5sec-g
     x: 205
-    y: 199
+    y: 62
     width: 100
     height: 104
     borderLeft: 0
@@ -171,8 +197,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 4
   - name: ready-bomb-150
-    x: 829
-    y: 573
+    x: 903
+    y: 686
     width: 107
     height: 109
     borderLeft: 0
@@ -185,7 +211,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: ready-bomb-150-g
     x: 311
-    y: 220
+    y: 297
     width: 95
     height: 95
     borderLeft: 0
@@ -198,7 +224,7 @@ MonoBehaviour:
     paddingBottom: 10
   - name: ready-cat-base
     x: 0
-    y: 430
+    y: 543
     width: 204
     height: 252
     borderLeft: 0
@@ -211,7 +237,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: ready-cat-q
     x: 0
-    y: 27
+    y: 140
     width: 148
     height: 198
     borderLeft: 0
@@ -223,10 +249,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ready-d-base
-    x: 460
-    y: 822
-    width: 458
-    height: 202
+    x: 205
+    y: 660
+    width: 306
+    height: 135
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -236,8 +262,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ready-firework
-    x: 919
-    y: 916
+    x: 205
+    y: 377
     width: 105
     height: 108
     borderLeft: 0
@@ -250,7 +276,7 @@ MonoBehaviour:
     paddingBottom: 2
   - name: ready-firework-g
     x: 205
-    y: 409
+    y: 486
     width: 105
     height: 108
     borderLeft: 0
@@ -263,7 +289,7 @@ MonoBehaviour:
     paddingBottom: 2
   - name: ready-item-base
     x: 0
-    y: 226
+    y: 339
     width: 154
     height: 203
     borderLeft: 0
@@ -275,8 +301,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ready-item-base-coins
-    x: 412
-    y: 468
+    x: 307
+    y: 810
     width: 146
     height: 49
     borderLeft: 0
@@ -288,8 +314,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ready-item-base-lock
-    x: 966
-    y: 741
+    x: 931
+    y: 944
     width: 56
     height: 80
     borderLeft: 0
@@ -301,8 +327,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ready-item-check
-    x: 829
-    y: 519
+    x: 548
+    y: 806
     width: 60
     height: 53
     borderLeft: 0
@@ -315,7 +341,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: ready-neko-skill
     x: 205
-    y: 94
+    y: 272
     width: 100
     height: 104
     borderLeft: 0
@@ -327,8 +353,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 4
   - name: ready-neko-skill-g
-    x: 311
-    y: 413
+    x: 205
+    y: 167
     width: 100
     height: 104
     borderLeft: 0
@@ -340,8 +366,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 4
   - name: ready-power-b
-    x: 205
-    y: 518
+    x: 619
+    y: 860
     width: 311
     height: 164
     borderLeft: 0
@@ -353,8 +379,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ready-start-b
-    x: 517
-    y: 518
+    x: 307
+    y: 860
     width: 311
     height: 164
     borderLeft: 0
@@ -367,9 +393,9 @@ MonoBehaviour:
     paddingBottom: 0
   - name: ready-top-base
     x: 0
-    y: 683
-    width: 459
-    height: 341
+    y: 796
+    width: 306
+    height: 228
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -379,8 +405,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: red-base
-    x: 937
-    y: 545
+    x: 931
+    y: 806
     width: 64
     height: 68
     borderLeft: 0
@@ -392,8 +418,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: red-m
-    x: 876
-    y: 686
+    x: 857
+    y: 815
     width: 48
     height: 44
     borderLeft: 0
@@ -405,8 +431,8 @@ MonoBehaviour:
     paddingTop: 12
     paddingBottom: 12
   - name: result-ico-coin
-    x: 712
-    y: 701
+    x: 0
+    y: 19
     width: 114
     height: 120
     borderLeft: 0
@@ -418,8 +444,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 0
   - name: skill-bases
-    x: 827
-    y: 731
+    x: 764
+    y: 705
     width: 138
     height: 90
     borderLeft: 0
@@ -431,8 +457,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: top-coin
-    x: 311
-    y: 155
+    x: 115
+    y: 6
     width: 66
     height: 64
     borderLeft: 0
@@ -444,8 +470,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: yellow-base
-    x: 205
-    y: 25
+    x: 115
+    y: 71
     width: 64
     height: 68
     borderLeft: 0
@@ -457,8 +483,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: yellow-m
-    x: 966
-    y: 696
+    x: 155
+    y: 498
     width: 48
     height: 44
     borderLeft: 0

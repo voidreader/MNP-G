@@ -27,6 +27,7 @@ public class PhysicsPlayerCatCtrl : MonoBehaviour {
 
     public void HideCat() {
         this.gameObject.SetActive(false);
+        _appear.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -132,7 +133,8 @@ public class PhysicsPlayerCatCtrl : MonoBehaviour {
         // 스킬 발동 
         InGameCtrl.Instance.CheckActiveSkill(_nekoid, _index);
 
-        ShowSpecialSkillText();
+        if(InGameCtrl.Instance.ListNekoPassive[_index].HasActiveSkill)
+            ShowSpecialSkillText();
 
     }
 

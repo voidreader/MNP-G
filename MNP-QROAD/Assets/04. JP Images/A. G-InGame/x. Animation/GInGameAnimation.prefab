@@ -5553,3 +5553,36 @@ MonoBehaviour:
     fps: 30
     loopStart: 0
     wrapMode: 2
+  - name: ClipThunder
+    frames:
+    - spriteCollection: {fileID: 114000012379633480, guid: ed168bed8abdb68448921b594ec2c15b,
+        type: 2}
+      spriteId: 100
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 114000012379633480, guid: ed168bed8abdb68448921b594ec2c15b,
+        type: 2}
+      spriteId: 101
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 114000012379633480, guid: ed168bed8abdb68448921b594ec2c15b,
+        type: 2}
+      spriteId: 99
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 114000012379633480, guid: ed168bed8abdb68448921b594ec2c15b,
+        type: 2}
+      spriteId: 98
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    fps: 15
+    loopStart: 0
+    wrapMode: 0

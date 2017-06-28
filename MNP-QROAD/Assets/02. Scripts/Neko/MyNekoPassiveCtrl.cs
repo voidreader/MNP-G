@@ -39,7 +39,7 @@ public class MyNekoPassiveCtrl : MonoBehaviour {
     bool _isChangeBoardBlockColor = false; // 블록 색상 동일하게 변경 
     bool _isRemoveSomeLine = false; // 라인 제거 
 
-
+    bool _hasActiveSkill = false;
 
     // 실제 증가 수치 
     public float CoinPlus = 0;
@@ -83,6 +83,8 @@ public class MyNekoPassiveCtrl : MonoBehaviour {
         IsChangeBoardBlockColor = false;
         IsAccelBombCreate = false;
         IsRemoveSpecialBlock = false;
+
+        HasActiveSkill = false;
 
         ScorePlus = 0;
         CoinPlus = 0;
@@ -139,6 +141,9 @@ public class MyNekoPassiveCtrl : MonoBehaviour {
 
         if (pSkillID <= 0)
             return;
+
+        if (pSkillID >= 8)
+            HasActiveSkill = true;
 
 
         switch(pSkillID) {
@@ -543,6 +548,16 @@ public class MyNekoPassiveCtrl : MonoBehaviour {
 
         set {
             _removeSomeLine = value;
+        }
+    }
+
+    public bool HasActiveSkill {
+        get {
+            return _hasActiveSkill;
+        }
+
+        set {
+            _hasActiveSkill = value;
         }
     }
 

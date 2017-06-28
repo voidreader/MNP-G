@@ -112,6 +112,7 @@ public class InUICtrl : MonoBehaviour {
     #region 미션 타일 관련 변수 
     JSONNode _stageNode;
     [SerializeField] List<InGameMissionIconCtrl> _listInGameMissions = new List<InGameMissionIconCtrl>();
+    [SerializeField] GameObject _objMissionIcons;
 
 
     bool _hasCookieMission = false;
@@ -189,6 +190,7 @@ public class InUICtrl : MonoBehaviour {
         
 
         lblScore.gameObject.SetActive(true);
+        
 
         if (GameSystem.Instance.IsHotTime) {
             coinHot.gameObject.SetActive(true);
@@ -206,6 +208,13 @@ public class InUICtrl : MonoBehaviour {
     #region 스테이지별 UI 세팅 
 
     public void InitStageUI() {
+
+        ObjMissionIcons.SetActive(false);
+
+        // 보스 및 구출 스테이지에서는 사용하지 않음 
+        if (InGameCtrl.Instance.IsBossStage || InGameCtrl.Instance.IsRescueStage)
+            return;
+
         SetMissionUI();
     }
 
@@ -215,10 +224,13 @@ public class InUICtrl : MonoBehaviour {
     /// </summary>
     private void SetMissionUI() {
 
-        
+
+        int questvalue;
+        ObjMissionIcons.SetActive(true);
+
         _stageNode = GameSystem.Instance.StageDetailJSON[GameSystem.Instance.PlayStage - 1];
         SpecialMissionType missionType;
-        int questvalue; 
+        
 
         
 
@@ -317,6 +329,12 @@ public class InUICtrl : MonoBehaviour {
     /// 미션 아이콘들의 클리어 처리 
     /// </summary>
     public void ClearMissionIcon(int pListIndex) {
+
+
+        // 보스 및 구출 스테이지에서는 사용하지 않음 
+        if (InGameCtrl.Instance.IsBossStage || InGameCtrl.Instance.IsRescueStage)
+            return;
+
         int count = 0;
 
         for(int i=0; i<_listInGameMissions.Count;i++) {
@@ -414,9 +432,13 @@ public class InUICtrl : MonoBehaviour {
     /// </summary>
     public void SetMinusMissionCount(SpecialMissionType pType, int pCount = 0) {
 
+        // 보스 및 구출 스테이지에서는 사용하지 않음 
+        if (InGameCtrl.Instance.IsBossStage || InGameCtrl.Instance.IsRescueStage)
+            return;
+
         // Combo, Score 는 예외다. 
 
-        for(int i=0; i<_listInGameMissions.Count;i++) {
+        for (int i=0; i<_listInGameMissions.Count;i++) {
             if(_listInGameMissions[i].MissionType == pType) {
 
                 if (pType == SpecialMissionType.score || pType == SpecialMissionType.coin)
@@ -1089,6 +1111,25 @@ public class InUICtrl : MonoBehaviour {
         
     }
 
+    public void FullSkillBar(int pBlockID) {
+        // blue, yellow, red, green의 순서 
+        if (!_objSkillBars.activeSelf)
+            return;
+
+
+        // 고양이 스킬게이지는 녹색이 포함되지 않느낟. 
+        if (pBlockID <= 2 && GameSystem.Instance.ListEquipNekoID[pBlockID] < 0)
+            return;
+
+        // 4번째 블록은 랜덤한 게이지 상승
+        if (pBlockID > 2) {
+            _arrSkillBars[UnityEngine.Random.Range(0, 3)].AddValue(100);
+        }
+        else {
+            _arrSkillBars[pBlockID].AddValue(100);
+        }
+    }
+
 
     #endregion
 
@@ -1469,6 +1510,16 @@ public class InUICtrl : MonoBehaviour {
 
         set {
             _morePlayCtrl = value;
+        }
+    }
+
+    public GameObject ObjMissionIcons {
+        get {
+            return _objMissionIcons;
+        }
+
+        set {
+            _objMissionIcons = value;
         }
     }
 

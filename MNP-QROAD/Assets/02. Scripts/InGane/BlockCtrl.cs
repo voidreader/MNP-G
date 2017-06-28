@@ -598,8 +598,16 @@ public class BlockCtrl : MonoBehaviour {
 	private void SpawnFootFragment() {
 
 
+        if(InGameCtrl.Instance.IsBossStage || InGameCtrl.Instance.IsRescueStage) {
+            PoolManager.Pools[PuzzleConstBox.objectPool].Spawn(
+            PuzzleConstBox.prefabFootFrag, this.transform.position, Quaternion.identity).GetComponent<FootFragCtrl>().SetTargetPos();
+            return;
+        }
+
+
+
         // 각 블록 ID 별로 고양이가 장착되어있는지 체크
-        if (GameSystem.Instance.ListEquipNekoID[blockID] < 0)
+        if (blockID < 3 && GameSystem.Instance.ListEquipNekoID[blockID] < 0 )
             return;
 
 		PoolManager.Pools [PuzzleConstBox.objectPool].Spawn (

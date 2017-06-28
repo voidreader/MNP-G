@@ -305,13 +305,20 @@ public partial class InGameCtrl : MonoBehaviour {
 
             if(!IsBossStage && !IsRescueStage)
                 PlayerCatManagerCtrl.Instance.ListPhysicsPlayerCats[0].FillSkillBar(100);
-
+            else 
+                InUICtrl.Instance.FullSkillBar(0);
 		} else if(Input.GetKeyDown(KeyCode.Alpha2)) {
             if (!IsBossStage && !IsRescueStage)
                 PlayerCatManagerCtrl.Instance.ListPhysicsPlayerCats[1].FillSkillBar(100);
+            else
+                InUICtrl.Instance.FullSkillBar(1);
+
         } else if(Input.GetKeyDown(KeyCode.Alpha3)) {
             if (!IsBossStage && !IsRescueStage)
                 PlayerCatManagerCtrl.Instance.ListPhysicsPlayerCats[2].FillSkillBar(100);
+            else
+                InUICtrl.Instance.FullSkillBar(2);
+
         }
         
 

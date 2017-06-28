@@ -699,7 +699,9 @@ public static class PuzzleConstBox {
 	public static readonly string prefabMissText = "BlockMissText";
 	public static readonly string prefabFootFrag = "FootPrefab";
 	public static readonly string prefabDust = "DustPrefab";
-	public static readonly string prefabMyNeko = "MyNekoPrefab";
+    public static readonly string prefabSkillThunder = "SkillThunderPrefab";
+
+    public static readonly string prefabMyNeko = "MyNekoPrefab";
     public static readonly string prefabBlockColorScore = "BlockColorScoreText";
 	
 	public static readonly string prefabMiniFoot = "MiniFootPrefab";

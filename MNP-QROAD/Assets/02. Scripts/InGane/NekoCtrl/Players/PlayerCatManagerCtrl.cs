@@ -6,8 +6,11 @@ public class PlayerCatManagerCtrl : MonoBehaviour {
     static PlayerCatManagerCtrl _instance = null;
 
     [SerializeField] List<PhysicsPlayerCatCtrl> _listPhysicsPlayerCats;
+    List<int> _listValidCats = new List<int>();
 
     Vector3[] _initPosCats = new Vector3[3];
+
+    [SerializeField] GameObject _objPlayerCatAppears;
 
     #region Properties 
 
@@ -46,6 +49,16 @@ public class PlayerCatManagerCtrl : MonoBehaviour {
         }
     }
 
+    public List<int> ListValidCats {
+        get {
+            return _listValidCats;
+        }
+
+        set {
+            _listValidCats = value;
+        }
+    }
+
     #endregion
 
 
@@ -60,9 +73,11 @@ public class PlayerCatManagerCtrl : MonoBehaviour {
         int id, grade;
         float skillmax;
 
-        InitPosCats[0] = new Vector3(-2, 5, 0);
+        InitPosCats[0] = new Vector3(-1.6f, 5, 0);
         InitPosCats[1] = new Vector3(0, 5, 0);
-        InitPosCats[2] = new Vector3(2, 5, 0);
+        InitPosCats[2] = new Vector3(1.6f, 5, 0);
+
+        ListValidCats.Clear();
 
 
         for ( int i =0; i<ListPhysicsPlayerCats.Count;i++) {
@@ -78,6 +93,7 @@ public class PlayerCatManagerCtrl : MonoBehaviour {
                 skillmax = InGameCtrl.Instance.SkillInvokeBlockCount;
 
                 ListPhysicsPlayerCats[i].InitPlayerCat(id, grade, GameSystem.Instance.FruitAbsorbValue, skillmax, i);
+                ListValidCats.Add(i);
             }
         }
     }
@@ -87,12 +103,17 @@ public class PlayerCatManagerCtrl : MonoBehaviour {
     /// 
     /// </summary>
     public void SetInactiveManager() {
-        for(int i=0; i<ListPhysicsPlayerCats.Count; i++) {
+
+        _objPlayerCatAppears.SetActive(false);
+
+        for (int i=0; i<ListPhysicsPlayerCats.Count; i++) {
             ListPhysicsPlayerCats[i].HideCat();
         }
     }
 
     public Vector3 GetTargetCatPos(int pIndex) {
+        
+
         return ListPhysicsPlayerCats[pIndex].GetCurrentPosition();
     }
 

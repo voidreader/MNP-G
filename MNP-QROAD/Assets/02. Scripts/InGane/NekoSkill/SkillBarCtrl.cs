@@ -36,6 +36,10 @@ public class SkillBarCtrl : MonoBehaviour {
     [SerializeField]
     int _specialAttackGrade;
 
+    [SerializeField] Transform _textSpecialSkill;
+    readonly Vector3 _posLeftSpecialSkillText = new Vector3(-500, 185, 0);
+    readonly Vector3 _posRightSpecialSkillText = new Vector3(500, 185, 0);
+
     #region Properties 
 
     public int BarIndx {
@@ -228,6 +232,10 @@ public class SkillBarCtrl : MonoBehaviour {
 
         InUICtrl.Instance.SetMinusMissionCount(SpecialMissionType.specialAttack);
 
+
+        if (InGameCtrl.Instance.ListNekoPassive[_barIndx].HasActiveSkill)
+            ShowSpecialSkillText();
+
     }
     
 
@@ -241,6 +249,23 @@ public class SkillBarCtrl : MonoBehaviour {
     private void InitCircleProgress() {
         _currentValue = 0;
         _circleProgress.value = 0;
+    }
+
+
+    void ShowSpecialSkillText() {
+        _textSpecialSkill.localPosition = _posLeftSpecialSkillText;
+        _textSpecialSkill.gameObject.SetActive(true);
+        _textSpecialSkill.DOLocalMoveX(0, 0.2f).OnComplete(OnCompleteTextMove);
+
+    }
+
+
+    void OnCompleteTextMove() {
+        _textSpecialSkill.DOLocalMoveX(500, 0.2f).SetDelay(0.4f).OnComplete(OnCompleteShowSpecialSkillTextRight);
+    }
+
+    void OnCompleteShowSpecialSkillTextRight() {
+        _textSpecialSkill.gameObject.SetActive(false);
     }
 
 

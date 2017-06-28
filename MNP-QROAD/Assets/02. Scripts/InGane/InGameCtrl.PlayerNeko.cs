@@ -113,7 +113,7 @@ public partial class InGameCtrl : MonoBehaviour {
         }
 
         if(ListNekoPassive[pEquipIndex].IsRemoveSpecialBlock) {
-
+            RemoveSpecialBlocks(ListNekoPassive[pEquipIndex].RemoveSpecialBlockCount, pEquipIndex);
         }
 
 
@@ -146,34 +146,54 @@ public partial class InGameCtrl : MonoBehaviour {
         // 없애야 하는 특수 블록 개수만큼, 리스트로 받아온다. 
         _listSpecialTargetBlock = FindSpecialTargetBlock(pBlockCount);
 
-        
+        int count = 0;
+        Vector3 pos = Vector3.zero;
+        BlockCtrl targetBlock = null;
 
 
-        // 번개 소환 
+        // 스페셜 블록이 몇개 안남아있을 경우도.. 
+        if (_listSpecialTargetBlock.Count >= pBlockCount)
+            count = pBlockCount;
+        else
+            count = _listSpecialTargetBlock.Count;
 
+        // 번개 발사 지점을 처리 
+        if (IsBossStage || IsRescueStage)
+            pos = EnemyNekoManager.Instance.GetCurrentNekoPosition();
+        else
+            pos = PlayerCatManagerCtrl.Instance.GetTargetCatPos(pIndex);
 
+        for(int i=0; i<count;i++) {
 
+            targetBlock = _listSpecialTargetBlock[UnityEngine.Random.Range(0, _listSpecialTargetBlock.Count)];
+            _listSpecialTargetBlock.Remove(targetBlock);
 
+            // 번개 소환 및 타겟 지정 
+            PoolManager.Pools[PuzzleConstBox.objectPool].Spawn(PuzzleConstBox.prefabSkillThunder, pos, Quaternion.identity).GetComponent<SkillThunderCtrl>()
+                .SetThunderTarget(targetBlock, RequestExtraThunderTargetBlock);
 
-
-
+        }
     }
 
 
     /// <summary>
-    /// 스페셜 블록의 파괴 처리 
+    /// 번개에게 추가 타겟 요청 
     /// </summary>
-    /// <param name="pBC"></param>
-    void DestroySpecialBlock(BlockCtrl pBC) {
+    /// <param name="pThunder"></param>
+    void RequestExtraThunderTargetBlock(SkillThunderCtrl pThunder) {
+        // 하나의 스페셜 블록을 찾아서, 넘겨줘야되는데..?
 
-        if (pBC.IsFishGrill)
-            pBC.GrillFish();
-        else if (pBC.IsStone)
-            pBC.BreakStone();
-        else if (pBC.IsCookie)
-            pBC.DestroyCookie();
+        if(FindSpecialTargetBlock(1).Count > 0) {
+            pThunder.SetThunderTarget(FindSpecialTargetBlock(1)[0], RequestExtraThunderTargetBlock);
+        }
+        else {
+            // 소환된 번개 해제 
+            pThunder.DespawnItself();
+        }
+    }
 
-    } 
+
+
 
     /// <summary>
     /// 타겟이 되는 블록을 선정 

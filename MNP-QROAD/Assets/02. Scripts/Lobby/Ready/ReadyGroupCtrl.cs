@@ -74,6 +74,14 @@ public class ReadyGroupCtrl : MonoBehaviour {
     string _debugCurrentStage;
 
 
+    #region 구출 & 보스 스테이지 추가 UI
+    [SerializeField] UISprite _attackStageBG; // 구출 & 보스 미션용 UI 배경 
+    [SerializeField] UISprite _attackTargetNekoAppear; // 구출 & 보스 미션 타겟 고양이
+    [SerializeField] UILabel _lblAttackStageBonus; // 구출 & 보스 미션의 트라이 횟수에 따른 보너스 
+    #endregion  
+
+
+
     public static ReadyGroupCtrl Instance {
         get {
             if (_instance == null) {
@@ -327,6 +335,12 @@ public class ReadyGroupCtrl : MonoBehaviour {
             _arrStageMissionCols[i].SetDisable();
         }
 
+        _attackStageBG.gameObject.SetActive(false);
+        _attackTargetNekoAppear.gameObject.SetActive(false);
+        _lblAttackStageBonus.gameObject.SetActive(false);
+
+
+
         /* 스테이지 정보 세팅 */
 
 
@@ -335,7 +349,7 @@ public class ReadyGroupCtrl : MonoBehaviour {
         _arrStageMissionCols[0].SetMissionInfo(_currentStage["questid1"].AsInt, _currentStage["questvalue1"].AsInt);
         _arrStageMissionCols[1].SetMissionInfo(_currentStage["questid2"].AsInt, _currentStage["questvalue2"].AsInt);
         _arrStageMissionCols[2].SetMissionInfo(_currentStage["questid3"].AsInt, _currentStage["questvalue3"].AsInt);
-        _arrStageMissionCols[3].SetMissionInfo(_currentStage["questid4"].AsInt, _currentStage["questvalue4"].AsInt);
+        // _arrStageMissionCols[3].SetMissionInfo(_currentStage["questid4"].AsInt, _currentStage["questvalue4"].AsInt);
 
         SetNormalGame();
 
@@ -345,10 +359,19 @@ public class ReadyGroupCtrl : MonoBehaviour {
             _arrEquipItem[3].SetFireworkItem();
         }
 
-
         // 잠금해제
         StageMasterCtrl.Instance.IsLockedByLoadReplayOrNextStage = false;
+
+        // 구출 미션 추가 UI 설정 
+        if (_currentStage["questid1"].AsInt == 10) {
+            SetRescueBossStageUI(true);
+        }
+        else if (_currentStage["questid1"].AsInt == 11) { // 보스 미션 추가 UI 설정
+
+            SetRescueBossStageUI(false);
+        }
     }
+
 
     void OnEnable() {
 
@@ -403,6 +426,30 @@ public class ReadyGroupCtrl : MonoBehaviour {
         catch(System.Exception ex) {
             Debug.Log(ex.StackTrace);
         }
+    }
+
+
+    /// <summary>
+    /// 구출 & 보스 스테이지 전용 UI 설정
+    /// </summary>
+    void SetRescueBossStageUI(bool pIsRescue) {
+
+        _attackStageBG.gameObject.SetActive(true);
+        _attackTargetNekoAppear.gameObject.SetActive(true);
+        _lblAttackStageBonus.gameObject.SetActive(true);
+
+        GameSystem.Instance.SetNekoSpriteByID(_attackTargetNekoAppear, _currentStage["appearnekoid"].AsInt);
+
+
+        if(pIsRescue) {
+            _attackStageBG.spriteName = "neko-base-games-ui";
+            _lblAttackStageBonus.text = "계속되는 도전으로 감옥의 튼튼함이 [n]% 감소합니다.";
+        }
+        else {
+            _attackStageBG.spriteName = "boss-base-games-ui";
+            _lblAttackStageBonus.text = "계속되는 도전으로 보스의 체력이 [n]% 감소합니다.";
+        }
+
     }
 
 
