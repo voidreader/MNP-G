@@ -107,7 +107,9 @@ public class PhysicsPlayerCatCtrl : MonoBehaviour {
     /// 플레이어 고양이 무브 처리 
     /// </summary>
     void FloatCat() {
-        this.transform.DOLocalMoveY(5.2f, 1).SetLoops(-1, LoopType.Yoyo);
+        float floatingTime = UnityEngine.Random.Range(0.8f, 1.5f);
+
+        this.transform.DOLocalMoveY(5.2f, floatingTime).SetLoops(-1, LoopType.Yoyo);
     }
 
     /// <summary>

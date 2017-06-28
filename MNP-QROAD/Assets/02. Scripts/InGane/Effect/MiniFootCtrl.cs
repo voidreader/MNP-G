@@ -91,6 +91,13 @@ public class MiniFootCtrl : MonoBehaviour {
         _isAbsorbFruit = true;
         _blockID = pBlockID;
 
+        // 장착한 고양이가 없는 경우에는 blockID를 임의로 변경한다. 
+        if(GameSystem.Instance.ListEquipNekoID[_blockID] < 0) {
+            _blockID = PlayerCatManagerCtrl.Instance.ListValidCats[Random.Range(0, PlayerCatManagerCtrl.Instance.ListValidCats.Count)];
+        }
+        
+
+
         spFootFrag.SetSprite(PuzzleConstBox.listFruitClip[GameSystem.Instance.UserPowerLevel - 1]);
         spFootFrag.scale = GameSystem.Instance.BaseScale;
         isTargetSet = true;
