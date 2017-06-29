@@ -7,7 +7,9 @@ public class OwnCatCtrl : MonoBehaviour {
 
     // Controls
     [SerializeField] UISprite _frame; // frame 
-    [SerializeField] UILabel lblGrade; // 등급
+    [SerializeField] UISprite _spGrade; // 등급
+    [SerializeField] UILabel _lblName;
+
     [SerializeField] UILabel lblLevel; // 레벨
     [SerializeField] private UISprite _spNeko;
     [SerializeField] UISprite _spMedal;
@@ -15,6 +17,8 @@ public class OwnCatCtrl : MonoBehaviour {
 
     [SerializeField] private GameObject _spUsing;
     [SerializeField] private bool isSelected = false;
+
+    
 
     // 고양이 정보 
     [SerializeField] int _id;
@@ -156,7 +160,6 @@ public class OwnCatCtrl : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-	
 	}
 
     /// <summary>
@@ -189,20 +192,19 @@ public class OwnCatCtrl : MonoBehaviour {
 
 
         lblLevel.text = "Lv." + Level.ToString();
-        lblGrade.text = GameSystem.Instance.GetNekoGradeText(Grade);
+        _spGrade.spriteName = GameSystem.Instance.GetNekoGradeSprite(Grade);
+
+        _lblName.text = GameSystem.Instance.GetNekoName(Id, Grade);
+        
 
         // 최종 등급인지 체크 
         if (Grade == 5 || Grade == MaxGrade) {
             IsMaxGrade = true;
-            lblGrade.bitmapFont = GameSystem.Instance.OrangeStarFont;
-            lblGrade.spacingX = -32;
-            lblGrade.fontSize = 11;
+
         }
         else {
             IsMaxGrade = false;
-            lblGrade.bitmapFont = GameSystem.Instance.NormalStarFont;
-            lblGrade.spacingX = -25;
-            lblGrade.fontSize = 17;
+
         }
 
 
@@ -370,11 +372,21 @@ public class OwnCatCtrl : MonoBehaviour {
     }
 
     private void SetSelectFrameSprite() {
-        _frame.spriteName = PuzzleConstBox.spriteFrameNekoGreen;
+        // _frame.spriteName = PuzzleConstBox.spriteFrameNekoGreen;
+        _frame.spriteName = "new-card-in";
 
+        _lblName.color = PuzzleConstBox.colorSelectedNekoName;
+        _lblName.effectColor = PuzzleConstBox.colorSelectedNekoNameShadow;
+        lblLevel.color = PuzzleConstBox.colorSelectedNekoLevel;
     }
 
     private void SetNoSelectFrameSprite() {
-        _frame.spriteName = PuzzleConstBox.spriteFrameNekoYellow;
+        //_frame.spriteName = PuzzleConstBox.spriteFrameNekoYellow;
+        _frame.spriteName = "new-card-standard";
+
+        _lblName.color = PuzzleConstBox.colorUnSelectedNekoName;
+        _lblName.effectColor = PuzzleConstBox.colorUnSelectedNekoNameShadow;
+        lblLevel.color = PuzzleConstBox.colorUnSelectedNekoLevel;
+
     }
 }

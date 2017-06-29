@@ -4493,6 +4493,7 @@ public partial class GameSystem : MonoBehaviour {
         UserStageJSON["laststate"].AsInt = pNode["laststate"].AsInt;
 
         UserCurrentStage = UserStageJSON["currentstage"].AsInt;
+        GetUserStageNode(PlayStage)["trycount"].AsInt += 1;
 
 
 

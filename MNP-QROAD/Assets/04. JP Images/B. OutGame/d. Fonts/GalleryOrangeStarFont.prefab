@@ -16,10 +16,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000012821497298}
-  - 114: {fileID: 114000011633703676}
+  - component: {fileID: 4000012821497298}
+  - component: {fileID: 114000011633703676}
   m_Layer: 0
   m_Name: GalleryOrangeStarFont
   m_TagString: Untagged
@@ -36,10 +36,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114000011633703676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,10 +54,10 @@ MonoBehaviour:
   mMat: {fileID: 2100000, guid: eb8adcdab49351249a62dd7a29ff1d41, type: 2}
   mUVRect:
     serializedVersion: 2
-    x: 0.5986328
-    y: 0.13085938
-    width: 0.125
-    height: 0.0625
+    x: 0.49560547
+    y: 0.38867188
+    width: 0.0625
+    height: 0.125
   mFont:
     mSize: 32
     mBase: 26

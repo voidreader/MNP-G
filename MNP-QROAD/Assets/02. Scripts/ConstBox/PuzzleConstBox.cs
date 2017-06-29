@@ -589,7 +589,8 @@ public static class PuzzleConstBox {
 	public static List<string> listGoldPurchaseConfirmSprite = new List<string>(); // 골드 구매 확인창 Sprite 용도 
 	public static List<string> listEquipBoostItemColorSprite = new List<string>(); // 장착 아이템 sprite (인게임)
 	public static List<string> listEquipBoostItemDarkSprite = new List<string>(); // 장착 아이템 sprite (인게임)
-	
+
+    public static List<string> listNekoGrade = new List<string>();
 	
 
 	public static readonly string clipBlockDestroy = "BlockDestroy";
@@ -736,8 +737,27 @@ public static class PuzzleConstBox {
 	// Color
 	public static Color colorShadow = new Color(16, 120, 167);
 
-	// Balance 
-	public static float minFootSpeed = 0.5f;
+
+    // Color 고양이 프레임 
+    public static Color colorSelectedNekoName = new Color();
+    public static Color colorSelectedNekoNameShadow = new Color();
+    public static Color colorUnSelectedNekoName = new Color();
+    public static Color colorUnSelectedNekoNameShadow = new Color();
+
+    public static Color colorSelectedNekoLevel = new Color();
+    public static Color colorUnSelectedNekoLevel = new Color();
+
+    static string hexSelectedNekoName = "#956416ff";
+    static string hexSelectedNekoNameShadow = "#ffd799ff";
+    static string hexUnSelectedNekoName = "#ffeee2ff";
+    static string hexUnSelectedNekoNameShadow = "#8e4b1aff";
+
+    static string hexSelectedNekoLevel = "#b07143ff";
+    static string hexUnSelectedNekoLevel = "#fceda9ff";
+
+
+    // Balance 
+    public static float minFootSpeed = 0.5f;
 	public static float maxFootSpeed = 0.7f;
 
 
@@ -1060,7 +1080,28 @@ public static class PuzzleConstBox {
         listTheme8RocketStartPos.Add(new Vector3(220, 440, 0));
         listTheme8RocketStartPos.Add(new Vector3(-115, 490, 0));
         listTheme8RocketStartPos.Add(new Vector3(115, 490, 0));
+
+
+        listNekoGrade.Add("new-star");
+        listNekoGrade.Add("new-star-2");
+        listNekoGrade.Add("new-star-3");
+        listNekoGrade.Add("new-star-4");
+        listNekoGrade.Add("new-star-five");
+
+
+        #region 칼라 작업
+        ColorUtility.TryParseHtmlString(hexSelectedNekoLevel, out colorSelectedNekoLevel);
+        ColorUtility.TryParseHtmlString(hexUnSelectedNekoLevel, out colorUnSelectedNekoLevel);
+
+        ColorUtility.TryParseHtmlString(hexSelectedNekoName, out colorSelectedNekoName);
+        ColorUtility.TryParseHtmlString(hexSelectedNekoNameShadow, out colorSelectedNekoNameShadow);
+
+        ColorUtility.TryParseHtmlString(hexUnSelectedNekoName, out colorUnSelectedNekoName);
+        ColorUtility.TryParseHtmlString(hexUnSelectedNekoNameShadow, out colorUnSelectedNekoNameShadow);
         
+
+
+        #endregion
 
     }
 }

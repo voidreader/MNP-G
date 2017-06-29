@@ -108,14 +108,30 @@ public class EnemyNekoManager : MonoBehaviour {
         // 현재 스테이지의 기준정보 노드 
         CurrentStageNode = GameSystem.Instance.GetCurrentStageNode();
 
+        // HP 계산 로직 수정
+        // 2017.06 여러번 도전할때마다 HP가 감소되는 보너스 추가 
+
+        float tryBonusValue = GameSystem.Instance.GetTryBonusCurrentStageInGame();
+        int finalHP = CurrentStageNode[APPEAR_NEKO_HP].AsInt;
+
+
+
+
+        if (tryBonusValue > 0) {
+            Debug.Log(">>>> HAS TRY BONUS HP! >>>>");
+            finalHP = Mathf.RoundToInt(CurrentStageNode[APPEAR_NEKO_HP].AsFloat - (CurrentStageNode[APPEAR_NEKO_HP].AsFloat * tryBonusValue));
+        }
+
+        
+
 
         // 보스전 세팅 
         if (InGameCtrl.Instance.GetBossStage()) {
 
-            Debug.Log("★ InitStageRescueNeko Boss Stage");
+            Debug.Log("★ InitStageRescueNeko Boss Stage :: " + finalHP);
 
             // 보스 고양이만 활성화 한다.
-            BossNeko.SetBossNeko(CurrentStageNode[APPEAR_NEKO_ID].AsInt, CurrentStageNode[APPEAR_NEKO_HP].AsInt, bossHPBar);
+            BossNeko.SetBossNeko(CurrentStageNode[APPEAR_NEKO_ID].AsInt, finalHP, bossHPBar);
             
             
             RescueNeko.InactiveNeko();
@@ -127,11 +143,11 @@ public class EnemyNekoManager : MonoBehaviour {
         }
         else {
 
-            Debug.Log("★ InitStageRescueNeko Not Boss Stage");
+            Debug.Log("★ InitStageRescueNeko Not Boss Stage :: " + finalHP);
 
             InitRope();
 
-            RescueNeko.SetRescueNeko(CurrentStageNode[APPEAR_NEKO_ID].AsInt, CurrentStageNode[APPEAR_NEKO_HP].AsInt, nekoHPBar);
+            RescueNeko.SetRescueNeko(CurrentStageNode[APPEAR_NEKO_ID].AsInt, finalHP, nekoHPBar);
             RescueCloneNeko.SetCloneNeko(CurrentStageNode[APPEAR_NEKO_ID].AsInt);
 
             //BossNeko.SetBossNeko(_stageOrder.Rows[GetStageRowID(GameSystem.Instance.PlayStage)]._boss_id, _stageOrder.Rows[GetStageRowID(GameSystem.Instance.PlayStage)]._boss_HP, bossHPBar);

@@ -70,6 +70,8 @@ public class ReadyGroupCtrl : MonoBehaviour {
     bool _onStartingGame = false;
 
     JSONNode _currentStage;
+    JSONNode _userStage;
+
     [SerializeField]
     string _debugCurrentStage;
 
@@ -328,6 +330,7 @@ public class ReadyGroupCtrl : MonoBehaviour {
         // 플레이 스테이지 설정
         GameSystem.Instance.PlayStage = _stage;
         _currentStage = GameSystem.Instance.GetStageNode(pStage);
+        _userStage = GameSystem.Instance.GetUserStageNode(pStage);
         _debugCurrentStage = _currentStage.ToString();
 
         
@@ -434,21 +437,53 @@ public class ReadyGroupCtrl : MonoBehaviour {
     /// </summary>
     void SetRescueBossStageUI(bool pIsRescue) {
 
+        int tryBonus = 0;
+        string tryBonusText = string.Empty;
+
         _attackStageBG.gameObject.SetActive(true);
         _attackTargetNekoAppear.gameObject.SetActive(true);
         _lblAttackStageBonus.gameObject.SetActive(true);
+        
 
         GameSystem.Instance.SetNekoSpriteByID(_attackTargetNekoAppear, _currentStage["appearnekoid"].AsInt);
 
+        // 트라이 보너스
+        tryBonus = _userStage["trycount"].AsInt * 2;
+        if (tryBonus > 50) // 50이 최고 
+            tryBonus = 50;
 
-        if(pIsRescue) {
+        if (pIsRescue) {
             _attackStageBG.spriteName = "neko-base-games-ui";
-            _lblAttackStageBonus.text = "계속되는 도전으로 감옥의 튼튼함이 [n]% 감소합니다.";
+
+            if (_userStage["trycount"].AsInt < 10)
+                tryBonusText = GameSystem.Instance.GetLocalizeText(MNP_Localize.rowIds.L3122);
+            else if(_userStage["trycount"].AsInt >= 10 && _userStage["trycount"].AsInt < 20)
+                tryBonusText = GameSystem.Instance.GetLocalizeText(MNP_Localize.rowIds.L3123);
+            else
+                tryBonusText = GameSystem.Instance.GetLocalizeText(MNP_Localize.rowIds.L3124);
+
+            tryBonusText = tryBonusText.Replace("[n]", tryBonus.ToString());
+
+            _lblAttackStageBonus.text = tryBonusText;
         }
         else {
             _attackStageBG.spriteName = "boss-base-games-ui";
-            _lblAttackStageBonus.text = "계속되는 도전으로 보스의 체력이 [n]% 감소합니다.";
+
+            if (_userStage["trycount"].AsInt < 10)
+                tryBonusText = GameSystem.Instance.GetLocalizeText(MNP_Localize.rowIds.L3125);
+            else if (_userStage["trycount"].AsInt >= 10 && _userStage["trycount"].AsInt < 20)
+                tryBonusText = GameSystem.Instance.GetLocalizeText(MNP_Localize.rowIds.L3126);
+            else
+                tryBonusText = GameSystem.Instance.GetLocalizeText(MNP_Localize.rowIds.L3127);
+
+            tryBonusText = tryBonusText.Replace("[n]", tryBonus.ToString());
+            _lblAttackStageBonus.text = tryBonusText;
         }
+
+        // 최초 도전이면 레이블을 보여주지 않는다.
+        if (tryBonus <= 0)
+            _lblAttackStageBonus.gameObject.SetActive(false);
+           
 
     }
 

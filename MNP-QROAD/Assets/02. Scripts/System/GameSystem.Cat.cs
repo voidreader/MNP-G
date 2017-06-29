@@ -54,6 +54,10 @@ public partial class GameSystem : MonoBehaviour {
         return returnValue;
     }
 
+    public string GetNekoGradeSprite(int pStar) {
+        return PuzzleConstBox.listNekoGrade[pStar - 1];
+    }
+
 
     /// <summary>
     /// 고양이 순수 파워 조회 

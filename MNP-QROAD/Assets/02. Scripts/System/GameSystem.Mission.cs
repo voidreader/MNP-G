@@ -1595,6 +1595,20 @@ public partial class GameSystem : MonoBehaviour {
         return StageDetailJSON[pStage - 1];
     }
 
+    public JSONNode GetUserStageNode(int pStage) {
+        return UserStageJSON["stagelist"][pStage - 1];
+    }
+
+
+    /// <summary>
+    /// 현재 스테이지의 try 보너스 수치 조회
+    /// </summary>
+    /// <returns></returns>
+    public float GetTryBonusCurrentStageInGame() {
+        return UserStageJSON["stagelist"][GameSystem.Instance.PlayStage - 1]["trycount"].AsInt * 0.02f;
+    }
+       
+
     public JSONNode GetCurrentStageNode() {
         return StageDetailJSON[GameSystem.Instance.PlayStage - 1];
     }
