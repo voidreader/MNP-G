@@ -2855,6 +2855,29 @@ public partial class GameSystem : MonoBehaviour {
         }
     }
 
+
+    public void SetNekoSpriteWithButton(UISprite pSprite, int pID, int pGrade) {
+        // 외형 세팅 
+        pSprite.atlas = GameSystem.Instance.GetNekoUIAtlas(NekoInfo.Rows[GetNekoRowID(pID)]._collection_index);
+
+
+        // 5성일때 변화 
+        if ("Y".Equals(NekoInfo.Rows[GetNekoRowID(pID)]._five_grade_change) && pGrade == 5) {
+            //five_main_sprite
+
+            pSprite.atlas = GameSystem.Instance.GetNekoUIAtlas(NekoInfo.Rows[GetNekoRowID(int.Parse(NekoInfo.Rows[GetNekoRowID(pID)]._five_main_id))]._collection_index);
+
+            pSprite.gameObject.GetComponent<UIButton>().normalSprite = NekoInfo.Rows[GetNekoRowID(pID)]._five_main_sprite;
+            pSprite.spriteName = NekoInfo.Rows[GetNekoRowID(pID)]._five_main_sprite;
+        }
+        else {
+
+            //main_prefix
+            pSprite.gameObject.GetComponent<UIButton>().normalSprite = NekoInfo.Rows[GetNekoRowID(pID)]._main_sprite;
+            pSprite.spriteName = NekoInfo.Rows[GetNekoRowID(pID)]._main_sprite;
+        }
+    }
+
     /// <summary>
     /// 
     /// </summary>

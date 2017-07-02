@@ -351,7 +351,7 @@ public class OwnCatCtrl : MonoBehaviour {
         
 
         // 선택창으로 연결 
-        NekoSelectBigPopCtrl.Instance.SetCurrentNeko(this);
+        CatInformationCtrl.Instance.SetCatInfomation(this);
 
     }
 

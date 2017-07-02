@@ -3155,11 +3155,11 @@ public partial class GameSystem : MonoBehaviour {
         UserDataJSON[_jData]["mainnekograde"].AsInt = UserNeko[nekoIndex]["star"].AsInt;
 
         // Refresh
-        NekoSelectBigPopCtrl nekogrow = null;
-        nekogrow = FindObjectOfType(typeof(NekoSelectBigPopCtrl)) as NekoSelectBigPopCtrl;
+        if(CatInformationCtrl.Instance != null) {
+            CatInformationCtrl.Instance.SetCatInfomation(SelectNeko);
+        }
 
-        if (nekogrow != null)
-            nekogrow.SetCurrentNeko(SelectNeko);
+        
     }
 
     #endregion
@@ -3263,8 +3263,9 @@ public partial class GameSystem : MonoBehaviour {
         // NekoFeed 창 업데이트 
         //NekoFeedCtrl _nekoFeed = FindObjectOfType(typeof(NekoFeedCtrl)) as NekoFeedCtrl;
         //_nekoFeed.RefreshNekoInfo();
-        NekoSelectBigPopCtrl popupNeko = FindObjectOfType(typeof(NekoSelectBigPopCtrl)) as NekoSelectBigPopCtrl;
-        popupNeko.OnCompleteFeedFish(!isRankedUp);
+        if(CatInformationCtrl.Instance != null) {
+            CatInformationCtrl.Instance.OnCompleteFeedFish(!isRankedUp);
+        }
 
 
 
@@ -3352,10 +3353,12 @@ public partial class GameSystem : MonoBehaviour {
         popupNekoUp.SendMessage("CloseSelf");
 
         // 성장 화면 업데이트 
-        NekoSelectBigPopCtrl popupNeko = FindObjectOfType(typeof(NekoSelectBigPopCtrl)) as NekoSelectBigPopCtrl;
-        popupNeko.OnCompleteUpgrade();
-        
-        if(ReadyGroupCtrl.Instance != null) {
+        if(CatInformationCtrl.Instance != null) {
+            CatInformationCtrl.Instance.OnCompleteUpgrade();
+        }
+
+
+        if (ReadyGroupCtrl.Instance != null) {
             ReadyGroupCtrl.Instance.UpdateEquipNeko();
         }
 

@@ -10,7 +10,8 @@ public partial class LobbyCtrl : MonoBehaviour {
 
 	// Selective 창 제어 
 	[SerializeField] UIPanel pnlSelectiveNekoScrollView; // 네코 선택창 ScrollView Panel
-	[SerializeField] UIPanel pnlRankScrollView; 
+	[SerializeField] UIPanel pnlRankScrollView;
+    [SerializeField] CatInformationCtrl _CharacterInfo;
 	
 
     [SerializeField] GameObject _newNekoAddedSign;
@@ -53,9 +54,8 @@ public partial class LobbyCtrl : MonoBehaviour {
 
 	
 	public void CloseCharacterList() {
-
-		if(objSelectNeko.activeSelf) 
-			objSelectNeko.SendMessage ("CloseSelf");
+        if(CatInformationCtrl.Instance.gameObject.activeSelf)
+            CatInformationCtrl.Instance.SendMessage("CloseSelf");
 		
 	}
 
@@ -82,7 +82,11 @@ public partial class LobbyCtrl : MonoBehaviour {
     }
 
     void OnCharacterList() {
-        objSelectNeko.SetActive(true);
+        // CatInformationCtrl.Instance.OpenCatInformation();
+        _CharacterInfo.OpenCatInformation();
+
+
+        SpawnCharacterList(IsReadyCharacterList);
     }
 
     /// <summary>
@@ -115,7 +119,7 @@ public partial class LobbyCtrl : MonoBehaviour {
 
         // 자동으로 선택 처리 
         if(pIsReadyOpen) {
-            objSelectNeko.GetComponent<NekoSelectBigPopCtrl>().SetNekoByNekoID(ReadyGroupCtrl.Instance.GetEquipedNekoID());
+            CatInformationCtrl.Instance.SetNekoByNekoID(ReadyGroupCtrl.Instance.GetEquipedNekoID());
         }
 
     }

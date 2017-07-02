@@ -81,7 +81,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: badge-gold
     x: 862
-    y: 18
+    y: 107
     width: 82
     height: 88
     borderLeft: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: badge-silver
     x: 862
-    y: 107
+    y: 18
     width: 82
     height: 88
     borderLeft: 0
@@ -223,8 +223,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: fish_btn_minus
-    x: 685
-    y: 10
+    x: 1120
+    y: 366
     width: 34
     height: 34
     borderLeft: 0
@@ -237,7 +237,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: fish_frm_blue
     x: 729
-    y: 671
+    y: 554
     width: 106
     height: 116
     borderLeft: 0
@@ -250,7 +250,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: fish_frm_gray
     x: 729
-    y: 554
+    y: 671
     width: 106
     height: 116
     borderLeft: 0
@@ -289,7 +289,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: fish-up-bodan
     x: 219
-    y: 332
+    y: 210
     width: 136
     height: 106
     borderLeft: 0
@@ -302,7 +302,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: ico_fish_go
     x: 1015
-    y: 388
+    y: 200
     width: 62
     height: 53
     borderLeft: 0
@@ -314,8 +314,8 @@ MonoBehaviour:
     paddingTop: 13
     paddingBottom: 14
   - name: ico_fish_gocan
-    x: 1097
-    y: 519
+    x: 1098
+    y: 548
     width: 58
     height: 58
     borderLeft: 0
@@ -328,7 +328,7 @@ MonoBehaviour:
     paddingBottom: 11
   - name: ico_fish_salmon
     x: 1015
-    y: 442
+    y: 254
     width: 70
     height: 56
     borderLeft: 0
@@ -340,8 +340,8 @@ MonoBehaviour:
     paddingTop: 12
     paddingBottom: 12
   - name: ico_fish_salmoncan
-    x: 1098
-    y: 599
+    x: 1097
+    y: 468
     width: 58
     height: 58
     borderLeft: 0
@@ -354,7 +354,7 @@ MonoBehaviour:
     paddingBottom: 11
   - name: ico_fish_tuna
     x: 1086
-    y: 444
+    y: 256
     width: 64
     height: 54
     borderLeft: 0
@@ -378,9 +378,35 @@ MonoBehaviour:
     paddingRight: 11
     paddingTop: 11
     paddingBottom: 11
+  - name: le-base-off
+    x: 1015
+    y: 401
+    width: 125
+    height: 46
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 6
+    paddingTop: 4
+    paddingBottom: 1
+  - name: le-base-on
+    x: 1015
+    y: 607
+    width: 131
+    height: 50
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 1
   - name: level-up-bodan
     x: 219
-    y: 210
+    y: 332
     width: 136
     height: 106
     borderLeft: 0
@@ -393,7 +419,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: lvup_frm_neko_green
     x: 862
-    y: 395
+    y: 815
     width: 152
     height: 209
     borderLeft: 0
@@ -406,7 +432,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: lvup_frm_neko_red
     x: 862
-    y: 605
+    y: 395
     width: 152
     height: 209
     borderLeft: 0
@@ -419,7 +445,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: lvup_frm_neko_yellow
     x: 862
-    y: 815
+    y: 605
     width: 152
     height: 209
     borderLeft: 0
@@ -431,8 +457,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: lvup_gage_c
-    x: 1159
-    y: 936
+    x: 1627
+    y: 991
     width: 398
     height: 33
     borderLeft: 0
@@ -444,8 +470,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: lvup_gage_g
-    x: 1444
-    y: 991
+    x: 1627
+    y: 957
     width: 398
     height: 33
     borderLeft: 0
@@ -458,9 +484,61 @@ MonoBehaviour:
     paddingBottom: 0
   - name: lvup_ico_star
     x: 1078
-    y: 388
+    y: 200
     width: 56
     height: 53
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: m1
+    x: 1015
+    y: 356
+    width: 104
+    height: 44
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: m2
+    x: 1015
+    y: 311
+    width: 104
+    height: 44
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main
+    x: 1072
+    y: 167
+    width: 75
+    height: 32
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main-2
+    x: 626
+    y: 30
+    width: 205
+    height: 145
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -484,7 +562,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: new-card-in
     x: 0
-    y: 317
+    y: 14
     width: 218
     height: 302
     borderLeft: 0
@@ -510,7 +588,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: new-card-standard
     x: 0
-    y: 14
+    y: 317
     width: 218
     height: 302
     borderLeft: 0
@@ -574,7 +652,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: new-gauge
-    x: 361
+    x: 479
     y: 15
     width: 114
     height: 15
@@ -587,8 +665,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: new-gauge-base
-    x: 219
-    y: 8
+    x: 361
+    y: 11
     width: 117
     height: 19
     borderLeft: 0
@@ -600,8 +678,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: new-gauge-star
-    x: 767
-    y: 14
+    x: 1120
+    y: 325
     width: 33
     height: 30
     borderLeft: 0
@@ -665,8 +743,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 2
   - name: new-star-2
-    x: 720
-    y: 20
+    x: 770
+    y: 5
     width: 46
     height: 24
     borderLeft: 0
@@ -704,8 +782,8 @@ MonoBehaviour:
     paddingTop: 4
     paddingBottom: 4
   - name: new-star-five
-    x: 626
-    y: 2
+    x: 945
+    y: 1
     width: 58
     height: 42
     borderLeft: 0
@@ -717,7 +795,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: orange-line-bodan
-    x: 1159
+    x: 1342
     y: 970
     width: 284
     height: 54
@@ -731,7 +809,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: OrangeStarFont
     x: 1015
-    y: 499
+    y: 448
     width: 81
     height: 78
     borderLeft: 0
@@ -757,7 +835,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: red-star
     x: 1015
-    y: 578
+    y: 527
     width: 82
     height: 79
     borderLeft: 0
@@ -770,7 +848,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: StarFont
     x: 1015
-    y: 332
+    y: 144
     width: 56
     height: 55
     borderLeft: 0
@@ -795,8 +873,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 4
   - name: top-light
-    x: 1159
-    y: 867
+    x: 1342
+    y: 901
     width: 170
     height: 68
     borderLeft: 0
@@ -820,9 +898,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: top-neko-base-sh
+    x: 219
+    y: 1
+    width: 100
+    height: 26
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 3
+    paddingBottom: 0
   - name: top-skill-text-active
-    x: 548
-    y: 10
+    x: 698
+    y: 9
     width: 71
     height: 20
     borderLeft: 0
@@ -834,8 +925,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: top-skill-text-big-base
-    x: 626
-    y: 45
+    x: 1159
+    y: 894
     width: 182
     height: 130
     borderLeft: 0
@@ -847,8 +938,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: top-skill-text-passive
-    x: 476
-    y: 10
+    x: 626
+    y: 9
     width: 71
     height: 20
     borderLeft: 0

@@ -747,6 +747,9 @@ public static class PuzzleConstBox {
     public static Color colorSelectedNekoLevel = new Color();
     public static Color colorUnSelectedNekoLevel = new Color();
 
+    public static Color colorSortUnChecked = new Color();
+    public static Color colorSortChecked = new Color();
+
     static string hexSelectedNekoName = "#956416ff";
     static string hexSelectedNekoNameShadow = "#ffd799ff";
     static string hexUnSelectedNekoName = "#ffeee2ff";
@@ -1098,8 +1101,11 @@ public static class PuzzleConstBox {
 
         ColorUtility.TryParseHtmlString(hexUnSelectedNekoName, out colorUnSelectedNekoName);
         ColorUtility.TryParseHtmlString(hexUnSelectedNekoNameShadow, out colorUnSelectedNekoNameShadow);
-        
 
+
+        ColorUtility.TryParseHtmlString("4a4a4aff", out colorSortUnChecked);
+        ColorUtility.TryParseHtmlString("ffeb6cff", out colorSortChecked);
+        
 
         #endregion
 

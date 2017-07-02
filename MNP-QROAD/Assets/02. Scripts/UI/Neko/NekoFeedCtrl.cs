@@ -18,7 +18,7 @@ public class NekoFeedCtrl : MonoBehaviour {
 
 
     OwnCatCtrl _neko;
-    NekoSelectBigPopCtrl _nekoGrowthWindow;
+    CatInformationCtrl _base;
 
     /* 선택 고양이 정보 */
     [SerializeField] UISprite _nekoSprite;
@@ -53,7 +53,7 @@ public class NekoFeedCtrl : MonoBehaviour {
     }
 
 
-    public void OpenFeedWindow(NekoSelectBigPopCtrl pGrowWindow, OwnCatCtrl pNeko) {
+    public void OpenFeedWindow(CatInformationCtrl pBase, OwnCatCtrl pNeko) {
 
         this.gameObject.SetActive(true);
 
@@ -61,7 +61,7 @@ public class NekoFeedCtrl : MonoBehaviour {
 
 
         _neko = pNeko;
-        _nekoGrowthWindow = pGrowWindow;
+        _base = pBase;
 
 
 
@@ -96,16 +96,16 @@ public class NekoFeedCtrl : MonoBehaviour {
         InitFishColumns();
         GameSystem.Instance.InitFishFeed(); // 생선 값 초기화       
 
-        _nekoBeadBar.value = _nekoGrowthWindow.NekoGradeBarValue;
-        _nekoFakeBeadBar.value = _nekoGrowthWindow.NekoGradeBarValue;
+        _nekoBeadBar.value = _base.NekoGradeBarValue;
+        _nekoFakeBeadBar.value = _base.NekoGradeBarValue;
 
         _nekoSprite.atlas = _neko.CharacterAtlas;
         _nekoSprite.spriteName = _neko.CharacterSpriteName;
 
-        _nekoLevel.text = _nekoGrowthWindow.LevelText;
+        _nekoLevel.text = _base.LevelText;
         _nekoPower.text = _neko.Power.ToString();
-        _nekoGrade.text = _nekoGrowthWindow.GradeText;
-        _nekoStar.text = _nekoGrowthWindow.StarText;
+        _nekoGrade.text = _base.BeadBarText;
+        _nekoStar.text = _base.GradeText;
 
         _currentBead = _neko.Bead;
 
@@ -166,8 +166,8 @@ public class NekoFeedCtrl : MonoBehaviour {
     /// </summary>
     public void RefreshNekoInfo() {
         GameSystem.Instance.CurrentSelectNeko.UpdateInfo(); // 생선을 먹은 고양이 정보 업데이트 
-
-        _nekoGrowthWindow.SetCurrentNeko(GameSystem.Instance.CurrentSelectNeko); // 성장 창 업데이트 
+        _base.SetCatInfomation(GameSystem.Instance.CurrentSelectNeko);
+        
         SetInfo(); // 생선 창 업데이트 
 
 

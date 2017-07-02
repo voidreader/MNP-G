@@ -108,7 +108,6 @@ public partial class LobbyCtrl : MonoBehaviour {
     [SerializeField] GameObject objNekoLevelup = null;
     [SerializeField] GameObject objNekoLevelUpConfirmWindow = null;
 
-    [SerializeField] private GameObject objSelectNeko = null;
         
 
 
@@ -119,7 +118,7 @@ public partial class LobbyCtrl : MonoBehaviour {
     GatchaConfirmCtrl _gatchaConfirmCtrl;
 
 
-    Vector3 _nekoSelectScrollViewPos = new Vector3(-220, -90, 0);
+    Vector3 _nekoSelectScrollViewPos = new Vector3(-220, -70, 0);
 
     [SerializeField] NekoBonusInfoCtrl _nekoBonusInfo;
 
@@ -1275,8 +1274,8 @@ public partial class LobbyCtrl : MonoBehaviour {
         EnableSomeButton("ButtonUp");
 
         // 장착 화면 뜰때까지 대기. 
-        while (!objSelectNeko.activeSelf) {
-            yield return null;
+        while (!CatInformationCtrl.Instance.gameObject.activeSelf) {
+            yield return new WaitForSeconds(0.1f);
         }
 
         _tutorialHand.SetDisable();
@@ -1298,9 +1297,8 @@ public partial class LobbyCtrl : MonoBehaviour {
         SetFirstNekoEnableInTutorial();
 
         // 네코가 선택될때까지 대기
-        NekoSelectBigPopCtrl nekoSelect = objSelectNeko.GetComponent<NekoSelectBigPopCtrl>();
-        while (nekoSelect.Neko == null) {
-            yield return null;
+        while (CatInformationCtrl.Instance.Neko == null) {
+            yield return new WaitForSeconds(0.1f);
         }
 
         DisableAllButton();
@@ -1308,7 +1306,7 @@ public partial class LobbyCtrl : MonoBehaviour {
 
         // 손처리
         _tutorialHand.SetDisable();
-        _tutorialHand.SetEnable(new Vector3(220, 80, 0));
+        _tutorialHand.SetEnable(new Vector3(-280, 400, 0));
 
         // 네코 레벨업 확인창 오픈 
         while(!objNekoLevelUpConfirmWindow.activeSelf) {
@@ -1384,7 +1382,7 @@ public partial class LobbyCtrl : MonoBehaviour {
             Debug.Log("Enable btnFish");
             EnableSomeButton("btnFish");
             _tutorialHand.SetDisable();
-            _tutorialHand.SetEnable(new Vector3(-240, 80, 0));
+            _tutorialHand.SetEnable(new Vector3(-280, 230, 0));
 
             // 생선창 오픈을 기다린다. 
             while (!objFishFeed.activeSelf) {
@@ -1588,7 +1586,7 @@ public partial class LobbyCtrl : MonoBehaviour {
 
 
         // 장착 화면 뜰때까지 대기. 
-        while (!objSelectNeko.activeSelf) {
+        while (!CatInformationCtrl.Instance.gameObject.activeSelf) {
             yield return null;
         }
 
@@ -1606,10 +1604,10 @@ public partial class LobbyCtrl : MonoBehaviour {
         SetFirstNekoEnableInTutorial();
 
 
-        NekoSelectBigPopCtrl nekoSelect = objSelectNeko.GetComponent<NekoSelectBigPopCtrl>();
+        
         // 네코가 선택될때까지 대기.
-        while (nekoSelect.Neko == null) {
-            yield return null;
+        while (CatInformationCtrl.Instance.Neko == null) {
+            yield return new WaitForSeconds(0.1f);
         }
         _tutorialHand.SetDisable();
 
