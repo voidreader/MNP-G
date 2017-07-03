@@ -54,7 +54,7 @@ public partial class LobbyCtrl : MonoBehaviour {
 
 	
 	public void CloseCharacterList() {
-        if(CatInformationCtrl.Instance.gameObject.activeSelf)
+        if(CatInformationCtrl.Instance != null && CatInformationCtrl.Instance.gameObject.activeSelf)
             CatInformationCtrl.Instance.SendMessage("CloseSelf");
 		
 	}

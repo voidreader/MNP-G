@@ -3156,7 +3156,7 @@ public partial class GameSystem : MonoBehaviour {
 
         // Refresh
         if(CatInformationCtrl.Instance != null) {
-            CatInformationCtrl.Instance.SetCatInfomation(SelectNeko);
+            CatInformationCtrl.Instance.CheckMainCat(true);
         }
 
         

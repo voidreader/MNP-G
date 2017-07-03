@@ -29,6 +29,7 @@ public class CatInformationCtrl : MonoBehaviour {
     [SerializeField] UISprite[] _arrNekoSkillType; // 고양이 스킬 타입
     [SerializeField] UILabel[] _arrNekoSkillLabel; // 고양이 스킬 설명 
 
+    [SerializeField] bool _isMainCat = false;
     int _currentBead;
     int _maxBead;
     int _grade;
@@ -52,7 +53,7 @@ public class CatInformationCtrl : MonoBehaviour {
 
     [SerializeField] UIButton _btnSort;
     [SerializeField] UILabel _lblSort;
-    
+
     [SerializeField] GameObject _btnConfirm;
     [SerializeField] GameObject _btnRelease;
 
@@ -65,9 +66,14 @@ public class CatInformationCtrl : MonoBehaviour {
     [SerializeField] GameObject _spSmallSkillSign;
     [SerializeField] GameObject _spBigSkillSign;
 
+    [SerializeField] Transform _trTopMove;
+    [SerializeField] GameObject _spMain1;
+    [SerializeField] GameObject _spMain2;
+
 
     Vector3 _posNekoInit = new Vector3(0, 175, 0);
     float _NekoFloatMoveY = 190;
+    Vector3 _topOriginPos = new Vector3(141, 402, 0);
 
     #endregion
 
@@ -163,6 +169,16 @@ public class CatInformationCtrl : MonoBehaviour {
         }
     }
 
+    public bool IsMainCat {
+        get {
+            return _isMainCat;
+        }
+
+        set {
+            _isMainCat = value;
+        }
+    }
+
 
     #endregion
 
@@ -177,20 +193,37 @@ public class CatInformationCtrl : MonoBehaviour {
         this.gameObject.SetActive(true);
     }
 
+    public void CloseCatInformation() {
+        LobbyCtrl.Instance.ClearCharacterList();
+        this.SendMessage("CloseSelf");
+    }
+
     /// <summary>
     /// 화면 오픈 초기화 
     /// </summary>
     void InitInformation() {
+        
         GameSystem.Instance.SelectNeko = null;
         GameSystem.Instance.PreviousSelectNekoID = -1;
 
         _btnConfirm.SetActive(false);
         _btnRelease.SetActive(false);
 
+        _spBigSkillSign.SetActive(false);
+        _spSmallSkillSign.SetActive(false);
+
         // 고양이가 선택되지 않았을때, 필요없는 오브젝트 비활성화 
         SetActivateCatInfoObj(false);
         _lblNekoLevel.text = string.Empty;
 
+        _trTopMove.localPosition = _topOriginPos;
+        _isShowingSkillInfo = false;
+
+        _isGradeOrder = GameSystem.Instance.LoadGradeOrder();
+
+        
+            
+            
 
 
     }
@@ -203,6 +236,11 @@ public class CatInformationCtrl : MonoBehaviour {
     /// <param name="pNeko"></param>
     public void SetCatInfomation(OwnCatCtrl pNeko) {
 
+        bool flagSameCat = false;
+
+        if (pNeko == GameSystem.Instance.SelectNeko)
+            flagSameCat = true;
+
         Neko = pNeko;
         GameSystem.Instance.SelectNeko = pNeko;
 
@@ -212,15 +250,21 @@ public class CatInformationCtrl : MonoBehaviour {
 
         // 정보 처리 시작
         SetActivateCatInfoObj(true);
+        SetOrderButton();
 
         // 고양이 등장 
         GameSystem.Instance.SetNekoSpriteWithButton(_spNekoSprite, Neko.Id, Neko.Grade);
-        _spNekoSprite.transform.DOKill();
-        _spNekoSprite.transform.localScale = Vector3.zero; // 크기가 0에서 커지게. 
-        _spNekoSprite.transform.DOScale(1, 0.5f).OnComplete(OnCompleteNekoSpriteAppear);
+
+        if (!flagSameCat) {
+            _spNekoSprite.transform.DOKill();
+            _spNekoSprite.transform.localPosition = _posNekoInit;
+            _spNekoSprite.transform.localScale = Vector3.zero; // 크기가 0에서 커지게. 
+
+            _spNekoSprite.transform.DOScale(1, 0.5f).OnComplete(OnCompleteNekoSpriteAppear);
+        }
 
         
-        
+
 
         _currentBead = Neko.Bead;
         Grade = Neko.Grade;
@@ -255,14 +299,14 @@ public class CatInformationCtrl : MonoBehaviour {
         }
 
         // 최고 등급일때..
-        if(Neko.IsMaxGrade) {
+        if (Neko.IsMaxGrade) {
             _barNekoBead.value = 1;
             _lblNekoBeadValue.text = "MAX"; // Max
         }
 
         #region 뱃지 (메달 처리)
         _spNekoMedal.gameObject.SetActive(false);
-        switch(GameSystem.Instance.GetNekoMedalType(Neko.Id, Neko.Grade, Neko.Level)) {
+        switch (GameSystem.Instance.GetNekoMedalType(Neko.Id, Neko.Grade, Neko.Level)) {
             case NekoMedal.bronze:
                 _spNekoMedal.gameObject.SetActive(true);
                 _spNekoMedal.spriteName = PuzzleConstBox.spriteBigBronzeBadge;
@@ -282,7 +326,7 @@ public class CatInformationCtrl : MonoBehaviour {
         CheckSkill();
 
         // 버튼 오브젝트 처리 
-        if(LobbyCtrl.Instance.IsReadyCharacterList) { // 준비화면에서 열린 경우. 
+        if (LobbyCtrl.Instance.IsReadyCharacterList) { // 준비화면에서 열린 경우. 
             if (Neko.IsEquipped) {
                 _btnConfirm.SetActive(false);
                 _btnRelease.SetActive(true);
@@ -298,6 +342,29 @@ public class CatInformationCtrl : MonoBehaviour {
         }
 
         // 메인 고양이 처리 
+        if (_neko.Id == GameSystem.Instance.UserDataJSON["data"]["mainneko"].AsInt)
+            IsMainCat = true;
+        else
+            IsMainCat = false;
+
+
+        CheckMainCat(IsMainCat);
+        
+    }
+
+    /// <summary>
+    /// 메인 고양이 처리 
+    /// </summary>
+    public void CheckMainCat(bool pMainFlag) {
+
+        _spMain1.SetActive(pMainFlag);
+        _spMain2.SetActive(pMainFlag);
+
+        // 
+        if (_infoWindow.gameObject.activeSelf) {
+            _infoWindow.CheckMain(pMainFlag);
+        }
+
     }
 
 
@@ -307,7 +374,7 @@ public class CatInformationCtrl : MonoBehaviour {
     /// <param name="pFlag"></param>
     void SetActivateCatInfoObj(bool pFlag) {
         _spNekoShadow.SetActive(pFlag);
-        _spSmallSkillSign.SetActive(pFlag);
+        
         _btnLevelUp.SetActive(pFlag);
         _btnFeed.SetActive(pFlag);
 
@@ -322,12 +389,54 @@ public class CatInformationCtrl : MonoBehaviour {
         if (_isShowingSkillInfo && pFlag)
             _spBigSkillSign.SetActive(pFlag);
 
+        if(!_isShowingSkillInfo && pFlag)
+            _spSmallSkillSign.SetActive(pFlag);
     }
 
     void OnCompleteNekoSpriteAppear() {
-        _spNekoSprite.transform.DOLocalMoveY(190, 1).SetLoops(-1, LoopType.Yoyo);
+        _spNekoSprite.transform.DOLocalMoveY(180, 1).SetLoops(-1, LoopType.Yoyo);
     }
 
+
+    /// <summary>
+    /// 스킬 정보 오픈 
+    /// </summary>
+    public void OpenSkillInfo() {
+
+        // 이미 스킬이 보여주고 있는 상태라면 종료 
+        if (_isShowingSkillInfo)
+            return;
+
+        // 141 
+        _trTopMove.DOLocalMoveX(-70, 0.5f).OnComplete(OnCompleteOpenSkill);
+
+        _isShowingSkillInfo = true;
+    }
+
+    void OnCompleteOpenSkill() {
+        _spSmallSkillSign.SetActive(false);
+        _spBigSkillSign.SetActive(true);
+    }
+
+    /// <summary>
+    /// 스킬 정보 닫기 
+    /// </summary>
+    public void CloseSkillInfo() {
+
+        if (!_isShowingSkillInfo)
+            return;
+
+        _spBigSkillSign.SetActive(false);
+        _trTopMove.DOLocalMoveX(141, 0.5f).OnComplete(OnCompleteCloseSkill);
+
+        _isShowingSkillInfo = false;
+
+    }
+
+    void OnCompleteCloseSkill() {
+        _spSmallSkillSign.SetActive(true);
+        
+    }
 
 
     /// <summary>
@@ -383,7 +492,16 @@ public class CatInformationCtrl : MonoBehaviour {
         }
     }
 
-
+    void SetOrderButton() {
+        if (!_isGradeOrder) {
+            _btnSort.normalSprite = "le-base-off";
+            _lblSort.color = PuzzleConstBox.colorSortUnChecked;
+        }
+        else {
+            _btnSort.normalSprite = "le-base-on";
+            _lblSort.color = PuzzleConstBox.colorSortChecked;
+        }
+    }
 
     /// <summary>
     /// 사용자 고양이 정렬 
@@ -406,6 +524,8 @@ public class CatInformationCtrl : MonoBehaviour {
 
         _isGradeOrder = !_isGradeOrder;
         GameSystem.Instance.SaveGradeOrder(_isGradeOrder);
+        
+
 
         LobbyCtrl.Instance.SpawnCharacterList(LobbyCtrl.Instance.IsReadyCharacterList);
 
@@ -422,7 +542,9 @@ public class CatInformationCtrl : MonoBehaviour {
     }
 
 
-
+    /// <summary>
+    /// 메인 고양이 설정 
+    /// </summary>
     public void SetMainNeko() {
         GameSystem.Instance.UpgradeNekoDBKey = _neko.Dbkey;
         GameSystem.Instance.Post2MainNeko();
@@ -473,6 +595,7 @@ public class CatInformationCtrl : MonoBehaviour {
         }
 
         _infoWindow.SetNekoInfo(Neko.Id, Neko.Grade);
+        _infoWindow.CheckMain(IsMainCat);
     }
 
     /// <summary>

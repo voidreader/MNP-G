@@ -2560,7 +2560,18 @@ public partial class GameSystem : MonoBehaviour {
 
         Debug.Log("★★ AddNewNeko :: " + pNode.ToString());
 
+
         UserNeko.Add(pNode);
+
+        // 자동 메인네코 설정 처리 
+        /*
+        if (_listUserNeko.Count == 1 && UserDataJSON[_jData]["mainneko"].AsInt < 0) {
+            // 메인 네코 설정 
+            GameSystem.Instance.UpgradeNekoDBKey = UserNeko[0]["dbkey"].AsInt;
+            Post2MainNeko();
+        }
+        */
+
         // UserNeko = _userNekoJSON;
 
         // List에 추가 
@@ -2643,7 +2654,7 @@ public partial class GameSystem : MonoBehaviour {
     /// <returns></returns>
     public string GetLocalizeText(int localizeID) {
 
-        return MNP_Localize.Instance.GetRow("L" + localizeID.ToString()).GetStringData(Application.systemLanguage.ToString());
+        return MNP_Localize.Instance.GetRow("L" + localizeID.ToString()).GetStringData(GameLanguage.ToString());
 
     }
 

@@ -13,7 +13,10 @@ public class NekoInfoCtrl : MonoBehaviour {
     UILabel _nekoDetail;
 
     int _nekoID, _nekoGrade;
-    
+
+    [SerializeField] GameObject _btnMain;
+    [SerializeField] GameObject _lblMain;
+
 
     public void SetNekoInfo(int pNekoID, int pNekoGrade) {
 
@@ -35,6 +38,22 @@ public class NekoInfoCtrl : MonoBehaviour {
         WindowManagerCtrl.Instance.ShareNekoFB(_nekoID, _nekoGrade);
 
         this.GetComponent<LobbyCommonUICtrl>().CloseSelf();
+    }
+
+
+    /// <summary>
+    /// 메인 고양이 설정 
+    /// </summary>
+    /// <param name="pFlag"></param>
+    public void CheckMain(bool pFlag) {
+        if(pFlag) {
+            _btnMain.gameObject.SetActive(false);
+            _lblMain.gameObject.SetActive(true);
+        }
+        else {
+            _btnMain.gameObject.SetActive(true);
+            _lblMain.gameObject.SetActive(false);
+        }
     }
 
 }

@@ -20,8 +20,8 @@ public class PhysicsPlayerCatCtrl : MonoBehaviour {
 
     
     [SerializeField] Transform _textSpecialSkill;
-    readonly Vector3 _posLeftSpecialSkillText = new Vector3(-500, 185, 0);
-    readonly Vector3 _posRightSpecialSkillText = new Vector3(500, 185, 0);
+    readonly Vector3 _posLeftSpecialSkillText = new Vector3(-500, 0, 0);
+    readonly Vector3 _posRightSpecialSkillText = new Vector3(500, 0, 0);
 
 
 

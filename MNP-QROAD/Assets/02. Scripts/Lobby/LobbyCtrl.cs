@@ -1274,7 +1274,8 @@ public partial class LobbyCtrl : MonoBehaviour {
         EnableSomeButton("ButtonUp");
 
         // 장착 화면 뜰때까지 대기. 
-        while (!CatInformationCtrl.Instance.gameObject.activeSelf) {
+        // while (!CatInformationCtrl.Instance.gameObject.activeSelf) {
+        while (CatInformationCtrl.Instance == null || !CatInformationCtrl.Instance.gameObject.activeSelf) {
             yield return new WaitForSeconds(0.1f);
         }
 
@@ -1302,7 +1303,7 @@ public partial class LobbyCtrl : MonoBehaviour {
         }
 
         DisableAllButton();
-        EnableSomeButton("btnUpgrade");
+        EnableSomeButton("btnLevelUp");
 
         // 손처리
         _tutorialHand.SetDisable();
@@ -1380,7 +1381,7 @@ public partial class LobbyCtrl : MonoBehaviour {
 
             // 생선창 버튼에 손 표시 
             Debug.Log("Enable btnFish");
-            EnableSomeButton("btnFish");
+            EnableSomeButton("btnFeed");
             _tutorialHand.SetDisable();
             _tutorialHand.SetEnable(new Vector3(-280, 230, 0));
 
@@ -1586,7 +1587,7 @@ public partial class LobbyCtrl : MonoBehaviour {
 
 
         // 장착 화면 뜰때까지 대기. 
-        while (!CatInformationCtrl.Instance.gameObject.activeSelf) {
+        while (CatInformationCtrl.Instance == null || !CatInformationCtrl.Instance.gameObject.activeSelf) {
             yield return null;
         }
 
@@ -1614,7 +1615,7 @@ public partial class LobbyCtrl : MonoBehaviour {
         // 네코 선택 후 장착 처리 
         DisableAllButton();
         EnableSomeButton("btnEquip");
-        _tutorialHand.SetEnable(new Vector3(15, -530, 0));
+        _tutorialHand.SetEnable(new Vector3(5, 160, 0));
 
         yield return null;
     }
@@ -1743,6 +1744,9 @@ public partial class LobbyCtrl : MonoBehaviour {
 
         // 빙고 화면이 떠있는중에 동작하지 않음
         if (BingoMasterCtrl.Instance.BingoMasterUI.activeSelf)
+            return;
+
+        if (_gameTip.gameObject.activeSelf)
             return;
         
 

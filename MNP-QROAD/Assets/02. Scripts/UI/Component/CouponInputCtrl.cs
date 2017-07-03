@@ -6,8 +6,15 @@ public class CouponInputCtrl : MonoBehaviour {
 
 
     [SerializeField] UIInput inputCoupon;
+    [SerializeField] UILabel _lblInput;
     [SerializeField] string _couponInfo;
 
+
+    void OnEnable() {
+        _lblInput.text = GameSystem.Instance.GetLocalizeText(3115);
+        //_input.value = GameSystem.Instance.GetLocalizeText(3099);
+
+    }
 
     public void OpenCouponInput() {
 

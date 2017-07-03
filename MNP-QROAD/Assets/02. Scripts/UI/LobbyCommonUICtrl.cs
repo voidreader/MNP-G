@@ -92,11 +92,18 @@ public class LobbyCommonUICtrl : MonoBehaviour {
             return;
         }
 
-        if (this.CompareTag ("PlayerOwnNeko")) { 
-			LobbyCtrl.Instance.ClearCharacterList();
-		} else if (this.CompareTag ("HeartRequestGroup")) {
-			LobbyCtrl.Instance.ClearHeartRequestPool ();
-		} else if (this.CompareTag("NekoGiftResult")) {
+        if (this.CompareTag("PlayerOwnNeko")) {
+            LobbyCtrl.Instance.ClearCharacterList();
+        } else if (this.CompareTag("HeartRequestGroup")) {
+            LobbyCtrl.Instance.ClearHeartRequestPool();
+        } else if (this.CompareTag("NekoGiftResult")) {
+
+        }
+        else if (this.CompareTag("DontNeedSetDisable")) {
+
+            if (this.gameObject.GetComponent<CatInformationCtrl>() != null) {
+                LobbyCtrl.Instance.ClearCharacterList();
+            }
 
         }
 

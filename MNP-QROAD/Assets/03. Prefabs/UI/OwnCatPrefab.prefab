@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000011565294100}
   - component: {fileID: 114000010595828490}
+  - component: {fileID: 114934229472562582}
   m_Layer: 5
   m_Name: spUseCover
   m_TagString: Untagged
@@ -851,3 +852,15 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
+--- !u!114 &114934229472562582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010145119264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15131742f69ab1349b57a838b9beda2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scaleSize: 1.1

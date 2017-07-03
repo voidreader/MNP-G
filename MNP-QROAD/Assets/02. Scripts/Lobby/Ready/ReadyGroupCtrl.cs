@@ -436,6 +436,10 @@ public class ReadyGroupCtrl : MonoBehaviour {
     /// 구출 & 보스 스테이지 전용 UI 설정
     /// </summary>
     void SetRescueBossStageUI(bool pIsRescue) {
+        
+
+        if (_userStage["state"].AsInt >= 3)
+            return;
 
         int tryBonus = 0;
         string tryBonusText = string.Empty;

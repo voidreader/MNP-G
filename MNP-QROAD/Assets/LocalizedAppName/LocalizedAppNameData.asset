@@ -14,6 +14,10 @@ MonoBehaviour:
   bundleNames:
   - POP
   - "\uBC0B\uCE58\uB9AC\uB124\uCF54"
+  - POP
+  - POP
   bundleLangs:
   - en
   - ko
+  - id
+  - th
