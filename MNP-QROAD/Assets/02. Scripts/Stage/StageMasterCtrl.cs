@@ -617,7 +617,8 @@ public class StageMasterCtrl : MonoBehaviour {
     void CallOnCompleteStageClearDirect() {
 
         // 최대 스테이지 (임시로 넣는다)
-        if(GameSystem.Instance.PlayStage + 1 > 130) {
+        if(GameSystem.Instance.PlayStage + 1 > 156) {
+            IsLockedByLoadReplayOrNextStage = false;
             OnCompleteStageClearDirect = delegate { };
             return;
         }

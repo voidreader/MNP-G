@@ -138,6 +138,7 @@ public class PhysicsPlayerCatCtrl : MonoBehaviour {
         if(InGameCtrl.Instance.ListNekoPassive[_index].HasActiveSkill)
             ShowSpecialSkillText();
 
+        InUICtrl.Instance.SetMinusMissionCount(SpecialMissionType.specialAttack);
     }
 
     void ShowSpecialSkillText() {
