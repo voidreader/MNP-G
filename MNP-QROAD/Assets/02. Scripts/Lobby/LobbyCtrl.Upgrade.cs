@@ -17,6 +17,7 @@ public partial class LobbyCtrl : MonoBehaviour {
     [SerializeField] GameObject _newNekoAddedSign;
 
     List<OwnCatCtrl> _listCharacterList = new List<OwnCatCtrl>();
+    List<SixNekoSetCtrl> _listSixNekoSetList = new List<SixNekoSetCtrl>();
     [SerializeField] private UIGrid _grdCharacterList;
 
     readonly string POOL_CHARACTER = "CharacterPool";
@@ -40,6 +41,16 @@ public partial class LobbyCtrl : MonoBehaviour {
 
         set {
             _listCharacterList = value;
+        }
+    }
+
+    public List<SixNekoSetCtrl> ListSixNekoSetList {
+        get {
+            return _listSixNekoSetList;
+        }
+
+        set {
+            _listSixNekoSetList = value;
         }
     }
 
@@ -86,7 +97,86 @@ public partial class LobbyCtrl : MonoBehaviour {
         _CharacterInfo.OpenCatInformation();
 
 
-        SpawnCharacterList(IsReadyCharacterList);
+        // SpawnCharacterList(IsReadyCharacterList);
+        SpawnCharacterListBySix(IsReadyCharacterList);
+    }
+
+
+
+    /// <summary>
+    /// 6개씩 끊어서 생성되는 리스트 
+    /// </summary>
+    /// <param name="pIsReadyOpen"></param>
+    public void SpawnCharacterListBySix(bool pIsReadyOpen) {
+
+
+        int count = 0;
+        int setIndex = 0;
+        int nekoIndex = 0;
+
+        // 패널 설정
+        // pnlSelectiveNekoScrollView.gameObject.GetComponent<UIScrollView>().ResetPosition();
+        // pnlSelectiveNekoScrollView.clipOffset = Vector2.zero;
+        // pnlSelectiveNekoScrollView.transform.localPosition = _nekoSelectScrollViewPos;
+
+
+        // 캐릭터 정렬 처리
+        if (GameSystem.Instance.LoadGradeOrder()) {
+            GameSystem.Instance.SortUserNekoByBead(); // 등급순 
+        }
+        else {
+            GameSystem.Instance.SortUserNekoByGet(); // 획득순
+        }
+
+        // 몇개의 캐릭터 세트가 필요한가? 
+        count = (GameSystem.Instance.ListSortUserNeko.Count / 6);
+
+        if (GameSystem.Instance.ListSortUserNeko.Count % 6 > 0) // 나머지가 있으면 1을 추가한다. 
+            count++;
+
+
+        for (int i = 0; i < count; i++) {
+            
+            if(nekoIndex + 5 < GameSystem.Instance.ListSortUserNeko.Count) {
+                ListSixNekoSetList[setIndex].InitList(nekoIndex, nekoIndex + 5);
+                
+            }
+            else {
+                ListSixNekoSetList[setIndex].InitList(nekoIndex, GameSystem.Instance.ListSortUserNeko.Count - 1);
+            }
+
+            ListSixNekoSetList[setIndex].SetPos(setIndex);
+
+            setIndex++;
+            nekoIndex += 6;
+        }
+
+        
+
+
+        // 자동으로 선택 처리 
+        if (pIsReadyOpen) {
+
+            if(CatInformationCtrl.Instance != null) {
+                CatInformationCtrl.Instance.OnCenter(ListSixNekoSetList[FindSixNekoIndexByNekoID(ReadyGroupCtrl.Instance.GetEquipedNekoID())].gameObject);
+                CatInformationCtrl.Instance.SetNekoByNekoID(ReadyGroupCtrl.Instance.GetEquipedNekoID());
+            } 
+
+        }
+        else {
+            // 처음에는 이벤트를 강제로 발생
+            if (CatInformationCtrl.Instance != null)
+                CatInformationCtrl.Instance.OnCenter(ListSixNekoSetList[0].gameObject);
+        }
+    }
+
+    int FindSixNekoIndexByNekoID(int pNekoID) {
+        for(int i=0; i<_listSixNekoSetList.Count; i++) {
+            if (_listSixNekoSetList[i].CheckExistsNekoByID(pNekoID))
+                return i;
+        }
+
+        return 0;
     }
 
     /// <summary>
@@ -131,6 +221,10 @@ public partial class LobbyCtrl : MonoBehaviour {
         for(int i=0; i<ListCharacterList.Count; i++) {
             ListCharacterList[i].SetDisable();
         }
+
+        for(int i=0; i<ListSixNekoSetList.Count; i++) {
+            ListSixNekoSetList[i].SetDisable();
+        }
     }
 
 
@@ -148,6 +242,11 @@ public partial class LobbyCtrl : MonoBehaviour {
             ownCat = PoolManager.Pools[POOL_CHARACTER].Spawn(PREFAB_CHARACTER).GetComponent<OwnCatCtrl>();
             ListCharacterList.Add(ownCat);
         }
+
+        for(int i=0; i<20; i++) {
+            ListSixNekoSetList.Add(PoolManager.Pools["CharacterPool2"].Spawn(PuzzleConstBox.prefabSixNekoSet).GetComponent<SixNekoSetCtrl>());
+        }
+
 
         ClearCharacterList();
     }

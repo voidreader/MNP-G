@@ -141,11 +141,11 @@ public class InputCtrl : MonoBehaviour {
 
 
 
-    private void InitNoInputTime() {
+    public void InitNoInputTime() {
         NoInputTime = 0;
 
-        if(InGameCtrl.Instance.IsOnNavigator)
-            InGameCtrl.Instance.SendMessage("OffNavigator");
+        if (InGameCtrl.Instance.IsOnNavigator)
+            InGameCtrl.Instance.OffNavigator();
 
     }
 	

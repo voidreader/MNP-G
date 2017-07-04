@@ -263,6 +263,8 @@ public partial class InGameCtrl : MonoBehaviour {
         int direction = UnityEngine.Random.Range(0, 2);
         int line1 = -1, line2 = -1;
 
+        
+
         _listRemoveLineBlock.Clear();
 
 
@@ -270,7 +272,7 @@ public partial class InGameCtrl : MonoBehaviour {
         // 가로로 할것인지, 세로로 할것인지 고른다.
         // 0 이면 가로, i가 고정 
 
-        if (direction == 0) {
+        if (direction == 0) { // 가로 
 
             if (pLine == 1)
                 line1 = UnityEngine.Random.Range(0, 9);
@@ -322,9 +324,22 @@ public partial class InGameCtrl : MonoBehaviour {
 
         // 수집 완료. 처리시작 
 
+        // 라인에 대한 효과 
+        if(direction == 0) { // 가로 효과
+            PlayClearLineEffect(line1, false);
+            PlayClearLineEffect(line2, false);
+        }
+        else {
+            PlayClearLineEffect(line1, true);
+            PlayClearLineEffect(line2, true);
+        }
+
+
 
         if (_listRemoveLineBlock.Count == 0)
             return;
+
+        
 
 
         // 블록파괴 
@@ -356,8 +371,49 @@ public partial class InGameCtrl : MonoBehaviour {
         }
 
 
+        // 입력시간 초기화 및 네비게이터 비활성화
+        InputCtrl.Instance.InitNoInputTime();
+
+
         // 스톤, 그릴, 폭죽 등 특수블록 처리 
         ProceedAroundSpecialBlocks(_listRemoveLineBlock, false);
+
+        // 체크를 해야지 
+        if (!CheckStageMatch()) {
+            //Debug.Log("♠♠♠ No Match In this Stage!");
+            SetBoardClearResult();
+            RemoveAllIdleBlocks();
+            StartCoroutine(RespawnStageBlock());
+        }
+
+        CheckMoveRoadBlocks();
+    }
+
+
+    /// <summary>
+    /// 클리어 라인 이펙트 추가 
+    /// </summary>
+    void PlayClearLineEffect(int pLine, bool pIsVertical) {
+
+
+        if (pLine < 0)
+            return;
+
+        Vector3 position;
+      
+
+        if(pIsVertical) { // 세로일때 
+            // y의 값이 가로 값이고, 중간 블록의 위치를 구한다.
+            position = fieldBlocks[4, pLine].transform.position;
+        }
+        else {
+            position = fieldBlocks[pLine, 4].transform.position;
+        }
+
+
+        PoolManager.Pools[PuzzleConstBox.objectPool].Spawn(PuzzleConstBox.prefabClearLineEffect, position, Quaternion.identity).GetComponent<ClearLineEffectCtrl>()
+            .SetSpawnPos(position, pIsVertical);
+
     }
 
 

@@ -337,6 +337,10 @@ public class OwnCatCtrl : MonoBehaviour {
         this.gameObject.SetActive(false);
     }
 
+    public void InitObject() {
+        Id = -1;
+    }
+
 
 
     /// <summary>

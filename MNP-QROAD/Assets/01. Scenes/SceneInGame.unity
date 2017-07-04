@@ -13006,6 +13006,20 @@ MonoBehaviour:
   _dontDestroyOnLoad: 0
   logMessages: 0
   _perPrefabPoolOptions:
+  - prefab: {fileID: 4008626986990098, guid: bbb252d6c613ee34e8ba3c6e803c192d, type: 2}
+    preloadAmount: 3
+    preloadTime: 0
+    preloadFrames: 2
+    preloadDelay: 0
+    limitInstances: 0
+    limitAmount: 100
+    limitFIFO: 0
+    cullDespawned: 0
+    cullAbove: 50
+    cullDelay: 60
+    cullMaxPerPass: 5
+    _logMessages: 0
+    spawnPool: {fileID: 0}
   - prefab: {fileID: 4260492628024236, guid: ba65a442c22f5f041a8d2b2eac184143, type: 2}
     preloadAmount: 5
     preloadTime: 0

@@ -16,6 +16,15 @@ public class GrillStickCtrl : MonoBehaviour {
         // 이동
         this.transform.DOLocalMove(_destPos, 0.5f).OnComplete(OnCompleteMove).SetEase(Ease.InBack);
         InGameCtrl.Instance.TotalFishGrillCount--;
+
+        Invoke("DespawnForce", 0.3f);
+    }
+
+    void DespawnForce() {
+
+        this.transform.DOKill();
+        OnCompleteMove();
+
     }
 
     void OnCompleteMove() {

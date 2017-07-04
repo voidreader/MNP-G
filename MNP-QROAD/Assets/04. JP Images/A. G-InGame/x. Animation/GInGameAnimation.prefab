@@ -5586,3 +5586,78 @@ MonoBehaviour:
     fps: 15
     loopStart: 0
     wrapMode: 0
+  - name: ClipClearLine
+    frames:
+    - spriteCollection: {fileID: 114000012379633480, guid: ed168bed8abdb68448921b594ec2c15b,
+        type: 2}
+      spriteId: 109
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 114000012379633480, guid: ed168bed8abdb68448921b594ec2c15b,
+        type: 2}
+      spriteId: 104
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 114000012379633480, guid: ed168bed8abdb68448921b594ec2c15b,
+        type: 2}
+      spriteId: 105
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 114000012379633480, guid: ed168bed8abdb68448921b594ec2c15b,
+        type: 2}
+      spriteId: 106
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 114000012379633480, guid: ed168bed8abdb68448921b594ec2c15b,
+        type: 2}
+      spriteId: 111
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 114000012379633480, guid: ed168bed8abdb68448921b594ec2c15b,
+        type: 2}
+      spriteId: 108
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 114000012379633480, guid: ed168bed8abdb68448921b594ec2c15b,
+        type: 2}
+      spriteId: 102
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 114000012379633480, guid: ed168bed8abdb68448921b594ec2c15b,
+        type: 2}
+      spriteId: 110
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 114000012379633480, guid: ed168bed8abdb68448921b594ec2c15b,
+        type: 2}
+      spriteId: 103
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 114000012379633480, guid: ed168bed8abdb68448921b594ec2c15b,
+        type: 2}
+      spriteId: 107
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    fps: 20
+    loopStart: 0
+    wrapMode: 2

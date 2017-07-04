@@ -30,6 +30,8 @@ public class CatInformationCtrl : MonoBehaviour {
     [SerializeField] UILabel[] _arrNekoSkillLabel; // 고양이 스킬 설명 
 
     [SerializeField] bool _isMainCat = false;
+    [SerializeField] GameObject _lblNoSelect;
+
     int _currentBead;
     int _maxBead;
     int _grade;
@@ -45,6 +47,8 @@ public class CatInformationCtrl : MonoBehaviour {
     #endregion
 
 
+    int _maxSixNekoListIndex = -1;
+    int _currentSixNekoIndex = -1;
 
     [SerializeField] bool _isGradeOrder = false;
     [SerializeField] bool _isShowingSkillInfo = false;
@@ -74,6 +78,15 @@ public class CatInformationCtrl : MonoBehaviour {
     Vector3 _posNekoInit = new Vector3(0, 175, 0);
     float _NekoFloatMoveY = 190;
     Vector3 _topOriginPos = new Vector3(141, 402, 0);
+
+
+    [SerializeField]
+    UICenterOnChild _SixNekoOnCenter;
+    [SerializeField] GameObject _currentCenterObject = null;
+
+    [SerializeField] GameObject _btnLeftSixNekoList;
+    [SerializeField] GameObject _btnRightSixNekoList;
+    [SerializeField] UILabel _lblSixNekoList;
 
     #endregion
 
@@ -202,7 +215,9 @@ public class CatInformationCtrl : MonoBehaviour {
     /// 화면 오픈 초기화 
     /// </summary>
     void InitInformation() {
-        
+
+        _SixNekoOnCenter.onCenter = OnCenter;
+
         GameSystem.Instance.SelectNeko = null;
         GameSystem.Instance.PreviousSelectNekoID = -1;
 
@@ -382,6 +397,9 @@ public class CatInformationCtrl : MonoBehaviour {
         _spNekoSprite.gameObject.SetActive(pFlag);
         _objNekoGradeName.SetActive(pFlag);
 
+
+        _lblNoSelect.SetActive(!pFlag);
+
         if (!pFlag) {
             Neko = null;
         }
@@ -511,23 +529,23 @@ public class CatInformationCtrl : MonoBehaviour {
         if (GameSystem.Instance.SelectNeko != null)
             GameSystem.Instance.PreviousSelectNekoID = GameSystem.Instance.SelectNeko.Id;
 
-        if (!_isGradeOrder) {
+        _isGradeOrder = !_isGradeOrder;
+
+        if (_isGradeOrder) {
             GameSystem.Instance.SortUserNekoByBead();
-            _btnSort.normalSprite = "le-base-off";
-            _lblSort.color = PuzzleConstBox.colorSortUnChecked;
         }
         else {
             GameSystem.Instance.SortUserNekoByGet();
-            _btnSort.normalSprite = "le-base-on";
-            _lblSort.color = PuzzleConstBox.colorSortChecked;
         }
 
-        _isGradeOrder = !_isGradeOrder;
-        GameSystem.Instance.SaveGradeOrder(_isGradeOrder);
+        SetOrderButton();
         
+        GameSystem.Instance.SaveGradeOrder(_isGradeOrder);
 
 
-        LobbyCtrl.Instance.SpawnCharacterList(LobbyCtrl.Instance.IsReadyCharacterList);
+
+        // LobbyCtrl.Instance.SpawnCharacterList(LobbyCtrl.Instance.IsReadyCharacterList);
+        LobbyCtrl.Instance.SpawnCharacterListBySix(LobbyCtrl.Instance.IsReadyCharacterList);
 
         // 현재 네코의 정보를 선택처리 
         if (GameSystem.Instance.PreviousSelectNekoID >= 0) {
@@ -550,6 +568,64 @@ public class CatInformationCtrl : MonoBehaviour {
         GameSystem.Instance.Post2MainNeko();
     }
 
+
+    #region 캐릭터 리스트 관련 
+
+    public void OnCenter(GameObject pObj) {
+
+        if (pObj == null)
+            return;
+
+
+        // 중복실행을 막는다. 
+        if (pObj == _currentCenterObject)
+            return;
+
+        _btnRightSixNekoList.SetActive(true);
+        _btnLeftSixNekoList.SetActive(true);
+
+
+        _currentCenterObject = pObj;
+
+        _maxSixNekoListIndex = GetMaxSixNekoIndex();
+        _currentSixNekoIndex = _currentCenterObject.GetComponent<SixNekoSetCtrl>().Id;
+
+        _lblSixNekoList.text  = (_currentSixNekoIndex + 1 ).ToString() + " / " + _maxSixNekoListIndex.ToString();
+
+        // 좌우 버튼 처리
+        if(_maxSixNekoListIndex -1 <= _currentSixNekoIndex) {
+            _btnRightSixNekoList.SetActive(false);
+        }
+
+        if (_currentSixNekoIndex == 0)
+            _btnLeftSixNekoList.SetActive(false);
+    }
+
+    int GetMaxSixNekoIndex() {
+
+        int maxIndex = 0;
+
+        for(int i=0; i<LobbyCtrl.Instance.ListSixNekoSetList.Count;i++) {
+            if (LobbyCtrl.Instance.ListSixNekoSetList[i].Id < 0)
+                break;
+
+            maxIndex = LobbyCtrl.Instance.ListSixNekoSetList[i].Id;
+
+        }
+
+        return maxIndex + 1;
+    }
+
+    public void OnClickLeftSixNekoList() {
+        _SixNekoOnCenter.CenterOn(LobbyCtrl.Instance.ListSixNekoSetList[_currentSixNekoIndex - 1].transform);
+    }
+
+    public void OnClickRightSixNekoList() {
+        _SixNekoOnCenter.CenterOn(LobbyCtrl.Instance.ListSixNekoSetList[_currentSixNekoIndex + 1].transform);
+    }
+
+
+    #endregion
 
 
     #region 준비화면 연관 메소드 

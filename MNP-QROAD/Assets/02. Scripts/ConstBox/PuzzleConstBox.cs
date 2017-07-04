@@ -719,7 +719,12 @@ public static class PuzzleConstBox {
     public static readonly string prefabUpperBlockEffect = "UpperBlockEffectPrefab";
     public static readonly string prefabFireworkBolt = "FireworkBolt";
 
-    
+    public static readonly string prefabClearLineEffect = "ClearLineEffectPrefab";
+    public static readonly string prefabSixNekoSet = "SixNekoSetPrefab";
+
+
+
+
 
 
 

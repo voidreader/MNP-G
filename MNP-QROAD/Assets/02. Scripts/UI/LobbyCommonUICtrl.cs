@@ -121,7 +121,7 @@ public class LobbyCommonUICtrl : MonoBehaviour {
         // Neko Select 
         if (this.CompareTag ("PlayerOwnNeko")) {
 
-            LobbyCtrl.Instance.SpawnCharacterList(LobbyCtrl.Instance.IsReadyCharacterList);
+            // LobbyCtrl.Instance.SpawnCharacterList(LobbyCtrl.Instance.IsReadyCharacterList);
 
 		} else if (this.CompareTag ("HeartRequestGroup")) {
 			LobbyCtrl.Instance.SpawnHeartFriendList ();

@@ -2481,7 +2481,7 @@ public partial class InGameCtrl : MonoBehaviour {
     /// <summary>
     /// 네비게이터 비활성화
     /// </summary>
-    private void OffNavigator() {
+    public void OffNavigator() {
 
         if (!IsOnNavigator)
             return;
