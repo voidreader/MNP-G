@@ -570,6 +570,11 @@ public class CatInformationCtrl : MonoBehaviour {
 
 
     #region 캐릭터 리스트 관련 
+    
+    public void OnCenterForce(GameObject pObj) {
+
+        _SixNekoOnCenter.CenterOn(pObj.transform);
+    }
 
     public void OnCenter(GameObject pObj) {
 

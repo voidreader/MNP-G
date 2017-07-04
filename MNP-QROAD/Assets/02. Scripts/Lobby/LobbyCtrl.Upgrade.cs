@@ -114,6 +114,8 @@ public partial class LobbyCtrl : MonoBehaviour {
         int setIndex = 0;
         int nekoIndex = 0;
 
+        ListCharacterList.Clear();
+
         // 패널 설정
         // pnlSelectiveNekoScrollView.gameObject.GetComponent<UIScrollView>().ResetPosition();
         // pnlSelectiveNekoScrollView.clipOffset = Vector2.zero;
@@ -158,15 +160,15 @@ public partial class LobbyCtrl : MonoBehaviour {
         if (pIsReadyOpen) {
 
             if(CatInformationCtrl.Instance != null) {
-                CatInformationCtrl.Instance.OnCenter(ListSixNekoSetList[FindSixNekoIndexByNekoID(ReadyGroupCtrl.Instance.GetEquipedNekoID())].gameObject);
+                CatInformationCtrl.Instance.OnCenterForce(ListSixNekoSetList[FindSixNekoIndexByNekoID(ReadyGroupCtrl.Instance.GetEquipedNekoID())].gameObject);
                 CatInformationCtrl.Instance.SetNekoByNekoID(ReadyGroupCtrl.Instance.GetEquipedNekoID());
             } 
 
         }
         else {
             // 처음에는 이벤트를 강제로 발생
-            if (CatInformationCtrl.Instance != null)
-                CatInformationCtrl.Instance.OnCenter(ListSixNekoSetList[0].gameObject);
+            if (CatInformationCtrl.Instance != null) 
+                CatInformationCtrl.Instance.OnCenterForce(ListSixNekoSetList[0].gameObject);
         }
     }
 
@@ -179,48 +181,12 @@ public partial class LobbyCtrl : MonoBehaviour {
         return 0;
     }
 
-    /// <summary>
-    /// 캐릭터 리스트 생성 
-    /// </summary>
-    /// <param name="pIsReadyOpen"></param>
-    public void SpawnCharacterList(bool pIsReadyOpen) {
 
-        // 패널 설정
-        pnlSelectiveNekoScrollView.gameObject.GetComponent<UIScrollView>().ResetPosition();
-        pnlSelectiveNekoScrollView.clipOffset = Vector2.zero;
-        pnlSelectiveNekoScrollView.transform.localPosition = _nekoSelectScrollViewPos;
-
-
-        // 캐릭터 정렬 처리
-        if (GameSystem.Instance.LoadGradeOrder()) {
-            GameSystem.Instance.SortUserNekoByBead(); // 등급순 
-        }
-        else {
-            GameSystem.Instance.SortUserNekoByGet(); // 획득순
-        }
-
-        // 정렬된 고양이 캐릭터 Count. 
-        for (int i = 0; i < GameSystem.Instance.ListSortUserNeko.Count; i++) {
-            ListCharacterList[i].SetCharacterInfo(GameSystem.Instance.ListSortUserNeko[i]);
-        }
-
-        _grdCharacterList.Reposition();
-
-
-        // 자동으로 선택 처리 
-        if(pIsReadyOpen) {
-            CatInformationCtrl.Instance.SetNekoByNekoID(ReadyGroupCtrl.Instance.GetEquipedNekoID());
-        }
-
-    }
 
     /// <summary>
     /// 캐릭터 리스트 비활성화
     /// </summary>
     public void ClearCharacterList() {
-        for(int i=0; i<ListCharacterList.Count; i++) {
-            ListCharacterList[i].SetDisable();
-        }
 
         for(int i=0; i<ListSixNekoSetList.Count; i++) {
             ListSixNekoSetList[i].SetDisable();
@@ -233,18 +199,8 @@ public partial class LobbyCtrl : MonoBehaviour {
     /// </summary>
     private void SetReadyCharacterList() {
 
-        // Spawn 시켜놓고 활성 & 비활성화로 제어한다. Despawn을 사용하지 않는다.
-
-        OwnCatCtrl ownCat;
-
-        for (int i = 0; i < 120; i++) {
-
-            ownCat = PoolManager.Pools[POOL_CHARACTER].Spawn(PREFAB_CHARACTER).GetComponent<OwnCatCtrl>();
-            ListCharacterList.Add(ownCat);
-        }
-
         for(int i=0; i<20; i++) {
-            ListSixNekoSetList.Add(PoolManager.Pools["CharacterPool2"].Spawn(PuzzleConstBox.prefabSixNekoSet).GetComponent<SixNekoSetCtrl>());
+            ListSixNekoSetList.Add(PoolManager.Pools[POOL_CHARACTER].Spawn(PuzzleConstBox.prefabSixNekoSet).GetComponent<SixNekoSetCtrl>());
         }
 
 

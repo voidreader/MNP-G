@@ -47,6 +47,8 @@ public class SixNekoSetCtrl : MonoBehaviour {
         for (int i=pMin; i<=pMax; i++) {
             _listSixCat[_tmpInt].SetCharacterInfo(GameSystem.Instance.ListSortUserNeko[i]);
             _listSixCat[_tmpInt].gameObject.SetActive(true);
+            LobbyCtrl.Instance.ListCharacterList.Add(_listSixCat[_tmpInt]);
+
             _tmpInt++;
         }
     }
