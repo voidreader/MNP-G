@@ -934,8 +934,8 @@ namespace Google2u
 			Rows.Add( new MNP_LocalizeRow("L3208", "3208", "프리 티켓을 입수 했습니다!\n메일을 확인하십시오.", "You have a free ticket!\nCheck your mailbox.", "Kamu punya tiket gratis!\nPeriksa kotak masukmu.", "คุณมีตั๋วฟรีอยู่!\nตรวจสอบกล่องข้อความของคุณ", "프리티켓 획득"));
 			Rows.Add( new MNP_LocalizeRow("L3209", "3209", "레어 티켓을 입수 했습니다.\n메일을 확인하십시오.", "You have a rare ticket!\nCheck your mailbox.", "Kamu punya tiket langka!\nPeriksa kotak masukmu.", "คุณมีตั๋วหายากอยู่!\nตรวจสอบกล่องข้อความของคุณ", "레어티켓 획득"));
 			Rows.Add( new MNP_LocalizeRow("L3210", "3210", "[n1] [n2]를 획득했습니다.", "You have acquired [n1] [n2].", "Kamu sudah mendapat [n1] [n2].", "คุณได้รับ [n1] [n2]", "코인[n1] 1000[n2] 을 획득했습니다. "));
-			Rows.Add( new MNP_LocalizeRow("L3211", "3211", "", "", "", "", ""));
-			Rows.Add( new MNP_LocalizeRow("L3212", "3212", "", "", "", "", ""));
+			Rows.Add( new MNP_LocalizeRow("L3211", "3211", "스킬보기", "Skill", "Skill", "สกิล", ""));
+			Rows.Add( new MNP_LocalizeRow("L3212", "3212", "장착중", "Set", "Atur", "แต่งตั้ง", ""));
 			Rows.Add( new MNP_LocalizeRow("L3213", "3213", "", "", "", "", ""));
 			Rows.Add( new MNP_LocalizeRow("L3214", "3214", "만료", "Expiration", "Kedaluwarsa", "หมดอายุ", "만료시간"));
 			Rows.Add( new MNP_LocalizeRow("L3215", "3215", "[n]위", "Ranked [n]th", "Peringkat [n]", "อันดับที่ [n]", "1위, 2위 3위.."));

@@ -21995,6 +21995,7 @@ GameObject:
   m_Component:
   - component: {fileID: 341289763}
   - component: {fileID: 341289764}
+  - component: {fileID: 341289765}
   m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
@@ -22045,14 +22046,14 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 0.5568628, g: 0.3254902, b: 0.13725491, a: 1}
   mPivot: 4
-  mWidth: 100
+  mWidth: 130
   mHeight: 24
   mDepth: 99
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 4.1666665
+  aspectRatio: 5.4166665
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: ad181398e8038af4e85e03c2a05f53fc, type: 3}
   mFont: {fileID: 0}
@@ -22083,6 +22084,20 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
+--- !u!114 &341289765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 341289762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00f2bda95370967428150305be6c9f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textID: 3211
+  _targetLabel: {fileID: 0}
+  _text: 
 --- !u!1 &342543641
 GameObject:
   m_ObjectHideFlags: 0
@@ -80227,6 +80242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1284475240}
   - component: {fileID: 1284475241}
+  - component: {fileID: 1284475242}
   m_Layer: 5
   m_Name: Lv5MaxComment
   m_TagString: Untagged
@@ -80315,6 +80331,20 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
+--- !u!114 &1284475242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1284475239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00f2bda95370967428150305be6c9f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textID: 4121
+  _targetLabel: {fileID: 0}
+  _text: 
 --- !u!1001 &1285901392
 Prefab:
   m_ObjectHideFlags: 0
@@ -99949,6 +99979,10 @@ Prefab:
       propertyPath: m_Name
       value: CharacterListScrollView (56)
       objectReference: {fileID: 0}
+    - target: {fileID: 1566460791207048, guid: 7d1ed6ba050f171498f8fb4e6b48a853, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d1ed6ba050f171498f8fb4e6b48a853, type: 2}
   m_IsPrefabParent: 0
@@ -119103,6 +119137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1894607673}
   - component: {fileID: 1894607674}
+  - component: {fileID: 1894607675}
   m_Layer: 5
   m_Name: Lv1MaxComment
   m_TagString: Untagged
@@ -119191,6 +119226,20 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
+--- !u!114 &1894607675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1894607672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00f2bda95370967428150305be6c9f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textID: 4121
+  _targetLabel: {fileID: 0}
+  _text: 
 --- !u!1 &1894896729
 GameObject:
   m_ObjectHideFlags: 0
@@ -131195,6 +131244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2093198145}
   - component: {fileID: 2093198146}
+  - component: {fileID: 2093198147}
   m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
@@ -131283,6 +131333,20 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
+--- !u!114 &2093198147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2093198144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00f2bda95370967428150305be6c9f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textID: 3211
+  _targetLabel: {fileID: 0}
+  _text: 
 --- !u!1 &2095672576
 GameObject:
   m_ObjectHideFlags: 0
