@@ -259,6 +259,8 @@ public class CatInformationCtrl : MonoBehaviour {
         Neko = pNeko;
         GameSystem.Instance.SelectNeko = pNeko;
 
+        IsMainCat = false;
+
         // 이펙트 초기화
         InitLevelUpEffect();
 
@@ -375,6 +377,8 @@ public class CatInformationCtrl : MonoBehaviour {
         _spMain1.SetActive(pMainFlag);
         _spMain2.SetActive(pMainFlag);
 
+        IsMainCat = pMainFlag;
+
         // 
         if (_infoWindow.gameObject.activeSelf) {
             _infoWindow.CheckMain(pMainFlag);
@@ -426,7 +430,7 @@ public class CatInformationCtrl : MonoBehaviour {
             return;
 
         // 141 
-        _trTopMove.DOLocalMoveX(-70, 0.5f).OnComplete(OnCompleteOpenSkill);
+        _trTopMove.DOLocalMoveX(-70, 0.3f).OnComplete(OnCompleteOpenSkill);
 
         _isShowingSkillInfo = true;
     }
@@ -445,7 +449,7 @@ public class CatInformationCtrl : MonoBehaviour {
             return;
 
         _spBigSkillSign.SetActive(false);
-        _trTopMove.DOLocalMoveX(141, 0.5f).OnComplete(OnCompleteCloseSkill);
+        _trTopMove.DOLocalMoveX(141, 0.3f).OnComplete(OnCompleteCloseSkill);
 
         _isShowingSkillInfo = false;
 
@@ -506,6 +510,7 @@ public class CatInformationCtrl : MonoBehaviour {
         for (int i = 0; i < LobbyCtrl.Instance.ListCharacterList.Count; i++) {
             if (LobbyCtrl.Instance.ListCharacterList[i].Id == pNekoID) {
                 SetCatInfomation(LobbyCtrl.Instance.ListCharacterList[i]);
+                LobbyCtrl.Instance.ListCharacterList[i].SetSelectFrameSprite();
             }
         }
     }
@@ -659,6 +664,19 @@ public class CatInformationCtrl : MonoBehaviour {
     public void ReleaseCurrentNeko() {
         Neko.ReleaseCharacter();
         SetActivateCatInfoObj(false);
+
+        _btnRelease.SetActive(false);
+        _btnConfirm.SetActive(false);
+
+        if(_isShowingSkillInfo) {
+            _spBigSkillSign.SetActive(false);
+            _trTopMove.DOLocalMoveX(141, 0.3f);
+
+            _isShowingSkillInfo = false;
+        }
+        else {
+            _spSmallSkillSign.SetActive(false);
+        }
     }
 
 

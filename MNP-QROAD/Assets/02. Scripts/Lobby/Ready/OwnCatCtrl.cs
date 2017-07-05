@@ -375,7 +375,7 @@ public class OwnCatCtrl : MonoBehaviour {
         }
     }
 
-    private void SetSelectFrameSprite() {
+    public void SetSelectFrameSprite() {
         // _frame.spriteName = PuzzleConstBox.spriteFrameNekoGreen;
         _frame.spriteName = "new-card-in";
 
@@ -384,7 +384,7 @@ public class OwnCatCtrl : MonoBehaviour {
         lblLevel.color = PuzzleConstBox.colorSelectedNekoLevel;
     }
 
-    private void SetNoSelectFrameSprite() {
+    public void SetNoSelectFrameSprite() {
         //_frame.spriteName = PuzzleConstBox.spriteFrameNekoYellow;
         _frame.spriteName = "new-card-standard";
 
