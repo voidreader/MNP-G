@@ -14,7 +14,7 @@ public class CodeInputCtrl : MonoBehaviour {
 	}
 
     void OnEnable() {
-        _lblInput.text = GameSystem.Instance.GetLocalizeText(3099);
+        _lblInput.text = GameSystem.Instance.GetLocalizeText(Google2u.MNP_Localize.rowIds.L3099);
         //_input.value = GameSystem.Instance.GetLocalizeText(3099);
         
     }
