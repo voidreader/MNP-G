@@ -118,6 +118,8 @@ public class PhysicsPlayerCatCtrl : MonoBehaviour {
     void DoSkill() {
         this.transform.DOKill();
 
+        GameSystem.Instance.IngameSpecialAttackCount++;
+
         // 효과
         PoolManager.Pools[PuzzleConstBox.objectPool].Spawn(PuzzleConstBox.prefabDust, this.transform.position, Quaternion.identity).GetComponent<DustCtrl>().PlayColorfulLight();
 

@@ -393,6 +393,7 @@ public class CatInformationCtrl : MonoBehaviour {
     /// <param name="pFlag"></param>
     void SetActivateCatInfoObj(bool pFlag) {
         _spNekoShadow.SetActive(pFlag);
+        _lblNekoLevel.gameObject.SetActive(pFlag);
         
         _btnLevelUp.SetActive(pFlag);
         _btnFeed.SetActive(pFlag);

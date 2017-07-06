@@ -1420,7 +1420,7 @@ Prefab:
         type: 2}
     - target: {fileID: 11450228, guid: 490f5485c99aa8d4490048f0cdcff8a6, type: 2}
       propertyPath: _version
-      value: 1.0.5.3
+      value: 1.0.5.4
       objectReference: {fileID: 0}
     - target: {fileID: 11450228, guid: 490f5485c99aa8d4490048f0cdcff8a6, type: 2}
       propertyPath: _fruitAbsorbValue.currentCryptoKey
