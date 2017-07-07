@@ -19,7 +19,7 @@ public class CouponInputCtrl : MonoBehaviour {
 
     public void OpenCouponInput() {
 
-        inputCoupon.value = string.Empty;
+        // inputCoupon.value = string.Empty;
         
         this.gameObject.SetActive(true);
     }

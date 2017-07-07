@@ -145,6 +145,12 @@ public class InGameMissionIconCtrl : MonoBehaviour {
         _goalCount = pCount;
         MissionType = pType;
 
+
+        if (pType == SpecialMissionType.cookie) {
+            _goalCount = InGameCtrl.Instance.GetRemainCookieBlocks();
+        }
+
+
         _lblValue.gameObject.SetActive(true);
         _lblValue.text = GameSystem.Instance.GetNumberToString(_goalCount);
 
