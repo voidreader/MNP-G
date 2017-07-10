@@ -328,7 +328,7 @@ public class BottleManager : MonoBehaviour {
             yield return new WaitForSeconds(0.1f);
         }
 
-        yield return new WaitForSeconds(1);
+        // yield return new WaitForSeconds(1);
 
         // cat Bottle을 찾는다.
         _catBottle = GameObject.FindGameObjectWithTag("CatBottle");
