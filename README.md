@@ -5,8 +5,11 @@
 - MNP-QROAD : 동남아 서비스(QROAD 퍼블리싱)
 - OperationTool : 운영툴
 
-### ⚙️ 개발 환경
-- Unity Engine 5.6.1
+### ⚙️ 클라이언트 개발 환경
+- Unity Engine 5.6.1, C#
+
+
+### 💻 백엔드 개발 환경
 - AWS EC2(Node.js)
 - AWS RDS MySQL
 - Nginx
